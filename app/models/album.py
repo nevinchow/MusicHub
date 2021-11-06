@@ -13,6 +13,15 @@ class Album():
     imageURL = db.Column(
         db.String, default='https://community.spotify.com/t5/image/serverpage/image-id/25294i2836BD1C1A31BDF2?v=v2')
     reviewId = db.Column(db.Integer, db.ForeignKey('reviews.id'))
-    
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'artistId': self.artistId,
+            'genre': self.genre,
+            'title': self.title,
+            'imageURL': self.imageURL,
+            'reviewId': self.reviewId
+        }
 
     
