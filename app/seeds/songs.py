@@ -7,7 +7,7 @@ def seed_songs():
         name="Professional",
         genre="R&B",
         duration=368,
-        albumId=2,
+        albumId=1,
         artistId=1,
         song_link="https://res.cloudinary.com/dso59ikqw/video/upload/v1636391729/yt5s.com_-_01._The_Weeknd_-_Professional_HD_128_kbps_zbkaxu.mp3"
     )
@@ -15,7 +15,7 @@ def seed_songs():
         name="The Town",
         genre="R&B",
         duration=307,
-        albumId=2,
+        albumId=1,
         artistId=1,
         song_link="https://res.cloudinary.com/dso59ikqw/video/upload/v1636391731/yt5s.com-02._The_Weeknd_-_The_Town_HD_uf0k9v.mp4"
     )
@@ -23,7 +23,7 @@ def seed_songs():
         name="Adaptation",
         genre="R&B",
         duration=283,
-        albumId=2,
+        albumId=1,
         artistId=1,
         song_link="https://res.cloudinary.com/dso59ikqw/video/upload/v1636391725/yt5s.com-03._The_Weeknd_-_Adaptation_HD_k8xbge.mp4"
     )
@@ -31,7 +31,7 @@ def seed_songs():
         name="Love in the Sky",
         genre="R&B",
         duration=267,
-        albumId=2,
+        albumId=1,
         artistId=1,
         song_link="https://res.cloudinary.com/dso59ikqw/video/upload/v1636391729/yt5s.com-04._The_Weeknd_-_Love_In_The_Sky_HD_fmi1xk.mp4"
     )
@@ -39,7 +39,7 @@ def seed_songs():
         name="Belong to the World",
         genre="R&B",
         duration=307,
-        albumId=2,
+        albumId=1,
         artistId=1,
         song_link="https://res.cloudinary.com/dso59ikqw/video/upload/v1636391727/yt5s.com-05._The_Weeknd_-_Belong_To_The_World_HD_ohysun.mp4"
     )
@@ -48,7 +48,7 @@ def seed_songs():
         name="Live For",
         genre="R&B",
         duration=224,
-        albumId=2,
+        albumId=1,
         artistId=1,
         song_link="https://res.cloudinary.com/dso59ikqw/video/upload/v1636391726/yt5s.com-06._The_Weeknd_-_Live_For_feat._Drake_HD_rpcmf8.mp4"
     )
@@ -56,7 +56,7 @@ def seed_songs():
         name="Wanderlust",
         genre="R&B",
         duration=306,
-        albumId=2,
+        albumId=1,
         artistId=1,
         song_link="https://res.cloudinary.com/dso59ikqw/video/upload/v1636391728/yt5s.com-07._The_Weeknd_-_Wanderlust_HD_alcm23.mp4"
     )
@@ -64,7 +64,7 @@ def seed_songs():
         name="Kiss Land",
         genre="R&B",
         duration=455,
-        albumId=2,
+        albumId=1,
         artistId=1,
         song_link="https://res.cloudinary.com/dso59ikqw/video/upload/v1636391734/yt5s.com-08._The_Weeknd_-_Kiss_Land_HD_720p_hxfjep.mp4"
     )
@@ -72,7 +72,7 @@ def seed_songs():
         name="Pretty",
         genre="R&B",
         duration=375,
-        albumId=2,
+        albumId=1,
         artistId=1,
         song_link="https://res.cloudinary.com/dso59ikqw/video/upload/v1636391734/yt5s.com-09._The_Weeknd_-_Pretty_HD_fprgem.mp4"
     )
@@ -80,7 +80,7 @@ def seed_songs():
         name="Tears in the Rain",
         genre="R&B",
         duration=444,
-        albumId=2,
+        albumId=1,
         artistId=1,
         song_link="https://res.cloudinary.com/dso59ikqw/video/upload/v1636391731/yt5s.com-10._The_Weeknd_-_Tears_In_The_Rain_HD_rpipgc.mp4"
     )
@@ -88,7 +88,7 @@ def seed_songs():
         name="Wanderlust Remix",
         genre="R&B",
         duration=305,
-        albumId=2,
+        albumId=1,
         artistId=1,
         song_link="https://res.cloudinary.com/dso59ikqw/video/upload/v1636391733/yt5s.com-11._The_Weeknd_-_Wanderlust_Pharrell_Remix_HD_h4eary.mp4"
     )
@@ -96,7 +96,7 @@ def seed_songs():
         name="Odd Look",
         genre="R&B",
         duration=252,
-        albumId=2,
+        albumId=1,
         artistId=1,
         song_link="https://res.cloudinary.com/dso59ikqw/video/upload/v1636391733/yt5s.com-12._The_Weeknd_-_Odd_Look_feat._Kavinsky_HD_720p_irtjsl.mp4"
     )
