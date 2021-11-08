@@ -1,4 +1,10 @@
 from .db import db
+# from sqlalchemy.orm import relationship
+# from sqlalchemy.ext.declarative import declarative_base
+
+# from sqlalchemy.schema import Column, ForeignKey
+# from sqlalchemy.types import Integer, String
+
 
 
 class Review(db.Model):
@@ -10,8 +16,8 @@ class Review(db.Model):
     rating = db.Column(db.Integer, nullable=False)
     userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
-    user = db.relationship('User', back_populates='reviews')
-    album = db.relationship('Album', back_populates='reviews')
+    user= db.relationship('User', back_populates='reviews')
+    album=db.relationship('Album', back_populates='reviews')
 
     def to_dict(self):
         return {

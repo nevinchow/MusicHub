@@ -1,6 +1,15 @@
-from .db import db
 
-class Artist():
+   
+# from sqlalchemy.orm import relationship
+from .db import db
+# from sqlalchemy.ext.declarative import declarative_base
+
+# from sqlalchemy.schema import Column, ForeignKey
+# from sqlalchemy.types import Integer, String
+
+
+
+class Artist(db.Model):
     __tablename__ = 'artists'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -10,9 +19,9 @@ class Artist():
     headerURL = db.Column(db.String)
     biopictureURL = db.Column(db.String)
 
-    songs = db.relationship('Song', back_populates='artist')
-    albums = db.relationship('Album', back_populates='artist')
-
+    songs=db.relationship('Song', back_populates='artist')
+    albums=db.relationship('Album', back_populates='artist')
+    
     def to_dict(self):
         return {
             'id': self.id,
