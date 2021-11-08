@@ -7,6 +7,7 @@ def seed_albums():
         artistId=1, 
         genre="R&B", 
         title="Kiss Land", 
+        year=2013,
         imageURL="https://upload.wikimedia.org/wikipedia/en/thumb/e/ed/The_Weeknd_-_Kiss_Land.png/220px-The_Weeknd_-_Kiss_Land.png"
     )
 

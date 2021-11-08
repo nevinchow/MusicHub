@@ -14,6 +14,8 @@ class Album(db.Model):
     title = db.Column(db.String, nullable=False)
     # Maybe add a genre table to reference genre.id here
     genre = db.Column(db.String, nullable=False)
+    #Release date
+    year = db.Column(db.Integer)
     # ImageURL default is the blank album image
     imageURL = db.Column(
         db.String, default='https://community.spotify.com/t5/image/serverpage/image-id/25294i2836BD1C1A31BDF2?v=v2')
@@ -28,6 +30,7 @@ class Album(db.Model):
             'id': self.id,
             'artistId': self.artistId,
             'genre': self.genre,
+            'year': self.year,
             'title': self.title,
             'imageURL': self.imageURL
            
