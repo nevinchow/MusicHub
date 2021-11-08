@@ -3,16 +3,14 @@ from app.models import db, Album
 
 # Adds a demo user, you can add other users here if you want
 def seed_albums():
-    demo = Album(
-        username='Demo', email='demo@aa.io', password='password')
-    marnie = Album(
-        username='marnie', email='marnie@aa.io', password='password')
-    bobbie = Album(
-        username='bobbie', email='bobbie@aa.io', password='password')
+    kiss_land = Album(
+        artistId=1, 
+        genre="R&B", 
+        title="Kiss Land", 
+        imageURL="https://upload.wikimedia.org/wikipedia/en/thumb/e/ed/The_Weeknd_-_Kiss_Land.png/220px-The_Weeknd_-_Kiss_Land.png"
+    )
 
-    db.session.add(demo)
-    db.session.add(marnie)
-    db.session.add(bobbie)
+    db.session.add(kiss_land)
 
     db.session.commit()
 

@@ -2,6 +2,7 @@
 # from sqlalchemy.orm import relationship
 
 from .db import db
+from .song_playlist import songs_playlists
 # from sqlalchemy.schema import Column, ForeignKey, Table
 # from sqlalchemy.types import Integer, String
 # from sqlalchemy.ext.declarative import declarative_base

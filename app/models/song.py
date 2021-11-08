@@ -2,6 +2,7 @@
 # from sqlalchemy.ext.declarative import declarative_base
 # from sqlalchemy.orm import relationship
 from .db import db
+from .song_playlist import songs_playlists
 # from sqlalchemy.schema import Column, ForeignKey, Table
 # from sqlalchemy.types import Integer, String
 
@@ -20,11 +21,11 @@ class Song(db.Model):
     duration = db.Column(db.Integer, nullable=False)
     albumId = db.Column(db.Integer, db.ForeignKey('albums.id'), nullable=False)
     artistId = db.Column(db.Integer, db.ForeignKey('artists.id'), nullable=False)
-
+    song_link = db.Column(db.String, nullable=False)
 
     # user= relationship('User', back_populates='songs')
     artist = db.relationship('Artist', back_populates='songs')
-    playlists=db.relationship('Playlist', secondary=songs_playlists, back_populates='song')
+    playlists=db.relationship('Playlist', secondary=songs_playlists, back_populates='songs')
 
     def to_dict(self):
         return {
@@ -33,7 +34,8 @@ class Song(db.Model):
             'genre': self.genre,
             'duration': self.duration,
             'albumId': self.albumId,
-            'artistId': self.artistId
+            'artistId': self.artistId,
+            'song_link': self.song_link
 
         }
 
