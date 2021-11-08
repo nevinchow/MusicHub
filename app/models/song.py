@@ -25,6 +25,10 @@ class Song(db.Model):
     artistId = db.Column(db.Integer, db.ForeignKey('artists.id'), nullable=False)
     
 
+    # user= relationship('User', back_populates='songs')
+    artist = db.relationship('Artist', back_populates='songs')
+    playlists=db.relationship('Playlist', secondary=songs_playlists, back_populates='song')
+
     def to_dict(self):
         return {
             'id': self.id,
@@ -36,9 +40,6 @@ class Song(db.Model):
             
         }
 
-    # user= relationship('User', back_populates='songs')
-    artist = db.relationship('Artist', back_populates='songs')
-    playlists=db.relationship('Playlist', secondary=songs_playlists, back_populates='song')
 
 
 
@@ -51,6 +52,9 @@ class Playlist(db.Model):
     imageURL = db.Column(db.String)
     description = db.Column(db.String, nullable=False)
 
+    user = db.relationship("User", back_populates="playlists")
+    songs=db.relationship('Song', secondary=songs_playlists, back_populates='playlists')
+
     def to_dict(self):
         return {
             'id': self.id,
@@ -60,7 +64,5 @@ class Playlist(db.Model):
             'description': self.description,
         }
 
-    # user = relationship("User", back_populates="playlists")
-    songs=db.relationship('Song', secondary=songs_playlists, back_populates='playlists')
 
     

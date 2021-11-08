@@ -33,7 +33,7 @@ class User(db.Model, UserMixin):
             'email': self.email
         }
 
-    # playlists = relationship('Playlist', back_populates="user")
-    # songs =relationship('Song', back_populates='user')
-    # albums= relationship('Album', back_populates='user')
-    # reviews= relationship('Review', back_populates='user')
+    playlists = db.relationship('Playlist', back_populates="user")
+    # songs =db.relationship('Song', back_populates='user')
+    # albums= db.relationship('Album', back_populates='user')
+    reviews= db.relationship('Review', back_populates='user')

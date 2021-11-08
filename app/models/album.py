@@ -19,6 +19,10 @@ class Album(db.Model):
         db.String, default='https://community.spotify.com/t5/image/serverpage/image-id/25294i2836BD1C1A31BDF2?v=v2')
     reviewId = db.Column(db.Integer, db.ForeignKey('reviews.id'))
 
+    # user= relationship('User', back_populates='albums')
+    artist=db.relationship('Artist', back_populates='albums')
+    reviews=db.relationship('Review', back_populates='album')
+    
     def to_dict(self):
         return {
             'id': self.id,
@@ -28,7 +32,3 @@ class Album(db.Model):
             'imageURL': self.imageURL,
             'reviewId': self.reviewId
         }
-
-    # user= relationship('User', back_populates='albums')
-    artist=db.relationship('Artist', back_populates='albums')
-    reviews=db.relationship('Review', back_populates='album')

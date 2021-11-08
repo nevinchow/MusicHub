@@ -19,6 +19,9 @@ class Artist(db.Model):
     headerURL = db.Column(db.String)
     biopictureURL = db.Column(db.String)
 
+    songs=db.relationship('Song', back_populates='artist')
+    albums=db.relationship('Album', back_populates='artist')
+    
     def to_dict(self):
         return {
             'id': self.id,
@@ -28,6 +31,3 @@ class Artist(db.Model):
             'headerURL': self.headerURL,
             'biopictureURL': self.biopictureURL
         }
-
-    songs=db.relationship('Song', back_populates='artist')
-    albums=db.relationship('Album', back_populates='artist')
