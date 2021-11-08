@@ -1,18 +1,16 @@
 from .db import db
-from sqlalchemy.orm import relationship
-from sqlalchemy.ext.declarative import declarative_base
+# from sqlalchemy.orm import relationship
+# from sqlalchemy.schema import Column, ForeignKey
+# from sqlalchemy.types import Integer, String
+# from . import Artist
 
-from sqlalchemy.schema import Column, ForeignKey
-from sqlalchemy.types import Integer, String
-
-Base = declarative_base()
 
 class Album(db.Model):
     __tablename__ = 'albums'
 
     id = db.Column(db.Integer, primary_key=True)
     # songId = db.Column(db.Integer, db.ForeignKey('songs.id'), nullable=False)
-    artistId = db.Column(db.Integer, db.ForeignKey('artists.id'), nullable=False)
+    artistId = db.Column(db.Integer, db.ForeignKey("artists.id"), nullable=False)
     title = db.Column(db.String, nullable=False)
     # Maybe add a genre table to reference genre.id here
     genre = db.Column(db.String, nullable=False)
@@ -32,5 +30,5 @@ class Album(db.Model):
         }
 
     # user= relationship('User', back_populates='albums')
-    artist=relationship('Artist', back_populates='albums')
-    reviews=relationship('Review', back_populates='album')
+    artist=db.relationship('Artist', back_populates='albums')
+    reviews=db.relationship('Review', back_populates='album')

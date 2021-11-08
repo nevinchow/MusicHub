@@ -1,7 +1,7 @@
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-from sqlalchemy.orm import relationship
+# from sqlalchemy.orm import relationship
 # from app.models.playlist import Playlist
 # from app.models.song import Song
 # from app.models.album import Album

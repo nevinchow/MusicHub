@@ -1,13 +1,13 @@
 
    
-from sqlalchemy.orm import relationship
+# from sqlalchemy.orm import relationship
 from .db import db
-from sqlalchemy.ext.declarative import declarative_base
+# from sqlalchemy.ext.declarative import declarative_base
 
-from sqlalchemy.schema import Column, ForeignKey
-from sqlalchemy.types import Integer, String
+# from sqlalchemy.schema import Column, ForeignKey
+# from sqlalchemy.types import Integer, String
 
-Base = declarative_base()
+
 
 class Artist(db.Model):
     __tablename__ = 'artists'
@@ -29,5 +29,5 @@ class Artist(db.Model):
             'biopictureURL': self.biopictureURL
         }
 
-    songs= relationship('Song', back_populates='artist')
-    albums= relationship('Album', back_populates='artist')
+    songs=db.relationship('Song', back_populates='artist')
+    albums=db.relationship('Album', back_populates='artist')

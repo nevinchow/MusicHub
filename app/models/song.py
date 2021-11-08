@@ -1,21 +1,21 @@
 
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship
+# from sqlalchemy.ext.declarative import declarative_base
+# from sqlalchemy.orm import relationship
 from .db import db
-from sqlalchemy.schema import Column, ForeignKey, Table
-from sqlalchemy.types import Integer, String
+# from sqlalchemy.schema import Column, ForeignKey, Table
+# from sqlalchemy.types import Integer, String
 
-Base = declarative_base()
 
-songs_playlists = Table(
+
+
+songs_playlists = db.Table(
 "songs_playlists",
-Base.metadata,
-Column("songId", ForeignKey("songs.id"), primary_key=True),
-Column("playlistId", ForeignKey("playlists.id"), primary_key=True))
+db.Column("songId", db.Integer, db.ForeignKey("songs.id")),
+db.Column("playlistId", db.Integer, db.ForeignKey("playlists.id")))
 
 class Song(db.Model):
     __tablename__ = 'songs'
-
+    # __table_args__ = {'extend_existing': True}
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     # Maybe add a genre table to reference genre.id here
@@ -37,7 +37,30 @@ class Song(db.Model):
         }
 
     # user= relationship('User', back_populates='songs')
-    artist = relationship('Artist', back_populates='songs')
-    playlists=relationship('Playlist', secondary=songs_playlists, back_populates='song')
+    artist = db.relationship('Artist', back_populates='songs')
+    playlists=db.relationship('Playlist', secondary=songs_playlists, back_populates='song')
+
+
+
+class Playlist(db.Model):
+    __tablename__ = 'playlists'
+    __table_args__ = {'extend_existing': True}
+    id = db.Column(db.Integer, primary_key=True)
+    userId = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    name = db.Column(db.String, nullable=False)
+    imageURL = db.Column(db.String)
+    description = db.Column(db.String, nullable=False)
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'userId': self.userId,
+            'name': self.name,
+            'imageURL': self.imageURL,
+            'description': self.description,
+        }
+
+    # user = relationship("User", back_populates="playlists")
+    songs=db.relationship('Song', secondary=songs_playlists, back_populates='playlists')
 
     

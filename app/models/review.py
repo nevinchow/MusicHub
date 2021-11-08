@@ -1,11 +1,11 @@
 from .db import db
-from sqlalchemy.orm import relationship
-from sqlalchemy.ext.declarative import declarative_base
+# from sqlalchemy.orm import relationship
+# from sqlalchemy.ext.declarative import declarative_base
 
-from sqlalchemy.schema import Column, ForeignKey
-from sqlalchemy.types import Integer, String
+# from sqlalchemy.schema import Column, ForeignKey
+# from sqlalchemy.types import Integer, String
 
-Base = declarative_base()
+
 
 class Review(db.Model):
     __tablename__ = 'reviews'
@@ -26,4 +26,4 @@ class Review(db.Model):
         }
 
     # user= relationship('User', back_populates='reviews')
-    album=relationship('Album', back_populates='reviews')
+    album=db.relationship('Album', back_populates='reviews')
