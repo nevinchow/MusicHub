@@ -1,7 +1,11 @@
 from .db import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
-
+from sqlalchemy.orm import relationship
+# from app.models.playlist import Playlist
+# from app.models.song import Song
+# from app.models.album import Album
+# from app.models.review import Review
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'
@@ -28,3 +32,8 @@ class User(db.Model, UserMixin):
             'username': self.username,
             'email': self.email
         }
+
+    # playlists = relationship('Playlist', back_populates="user")
+    # songs =relationship('Song', back_populates='user')
+    # albums= relationship('Album', back_populates='user')
+    # reviews= relationship('Review', back_populates='user')
