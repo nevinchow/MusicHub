@@ -1,0 +1,64 @@
+/* -- Add playlist ---------------- */
+.add-form-container {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-header {
+    color: white;
+    font-size: 18px;
+    padding-bottom: 2px;
+    margin-bottom:0;
+}
+
+.add-form-con {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    
+
+}
+
+.form-label {
+    color: white;
+    margin: 4px 0;
+
+}
+
+.form-button {
+    color: rgb(219, 219, 219);
+    background: none;
+    border: none;
+    padding: 6px;
+
+}
+
+.form-button:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.form-input {
+    width: 100%;
+}
+
+/* -- Display playlist ------------- */
+
+.playlist-container {
+
+}
+
+.playlist-name {
+    color:white;
+}
+
+.playlist-description {
+    color:white;
+
+
+}
+

@@ -15,9 +15,7 @@ const EditPlaylists = () => {
     const eachPlaylist = []
     Object.values(playlists).map((playlist) => (eachPlaylist.push(playlist)))
     const playlist = eachPlaylist.find(onePlaylist => +id === onePlaylist.id)
-    console.log("PLAYLISTS", playlists)
-    console.log("PLAYLIST", playlist)
-    console.log("PLAYLIST EACH", eachPlaylist)
+
 
     const [name, setName] = useState(playlist.name);
     const [imageURL, setImageURL] = useState(playlist.imageURL);

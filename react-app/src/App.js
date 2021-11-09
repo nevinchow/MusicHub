@@ -19,6 +19,7 @@ import Playlists from './components/playlists/playlists';
 import AddPlaylists from './components/playlists/addPlaylist';
 import EditPlaylists from './components/playlists/editPlaylist';
 import Sidebar from './components/Sidebar/Sidebar';
+import PlaylistPage from './components/playlists/individualPlaylist';
 
 
 function App() {
@@ -72,6 +73,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/playlists/:id/edit' exact={true} >
           <EditPlaylists/>
+        </ProtectedRoute>
+        <ProtectedRoute path='/playlists/:id' exact={true} >
+          <PlaylistPage/>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
