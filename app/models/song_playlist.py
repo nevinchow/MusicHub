@@ -1,12 +1,11 @@
 from .db import db
-from sqlalchemy.ext.declarative import declarative_base
 
-base = declarative_base()
 
 SongPlaylist = db.Table(
-"songs_playlists", base.metadata,
-    db.Column("songId", db.Integer, db.ForeignKey("songs.id")),
-    db.Column("playlistId", db.Integer, db.ForeignKey("playlists.id")))
+"songs_playlists",
+    db.Column("songId", db.Integer, db.ForeignKey(
+        "songs.id"), primary_key=True),
+    db.Column("playlistId", db.Integer, db.ForeignKey("playlists.id"), primary_key=True))
 
 # class SongPlaylist(db.Model):
 #     __tablename__ = 'song_playlist'

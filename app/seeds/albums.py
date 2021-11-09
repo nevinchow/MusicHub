@@ -15,7 +15,7 @@ def seed_albums():
         genre="electronic",
         title="Surrender",
         year=2021,
-        imageUrl="https://static.qobuz.com/images/covers/3a/6a/my8sklz176a3a_600.jpg"
+        imageURL="https://static.qobuz.com/images/covers/3a/6a/my8sklz176a3a_600.jpg"
     )
     
     db.session.add(surrender)

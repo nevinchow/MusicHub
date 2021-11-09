@@ -18,8 +18,7 @@ class Playlist(db.Model):
     description = db.Column(db.String, nullable=False)
 
     user = db.relationship("User", back_populates="playlists")
-    # songs=db.relationship('Song', secondary='SongPlaylist', back_populates='playlists')
-    playlistSongs=db.relationship('Song', secondary=SongPlaylist, back_populates='playlists')
+    songs = db.relationship('Song', secondary=SongPlaylist, back_populates='playlists')
 
     def to_dict(self):
         return {

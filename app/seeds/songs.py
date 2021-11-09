@@ -92,6 +92,7 @@ def seed_songs():
         artistId=1,
         song_link="https://res.cloudinary.com/dso59ikqw/video/upload/v1636391733/yt5s.com-11._The_Weeknd_-_Wanderlust_Pharrell_Remix_HD_h4eary.mp4"
     )
+
     Always = Song(
         name="Always",
         genre="Electronic",
@@ -205,7 +206,7 @@ def seed_songs():
     db.session.add(pretty)
     db.session.add(tears_in_the_rain)
     db.session.add(wanderlust_remix)
-    db.session.add(odd_look)
+    # db.session.add(odd_look)
 
 
     db.session.commit()
