@@ -12,6 +12,7 @@ import songReducer, { getSongs } from './store/songs';
 import { getPlaylists } from './store/playlists';
 import { useSelector } from 'react-redux';
 import Playlists from './components/playlists/playlists';
+import AddPlaylists from './components/playlists/addPlaylist';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -51,6 +52,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/playlists' exact={true} >
           <Playlists/>
+        </ProtectedRoute>
+        <ProtectedRoute path='/playlists/add' exact={true} >
+          <AddPlaylists/>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
