@@ -1,0 +1,33 @@
+.sidebar-container {
+    position: fixed;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 100%;
+    align-items: center;
+    left: 0;
+    top:0;
+    bottom:0;
+    padding: 10px;
+}
+
+.temp-title {
+    color: white;
+}
+
+.sidebar-link {
+    color: rgb(219, 219, 219);
+    text-decoration: none;
+}
+.sidebar-link:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.add-playlist-container {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

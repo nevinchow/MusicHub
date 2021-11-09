@@ -13,11 +13,14 @@ import { authenticate } from './store/session';
 import ArtistPage from './components/ArtistPage';
 import AlbumPage from './components/AlbumPage'
 
-import songReducer, { getSongs } from './store/songs';
+import { getSongs } from './store/songs';
 import { getPlaylists } from './store/playlists';
 import { useSelector } from 'react-redux';
 import Playlists from './components/playlists/playlists';
 import AddPlaylists from './components/playlists/addPlaylist';
+import EditPlaylists from './components/playlists/editPlaylist';
+import Sidebar from './components/Sidebar/Sidebar';
+import PlaylistPage from './components/playlists/individualPlaylist';
 
 
 function App() {
@@ -30,6 +33,7 @@ function App() {
       await dispatch(authenticate());
       setLoaded(true);
       dispatch(getSongs())
+      dispatch(getPlaylists())
     })();
   }, [dispatch]);
 
@@ -39,7 +43,9 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      {/* <NavBar /> */}
+      <Sidebar />
+
       <Switch>
         <Route path='/albums/:albumId' >
           <AlbumPage />
@@ -63,13 +69,19 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <h1>Home Page</h1>
         </ProtectedRoute>
         <ProtectedRoute path='/playlists' exact={true} >
           <Playlists/>
         </ProtectedRoute>
         <ProtectedRoute path='/playlists/add' exact={true} >
           <AddPlaylists/>
+        </ProtectedRoute>
+        <ProtectedRoute path='/playlists/:id/edit' exact={true} >
+          <EditPlaylists/>
+        </ProtectedRoute>
+        <ProtectedRoute path='/playlists/:id' exact={true} >
+          <PlaylistPage/>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

@@ -12,7 +12,9 @@ const rootReducer = combineReducers({
   session,
   artist:artistReducer,
   album: albumReducer,
-  playlists: playlistReducer
+  playlists: playlistReducer,
+  songs: songReducer
+})
   
 let enhancer;
 

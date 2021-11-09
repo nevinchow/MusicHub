@@ -1,6 +1,7 @@
 const GET_PLAYLISTS = 'playlists/GET_PLAYLISTS'
 const GET_ONE_PLAYLIST = 'playlists/GET_ONE_SONG'
 const ADD_A_PLAYLIST = 'playlists/ADD_A_PLAYLIST'
+const DELETE_PLAYLIST = 'playlists/DELETE_PLAYLIST'
 
 const getAllPlaylists = (playlists) => ({
     type: GET_PLAYLISTS,
@@ -17,9 +18,14 @@ const addPlaylist = (playlistId) => ({
     playlist: playlistId
 })
 
+const deletePlaylist = (playlistId) => ({
+    type: DELETE_PLAYLIST,
+    playlistId
+})
 
-export const getPlaylists = (userId) => async (dispatch) => {
-    const res = await fetch(`/api/playlists/user/${userId}`);
+
+export const getPlaylists = () => async (dispatch) => {
+    const res = await fetch(`/api/playlists/`);
     const playlists = await res.json();
     dispatch(getAllPlaylists(playlists))
     return playlists
@@ -41,11 +47,37 @@ export const addAPlaylist = (playlist) => async(dispatch) => {
     body: JSON.stringify(playlist),
   });
 
-  console.log(response)
+  const newPlaylist = await response.json();
+  dispatch(addPlaylist(newPlaylist));
+  return newPlaylist
+}
+
+export const editAPlaylist = (playlist, playlistId) => async(dispatch) => {
+    console.log(playlist)
+    // need to add csurf
+    const response = await fetch(`/api/playlists/${playlistId}/edit`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(playlist),
+  });
 
   const newPlaylist = await response.json();
   dispatch(addPlaylist(newPlaylist));
   return newPlaylist
+}
+
+export const removePlaylist = (playlistId) => async (dispatch) => {
+  
+  const response = await fetch(`/api/playlists/${playlistId}/delete`,{
+  method: 'DELETE',
+  statusCode: 204,
+  headers: {'Content-Type': 'application/json'}
+});
+
+  if(response.ok) {
+    const playlist = await response.json();
+    dispatch(deletePlaylist(playlist.playlistId));
+  }
 }
 
 const initialState = {};
@@ -62,6 +94,10 @@ export default function playlistReducer(state = initialState, action) {
             return { ...state };
         case ADD_A_PLAYLIST:
             return { ...state };
+        case DELETE_PLAYLIST:
+            const deleteState = {...state}
+            delete deleteState[action.playlistId]
+            return { ...deleteState };
         default:
             return state;
     }

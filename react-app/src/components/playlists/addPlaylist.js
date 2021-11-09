@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { addAPlaylist, getPlaylists } from '../../store/playlists';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
+import './playlists.css'
 
 
 
@@ -39,9 +40,11 @@ const AddPlaylists = () => {
             setValidationErrors(errors);
         } else {
             setValidationErrors([]);
-            dispatch(addAPlaylist(createdPlaylist));
-            // setShowModal(false)
-            history.push('/playlists')
+            const added = await dispatch(addAPlaylist(createdPlaylist));
+            if(added) {
+              history.push(`/playlists/${added.id}`)
+
+            }
             
         };
   };
@@ -53,41 +56,40 @@ const AddPlaylists = () => {
   return (
     <>
         
-                {validationErrors.length > 0 && (
-                <div className="">
-                    <p className="error-title"> The following errors were found: </p>
-                    <ul className="error-list">
-                        {validationErrors.map(error => <li className="error" key={error}>{error}</li>)}
-                    </ul>
-                </div>
-                )}
-        <div className="">
-            <h1 className="">Add a Playlist</h1>
+        {validationErrors.length > 0 && (
+        <div className="errors">
+            <p className="error-title"> The following errors were found: </p>
+            <ul className="error-list">
+                {validationErrors.map(error => <li className="error" key={error}>{error}</li>)}
+            </ul>
+        </div>
+        )}
+        <div className="add-form-container">
             <form onSubmit={handleSubmit}>
-              <div className="">
-                <label className="" >Name:</label>
+              <div className="add-form-con">
+                <label className="form-label" >Name:</label>
                         <input
-                        placeholder="Enter a name for your playlist"
-                        className=""
+                        placeholder="Playlist name"
+                        className="form-input"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         required/>
-                <label className="" >Image URL:</label>
+                <label className="form-label" >Image URL:</label>
                         <input
-                        placeholder="Add an image"
-                        className=""
+                        placeholder="Image URL"
+                        className="form-input"
                         value={imageURL}
                         onChange={(e) => setImageURL(e.target.value)}
                         required/>
-                <label className="" >Description:</label>
+                <label className="form-label" >Description:</label>
                         <textarea
-                        placeholder="Enter a description for your playlist"
-                        className=""
+                        placeholder="Playlist description"
+                        className="form-input"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                         required/>
                       
-                <button className="" type="submit">Submit</button>
+                <button className="form-button" type="submit">Submit</button>
               </div>
               
             </form>
