@@ -10,7 +10,6 @@ def seed_albums():
         year=2013,
         imageURL="https://upload.wikimedia.org/wikipedia/en/thumb/e/ed/The_Weeknd_-_Kiss_Land.png/220px-The_Weeknd_-_Kiss_Land.png"
     )
-def seed_albums():
     surrender = Album(
         artistId=2,
         genre="electronic",

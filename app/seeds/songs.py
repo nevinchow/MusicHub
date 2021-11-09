@@ -183,7 +183,17 @@ def seed_songs():
       )
 
 
-
+    db.session.add(Always)
+    db.session.add(Surrender)
+    db.session.add(Next_to_Me)
+    db.session.add(See_You_Again)
+    db.session.add(Alive)
+    db.session.add(Devotion)
+    db.session.add(Make_it_happen)
+    db.session.add(On_my_knees)
+    db.session.add(I_Don_t_Wanna_Leave)
+    db.session.add(Wildfire)
+    db.session.add(Alive_Reprise)
     db.session.add(professional)
     db.session.add(the_town)
     db.session.add(adaption)
