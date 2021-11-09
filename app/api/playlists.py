@@ -1,4 +1,5 @@
 from flask import Blueprint, jsonify, request
+from app.forms.add_playlist_form import PlaylistForm
 # from flask_login import login_required
 from app.models import Playlist,db
 
@@ -24,9 +25,13 @@ def playlist(id):
 @playlist_routes.route('/add', methods=['POST'])
 # @login_required
 def add_playlist():
+    
     if request.method == "POST":
-        print(request)
-        playlist = Playlist(**request.args)
-        db.session.add(playlist)
-        db.session.commit()
-        return playlist.to_dict()
+        form = PlaylistForm()
+        form['csrf_token'].data = request.cookies['csrf_token']
+        if form.validate_on_submit():
+            data = Playlist()
+            form.populate_obj(data)
+            db.session.add(data)
+            db.session.commit()
+        return data.to_dict()
