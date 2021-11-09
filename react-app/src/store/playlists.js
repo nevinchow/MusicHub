@@ -18,8 +18,8 @@ const addPlaylist = (playlistId) => ({
 })
 
 
-export const getPlaylists = (userId) => async (dispatch) => {
-    const res = await fetch(`/api/playlists/user/${userId}`);
+export const getPlaylists = () => async (dispatch) => {
+    const res = await fetch(`/api/playlists/`);
     const playlists = await res.json();
     dispatch(getAllPlaylists(playlists))
     return playlists
@@ -36,6 +36,22 @@ export const addAPlaylist = (playlist) => async(dispatch) => {
     console.log(playlist)
     // need to add csurf
     const response = await fetch(`/api/playlists/add`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(playlist),
+  });
+
+  console.log(response)
+
+  const newPlaylist = await response.json();
+  dispatch(addPlaylist(newPlaylist));
+  return newPlaylist
+}
+
+export const editAPlaylist = (playlist, playlistId) => async(dispatch) => {
+    console.log(playlist)
+    // need to add csurf
+    const response = await fetch(`/api/playlists/${playlistId}/edit`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(playlist),

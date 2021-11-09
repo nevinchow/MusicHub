@@ -12,11 +12,12 @@ import { authenticate } from './store/session';
 
 import ArtistPage from './components/ArtistPage';
 
-import songReducer, { getSongs } from './store/songs';
+import { getSongs } from './store/songs';
 import { getPlaylists } from './store/playlists';
 import { useSelector } from 'react-redux';
 import Playlists from './components/playlists/playlists';
 import AddPlaylists from './components/playlists/addPlaylist';
+import EditPlaylists from './components/playlists/editPlaylist';
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
       await dispatch(authenticate());
       setLoaded(true);
       dispatch(getSongs())
+      dispatch(getPlaylists())
     })();
   }, [dispatch]);
 
@@ -66,6 +68,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/playlists/add' exact={true} >
           <AddPlaylists/>
+        </ProtectedRoute>
+        <ProtectedRoute path='/playlists/:id/edit' exact={true} >
+          <EditPlaylists/>
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
