@@ -10,6 +10,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import ArtistPage from './components/ArtistPage';
+import AlbumPage from './components/AlbumPage'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -30,10 +31,13 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route path='/api/artist/:artistId' >
+        <Route path='/albums/:albumId' >
+          <AlbumPage />
+        </Route>
+        <Route path='/artist/:artistId' >
           <ArtistPage />
         </Route>
-        <Route path='/api/main' exact={true}>
+        <Route path='/main' exact={true}>
           <MainPage />
         </Route>
         <Route path='/login' exact={true}>

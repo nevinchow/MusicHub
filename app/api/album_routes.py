@@ -1,18 +1,20 @@
-# from flask import Blueprint, jsonify
-# from flask_login import login_required
-# from app.models import Artist, Playlist, Album, Song
+from flask import Blueprint, jsonify
+from flask_login import login_required
+from app.models import Artist,  Album, Song
 
-# album_routes=Blueprint('album', __name__)
+album_routes=Blueprint('albums', __name__)
 
-# @album_routes.route('/<int:id>')
-# # @login_required
-# def artist(id):
+@album_routes.route('/<int:id>')
+# @login_required
+def artist(id):
    
-#     albums= Album.query.get(id).all()
-#     songs= Song.query.all()
+    albums= Album.query.get(id)
+    # songs= Song.query.all()
+    artists=Artist.query.all()
 
-#     return {
+    return {
     
-#     'albums': [album.to_dict() for album in albums]
-#     }
-    # 'playlists': [playlist.to_dict() for playlist in playlists] }
+    'albums': [albums.to_dict() ],
+    'artists': [artist.to_dict() for artist in artists]
+    }
+     
