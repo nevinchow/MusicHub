@@ -13,7 +13,7 @@ const rootReducer = combineReducers({
   artist:artistReducer,
   album: albumReducer,
   playlists: playlistReducer
-  
+})
 let enhancer;
 
 if (process.env.NODE_ENV === 'production') {
