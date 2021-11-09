@@ -3,11 +3,13 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
+import MainPage from'./components/Main/index'
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
+import ArtistPage from './components/ArtistPage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -28,6 +30,12 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
+        <Route path='/api/artist/:artistId' >
+          <ArtistPage />
+        </Route>
+        <Route path='/api/main' exact={true}>
+          <MainPage />
+        </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
