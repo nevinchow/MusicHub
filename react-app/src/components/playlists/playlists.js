@@ -23,6 +23,9 @@ const Playlists = () => {
   return (
     <>
         <h1>Playlist page</h1>
+        <NavLink to='/playlists/add'>add</NavLink>
+        <NavLink to='/playlists/1/edit'>edit 1</NavLink>
+
         {eachPlaylist.map((playlist) => {
             return (
                 <div className="playlist container">

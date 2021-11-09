@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { editAPlaylist, getAPlaylist, getPlaylists } from '../../store/playlists';
 import { useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
+import { getSongs } from '../../store/songs';
 
 
 
@@ -32,9 +33,7 @@ const EditPlaylists = () => {
     const updateDescription = (e) => setDescription(e.target.value) 
     
     useEffect(() => {
-    (async() => {
         dispatch(getPlaylists())
-    })();
     }, [dispatch]);
 
     const validate = () => {
@@ -58,7 +57,7 @@ const EditPlaylists = () => {
             setValidationErrors(errors);
         } else {
             setValidationErrors([]);
-            dispatch(editAPlaylist(createdPlaylist));
+            dispatch(editAPlaylist(createdPlaylist, id));
             // setShowModal(false)
             history.push('/playlists')
             

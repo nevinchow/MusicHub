@@ -46,8 +46,13 @@ def edit_playlist(id):
     form = PlaylistForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        data = Playlist()
-        # playlist = Playlist.query.get(id)
+        # data = Playlist()
+        data = form.data
+        playlist = Playlist.query.get(id)
+        playlist.userId = data['userId']
+        playlist.name = data['name']
+        playlist.imageURL = data['imageURL']
+        playlist.description = data['description']
         # updatePlaylist = playlist(
         #     userId=data['userId'],
         #     name=data['name'],
@@ -56,13 +61,15 @@ def edit_playlist(id):
         # )
 
         # Not sure how to implement update
-        updatePlaylist = (
-            update(Playlist).
-            where(Playlist.c.id == id).
-            values(form.populate_obj(data))
-        )
-        db.session.add(updatePlaylist)
+        # updatePlaylist = (
+        #     playlist.update().values(
+        #             userId=data['userId'],
+        #                name=data['name'],
+        #                imageURL=data['imageURL'],
+        #                description=data['description'])
+        # )
+        # db.session.add(updatePlaylist)
         db.session.commit()
-        return updatePlaylist
+        return playlist.to_dict()
 
             
