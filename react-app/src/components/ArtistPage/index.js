@@ -12,29 +12,33 @@ import { useParams } from 'react-router';
 function ArtistPage() {
     // const artist=useSelector((state)=>Object.values(state.artist))
     const {artistId}= useParams();
+    console.log(artistId)
     const artist=useSelector(state=>state.artist[artistId]);
     const albums=useSelector(state=>state.album[artistId])
     const dispatch = useDispatch()
-    console.log('!!!!!!!!!!!!!!',artist)
+ 
 
     useEffect(()=>{
-        dispatch(getSingleArtist(artistId))
-        dispatch(getAlbumsByArtistId(artistId))
+        
+            dispatch(getSingleArtist(artistId))
+            dispatch(getAlbumsByArtistId(artistId))
+
+        
     },[dispatch, artistId])
 
  
 
         return (
             <>
-             <p>{`${artist.name}`}</p>
+             <p>{artist?.name}</p>
              
-             <img src={albums.imageURL}></img>
-             <p>{`${albums.year}`} 
-                {`${albums.title}`}
+             <img src={albums?.imageURL}></img>
+             <p>{albums?.year} 
+                {albums?.title}
                 
                 Album
              </p >
-             <p>{`${artist.bio}`}</p>
+             <p>{artist?.bio}</p>
             </>
     
         )

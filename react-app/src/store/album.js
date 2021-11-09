@@ -22,6 +22,14 @@ export const getAlbumsByArtistId=(id)=>async(dispatch)=>{
 
 }
 
+
+export const getSingleAlbum=(id)=>async(dispatch)=>{
+    const response= await fetch(`/api/albums/${id}`)
+    const album=await response.json()
+    dispatch(loadAlbums(album.albums))
+    // dispatch(loadAlbums(album.artists))
+}
+
 const initialState={}
 const albumReducer = (state = initialState, action) => {
    

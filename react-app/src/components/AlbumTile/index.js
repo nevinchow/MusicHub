@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom"
 
 
 function AlbumTile({album}) {
@@ -5,7 +6,7 @@ function AlbumTile({album}) {
     return (
         <>
         <p>{`${album.title}`}</p>
-        <img src={`${album.imageURL}`}></img>
+        <NavLink to={`/albums/${album.id}`}><img src={`${album.imageURL}`}></img></NavLink>
         <p>{`${album.year}`}</p>
 
         </>

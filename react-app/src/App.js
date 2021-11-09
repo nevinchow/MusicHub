@@ -11,6 +11,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 
 import ArtistPage from './components/ArtistPage';
+import AlbumPage from './components/AlbumPage'
 
 import songReducer, { getSongs } from './store/songs';
 import { getPlaylists } from './store/playlists';
@@ -40,10 +41,13 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
-        <Route path='/api/artist/:artistId' >
+        <Route path='/albums/:albumId' >
+          <AlbumPage />
+        </Route>
+        <Route path='/artist/:artistId' >
           <ArtistPage />
         </Route>
-        <Route path='/api/main' exact={true}>
+        <Route path='/main' exact={true}>
           <MainPage />
         </Route>
         <Route path='/login' exact={true}>
