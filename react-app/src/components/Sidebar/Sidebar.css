@@ -1,0 +1,21 @@
+.sidebar-container {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 100%;
+    align-items: center;
+}
+
+.temp-title {
+    color: white;
+}
+
+.sidebar-link {
+    color: rgb(219, 219, 219);
+    text-decoration: none;
+}
+.sidebar-link:hover {
+    color: white;
+    cursor: pointer;
+}

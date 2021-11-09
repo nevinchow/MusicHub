@@ -18,6 +18,7 @@ import { useSelector } from 'react-redux';
 import Playlists from './components/playlists/playlists';
 import AddPlaylists from './components/playlists/addPlaylist';
 import EditPlaylists from './components/playlists/editPlaylist';
+import Sidebar from './components/Sidebar/Sidebar';
 
 
 function App() {
@@ -61,7 +62,7 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <h1>My Home Page</h1>
+          <Sidebar />
         </ProtectedRoute>
         <ProtectedRoute path='/playlists' exact={true} >
           <Playlists/>
