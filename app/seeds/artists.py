@@ -31,6 +31,11 @@ def seed_artists():
         headerURL="https://townsquare.media/site/807/files/2015/03/gorgon-city.jpg?w=1200&h=0&zc=1&s=0&a=t&q=89",
         biopictureURL="https://d34ojwe46rt1wp.cloudfront.net/wp-content/uploads/2020/04/gorgon-city-.jpg"
     )
+    
+    
+
+
+
     db.session.add(the_weeknd)
     db.session.add(rufus)
     db.session.add(grimes)   

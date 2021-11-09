@@ -413,6 +413,9 @@ def seed_songs():
         artistId=4,
         song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397038/Albums/Olympia/18_Freedom_pofe0c.m4a"
     )
+    Woman = Song(
+        name=" families",
+    )
     
     db.session.add(professional)
     db.session.add(the_town)
