@@ -9,16 +9,24 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import songReducer, { getSongs } from './store/songs';
+import { getPlaylists } from './store/playlists';
+import { useSelector } from 'react-redux';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
+  const sessionUser = useSelector(state => state.session.user);
+  const userId = sessionUser.id
+  console.log(userId)
+  
+
 
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
       setLoaded(true);
       dispatch(getSongs())
+      dispatch(getPlaylists(userId))
     })();
   }, [dispatch]);
 
