@@ -518,17 +518,17 @@ def seed_songs():
 
 
 
-    db.session.add(professional)
-    db.session.add(the_town)
-    db.session.add(adaption)
-    db.session.add(love_in_the_sky)
-    db.session.add(belong_to_the_world)
-    db.session.add(live_for)
-    db.session.add(wanderlust)
-    db.session.add(kiss_land)
-    db.session.add(pretty)
-    db.session.add(tears_in_the_rain)
-    db.session.add(wanderlust_remix)
+    db.session.add(Professional)
+    db.session.add(The_town)
+    db.session.add(Adaption)
+    db.session.add(Love_in_the_sky)
+    db.session.add(Belong_to_the_world)
+    db.session.add(Live_for)
+    db.session.add(Wanderlust)
+    db.session.add(Kiss_land)
+    db.session.add(Pretty)
+    db.session.add(Tears_in_the_rain)
+    db.session.add(Wanderlust_remix)
     db.session.add(odd_look)
 
     db.session.add(Always)
