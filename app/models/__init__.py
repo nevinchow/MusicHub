@@ -5,3 +5,4 @@ from .artist import Artist
 from .review import Review
 from .song import Song
 from .playlist import Playlist
+from .song_playlist import SongPlaylist

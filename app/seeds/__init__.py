@@ -5,6 +5,8 @@ from .albums import seed_albums, undo_albums
 from .artists import seed_artists, undo_artists
 from .reviews import seed_reviews, undo_reviews
 from .songs import seed_songs, undo_songs
+from .songs_playlist import seed_songs_playlists
+from .playlists import seed_playlists
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -19,6 +21,8 @@ def seed():
     seed_albums()
     seed_songs()
     seed_reviews()
+    seed_playlists()
+    # seed_songs_playlists()
     # Add other seed functions here
 
 

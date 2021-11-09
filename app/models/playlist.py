@@ -1,8 +1,8 @@
 
-# from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship
 
 from .db import db
-from .song_playlist import songs_playlists
+from .song_playlist import SongPlaylist
 # from sqlalchemy.schema import Column, ForeignKey, Table
 # from sqlalchemy.types import Integer, String
 # from sqlalchemy.ext.declarative import declarative_base
@@ -18,7 +18,8 @@ class Playlist(db.Model):
     description = db.Column(db.String, nullable=False)
 
     user = db.relationship("User", back_populates="playlists")
-    songs=db.relationship('Song', secondary=songs_playlists, back_populates='playlists')
+    # songs=db.relationship('Song', secondary='SongPlaylist', back_populates='playlists')
+    playlistSongs=db.relationship('Song', secondary=SongPlaylist, back_populates='playlists')
 
     def to_dict(self):
         return {
