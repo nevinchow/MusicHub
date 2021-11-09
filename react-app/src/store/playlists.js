@@ -1,5 +1,6 @@
 const GET_PLAYLISTS = 'playlists/GET_PLAYLISTS'
 const GET_ONE_PLAYLIST = 'playlists/GET_ONE_SONG'
+const ADD_A_PLAYLIST = 'playlists/ADD_A_PLAYLIST'
 
 const getAllPlaylists = (playlists) => ({
     type: GET_PLAYLISTS,
@@ -8,6 +9,11 @@ const getAllPlaylists = (playlists) => ({
 
 const getOnePlaylist = (playlistId) => ({
     type: GET_ONE_PLAYLIST,
+    playlist: playlistId
+})
+
+const addPlaylist = (playlistId) => ({
+    type: ADD_A_PLAYLIST,
     playlist: playlistId
 })
 
@@ -24,6 +30,20 @@ export const getAPlaylist = (playlistId) => async (dispatch) => {
     if (!res.ok) throw res;
     const playlist = await res.json();
     dispatch(getOnePlaylist(playlist))
+}
+
+export const addAPlaylist = (playlist) => async(dispatch) => {
+    // need to add csurf
+    const response = await (`/api/playlists/add`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(playlist),
+  });
+
+
+  const newPlaylist = await response.json();
+  dispatch(addAPlaylist(newPlaylist));
+  return newPlaylist
 }
 
 const initialState = {};

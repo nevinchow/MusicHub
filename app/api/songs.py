@@ -15,5 +15,4 @@ def allSongs():
 # @login_required
 def oneSong(id):
     song = Song.query.get(id)
-    print(song)
     return song.to_dict()
