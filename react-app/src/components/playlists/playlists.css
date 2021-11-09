@@ -79,6 +79,21 @@
     align-items: flex-start;
 }
 
+.playlist-options {
+    display: flex;
+    justify-content: space-between;
+    width: 30%;
+}
+
+.delete-button {
+    color: red;
+}
+
+.delete-button:hover {
+    color: black;
+    cursor: pointer;
+}
+
 /* -- Edit Playlist Form ---------------- */
 .edit-button {
     cursor: pointer;

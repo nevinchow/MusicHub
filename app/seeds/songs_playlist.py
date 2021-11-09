@@ -1,24 +1,27 @@
 from app.models import db
 from app.models import SongPlaylist
-
+from sqlalchemy import insert
 # Adds a demo user, you can add other users here if you want
-def seed_songs_playlists():
-    one = SongPlaylist(
-        songId=1,
-        playlistId=1
-    )
-    two = SongPlaylist(
-        songId=2,
-        playlistId=1
-    )
-    three = SongPlaylist(
-        songId=3,
-        playlistId=1
-    )
 
-    db.session.add(one)
-    db.session.add(two)
-    db.session.add(three)
+
+def seed_saved_songs():
+    saved_song1 = SongPlaylist.insert().values(song_id=1, playlist_id=1)
+    saved_song2 = SongPlaylist.insert().values(song_id=7, playlist_id=1)
+    saved_song3 = SongPlaylist.insert().values(song_id=23, playlist_id=1)
+    saved_song4 = SongPlaylist.insert().values(song_id=13, playlist_id=1)
+    saved_song5 = SongPlaylist.insert().values(song_id=43, playlist_id=1)
+
+
+
+
+
+    db.session.add(saved_song1)
+    db.session.add(saved_song2)
+    db.session.add(saved_song3)
+    db.session.add(saved_song4)
+    db.session.add(saved_song5)
+
+
 
     db.session.commit()
 

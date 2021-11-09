@@ -6,7 +6,7 @@ from .artists import seed_artists, undo_artists
 from .reviews import seed_reviews, undo_reviews
 from .songs import seed_songs, undo_songs
 from .playlists import seed_playlists
-from .songs_playlist import seed_songs_playlists
+from .songs_playlist import seed_saved_songs
 
 
 # Creates a seed group to hold our commands
@@ -23,7 +23,7 @@ def seed():
     # seed_songs()
     # seed_reviews()
     # seed_playlists()
-    seed_songs_playlists()
+    seed_saved_songs()
     # Add other seed functions here
 
 
