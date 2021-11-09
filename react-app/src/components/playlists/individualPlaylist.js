@@ -17,15 +17,23 @@ const PlaylistPage = () => {
   Object.values(playlists).map((playlist) => (eachPlaylist.push(playlist)))
   const playlist = eachPlaylist.find(onePlaylist => +id === onePlaylist.id)
   const [editForm, openEditForm] = useState(false)
+  const [loaded, setLoaded] = useState(false);
+
 
   const dispatch = useDispatch()
 
-    useEffect(() => {
-      dispatch(getPlaylists())
+ useEffect(() => {
+    (async() => {
+      await dispatch(getPlaylists())
+      setLoaded(true);
+    })();
   }, [dispatch]);
 
+    if (!loaded) {
+    return null;
+  }
+
   const editFormOpen = () => {
-      console.log(editForm)
       if(!editForm) {
         openEditForm(true)
       } else {
@@ -36,7 +44,7 @@ const PlaylistPage = () => {
   const deletePlaylist = async () => {
     const deleted = await dispatch(removePlaylist(id));
             if(!deleted) {
-              history.push(`/api/main`)
+              history.push(`/main`)
 
             }
   }
@@ -45,6 +53,7 @@ const PlaylistPage = () => {
   return (
     <>
     <div className="playlist-page-container">
+      {console.log(playlist)}
         <img src={playlist.imageURL} alt={playlist.name}/>
         <div className="playlist-options">
           <h2 className="edit-button" onClick={editFormOpen}>Edit</h2>

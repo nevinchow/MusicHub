@@ -71,18 +71,18 @@ function App() {
         <ProtectedRoute path='/' exact={true} >
           <h1>Home Page</h1>
         </ProtectedRoute>
-        <ProtectedRoute path='/playlists' exact={true} >
+        <Route path='/playlists' exact={true} >
           <Playlists/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/playlists/add' exact={true} >
+        </Route>
+        <Route path='/playlists/add' exact={true} >
           <AddPlaylists/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/playlists/:id/edit' exact={true} >
+        </Route>
+        <Route path='/playlists/:id/edit' exact={true} >
           <EditPlaylists/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/playlists/:id' exact={true} >
+        </Route>
+        <Route path='/playlists/:id' loaded={loaded}>
           <PlaylistPage/>
-        </ProtectedRoute>
+        </Route>
       </Switch>
     </BrowserRouter>
   );
