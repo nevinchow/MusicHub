@@ -1,6 +1,7 @@
 const GET_PLAYLISTS = 'playlists/GET_PLAYLISTS'
 const GET_ONE_PLAYLIST = 'playlists/GET_ONE_SONG'
 const ADD_A_PLAYLIST = 'playlists/ADD_A_PLAYLIST'
+const DELETE_PLAYLIST = 'playlists/DELETE_PLAYLIST'
 
 const getAllPlaylists = (playlists) => ({
     type: GET_PLAYLISTS,
@@ -15,6 +16,11 @@ const getOnePlaylist = (playlistId) => ({
 const addPlaylist = (playlistId) => ({
     type: ADD_A_PLAYLIST,
     playlist: playlistId
+})
+
+const deletePlaylist = (playlistId) => ({
+    type: DELETE_PLAYLIST,
+    playlistId
 })
 
 
@@ -41,8 +47,6 @@ export const addAPlaylist = (playlist) => async(dispatch) => {
     body: JSON.stringify(playlist),
   });
 
-  console.log(response)
-
   const newPlaylist = await response.json();
   dispatch(addPlaylist(newPlaylist));
   return newPlaylist
@@ -57,11 +61,23 @@ export const editAPlaylist = (playlist, playlistId) => async(dispatch) => {
     body: JSON.stringify(playlist),
   });
 
-  console.log(response)
-
   const newPlaylist = await response.json();
   dispatch(addPlaylist(newPlaylist));
   return newPlaylist
+}
+
+export const removePlaylist = (playlistId) => async (dispatch) => {
+  
+  const response = await fetch(`/api/playlists/${playlistId}/delete`,{
+  method: 'DELETE',
+  statusCode: 204,
+  headers: {'Content-Type': 'application/json'}
+});
+
+  if(response.ok) {
+    const playlist = await response.json();
+    dispatch(deletePlaylist(playlist.playlistId));
+  }
 }
 
 const initialState = {};
@@ -78,6 +94,10 @@ export default function playlistReducer(state = initialState, action) {
             return { ...state };
         case ADD_A_PLAYLIST:
             return { ...state };
+        case DELETE_PLAYLIST:
+            const deleteState = {...state}
+            delete deleteState[action.playlistId]
+            return { ...deleteState };
         default:
             return state;
     }
