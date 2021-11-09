@@ -42,7 +42,9 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
+      {/* <NavBar /> */}
+      <Sidebar />
+
       <Switch>
         <Route path='/api/artist/:artistId' >
           <ArtistPage />
@@ -63,7 +65,7 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
-          <Sidebar />
+          <h1>Home Page</h1>
         </ProtectedRoute>
         <ProtectedRoute path='/playlists' exact={true} >
           <Playlists/>

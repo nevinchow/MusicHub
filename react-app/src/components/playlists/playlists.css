@@ -47,13 +47,20 @@
 }
 
 /* -- Display playlist ------------- */
+.playlist-list {
+}
 
 .playlist-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
 }
 
 .playlist-name {
-    color:white;
+    text-decoration: none;
+    text-decoration-line: none;
+    font-size: 15px;
 }
 
 .playlist-description {
@@ -61,4 +68,42 @@
 
 
 }
+
+/* -- Playlist Page --------------------- */
+.playlist-page-container {
+    position: fixed;
+    left: 35%;
+    overflow:scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* -- Edit Playlist Form ---------------- */
+.edit-button {
+    cursor: pointer;
+}
+
+.edit-button:hover {
+    color:cornflowerblue;
+}
+.edit-form-label {
+    margin: 4px 0;
+
+}
+
+.edit-form-button {
+    background: none;
+    border: none;
+    padding: 6px;
+
+}
+
+.edit-form-button:hover {
+    cursor: pointer;
+}
+
+.edit-form-input {
+    width: 100%;
+} 
 

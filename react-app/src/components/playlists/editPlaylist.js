@@ -55,9 +55,11 @@ const EditPlaylists = () => {
             setValidationErrors(errors);
         } else {
             setValidationErrors([]);
-            dispatch(editAPlaylist(createdPlaylist, id));
-            // setShowModal(false)
-            history.push('/playlists')
+            const edited = await dispatch(editAPlaylist(createdPlaylist, id));
+            if(edited) {
+              history.push(`/playlists/${edited.id}`)
+
+            }
             
         };
   };
@@ -70,40 +72,39 @@ const EditPlaylists = () => {
     <>
         
                 {validationErrors.length > 0 && (
-                <div className="">
+                <div className="errors">
                     <p className="error-title"> The following errors were found: </p>
                     <ul className="error-list">
                         {validationErrors.map(error => <li className="error" key={error}>{error}</li>)}
                     </ul>
                 </div>
                 )}
-        <div className="">
-            <h1 className="">Add a Playlist</h1>
+        <div className="add-form-container">
             <form onSubmit={handleSubmit}>
-              <div className="">
-                <label className="" >Name:</label>
+              <div className="add-form-con">
+                <label className="edit-form-label" >Name:</label>
                         <input
                         placeholder="Enter a name for your playlist"
-                        className=""
+                        className="edit-form-input"
                         value={name}
                         onChange={updateName}
                         required/>
-                <label className="" >Image URL:</label>
+                <label className="edit-form-label" >Image URL:</label>
                         <input
                         placeholder="Add an image"
-                        className=""
+                        className="edit-form-input"
                         value={imageURL}
                         onChange={updateImageURL}
                         required/>
-                <label className="" >Description:</label>
+                <label className="edit-form-label" >Description:</label>
                         <textarea
                         placeholder="Enter a description for your playlist"
-                        className=""
+                        className="edit-form-input"
                         value={description}
                         onChange={updateDescription}
                         required/>
                       
-                <button className="" type="submit">Submit</button>
+                <button className="edit-form-button" type="submit">Submit</button>
               </div>
               
             </form>

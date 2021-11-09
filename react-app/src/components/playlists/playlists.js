@@ -28,16 +28,16 @@ const Playlists = () => {
 
   return (
     <>
-        <h1>Playlist page</h1>
+        {/* <h1>Playlist page</h1> */}
         {/* <NavLink to='/playlists/add'>add</NavLink>
         <NavLink to='/playlists/1/edit'>edit 1</NavLink> */}
 
         {eachPlaylist.map((playlist) => {
             return (
                 <div key={playlist.id} className="playlist container">
-                    <Link to={`/playlists/${playlist.id}`}><h2 className="playlist-name">{playlist.name}</h2></Link>
+                    <Link to={`/playlists/${playlist.id}`}><h2 className="sidebar-link playlist-name">{playlist.name}</h2></Link>
                     {/* <img className="image" src={playlist.imageURL} alt={playlist.name}></img> */}
-                    <p className="playlist-description">{playlist.description}</p>
+                    {/* <p className="playlist-description">{playlist.description}</p> */}
                 </div>
                 
 

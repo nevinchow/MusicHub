@@ -20,15 +20,17 @@ function Sidebar({artist}) {
     return (
         <>
         <div className="sidebar-container">
-            <Link className="sidebar-link" to='/' exact={true}>
-            Home </Link>
+            <Link className="sidebar-link" to='/api/main' exact={true}>
+            <h2 className="sidebar-link">Home</h2> </Link>
             <h2 className="sidebar-link" onClick={openAddPlaylist}>Create Playlist</h2>
             {addForm ? 
             <div className="add-playlist-container">
                 <AddPlaylists />
             </div> :
             <></>}
-            <Playlists />
+            <div className="playlist-list">
+                <Playlists />
+            </div>
             
         </div>
         </>

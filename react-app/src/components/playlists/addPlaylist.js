@@ -40,9 +40,11 @@ const AddPlaylists = () => {
             setValidationErrors(errors);
         } else {
             setValidationErrors([]);
-            dispatch(addAPlaylist(createdPlaylist));
-            // setShowModal(false)
-            history.push('/playlists')
+            const added = await dispatch(addAPlaylist(createdPlaylist));
+            if(added) {
+              history.push(`/playlists/${added.id}`)
+
+            }
             
         };
   };
