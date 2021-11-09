@@ -414,7 +414,13 @@ def seed_songs():
         song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397038/Albums/Olympia/18_Freedom_pofe0c.m4a"
     )
     Woman = Song(
-        name=" families",
+        name="Woman",
+        genre="R&B",
+        duration="",
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397273/Albums/Planet%20Her/01_Woman_kfjdgu.m4a"
+
     )
     
     db.session.add(professional)
