@@ -511,13 +511,7 @@ def seed_songs():
     )
 
     
-    db.session.add(I_Don_t_Do_Drugs)
-    db.session.add(Love_To_Dream)
-    db.session.add(You_Right)
-    db.session.add(Been_Like_This)
-    db.session.add(Options)
-    db.session.add(Imagine)
-    db.session.add(Alone)
+
 
     db.session.add(professional)
     db.session.add(the_town)
@@ -575,6 +569,13 @@ def seed_songs():
     db.session.add(payday)
     db.session.add(Get_into_it)
     db.session.add(Need_To_Know)
+    db.session.add(I_Don_t_Do_Drugs)
+    db.session.add(Love_To_Dream)
+    db.session.add(You_Right)
+    db.session.add(Been_Like_This)
+    db.session.add(Options)
+    db.session.add(Imagine)
+    db.session.add(Alone)
 
     db.session.commit()
 
