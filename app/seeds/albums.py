@@ -10,7 +10,15 @@ def seed_albums():
         year=2013,
         imageURL="https://upload.wikimedia.org/wikipedia/en/thumb/e/ed/The_Weeknd_-_Kiss_Land.png/220px-The_Weeknd_-_Kiss_Land.png"
     )
-
+    surrender = Album(
+        artistId=2,
+        genre="electronic",
+        title="Surrender",
+        year=2021,
+        imageURL="https://static.qobuz.com/images/covers/3a/6a/my8sklz176a3a_600.jpg"
+    )
+    
+    db.session.add(surrender)
     db.session.add(kiss_land)
 
     db.session.commit()
