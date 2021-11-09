@@ -46,30 +46,24 @@ def edit_playlist(id):
     form = PlaylistForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        # data = Playlist()
         data = form.data
         playlist = Playlist.query.get(id)
         playlist.userId = data['userId']
         playlist.name = data['name']
         playlist.imageURL = data['imageURL']
         playlist.description = data['description']
-        # updatePlaylist = playlist(
-        #     userId=data['userId'],
-        #     name=data['name'],
-        #     imageURL=data['imageURL'],
-        #     description=data['description']
-        # )
-
-        # Not sure how to implement update
-        # updatePlaylist = (
-        #     playlist.update().values(
-        #             userId=data['userId'],
-        #                name=data['name'],
-        #                imageURL=data['imageURL'],
-        #                description=data['description'])
-        # )
-        # db.session.add(updatePlaylist)
         db.session.commit()
         return playlist.to_dict()
+
+
+@playlist_routes.route('/<int:id>/delete', methods=['DELETE'])
+def delete_playlist(id):
+    playlist = Playlist.query.get(id)
+    db.session.delete(playlist)
+    db.session.commit()
+
+    return playlist.to_dict()
+
+
 
             
