@@ -45,6 +45,8 @@ def seed_albums():
         year=2021,
         imageURL="https://okayplayer-wpengine.netdna-ssl.com/wp-content/uploads/2021/06/doja-cat-is-a-genre-blending-shapeshifter-on-planet-her-and-we-love-it.jpg"
     )
+    
+
 
 
 
@@ -55,7 +57,7 @@ def seed_albums():
     db.session.add(olympia)
     db.session.add(certified_lover_boy)
     db.session.add(planet_her)
-    
+
     db.session.commit()
 
 
