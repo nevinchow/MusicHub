@@ -24,10 +24,17 @@ def seed_artists():
         headerURL="https://media.pitchfork.com/photos/5e4f16c994f6ea0009d3f2c6/2:1/w_790/grimes.jpg",
         biopictureURL="https://static.billboard.com/files/2020/03/grimes-cr-apple-music-2020-billboard-1548-1583963618-compressed.jpg"
         )
-
-    db.session.add(grimes)   
-    db.session.add(rufus)
+    gorgon_city = Artist(
+        name="Gorgon City",
+        bio="Gorgon City is an American rock band from Los Angeles, California. The band was formed in 2009 by vocalist and guitarist Chris Gorgon, drummer and bassist Tyler Gorgon, and guitarist and vocalist Matt Gorgon. The band's first album, Gorgon City, was released in 2010.",
+        profileURL="https://",
+        headerURL="https://townsquare.media/site/807/files/2015/03/gorgon-city.jpg?w=1200&h=0&zc=1&s=0&a=t&q=89",
+        biopictureURL="https://d34ojwe46rt1wp.cloudfront.net/wp-content/uploads/2020/04/gorgon-city-.jpg"
+    )
     db.session.add(the_weeknd)
+    db.session.add(rufus)
+    db.session.add(grimes)   
+    db.session.add(gorgon_city)
 
 
     db.session.commit()

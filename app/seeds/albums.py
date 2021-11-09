@@ -24,10 +24,19 @@ def seed_albums():
         year=2020,
         imageURL="https://www3.hiphopde.com/wp-content/uploads/2019/11/ALBUM-Grimes-%e2%80%93-Miss-Anthropocene.png"
     )
+    olympia = Album(
+        artistId=4,
+        genre="electronic",
+        title="Olympia",
+        year=2021,
+        imageURL="https://t2.genius.com/unsafe/1200x0/https%3A%2F%2Fimages.genius.com%2F62279c063e32bbcbf33ddd242418d2fa.1000x1000x1.png"
+    )
 
-    db.session.add(miss_anthrocpocene)
-    db.session.add(surrender)
+
     db.session.add(kiss_land)
+    db.session.add(surrender)
+    db.session.add(miss_anthrocpocene)
+    db.session.add(olympia)
 
     db.session.commit()
 
