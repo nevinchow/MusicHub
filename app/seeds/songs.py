@@ -92,15 +92,109 @@ def seed_songs():
         artistId=1,
         song_link="https://res.cloudinary.com/dso59ikqw/video/upload/v1636391733/yt5s.com-11._The_Weeknd_-_Wanderlust_Pharrell_Remix_HD_h4eary.mp4"
     )
-    odd_look = Song(
-        name="Odd Look",
-        genre="R&B",
-        duration=252,
-        albumId=1,
-        artistId=1,
-        song_link="https://res.cloudinary.com/dso59ikqw/video/upload/v1636391733/yt5s.com-12._The_Weeknd_-_Odd_Look_feat._Kavinsky_HD_720p_irtjsl.mp4"
-    )
 
+    Always = Song(
+        name="Always",
+        genre="Electronic",
+        duration=436.8,
+        albumId=2,
+        artistId=2,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636396217/Albums/Surrender/11_Always_a891xo.m4a"
+    )
+    Surrender = Song(
+        name="Surrender feat. Curtis Harding",
+        genre="Electronic",
+        duration=321.6,
+        albumId=2,
+        artistId=2,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636396216/Albums/Surrender/09_Surrender_feat._Curtis_Harding_mhfvt5.m4a"
+    )
+    Next_to_Me = Song(
+        name="Next to Me",
+        genre="Electronic",
+        duration=308.4,
+        albumId=2,
+        artistId=2,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636396216/Albums/Surrender/01_Next_to_Me_jauhv6.m4a"
+    )
+    See_You_Again = Song(
+        name="See You Again",
+        genre="Electronic",
+        duration=312,
+        albumId=2,
+        artistId=2,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636396216/Albums/Surrender/03_See_You_Again_igdfev.m4a"
+    )
+ 
+    Alive = Song(
+        name="Alive",
+        genre="Electronic",
+        duration=320.4,
+        albumId=2,
+        artistId=2,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636396215/Albums/Surrender/05_Alive_mbqvdv.m4a"
+    )
+    Devotion = Song(
+        name="Devotion",
+        genre="Electronic",
+        duration=311.4,
+        albumId=2,
+        artistId=2,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636396214/Albums/Surrender/10_Devotion_y2fw3x.m4a"
+    )
+    Make_it_happen = Song(
+        name="Make it happen",
+        genre="Electronic",
+        duration=307.2,
+        albumId=2,
+        artistId=2,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636396214/Albums/Surrender/02_Make_It_Happen_1_ktawfh.m4a"
+    )
+    On_my_knees = Song(
+        name="On my knees",
+        genre="Electronic",
+        duration=307.2,
+        albumId=2,
+        artistId=2,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636396214/Albums/Surrender/07_On_My_Knees_1_ltxrbs.m4a"
+    )
+    I_Don_t_Wanna_Leave = Song(
+        name="Make it happen",
+        genre="Electronic",
+        duration=257.4,
+        albumId=2,
+        artistId=2,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636396214/Albums/Surrender/04_I_Don_t_Wanna_Leave_jqlyzx.m4a"
+    )
+    Wildfire = Song(
+        name="Wildfire",
+        genre="Electronic",
+        duration=246,
+        albumId=2,
+        artistId=2,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636396214/Albums/Surrender/08_Wildfire_guakfh.m4a"
+    )
+    Alive_Reprise = Song(
+          name="Make it happen",
+          genre="Electronic",
+          duration=39,
+          albumId=2,
+          artistId=2,
+          song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636396213/Albums/Surrender/06_Alive_Reprise_fhhd5u.m4a"
+      )
+
+
+    db.session.add(Always)
+    db.session.add(Surrender)
+    db.session.add(Next_to_Me)
+    db.session.add(See_You_Again)
+    db.session.add(Alive)
+    db.session.add(Devotion)
+    db.session.add(Make_it_happen)
+    db.session.add(On_my_knees)
+    db.session.add(I_Don_t_Wanna_Leave)
+    db.session.add(Wildfire)
+    db.session.add(Alive_Reprise)
     db.session.add(professional)
     db.session.add(the_town)
     db.session.add(adaption)
@@ -112,7 +206,7 @@ def seed_songs():
     db.session.add(pretty)
     db.session.add(tears_in_the_rain)
     db.session.add(wanderlust_remix)
-    db.session.add(odd_look)
+    # db.session.add(odd_look)
 
 
     db.session.commit()
