@@ -31,7 +31,20 @@ def seed_artists():
         headerURL="https://townsquare.media/site/807/files/2015/03/gorgon-city.jpg?w=1200&h=0&zc=1&s=0&a=t&q=89",
         biopictureURL="https://d34ojwe46rt1wp.cloudfront.net/wp-content/uploads/2020/04/gorgon-city-.jpg"
     )
-    
+    drake = Artist(
+        name="Drake",
+        bio="Aubrey Drake Graham (born Aubrey Graham; April 12, 1986) is an American rapper, singer, songwriter, record producer, actor, and entrepreneur. Drake is known for his powerful and influential songs, including the hit single 'I Gotta Feeling', which became a global hit in 2013. Drake's music has been described as a combination of hip hop, R&B, and pop, and Drake has been described as a 'hip-hop icon' by critics.",
+        profileURL="https://",
+        headerURL="https://media.glamour.com/photos/5a0cc731f316b51d8f0bd44a/master/pass/GettyImages-871232956.jpg",
+        biopictureURL="https://i.iheart.com/v3/re/new_assets/5f9ad676897928aa5621e913"
+    )
+    doja_cat = Artist(
+        name="Doja Cat",
+        bio="Doja Cat is an American hip hop recording artist from Los Angeles, California. He is best known for his debut album, Doja Cat, which was released in 2016. He is also known for his mixtape, Doja Cat Mixtape, which was released in 2017.",
+        profileURL="https://",
+        headerURL="https://static.billboard.com/files/2021/04/feature-doja-cat-billboard-2021-bb6-ramona-rosales-1-1500-1618944516-compressed.jpg",
+        biopictureURL="https://iglives.tv/wp-content/uploads/2020/02/dojacat_feb27.jpg"
+    )
     
 
 
@@ -40,7 +53,8 @@ def seed_artists():
     db.session.add(rufus)
     db.session.add(grimes)   
     db.session.add(gorgon_city)
-
+    db.session.add(drake)
+    db.session.add(doja_cat)
 
     db.session.commit()
 
