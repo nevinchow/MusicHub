@@ -10,7 +10,6 @@ def seed_reviews():
         userId=1
     )
 
-
     review2 = Review(
         albumId=1,
         description="He still has an ear for production and his voice remains a pliable tool, but to keep himself tethered to an aesthetic he defined and completed within a year is to do himself and the listener a disservice.",

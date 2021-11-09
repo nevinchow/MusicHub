@@ -15,9 +15,17 @@ def seed_albums():
         genre="electronic",
         title="Surrender",
         year=2021,
-        imageUrl="https://static.qobuz.com/images/covers/3a/6a/my8sklz176a3a_600.jpg"
+        imageURL="https://static.qobuz.com/images/covers/3a/6a/my8sklz176a3a_600.jpg"
     )
-    
+    miss_anthrocpocene = Album(
+        artistId=3,
+        genre="electronic",
+        title="Miss Anthrocpocene",
+        year=2020,
+        imageURL="https://www3.hiphopde.com/wp-content/uploads/2019/11/ALBUM-Grimes-%e2%80%93-Miss-Anthropocene.png"
+    )
+
+    db.session.add(miss_anthrocpocene)
     db.session.add(surrender)
     db.session.add(kiss_land)
 

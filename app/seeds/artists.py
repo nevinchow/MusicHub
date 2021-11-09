@@ -17,7 +17,13 @@ def seed_artists():
         headerURL='https://assets0.dostuffmedia.com/uploads/aws_asset/aws_asset/3072383/87ee3b48-bd28-4aff-a0f2-35859d9ae8fe.jpg',
         biopictureURL="https://popnable.com/images/singers/temp/rufus_rufus_du_sol_australia_top_50_13.jpeg"
         )
-
+    grimes = Artist(
+        name="Grimes",
+        bio="Claire Elise Boucher (born March 17, 1988), better known by the stage name Grimes, is a Canadian singer, songwriter, record producer and music video director. Born and raised in Vancouver, she first became involved with the underground music scene and began recording her own experimental music while attending McGill University in Montreal.",
+        profileURL="https://",
+        headerURL="https://media.pitchfork.com/photos/5e4f16c994f6ea0009d3f2c6/2:1/w_790/grimes.jpg",
+        biopictureURL="https://static.billboard.com/files/2020/03/grimes-cr-apple-music-2020-billboard-1548-1583963618-compressed.jpg"
+        )
 
         
     db.session.add(rufus)

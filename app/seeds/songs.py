@@ -92,6 +92,14 @@ def seed_songs():
         artistId=1,
         song_link="https://res.cloudinary.com/dso59ikqw/video/upload/v1636391733/yt5s.com-11._The_Weeknd_-_Wanderlust_Pharrell_Remix_HD_h4eary.mp4"
     )
+    odd_look = Song(
+        name="Odd Look",
+        genre="R&B",
+        duration=252,
+        albumId=1,
+        artistId=1,
+        song_link="https://res.cloudinary.com/dso59ikqw/video/upload/v1636391733/yt5s.com-12._The_Weeknd_-_Odd_Look_feat._Kavinsky_HD_720p_irtjsl.mp4"
+    )
     Always = Song(
         name="Always",
         genre="Electronic",
