@@ -1,4 +1,4 @@
-from app.models import db, Song, Playlist
+from app.models import db, Song, Playlist, song
 
 
 # Adds a demo user, you can add other users here if you want
@@ -188,9 +188,98 @@ def seed_songs():
           albumId=2,
           artistId=2,
           song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636396213/Albums/Surrender/06_Alive_Reprise_fhhd5u.m4a"
-      )
+    )
+    So_Heavy_I_Fell = Song(
+        name="So Heavy I Fell Through The Earth (Anna Remix)",
+        genre="Electronic",
+        duration=405,
+        albumId=3,
+        artistId=3,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397437/Albums/Miss%20Anthropocene/01_So_Heavy_I_Fell_Through_the_Earth_ANNA_Remix_unuhjf.m4a"
+    )
+    Dark_seid = Song(
+        name="Dark Seid (Richie Hawtin Remix)",
+        genre="Electronic",
+        duration=271,
+        albumId=3,
+        artistId=3,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397435/Albums/Miss%20Anthropocene/05_4%C3%86m_gfo2kf.m4a"
+    )
+    Delete_forever = Song(
+        name="Delete Forever (Channel Tres Remix)",
+        genre="Electronic",
+        duration=301,
+        albumId=3,
+        artistId=3,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397435/Albums/Miss%20Anthropocene/03_Delete_Forever_Channel_Tres_Remix_myrdhu.m4a"
+    )
+    Violence = Song(
+        name="Dark Side (Richie Hawtin Remix)",
+        genre="Electronic",
+        duration=637,
+        albumId=3,
+        artistId=3,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636478427/Albums/Miss%20Anthropocene/04_Violence_d7zgx8.m4a"
+    )
+    Song_4AEM = Song(
+        name="4Æm",
+        genre="Electronic",
+        duration=271,
+        albumId=3,
+        artistId=3,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397435/Albums/Miss%20Anthropocene/05_4%C3%86m_gfo2kf.m4a"
+    )
+    My_Name_Is_Dark = Song(
+        name="My Name is Dark (Julien Bracht remix)",
+        genre="Electronic",
+        duration=623,
+        albumId=3,
+        artistId=3,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397441/Albums/Miss%20Anthropocene/06_My_Name_is_Dark_Julien_Bracht_Remix_e9b1di.m4a"
+    )
+    Miss_Me = Song(
+        name="You'll Miss Me When I'm Not Around remix",
+        genre="Electronic",
+        duration=311,
+        albumId=3,
+        artistId=3,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397435/Albums/Miss%20Anthropocene/07_You_ll_miss_me_when_I_m_not_around_Things_You_Say_Remix_r9sbwk.m4a"
+    )
+    Before_the_Fever = Song(
+        name="Before the Fever remix",
+        genre="Electronic",
+        duration=217,
+        albumId=3,
+        artistId=3,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397435/Albums/Miss%20Anthropocene/08_Before_the_Fever_swin1s.m4a"
+    )
+    Idoru = Song(
+        name="Idoru (Modeselektor Remix)",
+        genre="Electronic",
+        duration=365,
+        albumId=3,
+        artistId=3,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397435/Albums/Miss%20Anthropocene/09_Idoru_Modeselektor_Remix_qgnuss.m4a"
+    )
+    We_Appreciate_Power = Song(
+        name="We Appreciate Power feat. BloodPop",
+        genre="Electronic",
+        duration=397,
+        albumId=3,
+        artistId=3,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397436/Albums/Miss%20Anthropocene/10_We_Appreciate_Power_feat._BloodPop_HANA%E8%8F%8A%E6%A2%93%E5%96%AC_BloodPop_Remix_aexm8c.m4a"
+    )
 
-
+    db.session.add(We_Appreciate_Power)
+    db.session.add(Idoru)
+    db.session.add(Miss_Me)
+    db.session.add(Before_the_Fever)
+    db.session.add(My_Name_Is_Dark)
+    db.session.add(Song_4AEM)
+    db.session.add(Violence)
+    db.session.add(Delete_forever)
+    db.session.add(Dark_seid)
+    db.session.add(So_Heavy_I_Fell)
     db.session.add(Always)
     db.session.add(Surrender)
     db.session.add(Next_to_Me)

@@ -25,7 +25,7 @@ def seed_artists():
         biopictureURL="https://static.billboard.com/files/2020/03/grimes-cr-apple-music-2020-billboard-1548-1583963618-compressed.jpg"
         )
 
-        
+    db.session.add(grimes)   
     db.session.add(rufus)
     db.session.add(the_weeknd)
 
