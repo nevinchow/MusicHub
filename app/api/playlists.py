@@ -25,7 +25,8 @@ def playlist(id):
 # @login_required
 def add_playlist():
     if request.method == "POST":
-        playlist = Playlist(**request.form)
+        print(request)
+        playlist = Playlist(**request.args)
         db.session.add(playlist)
         db.session.commit()
         return playlist.to_dict()

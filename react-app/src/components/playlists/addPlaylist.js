@@ -41,6 +41,7 @@ const AddPlaylists = () => {
             setValidationErrors([]);
             dispatch(addAPlaylist(createdPlaylist));
             // setShowModal(false)
+            history.push('/playlists')
             
         };
   };
@@ -76,14 +77,14 @@ const AddPlaylists = () => {
                         placeholder="Add an image"
                         className=""
                         value={imageURL}
-                        onChange={(e) => setName(e.target.value)}
+                        onChange={(e) => setImageURL(e.target.value)}
                         required/>
                 <label className="" >Description:</label>
                         <textarea
                         placeholder="Enter a description for your playlist"
                         className=""
                         value={description}
-                        onChange={(e) => setName(e.target.value)}
+                        onChange={(e) => setDescription(e.target.value)}
                         required/>
                       
                 <button className="" type="submit">Submit</button>

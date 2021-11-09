@@ -33,13 +33,15 @@ export const getAPlaylist = (playlistId) => async (dispatch) => {
 }
 
 export const addAPlaylist = (playlist) => async(dispatch) => {
+    console.log(playlist)
     // need to add csurf
-    const response = await (`/api/playlists/add`, {
+    const response = await fetch(`/api/playlists/add`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(playlist),
   });
 
+  console.log(response)
 
   const newPlaylist = await response.json();
   dispatch(addPlaylist(newPlaylist));
