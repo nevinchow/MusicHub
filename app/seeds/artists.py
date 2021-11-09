@@ -48,7 +48,6 @@ def seed_artists():
     
 
 
-
     db.session.add(the_weeknd)
     db.session.add(rufus)
     db.session.add(grimes)   

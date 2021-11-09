@@ -16,6 +16,7 @@ def seed_albums():
         title="Surrender",
         year=2021,
         imageURL="https://static.qobuz.com/images/covers/3a/6a/my8sklz176a3a_600.jpg"
+
     )
     miss_anthrocpocene = Album(
         artistId=3,
@@ -44,6 +45,7 @@ def seed_albums():
         title="Planet Her",
         year=2021,
         imageURL="https://okayplayer-wpengine.netdna-ssl.com/wp-content/uploads/2021/06/doja-cat-is-a-genre-blending-shapeshifter-on-planet-her-and-we-love-it.jpg"
+
     )
     
 
