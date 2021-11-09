@@ -269,28 +269,151 @@ def seed_songs():
         artistId=3,
         song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397436/Albums/Miss%20Anthropocene/10_We_Appreciate_Power_feat._BloodPop_HANA%E8%8F%8A%E6%A2%93%E5%96%AC_BloodPop_Remix_aexm8c.m4a"
     )
-
-    db.session.add(We_Appreciate_Power)
-    db.session.add(Idoru)
-    db.session.add(Miss_Me)
-    db.session.add(Before_the_Fever)
-    db.session.add(My_Name_Is_Dark)
-    db.session.add(Song_4AEM)
-    db.session.add(Violence)
-    db.session.add(Delete_forever)
-    db.session.add(Dark_seid)
-    db.session.add(So_Heavy_I_Fell)
-    db.session.add(Always)
-    db.session.add(Surrender)
-    db.session.add(Next_to_Me)
-    db.session.add(See_You_Again)
-    db.session.add(Alive)
-    db.session.add(Devotion)
-    db.session.add(Make_it_happen)
-    db.session.add(On_my_knees)
-    db.session.add(I_Don_t_Wanna_Leave)
-    db.session.add(Wildfire)
-    db.session.add(Alive_Reprise)
+    Tell_Me_It_s_True = Song(
+        name="Tell me it's True",
+        genre="Electronic",
+        duration=293,
+        albumId=4,
+        artistId=4,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397041/Albums/Olympia/01_Tell_Me_It_s_True_p8spd7.m4a"
+    )
+    Oxygen = Song(
+        name="Oxygen",
+        genre="Electronic",
+        duration=232,
+        albumId=4,
+        artistId=4,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397040/Albums/Olympia/02_Oxygen_yvuf7c.m4a"
+    )
+    You_Done_Enough = Song(
+        name="You've Done Enough",
+        genre="Electronic",
+        duration=213,
+        albumId=4,
+        artistId=4,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397040/Albums/Olympia/03_You_ve_Done_Enough_g6dlgr.m4a"
+    )
+    Dreams = Song(
+        name="Dreams",
+        genre="Electronic",
+        duration=293,
+        albumId=4,
+        artistId=4,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397037/Albums/Olympia/04_Dreams_ovb32b.m4a"
+    )
+    Body_Language = Song(
+        name="Body Language",
+        genre="Electronic",
+        duration=224,
+        albumId=4,
+        artistId=4,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397037/Albums/Olympia/05_Body_Language_oncogm.m4a"
+    )
+    When_You_re_Gone = Song(
+        name="When you're gone",
+        genre="Electronic",
+        duration=236,
+        albumId=4,
+        artistId=4,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397040/Albums/Olympia/06_When_You_re_Gone_fk7fdo.m4a"
+    )
+    House_Arrest = Song(
+        name="Tell me it's True",
+        genre="Electronic",
+        duration=216,
+        albumId=4,
+        artistId=4,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397038/Albums/Olympia/07_House_Arrest_ji53yy.m4a"
+    )
+    Never_Let_Me_Down = Song(
+        name="Tell me it's True",
+        genre="Electronic",
+        duration=285,
+        albumId=4,
+        artistId=4,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397039/Albums/Olympia/08_Never_Let_Me_Down_gbzade.m4a"
+    )
+    Sweet_Temptation = Song(
+        name="Sweet Temptation",
+        genre="Electronic",
+        duration=220,
+        albumId=4,
+        artistId=4,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397039/Albums/Olympia/09_Sweet_Temptation_uo7qno.m4a"
+    )
+    Nobody = Song(
+        name="Nobdoy",
+        genre="Electronic",
+        duration=199,
+        albumId=4,
+        artistId=4,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397037/Albums/Olympia/10_Nobody_kpjba7.m4a"
+    )
+    Lost_Feelings = Song(
+        name="Lost Feelings",
+        genre="Electronic",
+        duration=257,
+        albumId=4,
+        artistId=4,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397041/Albums/Olympia/11_Lost_Feelings_js2hmr.m4a"
+    )
+    Tears = Song(
+        name="Tears",
+        genre="Electronic",
+        duration=289,
+        albumId=4,
+        artistId=4,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397041/Albums/Olympia/12_Tears_audgyu.m4a"
+    )
+    Waiting_For_The_Right_Time = Song(
+        name="Waiting for the right time",
+        genre="Electronic",
+        duration=299,
+        albumId=4,
+        artistId=4,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397042/Albums/Olympia/13_Waiting_For_The_Right_Time_jcgaru.m4a"
+    )
+    Ecstasy = Song(
+        name="Ecstasy",
+        genre="Electronic",
+        duration=255,
+        albumId=4,
+        artistId=4,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397040/Albums/Olympia/14_Ecstasy_twdyef.m4a"
+    )
+    Foolproof = Song(
+        name="Foolproof",
+        genre="Electronic",
+        duration=267,
+        albumId=4,
+        artistId=4,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397037/Albums/Olympia/15_Foolproof_ibgbi9.m4a"
+    )
+    Burning = Song(
+        name="Burning feat. Evan Gia",
+        genre="Electronic",
+        duration=268,
+        albumId=4,
+        artistId=4,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397037/Albums/Olympia/16_Burning_n0sogb.m4a"
+    )
+    Thought_s_of_you = Song(
+        name="Thought's of you",
+        genre="Electronic",
+        duration=240,
+        albumId=4,
+        artistId=4,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397039/Albums/Olympia/17_Thoughts_Of_You_meunow.m4a"
+    )
+    Freedom = Song(
+        name="Freedom",
+        genre="Electronic",
+        duration=222,
+        albumId=4,
+        artistId=4,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397038/Albums/Olympia/18_Freedom_pofe0c.m4a"
+    )
+    
     db.session.add(professional)
     db.session.add(the_town)
     db.session.add(adaption)
@@ -303,7 +426,45 @@ def seed_songs():
     db.session.add(tears_in_the_rain)
     db.session.add(wanderlust_remix)
     db.session.add(odd_look)
-
+    db.session.add(Always)
+    db.session.add(Surrender)
+    db.session.add(Next_to_Me)
+    db.session.add(See_You_Again)
+    db.session.add(Alive)
+    db.session.add(Devotion)
+    db.session.add(Make_it_happen)
+    db.session.add(On_my_knees)
+    db.session.add(I_Don_t_Wanna_Leave)
+    db.session.add(Wildfire)
+    db.session.add(Alive_Reprise)
+    db.session.add(So_Heavy_I_Fell)
+    db.session.add(Dark_seid)
+    db.session.add(Delete_forever)
+    db.session.add(Violence)
+    db.session.add(Song_4AEM)
+    db.session.add(My_Name_Is_Dark)
+    db.session.add(Before_the_Fever)
+    db.session.add(Miss_Me)
+    db.session.add(Idoru)
+    db.session.add(We_Appreciate_Power)
+    db.session.add(Tell_Me_It_s_True)
+    db.session.add(Oxygen)
+    db.session.add(You_Done_Enough)
+    db.session.add(Dreams)
+    db.session.add(Body_Language)
+    db.session.add(When_You_re_Gone)
+    db.session.add(House_Arrest)
+    db.session.add(Never_Let_Me_Down)
+    db.session.add(Sweet_Temptation)
+    db.session.add(Nobody)
+    db.session.add(Lost_Feelings)
+    db.session.add(Tears)
+    db.session.add(Waiting_For_The_Right_Time)
+    db.session.add(Ecstasy)
+    db.session.add(Foolproof)
+    db.session.add(Burning)
+    db.session.add(Thought_s_of_you)
+    db.session.add(Freedom)
 
     db.session.commit()
 
