@@ -10,7 +10,17 @@ def seed_artists():
         headerURL='https://www.nme.com/wp-content/uploads/2021/08/Weeknd-May-2021-696x441.jpg',
         biopictureURL="https://static.billboard.com/files/2020/06/the-weeknd-2020-cr-Pari-Dukovic-billboard-1548-1593528016-compressed.jpg"
     )
+    rufus = Artist(
+        name="Rufus du Sol",
+        bio="RÜFÜS DU SOL have emerged as one of the world’s preeminent live electronic acts. The Australian three-piece, comprised of members Tyrone Lindqvist, Jon George and James Hunt, have released two platinum-certified albums, ATLAS and Bloom, with their newly unveiled third album Solace ushering in a new chapter for the trio.",
+        profileURL="https://www.pne.ca/files/uploads/2019/01/Rufus-Du-Sol-1080x1080.jpg",
+        headerURL='https://assets0.dostuffmedia.com/uploads/aws_asset/aws_asset/3072383/87ee3b48-bd28-4aff-a0f2-35859d9ae8fe.jpg',
+        biopictureURL="https://popnable.com/images/singers/temp/rufus_rufus_du_sol_australia_top_50_13.jpeg"
+        )
 
+
+        
+    db.session.add(rufus)
     db.session.add(the_weeknd)
 
 
