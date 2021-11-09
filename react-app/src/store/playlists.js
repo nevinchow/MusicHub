@@ -42,7 +42,7 @@ export const addAPlaylist = (playlist) => async(dispatch) => {
 
 
   const newPlaylist = await response.json();
-  dispatch(addAPlaylist(newPlaylist));
+  dispatch(addPlaylist(newPlaylist));
   return newPlaylist
 }
 
@@ -57,6 +57,8 @@ export default function playlistReducer(state = initialState, action) {
             })
             return {...allPlaylists, ...state}
         case GET_ONE_PLAYLIST:
+            return { ...state };
+        case ADD_A_PLAYLIST:
             return { ...state };
         default:
             return state;
