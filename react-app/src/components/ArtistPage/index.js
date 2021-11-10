@@ -4,7 +4,7 @@ import { Redirect ,useHistory} from 'react-router-dom';
 import { getArtists, getSingleArtist } from '../../store/artist';
 import { getAlbums, getAlbumsByArtistId } from '../../store/album';
 import { useParams } from 'react-router';
-
+import './artistPage.css';
 
 
 
@@ -17,30 +17,36 @@ function ArtistPage() {
     const dispatch = useDispatch()
  
 
-    useEffect(()=>{
-        
+    useEffect(()=>{  
             dispatch(getSingleArtist(artistId))
             dispatch(getAlbumsByArtistId(artistId))
 
-        
     },[dispatch, artistId])
 
- 
-
         return (
-            <>
-             <p>{artist?.name}</p>
-             
-             <img src={albums?.imageURL}></img>
-             <p>{albums?.year} 
-                {albums?.title}
-                
-                Album
-             </p >
-             <p>{artist?.bio}</p>
-            </>
-    
-        )
+          <>
+            <div className="artist-page">
+              <div className="artist-page-container">
+                <div className="artist-page-header">
+                  <img
+                    className="artist-header-img"
+                    src={artist?.headerURL}
+                  ></img>
+                  <h2>{artist?.name}</h2>
+                  <h2> {albums?.title}</h2>
+                  <p> {albums?.year}</p>
+                  Album
+                </div>
+                <div className="artist-page-middle">
+                  <div className="artist-info">
+                    <img className="album-art" src={albums?.imageURL}></img>
+                    <p>{artist?.bio}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </>
+        );
     }
    
 

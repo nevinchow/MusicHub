@@ -33,8 +33,6 @@ function Sidebar({artist}) {
       return null;
     }
 
-
-
     const openAddPlaylist = () => {
         if(!addForm) {
             openAddForm(true)
@@ -43,7 +41,6 @@ function Sidebar({artist}) {
             
         }
     }
-
    
     return (
         <>

@@ -4,6 +4,7 @@ import { NavLink, Redirect ,useHistory} from 'react-router-dom';
 import { getArtists, getSingleArtist } from '../../store/artist';
 import { getAlbums, getAlbumsByArtistId, getSingleAlbum } from '../../store/album';
 import { useParams } from 'react-router';
+import './album-page.css';
 
 
 function AlbumPage() {
@@ -21,17 +22,19 @@ function AlbumPage() {
     },[dispatch])
 
     return (
-        <>
-         <p>{album?.title}</p>
-         <img src={album?.imageURL}></img>
-         <NavLink to={`/artist/${currentArtistId}`}>{currentArtist?.name}</NavLink>
-         <p>{album?.year}</p>
-        
-         
-       
-        </>
-
-    )
+      <>
+        <div className="album-page-container">
+          <div className="album-page-middle">
+            <h2 id="albumTitle">{album?.title}</h2>
+            <p>{album?.year}</p>
+            <NavLink to={`/artist/${currentArtistId}`}>
+              <h2>{currentArtist?.name}</h2>
+            </NavLink>
+            <img className="album-art" src={album?.imageURL}></img>
+          </div>
+        </div>
+      </>
+    );
 }
 
 export default AlbumPage
