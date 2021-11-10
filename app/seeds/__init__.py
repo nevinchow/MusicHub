@@ -5,8 +5,8 @@ from .albums import seed_albums, undo_albums
 from .artists import seed_artists, undo_artists
 from .reviews import seed_reviews, undo_reviews
 from .songs import seed_songs, undo_songs
-from .playlists import seed_playlists
-from .songs_playlist import seed_songs_playlists
+from .playlists import seed_playlists, undo_playlists
+from .songs_playlist import seed_saved_songs, undo_songs_playlists
 
 
 # Creates a seed group to hold our commands
@@ -17,13 +17,13 @@ seed_commands = AppGroup('seed')
 # Creates the `flask seed all` command
 @seed_commands.command('all')
 def seed():
-    # seed_users()
-    # seed_artists()
-    # seed_albums()
-    # seed_songs()
-    # seed_reviews()
-    # seed_playlists()
-    seed_songs_playlists()
+    seed_users()
+    seed_artists()
+    seed_albums()
+    seed_songs()
+    seed_reviews()
+    seed_playlists()
+    seed_saved_songs()
     # Add other seed functions here
 
 
@@ -35,4 +35,6 @@ def undo():
     undo_albums()
     undo_songs()
     undo_reviews()
+    undo_playlists()
+    undo_songs_playlists()
     # Add other undo functions here
