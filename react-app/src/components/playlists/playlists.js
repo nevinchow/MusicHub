@@ -9,6 +9,8 @@ import './playlists.css'
 
 const Playlists = () => {
   const playlists = useSelector(state => state.playlists)
+  
+  const [playlistId, setPlaylistId] = useState()
   const dispatch = useDispatch()
 
   const eachPlaylist = []

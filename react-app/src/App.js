@@ -21,7 +21,7 @@ import AddPlaylists from './components/playlists/addPlaylist';
 import EditPlaylists from './components/playlists/editPlaylist';
 import Sidebar from './components/Sidebar/Sidebar';
 import PlaylistPage from './components/playlists/individualPlaylist';
-
+import ReviewsPage from './components/ReviewsPage'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -32,8 +32,8 @@ function App() {
     (async() => {
       await dispatch(authenticate());
       setLoaded(true);
-      dispatch(getSongs())
-      dispatch(getPlaylists())
+      // dispatch(getSongs())
+      // dispatch(getPlaylists())
     })();
   }, [dispatch]);
 
@@ -47,6 +47,9 @@ function App() {
       <Sidebar />
 
       <Switch>
+        <Route path='/albums/:albumId/reviews' >
+          <ReviewsPage />
+        </Route>
         <Route path='/albums/:albumId' >
           <AlbumPage />
         </Route>

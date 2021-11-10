@@ -5,6 +5,7 @@ import ArtistTile from '../ArtistTile';
 import { getArtists } from '../../store/artist';
 import { getAlbums } from '../../store/album';
 import AlbumTile from '../AlbumTile';
+import { NavLink } from 'react-router-dom';
 
 function MainPage() {
     const dispatch = useDispatch();
@@ -26,7 +27,10 @@ function MainPage() {
         ))}
 
         {albums.map((album)=>(
+        <>
             <AlbumTile album={album} />
+            <NavLink to={`/albums/${album.id}/reviews`}>reviews</NavLink>
+        </>
         ))}
         </>
     )
