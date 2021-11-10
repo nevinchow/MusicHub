@@ -6,22 +6,21 @@ import { getArtists } from '../../store/artist';
 import { getAlbums } from '../../store/album';
 import AlbumTile from '../AlbumTile';
 import Player from '../MusicPlayer/index'
+import './main.css'
 
 function MainPage() {
     const dispatch = useDispatch();
     const artists=useSelector((state)=>Object.values(state.artist))
     const albums=useSelector((state)=>Object.values(state.album))
     
-
-
     useEffect(()=>{
         dispatch(getArtists())
         dispatch(getAlbums())
     },[dispatch])
 
-
     return (
         <>
+        <Player />
         {artists.map((artist)=>(
             <ArtistTile artist={artist}/>
         ))}
