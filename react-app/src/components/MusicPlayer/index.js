@@ -8,8 +8,7 @@ import './musicPlayer.css';
 
 const Player = () => (
   <AudioPlayer className="audio-player"
-    autoPlay
-    src="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636478427/Albums/Miss%20Anthropocene/04_Violence_d7zgx8.m4a"
+   Pause src="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636478427/Albums/Miss%20Anthropocene/04_Violence_d7zgx8.m4a"
     onPlay={(e) => console.log("onPlay")}
     // other props here
   />
