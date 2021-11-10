@@ -157,3 +157,7 @@
 
 }
 
+.album-thumbnail {
+    max-height: 50px;
+}
+

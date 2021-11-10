@@ -7,6 +7,7 @@ import { Link, NavLink, useParams } from 'react-router-dom';
 import EditPlaylists from './editPlaylist';
 import { useHistory } from 'react-router';
 import './playlists.css'
+import { getAlbums } from '../../store/album';
 
 
 
@@ -16,12 +17,15 @@ const PlaylistPage = () => {
   const playlists = useSelector(state => state.playlists)
   const playlistSongs = useSelector(state => state.playlist_songs)
   const songsState = useSelector(state => state.songs)
+  const albums = useSelector(state => state.album)
   const eachPlaylist = []
   const eachSongId = []
+  const eachAlbum = []
   const allSongs = []
   Object.values(playlists).map((playlist) => (eachPlaylist.push(playlist)))
   Object.values(playlistSongs).map((songId) => (eachSongId.push(songId)))
   Object.values(songsState).map((song) => (allSongs.push(song)))
+  Object.values(albums).map((album) => (eachAlbum.push(album)))
   const playlist = eachPlaylist.find(onePlaylist => +id === onePlaylist.id)
   const [editForm, openEditForm] = useState(false)
   const [loaded, setLoaded] = useState(false);
@@ -38,6 +42,7 @@ const PlaylistPage = () => {
     (async() => {
       await dispatch(getPlaylists())
       await dispatch(getSongsForPlaylist(id))
+      await dispatch(getAlbums())
       setLoaded(true);
     })();
   }, [dispatch]);
@@ -89,17 +94,19 @@ const PlaylistPage = () => {
             <thead>
               <tr>
                 <td className="table-label">#</td>
+                <td className="table-label"></td>
                 <td className="table-label">Title</td>
+                <td className="table-label">Album</td>
                 <td className="table-label">Duration</td>
               </tr>
             </thead>
             <tbody>
               {songs.map((song) => {
+                //turn duration to string
                 trackNumber++
                 const minutes = Math.floor(song.duration / 60)
                 const seconds = (song.duration % 60)
                 let newSeconds;
-                let newMinutes;
                 if (seconds < 10) {
                   newSeconds = `0${seconds}`
                 } else {
@@ -112,10 +119,16 @@ const PlaylistPage = () => {
                   trackTime = `${minutes} : ${newSeconds}`
 
                 }
+                //get album for song
+                const thisAlbum = eachAlbum.find(oneAlbum => song.albumId === oneAlbum.id)
+                console.log(thisAlbum)
+
                 return (
                   <tr>
                     <td>{trackNumber}</td>
+                    <td><img className="album-thumbnail" src={thisAlbum.imageURL} alt={thisAlbum.name}></img></td>
                     <td>{song.name}</td>
+                    <td>{thisAlbum.title}</td>
                     <td>{trackTime}</td>
                   </tr>
                 )
