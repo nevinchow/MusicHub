@@ -96,7 +96,12 @@ export default function playlistReducer(state = initialState, action) {
         case GET_ONE_PLAYLIST:
             return { ...state };
         case ADD_A_PLAYLIST:
-            return { ...state };
+              {
+              return {
+                ...state,
+                [action.playlist]: action.playlist
+              };
+            }
         case DELETE_PLAYLIST:
             const deleteState = {...state}
             delete deleteState[action.playlistId]
