@@ -34,7 +34,7 @@ function App() {
     (async() => {
       await dispatch(authenticate());
       setLoaded(true);
-      dispatch(getSongs())
+      // dispatch(getSongs())
       // dispatch(getPlaylists())
     })();
   }, [dispatch]);

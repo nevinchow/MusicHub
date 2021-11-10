@@ -32,26 +32,30 @@ function MainPage() {
             ))}
 
             {albums.map((album) => (
-              <AlbumTile album={album} />
+              <>
+                <AlbumTile album={album} />
+                <NavLink to={`/albums/${album.id}/reviews`}>reviews</NavLink>
+              </>
+
             ))}
           </div>
         </div>
       </>
     );
 
-        <>
-        {artists.map((artist)=>(
-            <ArtistTile artist={artist}/>
-        ))}
+    //     <>
+    //     {artists.map((artist)=>(
+    //         <ArtistTile artist={artist}/>
+    //     ))}
 
-        {albums.map((album)=>(
-        <>
-            <AlbumTile album={album} />
-            <NavLink to={`/albums/${album.id}/reviews`}>reviews</NavLink>
-        </>
-        ))}
-        </>
-    )
+    //     {albums.map((album)=>(
+    //     <>
+    //         <AlbumTile album={album} />
+    //         <NavLink to={`/albums/${album.id}/reviews`}>reviews</NavLink>
+    //     </>
+    //     ))}
+    //     </>
+    // )
 
 }
 

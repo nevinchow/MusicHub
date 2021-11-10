@@ -6,8 +6,6 @@ import { Link, NavLink } from 'react-router-dom';
 import './playlists.css'
 
 
-const Playlists = () => {
-
 const Playlists = ({setPlaylistId}) => {
 
   const playlists = useSelector(state => state.playlists)
@@ -46,7 +44,7 @@ const Playlists = ({setPlaylistId}) => {
         })}
     </>
 
-  );
+    );
 }
 
 export default Playlists;
