@@ -10,27 +10,15 @@ function AddToPlaylist({songId}) {
     const [loaded, setLoaded] = useState(false);
 
 
-//      useEffect(() => {
-//     (async() => {
-//       setLoaded(true);
-//     })();
-//   }, [dispatch]);
-
-//     if (!loaded) {
-//     return null;
-//   }
-
   const addSong = async () => {
       const songToAdd = {
           playlistId: id,
           songId
       }
-      console.log("song", songToAdd)
 
       
       dispatch(addSongToPlaylist(songToAdd))
   }
-    console.log(`Song Id = ${songId} and Playlist Id = ${id}`)
     return (
         <div> <p onClick={addSong}>Settings</p></div>
     )

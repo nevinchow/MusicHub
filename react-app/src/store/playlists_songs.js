@@ -26,11 +26,8 @@ export const addSongToPlaylist = (playlist) => async (dispatch) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(playlist),
   });
-  console.log(playlist)
-  console.log("response", response)
 
   const addedSong = await response.json();
-  console.log("added song", addedSong)
   dispatch(addPlaylistSongs(addedSong));
   return addedSong
 

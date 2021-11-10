@@ -10,7 +10,6 @@ function AlbumPage() {
     const {albumId}=useParams()
     const album=useSelector(state=>state.album[albumId])
     const currentArtistId=album?.artistId
-    console.log('!!!!!!!!!!!!!!!!!!!',currentArtistId)
     const currentArtist=useSelector(state=>state.artist[currentArtistId])
     const dispatch = useDispatch()
 

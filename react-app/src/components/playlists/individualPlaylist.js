@@ -39,23 +39,19 @@ const PlaylistPage = () => {
   const songs = [];
   eachSongId.forEach((songId) => {
     songId.forEach((song) => {
-      console.log("loop!!!!", song)
-      if(song.playlistId == +id) {
+      if(song.playlistId === +id) {
         const oneSong = allSongs.find(aSong => song.songId === aSong.id)
         songs.push(oneSong)
       }
-      
     })
-    
   })
+  console.log(songs, "why is it duplicating")
   const dispatch = useDispatch()
   let trackNumber = 0;
-  console.log('!!!!!!!!!!!', eachSongId)
 
  useEffect(() => {
     (async() => {
       await dispatch(getPlaylists())
-      await dispatch(getSongsForPlaylist(id))
       await dispatch(getAlbums())
       await dispatch(getArtists())
       setLoaded(true);
@@ -84,6 +80,7 @@ const PlaylistPage = () => {
 
 
   const openSettings = async (e) => {
+    console.log("on click", songId)
     setSongId(e.target.value)
     if(!settings) {
       setSettings(true)
@@ -137,7 +134,7 @@ const PlaylistPage = () => {
               <div className="settings-menu">{settings ? <AddToPlaylist songId={songId}/> : <></>}</div>
 
               {songs.map((song) => {
-                console.log('foreach song map', song)
+                console.log('mapping songs', song.name)
                 //turn duration to string
                 trackNumber++
                 const minutes = Math.floor(song.duration / 60)

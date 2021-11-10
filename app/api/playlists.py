@@ -69,20 +69,11 @@ def delete_playlist(id):
 
 @playlist_routes.route('/<int:id>/songs')
 def playlist_songs(id):
-    # songs = SongPlaylist.get(SongPlaylist.playlistId == id)
     songs = db.session.query(SongPlaylist).filter(SongPlaylist.c.playlistId == id)
     songIds = [song.songId for song in songs]
     playlistIds = [song.playlistId for song in songs]
-    # songsList = []
-    # for id in songIds:
-    #     oneSong = Song.query.get(id)
-    #     songsList.append(oneSong)
-
-
     return {'songs': [{'playlistId':id, 'songId':song} for song in songIds]}
-    # query_songs_playlist = Playlist.query.join(SongPlaylist).join(Song).filter((SongPlaylist.c.playlistId == Playlist.id) & (SongPlaylist.c.songId == Song.id))
-    # print(query_songs_playlist)
-    # return {'songs': [pair for pair in query_songs_playlist]}
+
 
 
 @playlist_routes.route('/songs/add', methods=['POST'])

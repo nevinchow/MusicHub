@@ -1,6 +1,8 @@
 const GET_PLAYLISTS = 'playlists/GET_PLAYLISTS'
 const GET_ONE_PLAYLIST = 'playlists/GET_ONE_SONG'
 const ADD_A_PLAYLIST = 'playlists/ADD_A_PLAYLIST'
+const UPDATE_PLAYLIST = 'playlists/UPDATE_PLAYLIST';
+
 const DELETE_PLAYLIST = 'playlists/DELETE_PLAYLIST'
 
 const getAllPlaylists = (playlists) => ({
@@ -17,6 +19,11 @@ const addPlaylist = (playlistId) => ({
     type: ADD_A_PLAYLIST,
     playlist: playlistId
 })
+
+const updatePlaylist = (playlist) => ({
+  type: UPDATE_PLAYLIST,
+  playlist,
+});
 
 const deletePlaylist = (playlistId) => ({
     type: DELETE_PLAYLIST,
@@ -62,7 +69,7 @@ export const editAPlaylist = (playlist, playlistId) => async(dispatch) => {
   });
 
   const newPlaylist = await response.json();
-  dispatch(addPlaylist(newPlaylist));
+  dispatch(updatePlaylist(newPlaylist));
   return newPlaylist
 }
 
@@ -94,6 +101,13 @@ export default function playlistReducer(state = initialState, action) {
         case GET_ONE_PLAYLIST:
             return { ...state };
         case ADD_A_PLAYLIST:
+              {
+              return {
+                ...state,
+                [action.playlist]: action.playlist
+              };
+            }
+        case UPDATE_PLAYLIST:
               {
               return {
                 ...state,

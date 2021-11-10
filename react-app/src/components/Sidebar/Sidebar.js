@@ -23,8 +23,9 @@ function Sidebar({artist}) {
     useEffect(() => {
     (async() => {
       await dispatch(getPlaylists())
-      dispatch(getSongsForPlaylist(playlistId))
       setLoaded(true);
+      dispatch(getSongsForPlaylist(playlistId))
+
     })();
     }, [dispatch, playlistId]);
 
