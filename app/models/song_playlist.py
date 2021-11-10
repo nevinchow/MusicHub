@@ -7,6 +7,9 @@ SongPlaylist = db.Table(
         "songs.id")),
     db.Column("playlistId", db.Integer, db.ForeignKey("playlists.id")))
 
+
+    
+
 # class SongPlaylist(db.Model):
 #     __tablename__ = 'song_playlist'
 

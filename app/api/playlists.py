@@ -1,8 +1,9 @@
 from flask import Blueprint, jsonify, request
 from app.forms.add_playlist_form import PlaylistForm
 # from flask_login import login_required
-from app.models import Playlist,db
+from app.models import Playlist,db, SongPlaylist, Song
 from sqlalchemy import update
+
 
 
 
@@ -63,6 +64,21 @@ def delete_playlist(id):
     db.session.commit()
 
     return playlist.to_dict()
+
+@playlist_routes.route('/<int:id>/songs')
+def playlist_songs(id):
+    # songs = SongPlaylist.get(SongPlaylist.playlistId == id)
+    songs = db.session.query(SongPlaylist).filter(SongPlaylist.c.playlistId == id)
+    songIds = [song.songId for song in songs]
+    songsList = []
+    for id in songIds:
+        songs.append(Song.query.get(id))
+
+
+    return {'songs': [song for song in songsList]}
+    # query_songs_playlist = Playlist.query.join(SongPlaylist).join(Song).filter((SongPlaylist.c.playlistId == Playlist.id) & (SongPlaylist.c.songId == Song.id))
+    # print(query_songs_playlist)
+    # return {'songs': [pair for pair in query_songs_playlist]}
 
 
 
