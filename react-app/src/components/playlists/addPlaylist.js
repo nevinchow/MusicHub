@@ -43,7 +43,6 @@ const AddPlaylists = () => {
             const added = await dispatch(addAPlaylist(createdPlaylist));
             if(added) {
               history.push(`/playlists/${added.id}`)
-
             }
             
         };

@@ -5,8 +5,8 @@ from .albums import seed_albums, undo_albums
 from .artists import seed_artists, undo_artists
 from .reviews import seed_reviews, undo_reviews
 from .songs import seed_songs, undo_songs
-from .playlists import seed_playlists
-from .songs_playlist import seed_songs_playlists
+from .playlists import seed_playlists, undo_playlists
+from .songs_playlist import seed_saved_songs, undo_songs_playlists
 
 
 # Creates a seed group to hold our commands
@@ -23,7 +23,11 @@ def seed():
     seed_songs()
     seed_reviews()
     seed_playlists()
+<<<<<<< HEAD
     # seed_songs_playlists()
+=======
+    seed_saved_songs()
+>>>>>>> afc0f23ad75ae5db1b8f8f15482242215829b967
     # Add other seed functions here
 
 
@@ -35,4 +39,6 @@ def undo():
     undo_albums()
     undo_songs()
     undo_reviews()
+    undo_playlists()
+    undo_songs_playlists()
     # Add other undo functions here

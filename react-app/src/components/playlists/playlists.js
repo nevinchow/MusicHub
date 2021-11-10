@@ -8,7 +8,6 @@ import './playlists.css'
 
 
 const Playlists = () => {
-  const sessionUser = useSelector(state => state.session.user);
   const playlists = useSelector(state => state.playlists)
   
   const [playlistId, setPlaylistId] = useState()
@@ -22,9 +21,7 @@ const Playlists = () => {
       dispatch(getPlaylists())
   }, [dispatch]);
 
-  const getId = (id) => {
-    setPlaylistId(id)
-  }
+
 
   return (
     <>

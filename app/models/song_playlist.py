@@ -4,8 +4,8 @@ from .db import db
 SongPlaylist = db.Table(
 "songs_playlists",
     db.Column("songId", db.Integer, db.ForeignKey(
-        "songs.id"), primary_key=True),
-    db.Column("playlistId", db.Integer, db.ForeignKey("playlists.id"), primary_key=True))
+        "songs.id")),
+    db.Column("playlistId", db.Integer, db.ForeignKey("playlists.id")))
 
 # class SongPlaylist(db.Model):
 #     __tablename__ = 'song_playlist'
