@@ -10,7 +10,7 @@ import './playlists.css'
 const Playlists = () => {
   const sessionUser = useSelector(state => state.session.user);
   const playlists = useSelector(state => state.playlists)
-  const userId = sessionUser.id
+  
   const [playlistId, setPlaylistId] = useState()
   const dispatch = useDispatch()
 
@@ -19,7 +19,7 @@ const Playlists = () => {
 
 
     useEffect(() => {
-      dispatch(getPlaylists(userId))
+      dispatch(getPlaylists())
   }, [dispatch]);
 
   const getId = (id) => {
