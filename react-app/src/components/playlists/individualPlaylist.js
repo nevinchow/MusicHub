@@ -96,11 +96,27 @@ const PlaylistPage = () => {
             <tbody>
               {songs.map((song) => {
                 trackNumber++
+                const minutes = Math.floor(song.duration / 60)
+                const seconds = (song.duration % 60)
+                let newSeconds;
+                let newMinutes;
+                if (seconds < 10) {
+                  newSeconds = `0${seconds}`
+                } else {
+                  newSeconds = seconds
+                }
+                let trackTime = ``
+                if (minutes === 0 ) {
+                  trackTime = `${minutes}: ${newSeconds}`
+                } else {
+                  trackTime = `${minutes} : ${newSeconds}`
+
+                }
                 return (
                   <tr>
                     <td>{trackNumber}</td>
                     <td>{song.name}</td>
-                    <td>{(song.duration / 60)}</td>
+                    <td>{trackTime}</td>
                   </tr>
                 )
               })}
