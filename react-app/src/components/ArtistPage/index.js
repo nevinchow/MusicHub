@@ -12,7 +12,6 @@ import './artistPage.css';
 function ArtistPage() {
     // const artist=useSelector((state)=>Object.values(state.artist))
     const {artistId}= useParams();
-    console.log(artistId)
     const artist=useSelector(state=>state.artist[artistId]);
     const albums=useSelector(state=>state.album[artistId])
     const dispatch = useDispatch()

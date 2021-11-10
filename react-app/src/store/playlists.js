@@ -1,6 +1,8 @@
 const GET_PLAYLISTS = 'playlists/GET_PLAYLISTS'
 const GET_ONE_PLAYLIST = 'playlists/GET_ONE_SONG'
 const ADD_A_PLAYLIST = 'playlists/ADD_A_PLAYLIST'
+const UPDATE_PLAYLIST = 'playlists/UPDATE_PLAYLIST';
+
 const DELETE_PLAYLIST = 'playlists/DELETE_PLAYLIST'
 
 const getAllPlaylists = (playlists) => ({
@@ -18,10 +20,17 @@ const addPlaylist = (playlistId) => ({
     playlist: playlistId
 })
 
+const updatePlaylist = (playlist) => ({
+  type: UPDATE_PLAYLIST,
+  playlist,
+});
+
 const deletePlaylist = (playlistId) => ({
     type: DELETE_PLAYLIST,
     playlistId
 })
+
+
 
 
 export const getPlaylists = () => async (dispatch) => {
@@ -39,7 +48,6 @@ export const getAPlaylist = (playlistId) => async (dispatch) => {
 }
 
 export const addAPlaylist = (playlist) => async(dispatch) => {
-    console.log(playlist)
     // need to add csurf
     const response = await fetch(`/api/playlists/add`, {
     method: 'POST',
@@ -53,7 +61,6 @@ export const addAPlaylist = (playlist) => async(dispatch) => {
 }
 
 export const editAPlaylist = (playlist, playlistId) => async(dispatch) => {
-    console.log(playlist)
     // need to add csurf
     const response = await fetch(`/api/playlists/${playlistId}/edit`, {
     method: 'POST',
@@ -62,7 +69,7 @@ export const editAPlaylist = (playlist, playlistId) => async(dispatch) => {
   });
 
   const newPlaylist = await response.json();
-  dispatch(addPlaylist(newPlaylist));
+  dispatch(updatePlaylist(newPlaylist));
   return newPlaylist
 }
 
@@ -82,6 +89,7 @@ export const removePlaylist = (playlistId) => async (dispatch) => {
 
 const initialState = {};
 
+
 export default function playlistReducer(state = initialState, action) {
     switch (action.type) {
         case GET_PLAYLISTS:
@@ -93,7 +101,19 @@ export default function playlistReducer(state = initialState, action) {
         case GET_ONE_PLAYLIST:
             return { ...state };
         case ADD_A_PLAYLIST:
-            return { ...state };
+              {
+              return {
+                ...state,
+                [action.playlist]: action.playlist
+              };
+            }
+        case UPDATE_PLAYLIST:
+              {
+              return {
+                ...state,
+                [action.playlist]: action.playlist
+              };
+            }
         case DELETE_PLAYLIST:
             const deleteState = {...state}
             delete deleteState[action.playlistId]

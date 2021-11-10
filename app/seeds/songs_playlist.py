@@ -5,7 +5,7 @@ from sqlalchemy import insert
 
 
 def seed_saved_songs():
-    saved_song1 = SongPlaylist.insert().values(songId=1, playlistId=1)
+    saved_song1 = SongPlaylist.insert().values(songId=9, playlistId=1)
     # saved_song2 = SongPlaylist.insert().values(song_id=7, playlist_id=1)
     # saved_song3 = SongPlaylist.insert().values(song_id=23, playlist_id=1)
     # saved_song4 = SongPlaylist.insert().values(song_id=13, playlist_id=1)
@@ -33,5 +33,5 @@ def seed_saved_songs():
 # resets the auto incrementing primary key, CASCADE deletes any
 # dependent entities
 def undo_songs_playlists():
-    db.session.execute('TRUNCATE song_playlist RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE songs_playlists RESTART IDENTITY CASCADE;')
     db.session.commit()

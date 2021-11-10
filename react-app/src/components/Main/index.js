@@ -5,8 +5,12 @@ import ArtistTile from '../ArtistTile';
 import { getArtists } from '../../store/artist';
 import { getAlbums } from '../../store/album';
 import AlbumTile from '../AlbumTile';
-// import Player from '../MusicPlayer/index'
+
+
 import './main.css'
+
+import { NavLink } from 'react-router-dom';
+
 
 function MainPage() {
     const dispatch = useDispatch();
@@ -19,8 +23,8 @@ function MainPage() {
     },[dispatch])
 
     return (
+
       <>
-        {/* <Player /> */}
         <div className="main-page">
           <div className="main-page-container">
             {artists.map((artist) => (
@@ -34,6 +38,21 @@ function MainPage() {
         </div>
       </>
     );
+
+        <>
+        {artists.map((artist)=>(
+            <ArtistTile artist={artist}/>
+        ))}
+
+        {albums.map((album)=>(
+        <>
+            <AlbumTile album={album} />
+            <NavLink to={`/albums/${album.id}/reviews`}>reviews</NavLink>
+        </>
+        ))}
+        </>
+    )
+
 }
 
 

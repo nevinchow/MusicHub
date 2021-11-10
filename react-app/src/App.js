@@ -23,7 +23,7 @@ import AddPlaylists from './components/playlists/addPlaylist';
 import EditPlaylists from './components/playlists/editPlaylist';
 import Sidebar from './components/Sidebar/Sidebar';
 import PlaylistPage from './components/playlists/individualPlaylist';
-
+import ReviewsPage from './components/ReviewsPage'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -35,7 +35,7 @@ function App() {
       await dispatch(authenticate());
       setLoaded(true);
       dispatch(getSongs())
-      dispatch(getPlaylists())
+      // dispatch(getPlaylists())
     })();
   }, [dispatch]);
 
@@ -45,10 +45,13 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* <NavBar /> */}
+      <NavBar />
       <Sidebar />
 
       <Switch>
+        <Route path='/albums/:albumId/reviews' >
+          <ReviewsPage />
+        </Route>
         <Route path='/albums/:albumId' >
           <AlbumPage />
         </Route>

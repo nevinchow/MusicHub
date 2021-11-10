@@ -8,10 +8,15 @@ import { getPlaylists } from '../../store/playlists';
 
 
 import './Sidebar.css'
+import { getSongsForPlaylist } from '../../store/playlists_songs';
 
 function Sidebar({artist}) {
     const [addForm, openAddForm] = useState(false)
     const [loaded, setLoaded] = useState(false);
+    const [playlistId, setPlaylistId] = useState()
+
+
+
 
     const dispatch = useDispatch()
     
@@ -19,8 +24,10 @@ function Sidebar({artist}) {
     (async() => {
       await dispatch(getPlaylists())
       setLoaded(true);
+      dispatch(getSongsForPlaylist(playlistId))
+
     })();
-    }, [dispatch]);
+    }, [dispatch, playlistId]);
 
       if (!loaded) {
       return null;
@@ -43,11 +50,11 @@ function Sidebar({artist}) {
             <h2 className="sidebar-link" onClick={openAddPlaylist}>Create Playlist</h2>
             {addForm ? 
             <div className="add-playlist-container">
-                <AddPlaylists />
+                <AddPlaylists openAddForm={openAddForm}/>
             </div> :
             <></>}
             <div className="playlist-list">
-                <Playlists />
+                <Playlists setPlaylistId={setPlaylistId}/>
             </div>
             
         </div>
