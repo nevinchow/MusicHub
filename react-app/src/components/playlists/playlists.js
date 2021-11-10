@@ -6,7 +6,6 @@ import { Link, NavLink } from 'react-router-dom';
 import './playlists.css'
 
 
-
 const Playlists = () => {
   const playlists = useSelector(state => state.playlists)
   const dispatch = useDispatch()
@@ -18,7 +17,6 @@ const Playlists = () => {
     useEffect(() => {
       dispatch(getPlaylists())
   }, [dispatch]);
-
 
 
   return (

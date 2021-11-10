@@ -5,6 +5,7 @@ import ArtistTile from '../ArtistTile';
 import { getArtists } from '../../store/artist';
 import { getAlbums } from '../../store/album';
 import AlbumTile from '../AlbumTile';
+import Player from '../MusicPlayer/index'
 
 function MainPage() {
     const dispatch = useDispatch();
