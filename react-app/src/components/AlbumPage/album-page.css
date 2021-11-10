@@ -1,0 +1,19 @@
+.album-page-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 0 auto;
+}
+.album-page-middle {
+    width: 600px;
+
+}
+.album-art {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
+}
+
