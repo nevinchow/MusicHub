@@ -6,7 +6,11 @@ import artistReducer from './artist'
 import albumReducer from'./album'
 import songReducer from './songs'
 import playlistReducer from './playlists';
+
+import playlistSongsReducer from './playlists_songs';
+
 import reviewReducer from'./review'
+
 
 
 const rootReducer = combineReducers({
@@ -15,7 +19,11 @@ const rootReducer = combineReducers({
   album: albumReducer,
   playlists: playlistReducer,
   songs: songReducer,
+
+  playlist_songs: playlistSongsReducer
+
   review: reviewReducer
+
 })
   
 let enhancer;

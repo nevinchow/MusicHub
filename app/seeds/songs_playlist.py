@@ -11,7 +11,7 @@ def seed_saved_songs():
     # saved_song4 = SongPlaylist.insert().values(song_id=13, playlist_id=1)
     # saved_song5 = SongPlaylist.insert().values(song_id=43, playlist_id=1)
 
-    db.session.execute(saved_song1)
+    # db.session.execute(saved_song1)
     # db.session.execute(saved_song2)
     # db.session.execute(saved_song3)
     # db.session.execute(saved_song4)
@@ -33,5 +33,5 @@ def seed_saved_songs():
 # resets the auto incrementing primary key, CASCADE deletes any
 # dependent entities
 def undo_songs_playlists():
-    db.session.execute('TRUNCATE song_playlist RESTART IDENTITY CASCADE;')
+    db.session.execute('TRUNCATE songs_playlists RESTART IDENTITY CASCADE;')
     db.session.commit()

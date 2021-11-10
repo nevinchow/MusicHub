@@ -24,6 +24,8 @@ const deletePlaylist = (playlistId) => ({
 })
 
 
+
+
 export const getPlaylists = () => async (dispatch) => {
     const res = await fetch(`/api/playlists/`);
     const playlists = await res.json();
@@ -39,7 +41,6 @@ export const getAPlaylist = (playlistId) => async (dispatch) => {
 }
 
 export const addAPlaylist = (playlist) => async(dispatch) => {
-    console.log(playlist)
     // need to add csurf
     const response = await fetch(`/api/playlists/add`, {
     method: 'POST',
@@ -53,7 +54,6 @@ export const addAPlaylist = (playlist) => async(dispatch) => {
 }
 
 export const editAPlaylist = (playlist, playlistId) => async(dispatch) => {
-    console.log(playlist)
     // need to add csurf
     const response = await fetch(`/api/playlists/${playlistId}/edit`, {
     method: 'POST',
@@ -82,6 +82,7 @@ export const removePlaylist = (playlistId) => async (dispatch) => {
 
 const initialState = {};
 
+
 export default function playlistReducer(state = initialState, action) {
     switch (action.type) {
         case GET_PLAYLISTS:
@@ -93,7 +94,12 @@ export default function playlistReducer(state = initialState, action) {
         case GET_ONE_PLAYLIST:
             return { ...state };
         case ADD_A_PLAYLIST:
-            return { ...state };
+              {
+              return {
+                ...state,
+                [action.playlist]: action.playlist
+              };
+            }
         case DELETE_PLAYLIST:
             const deleteState = {...state}
             delete deleteState[action.playlistId]

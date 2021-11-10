@@ -48,6 +48,11 @@
 
 /* -- Display playlist ------------- */
 .playlist-list {
+    border-top:rgb(68, 68, 68) 1px solid;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .playlist-container {
@@ -71,12 +76,38 @@
 
 /* -- Playlist Page --------------------- */
 .playlist-page-container {
-    position: fixed;
+    position: absolute;
     left: 35%;
-    overflow:scroll;
+    overflow: scroll;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    /* padding: 5px; */
+    width: 65%;
+    height: 100%;
+    /* color: white;
+    background-color: #ffffff; */
+}
+
+.image-container {
+    width: 100%;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+    /* background-color:royalblue;
+    height: 30%; */
+}
+
+.playlist-details {
+    /* position: absolute; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.playlist-img {
+    max-width: 50%;
 }
 
 .playlist-options {
@@ -122,3 +153,30 @@
     width: 100%;
 } 
 
+/* -- Song display ---------------- */
+.song-display-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+.song-table {
+    width: 100%;
+
+}
+
+.album-thumbnail {
+    max-height: 50px;
+}
+
+.song-name-row {
+    display: flex;
+    flex-direction: column;
+}
+
+tr:hover {
+
+    
+}
