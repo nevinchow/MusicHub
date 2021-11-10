@@ -38,12 +38,19 @@ const PlaylistPage = () => {
   const [loaded, setLoaded] = useState(false);
   const songs = [];
   eachSongId.forEach((songId) => {
-    const oneSong = allSongs.find(aSong => songId === aSong.id)
-    songs.push(oneSong)
+    songId.forEach((song) => {
+      console.log("loop!!!!", song)
+      if(song.playlistId == +id) {
+        const oneSong = allSongs.find(aSong => song.songId === aSong.id)
+        songs.push(oneSong)
+      }
+      
+    })
+    
   })
   const dispatch = useDispatch()
   let trackNumber = 0;
-  
+  console.log('!!!!!!!!!!!', eachSongId)
 
  useEffect(() => {
     (async() => {
@@ -76,7 +83,6 @@ const PlaylistPage = () => {
   }
 
 
-  console.log(songId)
   const openSettings = async (e) => {
     setSongId(e.target.value)
     if(!settings) {
@@ -131,6 +137,7 @@ const PlaylistPage = () => {
               <div className="settings-menu">{settings ? <AddToPlaylist songId={songId}/> : <></>}</div>
 
               {songs.map((song) => {
+                console.log('foreach song map', song)
                 //turn duration to string
                 trackNumber++
                 const minutes = Math.floor(song.duration / 60)
