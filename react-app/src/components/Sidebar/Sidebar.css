@@ -1,9 +1,9 @@
 .sidebar-container {
     position: fixed;
     background-color: black;
-    display: none;
+    display: flex;
     flex-direction: column;
-    width: 0%;
+    width: 30%;
     height: 100%;
     align-items: center;
     left: 0;

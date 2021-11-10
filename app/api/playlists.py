@@ -1,5 +1,7 @@
 from flask import Blueprint, jsonify, request
+from sqlalchemy.sql.expression import null
 from app.forms.add_playlist_form import PlaylistForm
+from app.forms.add_song_to_playlist import AddToPlaylistForm
 # from flask_login import login_required
 from app.models import Playlist,db, SongPlaylist, Song
 from sqlalchemy import update
@@ -82,6 +84,27 @@ def playlist_songs(id):
     # print(query_songs_playlist)
     # return {'songs': [pair for pair in query_songs_playlist]}
 
+
+@playlist_routes.route('/songs/add', methods=['POST'])
+def add_playlist_songs():
+
+    if request.method == "POST":
+        form = AddToPlaylistForm()
+
+        form['csrf_token'].data = request.cookies['csrf_token']
+        if form.validate_on_submit():
+            playlistIdForm = form.playlistId.data
+            songIdForm = form.songId.data
+            saved_song1 = SongPlaylist.insert().values(songId=songIdForm, playlistId=playlistIdForm)
+            print('\n\n\n!!!!!!!!!!!!!!!!@*#^^$&#((@)@', songIdForm, playlistIdForm, '\n\n\n')
+            db.session.execute(saved_song1)
+            db.session.commit()
+
+
+            return {
+                'songId': songIdForm,
+                'playlistId': playlistIdForm,
+            }
 
 
             

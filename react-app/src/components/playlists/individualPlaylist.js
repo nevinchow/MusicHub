@@ -9,12 +9,15 @@ import { useHistory } from 'react-router';
 import './playlists.css'
 import { getAlbums } from '../../store/album';
 import { getArtists } from '../../store/artist';
+import AddToPlaylist from './addSongtoPlaylist';
 
 
 
 const PlaylistPage = () => {
   const {id} = useParams();
   const history = useHistory();
+  const [settings, setSettings] = useState(false)
+  const [songId, setSongId] = useState()
   const playlists = useSelector(state => state.playlists)
   const playlistSongs = useSelector(state => state.playlist_songs)
   const songsState = useSelector(state => state.songs)
@@ -73,6 +76,24 @@ const PlaylistPage = () => {
   }
 
 
+  console.log(songId)
+  const openSettings = async (e) => {
+    setSongId(e.target.value)
+    if(!settings) {
+      setSettings(true)
+    } else {
+      setSettings(false)
+    }
+  }
+
+  const closeSettings = async () => {
+    
+    if(settings) {
+      setSettings(false)
+    } 
+  }
+
+
   return (
     <>
     <div className="playlist-page-container">
@@ -103,9 +124,12 @@ const PlaylistPage = () => {
                 <td className="table-label">Title</td>
                 <td className="table-label">Album</td>
                 <td className="table-label">Duration</td>
+                <td className="table-label settings"></td>
               </tr>
             </thead>
             <tbody>
+              <div className="settings-menu">{settings ? <AddToPlaylist songId={songId}/> : <></>}</div>
+
               {songs.map((song) => {
                 //turn duration to string
                 trackNumber++
@@ -130,14 +154,15 @@ const PlaylistPage = () => {
                 const thisArtist = eachArtist.find(oneArtist => song.artistId === oneArtist.id)
 
                 return (
-                  <tr key={song.id}>
-                    <td >{trackNumber}</td>
-                    <td><img className="album-thumbnail" src={thisAlbum.imageURL} alt={thisAlbum.name}></img></td>
-                    <td><div className="song-name-row">
+                  <tr className="table-row" key={song.id}>
+                    <td className="cell track">{trackNumber}</td>
+                    <td className="cell"><img className="album-thumbnail" src={thisAlbum.imageURL} alt={thisAlbum.name}></img></td>
+                    <td className="cell"><div className="song-name-row">
                       <p>{song.name}</p>
-                      {thisArtist.name}</div></td>
-                    <td><Link to={`/albums/${thisAlbum.id}`}>{thisAlbum.title}</Link></td>
-                    <td>{trackTime}</td>
+                      <Link to={`/albums/${thisArtist.id}`}>{thisArtist.name}</Link></div></td>
+                    <td className="cell"><Link to={`/albums/${thisAlbum.id}`}>{thisAlbum.title}</Link></td>
+                    <td className="cell">{trackTime}</td>
+                    <td><button value={song.id} onClick={openSettings}>edit</button></td>
                   </tr>
                 )
               })}
