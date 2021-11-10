@@ -20,7 +20,7 @@ const rootReducer = combineReducers({
   playlists: playlistReducer,
   songs: songReducer,
 
-  playlist_songs: playlistSongsReducer
+  playlist_songs: playlistSongsReducer,
 
   review: reviewReducer
 
