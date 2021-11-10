@@ -22,25 +22,16 @@ const PlaylistPage = () => {
   Object.values(playlists).map((playlist) => (eachPlaylist.push(playlist)))
   Object.values(playlistSongs).map((songId) => (eachSongId.push(songId)))
   Object.values(songsState).map((song) => (allSongs.push(song)))
-
-
   const playlist = eachPlaylist.find(onePlaylist => +id === onePlaylist.id)
   const [editForm, openEditForm] = useState(false)
   const [loaded, setLoaded] = useState(false);
-
-  console.log(eachSongId)
   const songs = [];
-
   eachSongId.forEach((id) => {
     const oneSong = allSongs.find(aSong => +id === aSong.id)
     songs.push(oneSong)
   })
-
-  console.log(songs)
-
-
-
   const dispatch = useDispatch()
+  let trackNumber = 0;
   
 
  useEffect(() => {
@@ -75,7 +66,14 @@ const PlaylistPage = () => {
   return (
     <>
     <div className="playlist-page-container">
-        <img src={playlist.imageURL} alt={playlist.name}/>
+      <div className="image-container">
+        <img className="playlist-img" src={playlist.imageURL} alt={playlist.name}/>
+        <div className="playlist-details">
+          <h1>{playlist.name}</h1>
+          <p>{playlist.description}</p>
+        </div>
+        
+      </div>
         <div className="playlist-options">
           <h2 className="edit-button" onClick={editFormOpen}>Edit</h2>
           <h2 className="delete-button" onClick={deletePlaylist}>Delete</h2>
@@ -84,11 +82,10 @@ const PlaylistPage = () => {
         {editForm ? 
         <EditPlaylists /> :
         <></>}
-        <h1>{playlist.name}</h1>
-        <p>{playlist.description}</p>
+        
 
         <div className="song-display-container">
-          <table className="song-table-labels">
+          <table className="song-table">
             <thead>
               <tr>
                 <td className="table-label">#</td>
@@ -98,11 +95,12 @@ const PlaylistPage = () => {
             </thead>
             <tbody>
               {songs.map((song) => {
+                trackNumber++
                 return (
                   <tr>
-                    <td>{song.id}</td>
+                    <td>{trackNumber}</td>
                     <td>{song.name}</td>
-                    <td>{song.duration / 60}</td>
+                    <td>{(song.duration / 60)}</td>
                   </tr>
                 )
               })}

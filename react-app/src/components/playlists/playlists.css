@@ -71,12 +71,33 @@
 
 /* -- Playlist Page --------------------- */
 .playlist-page-container {
-    position: fixed;
+    position: absolute;
     left: 35%;
-    overflow:scroll;
+    overflow: scroll;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    padding: 5px;
+    width: 63%;
+}
+
+.image-container {
+    width: 100%;
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: center;
+}
+
+.playlist-details {
+    /* position: absolute; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.playlist-img {
+    max-width: 50%;
 }
 
 .playlist-options {
@@ -121,4 +142,18 @@
 .edit-form-input {
     width: 100%;
 } 
+
+/* -- Song display ---------------- */
+.song-display-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+}
+
+.song-table {
+    width: 100%;
+
+}
 
