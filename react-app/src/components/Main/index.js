@@ -19,17 +19,19 @@ function MainPage() {
     },[dispatch])
 
     return (
-        <>
+      <>
         <Player />
-        {artists.map((artist)=>(
-            <ArtistTile artist={artist}/>
-        ))}
+            <div className="main-page">
+                {artists.map((artist) => (
+                    <ArtistTile artist={artist} />
+                ))}
 
-        {albums.map((album)=>(
-            <AlbumTile album={album} />
-        ))}
-        </>
-    )
+                {albums.map((album) => (
+                    <AlbumTile album={album} />
+                ))}
+        </div>
+      </>
+    );
 }
 
 

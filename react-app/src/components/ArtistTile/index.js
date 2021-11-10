@@ -5,7 +5,7 @@ function ArtistTile({artist}) {
    
     return (
         <>
-        <p>{`${artist.name}`}</p>
+        <h2>{`${artist.name}`}</h2>
         <NavLink to={`/artist/${artist.id}`}><img className="album-art" src={`${artist.profileURL}`}></img></NavLink>
         </>
 
