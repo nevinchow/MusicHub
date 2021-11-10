@@ -12,7 +12,6 @@ function ReviewForm({reviewId}) {
     const [description, setDescription]=useState('')
     const[rating, setRating]=useState('')
     const {albumId}=useParams()
-    console.log(albumId)
     const sessionUser = useSelector(state => state.session.user);
     const userId=sessionUser.id
 

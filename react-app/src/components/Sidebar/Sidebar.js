@@ -8,10 +8,13 @@ import { getPlaylists } from '../../store/playlists';
 
 
 import './Sidebar.css'
+import { getSongsForPlaylist } from '../../store/playlists_songs';
 
 function Sidebar({artist}) {
     const [addForm, openAddForm] = useState(false)
     const [loaded, setLoaded] = useState(false);
+    const [playlistId, setPlaylistId] = useState()
+
 
 
 
@@ -21,8 +24,10 @@ function Sidebar({artist}) {
     (async() => {
       await dispatch(getPlaylists())
       setLoaded(true);
+      dispatch(getSongsForPlaylist(playlistId))
+
     })();
-    }, [dispatch]);
+    }, [dispatch, playlistId]);
 
       if (!loaded) {
       return null;
@@ -52,7 +57,7 @@ function Sidebar({artist}) {
             </div> :
             <></>}
             <div className="playlist-list">
-                <Playlists />
+                <Playlists setPlaylistId={setPlaylistId}/>
             </div>
             
         </div>

@@ -164,6 +164,7 @@
 
 .song-table {
     width: 100%;
+    border-collapse: collapse;
 
 }
 
@@ -176,7 +177,29 @@
     flex-direction: column;
 }
 
-tr:hover {
+.table-row {
+    border-bottom: 1px solid black;
+}
 
+.cell {
+    padding-bottom: 8px;
+    text-align:start;
+    vertical-align: center;
+}
+
+.track {
+    width: 5%;
+}
+
+.table-row:hover {
+    background-color: salmon;
     
+}
+
+/* -- ADD SONG MODAL ----------------- */
+.settings-menu {
+    position: absolute;
+    right: 5px;
+    background-color: slategray;
+    height: 100px;
 }

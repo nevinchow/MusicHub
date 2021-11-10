@@ -1,5 +1,7 @@
 from flask import Blueprint, jsonify, request
+from sqlalchemy.sql.expression import null
 from app.forms.add_playlist_form import PlaylistForm
+from app.forms.add_song_to_playlist import AddToPlaylistForm
 # from flask_login import login_required
 from app.models import Playlist,db, SongPlaylist, Song
 from sqlalchemy import update
@@ -67,21 +69,33 @@ def delete_playlist(id):
 
 @playlist_routes.route('/<int:id>/songs')
 def playlist_songs(id):
-    # songs = SongPlaylist.get(SongPlaylist.playlistId == id)
     songs = db.session.query(SongPlaylist).filter(SongPlaylist.c.playlistId == id)
     songIds = [song.songId for song in songs]
-    # playlistIds = [song.playlistId for song in songs]
-    # songsList = []
-    # for id in songIds:
-    #     oneSong = Song.query.get(id)
-    #     songsList.append(oneSong)
+    playlistIds = [song.playlistId for song in songs]
+    return {'songs': [{'playlistId':id, 'songId':song} for song in songIds]}
 
 
-    return {'songs': [song for song in songIds]}
-    # query_songs_playlist = Playlist.query.join(SongPlaylist).join(Song).filter((SongPlaylist.c.playlistId == Playlist.id) & (SongPlaylist.c.songId == Song.id))
-    # print(query_songs_playlist)
-    # return {'songs': [pair for pair in query_songs_playlist]}
 
+@playlist_routes.route('/songs/add', methods=['POST'])
+def add_playlist_songs():
+
+    if request.method == "POST":
+        form = AddToPlaylistForm()
+
+        form['csrf_token'].data = request.cookies['csrf_token']
+        if form.validate_on_submit():
+            playlistIdForm = form.playlistId.data
+            songIdForm = form.songId.data
+            saved_song1 = SongPlaylist.insert().values(songId=songIdForm, playlistId=playlistIdForm)
+            print('\n\n\n!!!!!!!!!!!!!!!!@*#^^$&#((@)@', songIdForm, playlistIdForm, '\n\n\n')
+            db.session.execute(saved_song1)
+            db.session.commit()
+
+
+            return {
+                'songId': songIdForm,
+                'playlistId': playlistIdForm,
+            }
 
 
             

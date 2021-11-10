@@ -17,6 +17,9 @@ seed_commands = AppGroup('seed')
 # Creates the `flask seed all` command
 @seed_commands.command('all')
 def seed():
+
+
+    seed_saved_songs()
     seed_users()
     seed_artists()
     seed_albums()

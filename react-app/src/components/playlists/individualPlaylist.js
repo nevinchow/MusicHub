@@ -9,12 +9,15 @@ import { useHistory } from 'react-router';
 import './playlists.css'
 import { getAlbums } from '../../store/album';
 import { getArtists } from '../../store/artist';
+import AddToPlaylist from './addSongtoPlaylist';
 
 
 
 const PlaylistPage = () => {
   const {id} = useParams();
   const history = useHistory();
+  const [settings, setSettings] = useState(false)
+  const [songId, setSongId] = useState()
   const playlists = useSelector(state => state.playlists)
   const playlistSongs = useSelector(state => state.playlist_songs)
   const songsState = useSelector(state => state.songs)
@@ -35,17 +38,20 @@ const PlaylistPage = () => {
   const [loaded, setLoaded] = useState(false);
   const songs = [];
   eachSongId.forEach((songId) => {
-    const oneSong = allSongs.find(aSong => songId === aSong.id)
-    songs.push(oneSong)
+    songId.forEach((song) => {
+      if(song.playlistId === +id) {
+        const oneSong = allSongs.find(aSong => song.songId === aSong.id)
+        songs.push(oneSong)
+      }
+    })
   })
+  console.log(songs, "why is it duplicating")
   const dispatch = useDispatch()
   let trackNumber = 0;
-  
 
  useEffect(() => {
     (async() => {
       await dispatch(getPlaylists())
-      await dispatch(getSongsForPlaylist(id))
       await dispatch(getAlbums())
       await dispatch(getArtists())
       setLoaded(true);
@@ -70,6 +76,24 @@ const PlaylistPage = () => {
               history.push(`/main`)
 
             }
+  }
+
+
+  const openSettings = async (e) => {
+    console.log("on click", songId)
+    setSongId(e.target.value)
+    if(!settings) {
+      setSettings(true)
+    } else {
+      setSettings(false)
+    }
+  }
+
+  const closeSettings = async () => {
+    
+    if(settings) {
+      setSettings(false)
+    } 
   }
 
 
@@ -103,10 +127,14 @@ const PlaylistPage = () => {
                 <td className="table-label">Title</td>
                 <td className="table-label">Album</td>
                 <td className="table-label">Duration</td>
+                <td className="table-label settings"></td>
               </tr>
             </thead>
             <tbody>
+              <div className="settings-menu">{settings ? <AddToPlaylist songId={songId}/> : <></>}</div>
+
               {songs.map((song) => {
+                console.log('mapping songs', song.name)
                 //turn duration to string
                 trackNumber++
                 const minutes = Math.floor(song.duration / 60)
@@ -130,14 +158,15 @@ const PlaylistPage = () => {
                 const thisArtist = eachArtist.find(oneArtist => song.artistId === oneArtist.id)
 
                 return (
-                  <tr key={song.id}>
-                    <td >{trackNumber}</td>
-                    <td><img className="album-thumbnail" src={thisAlbum.imageURL} alt={thisAlbum.name}></img></td>
-                    <td><div className="song-name-row">
+                  <tr className="table-row" key={song.id}>
+                    <td className="cell track">{trackNumber}</td>
+                    <td className="cell"><img className="album-thumbnail" src={thisAlbum.imageURL} alt={thisAlbum.name}></img></td>
+                    <td className="cell"><div className="song-name-row">
                       <p>{song.name}</p>
-                      {thisArtist.name}</div></td>
-                    <td><Link to={`/albums/${thisAlbum.id}`}>{thisAlbum.title}</Link></td>
-                    <td>{trackTime}</td>
+                      <Link to={`/albums/${thisArtist.id}`}>{thisArtist.name}</Link></div></td>
+                    <td className="cell"><Link to={`/albums/${thisAlbum.id}`}>{thisAlbum.title}</Link></td>
+                    <td className="cell">{trackTime}</td>
+                    <td><button value={song.id} onClick={openSettings}>edit</button></td>
                   </tr>
                 )
               })}
