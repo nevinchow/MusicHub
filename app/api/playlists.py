@@ -70,12 +70,13 @@ def playlist_songs(id):
     # songs = SongPlaylist.get(SongPlaylist.playlistId == id)
     songs = db.session.query(SongPlaylist).filter(SongPlaylist.c.playlistId == id)
     songIds = [song.songId for song in songs]
-    songsList = []
-    for id in songIds:
-        songs.append(Song.query.get(id))
+    # songsList = []
+    # for id in songIds:
+    #     oneSong = Song.query.get(id)
+    #     songsList.append(oneSong)
 
 
-    return {'songs': [song for song in songsList]}
+    return {'songs': [song for song in songIds]}
     # query_songs_playlist = Playlist.query.join(SongPlaylist).join(Song).filter((SongPlaylist.c.playlistId == Playlist.id) & (SongPlaylist.c.songId == Song.id))
     # print(query_songs_playlist)
     # return {'songs': [pair for pair in query_songs_playlist]}
