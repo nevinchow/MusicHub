@@ -27,6 +27,7 @@ function ArtistPage() {
         return (
           <>
             <div className="artist-page">
+              {/* <div className="artist-page-container"></div> */}
               <div className="artist-page-header">
                 <img
                   className="artist-header-img"

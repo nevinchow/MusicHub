@@ -5,7 +5,7 @@ import ArtistTile from '../ArtistTile';
 import { getArtists } from '../../store/artist';
 import { getAlbums } from '../../store/album';
 import AlbumTile from '../AlbumTile';
-import Player from '../MusicPlayer/index'
+// import Player from '../MusicPlayer/index'
 import './main.css'
 
 function MainPage() {
@@ -20,7 +20,7 @@ function MainPage() {
 
     return (
       <>
-        <Player />
+        {/* <Player /> */}
             <div className="main-page">
                 {artists.map((artist) => (
                     <ArtistTile artist={artist} />

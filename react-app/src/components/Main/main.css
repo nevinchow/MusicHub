@@ -5,6 +5,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
+    margin-left: 20%;
 }
 .album-art {
   width: 300px;
