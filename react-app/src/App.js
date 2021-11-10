@@ -86,7 +86,7 @@ function App() {
           <PlaylistPage/>
         </Route>
       </Switch>
-        <Player />
+        {/* <Player /> */}
     </BrowserRouter>
   );
 }

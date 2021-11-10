@@ -27,23 +27,23 @@ function ArtistPage() {
         return (
           <>
             <div className="artist-page">
-              {/* <div className="artist-page-container"></div> */}
-              <div className="artist-page-header">
-                <img
-                  className="artist-header-img"
-                  src={artist?.headerURL}
-                ></img>
-                <h2>{artist?.name}</h2>
-                <h2> {albums?.title}</h2>
-                <p> {albums?.year}</p>
-                Album
-              </div>
-              <div className="artist-page-middle">
+              <div className="artist-page-container">
+                <div className="artist-page-header">
+                  <img
+                    className="artist-header-img"
+                    src={artist?.headerURL}
+                  ></img>
+                  <h2>{artist?.name}</h2>
+                  <h2> {albums?.title}</h2>
+                  <p> {albums?.year}</p>
+                  Album
+                </div>
+                <div className="artist-page-middle">
                   <div className="artist-info">
-                <img className="album-art" src={albums?.imageURL}></img>
-                <p>{artist?.bio}</p>
-
+                    <img className="album-art" src={albums?.imageURL}></img>
+                    <p>{artist?.bio}</p>
                   </div>
+                </div>
               </div>
             </div>
           </>

@@ -1,11 +1,14 @@
 .artist-page {
+margin-left: 20%;
+}
+
+.artist-page-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
-
 }
 .artist-header-img {
     padding-top:100px;

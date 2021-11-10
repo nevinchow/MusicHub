@@ -21,14 +21,16 @@ function MainPage() {
     return (
       <>
         {/* <Player /> */}
-            <div className="main-page">
-                {artists.map((artist) => (
-                    <ArtistTile artist={artist} />
-                ))}
+        <div className="main-page">
+          <div className="main-page-container">
+            {artists.map((artist) => (
+              <ArtistTile artist={artist} />
+            ))}
 
-                {albums.map((album) => (
-                    <AlbumTile album={album} />
-                ))}
+            {albums.map((album) => (
+              <AlbumTile album={album} />
+            ))}
+          </div>
         </div>
       </>
     );
