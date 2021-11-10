@@ -8,6 +8,7 @@ import EditPlaylists from './editPlaylist';
 import { useHistory } from 'react-router';
 import './playlists.css'
 import { getAlbums } from '../../store/album';
+import { getArtists } from '../../store/artist';
 
 
 
@@ -18,20 +19,23 @@ const PlaylistPage = () => {
   const playlistSongs = useSelector(state => state.playlist_songs)
   const songsState = useSelector(state => state.songs)
   const albums = useSelector(state => state.album)
+  const artists = useSelector(state => state.artist)
   const eachPlaylist = []
   const eachSongId = []
   const eachAlbum = []
+  const eachArtist = []
   const allSongs = []
   Object.values(playlists).map((playlist) => (eachPlaylist.push(playlist)))
   Object.values(playlistSongs).map((songId) => (eachSongId.push(songId)))
   Object.values(songsState).map((song) => (allSongs.push(song)))
   Object.values(albums).map((album) => (eachAlbum.push(album)))
+  Object.values(artists).map((artist) => (eachArtist.push(artist)))
   const playlist = eachPlaylist.find(onePlaylist => +id === onePlaylist.id)
   const [editForm, openEditForm] = useState(false)
   const [loaded, setLoaded] = useState(false);
   const songs = [];
-  eachSongId.forEach((id) => {
-    const oneSong = allSongs.find(aSong => +id === aSong.id)
+  eachSongId.forEach((songId) => {
+    const oneSong = allSongs.find(aSong => songId === aSong.id)
     songs.push(oneSong)
   })
   const dispatch = useDispatch()
@@ -43,6 +47,7 @@ const PlaylistPage = () => {
       await dispatch(getPlaylists())
       await dispatch(getSongsForPlaylist(id))
       await dispatch(getAlbums())
+      await dispatch(getArtists())
       setLoaded(true);
     })();
   }, [dispatch]);
@@ -121,14 +126,17 @@ const PlaylistPage = () => {
                 }
                 //get album for song
                 const thisAlbum = eachAlbum.find(oneAlbum => song.albumId === oneAlbum.id)
-                console.log(thisAlbum)
+                //get artist for song
+                const thisArtist = eachArtist.find(oneArtist => song.artistId === oneArtist.id)
 
                 return (
-                  <tr>
-                    <td>{trackNumber}</td>
+                  <tr key={song.id}>
+                    <td >{trackNumber}</td>
                     <td><img className="album-thumbnail" src={thisAlbum.imageURL} alt={thisAlbum.name}></img></td>
-                    <td>{song.name}</td>
-                    <td>{thisAlbum.title}</td>
+                    <td><div className="song-name-row">
+                      <p>{song.name}</p>
+                      {thisArtist.name}</div></td>
+                    <td><Link to={`/albums/${thisAlbum.id}`}>{thisAlbum.title}</Link></td>
                     <td>{trackTime}</td>
                   </tr>
                 )

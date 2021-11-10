@@ -9,7 +9,6 @@ import './playlists.css'
 
 
 const AddPlaylists = ({openAddForm}) => {
-    console.log("Open add form", openAddForm)
     const dispatch = useDispatch()
     const [name, setName] = useState('');
     const [imageURL, setImageURL] = useState('');

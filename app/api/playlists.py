@@ -70,6 +70,7 @@ def playlist_songs(id):
     # songs = SongPlaylist.get(SongPlaylist.playlistId == id)
     songs = db.session.query(SongPlaylist).filter(SongPlaylist.c.playlistId == id)
     songIds = [song.songId for song in songs]
+    # playlistIds = [song.playlistId for song in songs]
     # songsList = []
     # for id in songIds:
     #     oneSong = Song.query.get(id)

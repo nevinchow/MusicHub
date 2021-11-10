@@ -41,7 +41,6 @@ export const getAPlaylist = (playlistId) => async (dispatch) => {
 }
 
 export const addAPlaylist = (playlist) => async(dispatch) => {
-    console.log(playlist)
     // need to add csurf
     const response = await fetch(`/api/playlists/add`, {
     method: 'POST',
@@ -55,7 +54,6 @@ export const addAPlaylist = (playlist) => async(dispatch) => {
 }
 
 export const editAPlaylist = (playlist, playlistId) => async(dispatch) => {
-    console.log(playlist)
     // need to add csurf
     const response = await fetch(`/api/playlists/${playlistId}/edit`, {
     method: 'POST',
