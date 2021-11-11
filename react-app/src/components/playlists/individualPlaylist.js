@@ -92,12 +92,38 @@ const PlaylistPage = () => {
     } 
   }
 
+  const getRandomAlbumImg = () => {
+    const images = []
+    songs.forEach(song => {
+      const thisAlbum = eachAlbum.find(oneAlbum => song.albumId === oneAlbum.id)
+
+
+      if(!images.includes(thisAlbum.imageURL)) {
+        images.push(thisAlbum.imageURL)
+      }
+    })
+    return images
+
+  }
+
+
 
   return (
     <>
     <div className="playlist-page-container">
       <div className="image-container">
-        <img className="playlist-img" src={playlist.imageURL} alt={playlist.name}/>
+        {songs.length ? 
+        
+        
+        <div className="image-collage">
+          <img className="playlist-img" src={getRandomAlbumImg()[0]} alt={playlist.name}/>
+          <img className="playlist-img" src={getRandomAlbumImg()[1]} alt={playlist.name}/>
+          <img className="playlist-img" src={getRandomAlbumImg()[2]} alt={playlist.name}/>
+          <img className="playlist-img" src={getRandomAlbumImg()[3]} alt={playlist.name}/> 
+        </div>
+      : <img className="default-playlist-img" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/No-album-art.png" alt="default playlist"></img>}
+        
+
         <div className="playlist-details">
           <h1>{playlist.name}</h1>
           <p>{playlist.description}</p>
