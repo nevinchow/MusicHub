@@ -4,7 +4,7 @@ import Song from './Song';
 
 const MusicQueue = () => {
     const dispatch = useDispatch();
-    const musicQueue = useSelector(state => state.musicQueue);
+    const songIDs = useSelector(state => state.musicQueue);
     
     const handleRemoveSong = song => {
         dispatch(removeSong(song));
@@ -12,16 +12,20 @@ const MusicQueue = () => {
     
     return (
         <div className="music-queue">
-        <h2>Music Queue</h2>
-        <ul>
-            {musicQueue.map(song => (
-            <Song
-                key={song.id}
-                song={song}
-                onRemoveSong={handleRemoveSong}
-            />
-            ))}
-        </ul>
+            <div className="Queue_info">Music Queue</div>
+            {songIDs.length ? (
+                <div id="song_display_info">
+                    <p id="song_display_info_title">Title</p>
+                    <p id="song_display_info_artist">Artist</p>
+                </div>
+            ) : null 
+            }
+            {songIDs.length ? (
+                songIDs.map((songId, idx) => (
+                    <div className="playlist"
+                ))
+            )}
+            
         </div>
     );
     }
