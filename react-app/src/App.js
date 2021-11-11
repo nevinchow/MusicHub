@@ -9,6 +9,8 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
+import Player from './components/MusicPlayer/index'
+
 
 import ArtistPage from './components/ArtistPage';
 import AlbumPage from './components/AlbumPage'
@@ -21,7 +23,7 @@ import AddPlaylists from './components/playlists/addPlaylist';
 import EditPlaylists from './components/playlists/editPlaylist';
 import Sidebar from './components/Sidebar/Sidebar';
 import PlaylistPage from './components/playlists/individualPlaylist';
-
+import ReviewsPage from './components/ReviewsPage'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -33,7 +35,7 @@ function App() {
       await dispatch(authenticate());
       setLoaded(true);
       dispatch(getSongs())
-      dispatch(getPlaylists())
+      // dispatch(getPlaylists())
     })();
   }, [dispatch]);
 
@@ -43,10 +45,13 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* <NavBar /> */}
+      <NavBar />
       <Sidebar />
 
       <Switch>
+        <Route path='/albums/:albumId/reviews' >
+          <ReviewsPage />
+        </Route>
         <Route path='/albums/:albumId' >
           <AlbumPage />
         </Route>
@@ -84,6 +89,7 @@ function App() {
           <PlaylistPage/>
         </Route>
       </Switch>
+        <Player />
     </BrowserRouter>
   );
 }

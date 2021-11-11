@@ -8,7 +8,7 @@ import './playlists.css'
 
 
 
-const AddPlaylists = () => {
+const AddPlaylists = ({openAddForm}) => {
     const dispatch = useDispatch()
     const [name, setName] = useState('');
     const [imageURL, setImageURL] = useState('');
@@ -42,6 +42,7 @@ const AddPlaylists = () => {
             setValidationErrors([]);
             const added = await dispatch(addAPlaylist(createdPlaylist));
             if(added) {
+              openAddForm(false)
               history.push(`/playlists/${added.id}`)
             }
             

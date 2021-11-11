@@ -6,9 +6,11 @@ import { Link, NavLink } from 'react-router-dom';
 import './playlists.css'
 
 
+const Playlists = ({setPlaylistId}) => {
 
-const Playlists = () => {
   const playlists = useSelector(state => state.playlists)
+  
+  // const [playlistId, setPlaylistId] = useState()
   const dispatch = useDispatch()
 
   const eachPlaylist = []
@@ -19,6 +21,8 @@ const Playlists = () => {
       dispatch(getPlaylists())
   }, [dispatch]);
 
+  const setId = (e) => {
+    setPlaylistId(e.target.id)}
 
 
   return (
@@ -30,7 +34,7 @@ const Playlists = () => {
         {eachPlaylist.map((playlist) => {
             return (
                 <div key={playlist.id} className="playlist container">
-                    <Link to={`/playlists/${playlist.id}`}><h2 className="sidebar-link playlist-name">{playlist.name}</h2></Link>
+                    <Link to={`/playlists/${playlist.id}`} onClick={setId}><h2 id={playlist.id} className="sidebar-link playlist-name">{playlist.name}</h2></Link>
                     {/* <img className="image" src={playlist.imageURL} alt={playlist.name}></img> */}
                     {/* <p className="playlist-description">{playlist.description}</p> */}
                 </div>
