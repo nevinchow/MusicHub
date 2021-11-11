@@ -54,6 +54,7 @@ const PlaylistPage = () => {
       await dispatch(getPlaylists())
       await dispatch(getAlbums())
       await dispatch(getArtists())
+      dispatch(getSongsForPlaylist(id))
       setLoaded(true);
     })();
   }, [dispatch]);
