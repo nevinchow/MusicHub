@@ -125,8 +125,8 @@ const PlaylistPage = () => {
         
 
         <div className="playlist-details">
-          <h1>{playlist.name}</h1>
-          <p>{playlist.description}</p>
+          <h1>{playlists[playlist].name}</h1>
+          <p>{playlists[playlist].description}</p>
         </div>
         
       </div>
@@ -185,8 +185,8 @@ const PlaylistPage = () => {
                     <td className="cell"><img className="album-thumbnail" src={albums[thisAlbum].imageURL} alt={albums[thisAlbum].name}></img></td>
                     <td className="cell"><div className="song-name-row">
                       <p>{song.name}</p>
-                      <Link to={`/albums/${artists[thisArtist].id}`}>{artists[thisArtist].name}</Link></div></td>
-                    <td className="cell"><Link to={`/albums/${thisAlbum.id}`}>{albums[thisAlbum].title}</Link></td>
+                      <Link to={`/artist/${artists[thisArtist].id}`}>{artists[thisArtist].name}</Link></div></td>
+                    <td className="cell"><Link to={`/albums/${albums[thisAlbum].id}`}>{albums[thisAlbum].title}</Link></td>
                     <td className="cell">{trackTime}</td>
                     <td><button value={song.id} onClick={openSettings}>edit</button></td>
                   </tr>
