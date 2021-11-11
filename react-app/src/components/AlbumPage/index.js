@@ -5,22 +5,38 @@ import { getArtists, getSingleArtist } from '../../store/artist';
 import { getAlbums, getAlbumsByArtistId, getSingleAlbum } from '../../store/album';
 import { useParams } from 'react-router';
 import './album-page.css';
+import SongTile from '../songs/Song';
+import { getSongs } from '../../store/songs';
+
 
 
 function AlbumPage() {
+  const dispatch = useDispatch()
     const {albumId}=useParams()
     const album=useSelector(state=>state.album[albumId])
     const currentArtistId=album?.artistId
     const currentArtist=useSelector(state=>state.artist[currentArtistId])
-    const dispatch = useDispatch()
+    const songs=useSelector(state=>state.songs)
+    const songsArray=Object.values(songs)
+    const filteredSongArray=[]
 
 
     useEffect(()=>{
         dispatch(getSingleAlbum(albumId))
         dispatch(getArtists())
+        dispatch(getSongs())
 
     },[dispatch])
 
+    for (let i=0; i<songsArray.length; i++) {
+      let song=songsArray[i]
+      
+      if (song.albumId== +albumId) {
+        filteredSongArray.push(song)
+      }
+      
+      console.log('!!!!!!!!!!!',filteredSongArray)
+    }
     return (
       <>
         <div className="album-page-container">
@@ -31,6 +47,9 @@ function AlbumPage() {
               <h2>{currentArtist?.name}</h2>
             </NavLink>
             <img className="album-art" src={album?.imageURL}></img>
+            {filteredSongArray.map((song)=>(
+              <SongTile song={song}/>
+            ))}
           </div>
         </div>
       </>

@@ -5,6 +5,7 @@ import AddPlaylists from '../playlists/addPlaylist';
 import Playlists from '../playlists/playlists';
 import { useDispatch } from 'react-redux';
 import { getPlaylists } from '../../store/playlists';
+import { NavLink } from "react-router-dom";
 
 
 import './Sidebar.css'
@@ -47,6 +48,8 @@ function Sidebar({artist}) {
         <div className="sidebar-container">
             <Link className="sidebar-link" to='/main' exact={true}>
             <h2 className="sidebar-link">Home</h2> </Link>
+            <NavLink to='/search'> 
+            Search! </NavLink>
             <h2 className="sidebar-link" onClick={openAddPlaylist}>Create Playlist</h2>
             {addForm ? 
             <div className="add-playlist-container">

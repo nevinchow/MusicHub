@@ -13,48 +13,40 @@ import { NavLink } from 'react-router-dom';
 
 
 function MainPage() {
-    const dispatch = useDispatch();
-    const artists=useSelector((state)=>Object.values(state.artist))
-    const albums=useSelector((state)=>Object.values(state.album))
-    
-    useEffect(()=>{
-        dispatch(getArtists())
-        dispatch(getAlbums())
-    },[dispatch])
+  const dispatch = useDispatch();
+  const artists=useSelector((state)=>Object.values(state.artist))
+  const albums=useSelector((state)=>Object.values(state.album))
 
-    return (
+  useEffect(()=>{
+      dispatch(getArtists())
+      dispatch(getAlbums())
+  },[dispatch])
 
-      <>
-        <div className="main-page">
-          <div className="main-page-container">
-            {artists.map((artist) => (
-              <ArtistTile artist={artist} />
-            ))}
+  return (
 
-            {albums.map((album) => (
-              <AlbumTile album={album} />
-            ))}
-          </div>
-        </div>
-      </>
-    );
-
-        <>
+    <>
+      <div className="main-page">
+        <div className="main-page-container">
         {artists.map((artist)=>(
-            <ArtistTile artist={artist}/>
-        ))}
+          <ArtistTile artist={artist}/>
+      ))}
 
-        {albums.map((album)=>(
-        <>
-            <AlbumTile album={album} />
-            <NavLink to={`/albums/${album.id}/reviews`}>reviews</NavLink>
-        </>
-        ))}
-        </>
-    )
+      {albums.map((album)=>(
+      <>
+          <AlbumTile album={album} />
+          <NavLink to={`/albums/${album.id}/reviews`}>reviews</NavLink>
+      </>
+      ))}
+        </div>
+      </div>
+    </>
+  );
 
 }
 
 
 
 export default MainPage
+
+
+

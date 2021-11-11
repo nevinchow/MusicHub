@@ -24,6 +24,8 @@ import EditPlaylists from './components/playlists/editPlaylist';
 import Sidebar from './components/Sidebar/Sidebar';
 import PlaylistPage from './components/playlists/individualPlaylist';
 import ReviewsPage from './components/ReviewsPage'
+import SearchResults from './components/SearchPage/SearchResults';
+import SearchBar from './components/SearchPage/SearchBar';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -49,6 +51,10 @@ function App() {
       <Sidebar />
 
       <Switch>
+        <Route path='/search' >
+          <SearchBar/>
+          
+        </Route>
         <Route path='/albums/:albumId/reviews' >
           <ReviewsPage />
         </Route>
