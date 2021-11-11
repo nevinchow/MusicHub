@@ -5,7 +5,9 @@ import ArtistTile from '../ArtistTile';
 import { getArtists } from '../../store/artist';
 import { getAlbums } from '../../store/album';
 import AlbumTile from '../AlbumTile';
-
+import MusicQueue from '../MusicQueue';
+import Song from '../songs/Song'
+import {removeSong, addOneSong, addNextSong} from "../../store/musicQueue"
 
 import './main.css'
 
@@ -34,6 +36,7 @@ function MainPage() {
             {albums.map((album) => (
               <AlbumTile album={album} />
             ))}
+            <MusicQueue />
           </div>
         </div>
       </>

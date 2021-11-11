@@ -1,8 +1,9 @@
 import {useDispatch, useSelector} from 'react-redux';
 import {removeSong} from '../store/musicQueue';
-import Song from './Song';
+import { v4 as uuidv4 } from 'uuid';
+import Song from './songs/Song';
 
-export const MusicQueue = () => {
+const MusicQueue = () => {
     const dispatch = useDispatch();
     const songIDs = useSelector(state => state.musicQueue);
     
@@ -37,3 +38,4 @@ export const MusicQueue = () => {
         </div>
     );
     }
+    export default MusicQueue;
