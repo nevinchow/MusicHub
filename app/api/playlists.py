@@ -7,9 +7,6 @@ from app.models import Playlist,db, SongPlaylist, Song
 from sqlalchemy import update
 
 
-
-
-
 playlist_routes = Blueprint('playlist_routes', __name__)
 
 
