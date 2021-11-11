@@ -120,7 +120,7 @@ export default function playlistReducer(state = initialState, action) {
                 playlist.imageURL = action.playlist.imageURL
               }
             })
-            return {...state, ...updatePlaylistState}
+            return {...updatePlaylistState}
 
         case DELETE_PLAYLIST:
             const deleteState = {...state}
