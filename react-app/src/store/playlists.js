@@ -70,7 +70,6 @@ export const editAPlaylist = (playlist, playlistId) => async(dispatch) => {
 
   const newPlaylist = await response.json();
   dispatch(updatePlaylist(newPlaylist));
-  console.log('new playlist in store', newPlaylist)
   return newPlaylist
 }
 
@@ -84,8 +83,12 @@ export const removePlaylist = (playlistId) => async (dispatch) => {
 
   if(response.ok) {
     const playlist = await response.json();
-    dispatch(deletePlaylist(playlist.playlistId));
+    dispatch(deletePlaylist(playlistId));
   }
+    console.log(playlistId)
+    return playlistId
+
+
 }
 
 const initialState = {};
@@ -105,12 +108,11 @@ export default function playlistReducer(state = initialState, action) {
               {
               return {
                 ...state,
-                [action.playlist]: action.playlist
+                // [action.playlist]: action.playlist
               };
             }
         case UPDATE_PLAYLIST:
             const updatePlaylistState = {...state}
-            console.log(updatePlaylistState, 'playlist state')
             Object.values(updatePlaylistState).forEach((playlist) => {
               if(playlist.id === action.playlist.id) {
                 playlist.name = action.playlist.name
@@ -118,13 +120,13 @@ export default function playlistReducer(state = initialState, action) {
                 playlist.imageURL = action.playlist.imageURL
               }
             })
-            console.log('should be updated', updatePlaylistState)
             return {...state, ...updatePlaylistState}
 
         case DELETE_PLAYLIST:
             const deleteState = {...state}
             delete deleteState[action.playlistId]
-            return { ...deleteState };
+            console.log(action, 'playlist Id')
+            return Object.values(deleteState).filter(playlist => playlist.id !== action.playlistId)
         default:
             return state;
     }
