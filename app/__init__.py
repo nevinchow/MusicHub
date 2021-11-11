@@ -16,9 +16,11 @@ from .api.auth_routes import auth_routes
 from .api.main_routes import main_routes
 from .api.artist_routes import artist_routes
 from .api.album_routes import album_routes
+from .api.review_routes import review_routes
 
 from .api.songs import song_routes
 from .api.playlists import playlist_routes
+
 
 
 from .seeds import seed_commands
@@ -48,6 +50,7 @@ app.register_blueprint(song_routes, url_prefix='/api/songs')
 app.register_blueprint(playlist_routes, url_prefix='/api/playlists')
 app.register_blueprint(artist_routes, url_prefix='/api/artist')
 app.register_blueprint(album_routes, url_prefix='/api/albums')
+app.register_blueprint(review_routes, url_prefix='/api/reviews')
 db.init_app(app)
 Migrate(app, db)
 

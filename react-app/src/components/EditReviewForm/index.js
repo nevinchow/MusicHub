@@ -1,29 +1,30 @@
-import React, { useState, useEffect } from "react";
-import addReview from '../../store/review'
-import { useSelector, useDispatch } from "react-redux";
+import React, { useEffect }  from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useParams } from "react-router";
-import { useHistory } from 'react-router';
-import { createReview } from "../../store/review";
+import { editReview } from "../../store/review";
 
-
-
-function ReviewForm({reviewId}) {
+const EditReview=({reviewId})=>{
     const dispatch = useDispatch()
     const [description, setDescription]=useState('')
     const[rating, setRating]=useState('')
+    const reviews=useSelector(state=>state.review)
+    const currentReview=reviews[reviewId]
     const {albumId}=useParams()
     const sessionUser = useSelector(state => state.session.user);
     const userId=sessionUser.id
 
     const updateDescription=(e)=>setDescription(e.target.value)
     const updateRating=(e)=>setRating(e.target.value)
-
     const history = useHistory();
-    
+
     const handleSubmit=async (e)=>{
         e.preventDefault();
         
         const payload={
+            reviewId,
             albumId,
             description,
             rating,
@@ -31,13 +32,14 @@ function ReviewForm({reviewId}) {
             
         }
 
-        const added=await dispatch(createReview(payload))
+        const added=await dispatch(editReview(payload))
         if(added) {
             history.push(`/albums/${added.albumId}/reviews`)
         }
 
 
     }
+
     return (
         <div >
             <form onSubmit={handleSubmit}>
@@ -62,9 +64,7 @@ function ReviewForm({reviewId}) {
             </form>
         </div>
     )
-
-    
 }
 
 
-export default ReviewForm
+export default EditReview
