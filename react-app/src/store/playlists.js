@@ -85,7 +85,6 @@ export const removePlaylist = (playlistId) => async (dispatch) => {
     const playlist = await response.json();
     dispatch(deletePlaylist(playlistId));
   }
-    console.log(playlistId)
     return playlistId
 
 
@@ -98,10 +97,7 @@ export default function playlistReducer(state = initialState, action) {
     switch (action.type) {
         case GET_PLAYLISTS:
             const allPlaylists = {...state}
-            console.log('GET ACTION PLAYLISTS!!', action.playlists.playlists)
-
             action.playlists.playlists.forEach(playlist => {
-              console.log('GET ACTION PLAYLISTS', playlist)
                 allPlaylists[playlist.id] = playlist
             })
             return {...allPlaylists, ...state}
@@ -125,7 +121,6 @@ export default function playlistReducer(state = initialState, action) {
         case DELETE_PLAYLIST:
             const deleteState = {...state}
             delete deleteState[action.playlistId]
-            console.log(action, 'playlist Id')
             return deleteState
         default:
             return state;

@@ -18,7 +18,6 @@ const Playlists = ({setPlaylistId}) => {
   return (
     <>
         {Object.keys(playlists).map((key) => {
-          console.log(Object.keys(playlists))
             return (
                 <div key={playlists[key].id} className="playlist container">
                     <Link to={`/playlists/${playlists[key].id}`}><h2 id={playlists[key].id} className="sidebar-link playlist-name">{playlists[key].name}</h2></Link>

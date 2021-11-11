@@ -16,51 +16,54 @@ import AddToPlaylist from './addSongtoPlaylist';
 const PlaylistPage = () => {
   const {id} = useParams();
   const history = useHistory();
+  const dispatch = useDispatch()
   const [settings, setSettings] = useState(false)
   const [songId, setSongId] = useState()
+  const [editForm, openEditForm] = useState(false)
+  const [loaded, setLoaded] = useState(false);
+
   const playlists = useSelector(state => state.playlists)
-  const playlistSongs = useSelector(state => state.playlist_songs)
+  const playlist = Object.keys(playlists).find(onePlaylist => +id === +onePlaylist)
+  const playlistSongs = useSelector(state => state?.playlist_songs)
   const songsState = useSelector(state => state.songs)
   const albums = useSelector(state => state.album)
   const artists = useSelector(state => state.artist)
-  const eachPlaylist = []
-  const eachSongId = []
-  const eachAlbum = []
-  const eachArtist = []
-  const allSongs = []
-  Object.values(playlists).map((playlist) => (eachPlaylist.push(playlist)))
-  Object.values(playlistSongs).map((songId) => (eachSongId.push(songId)))
-  Object.values(songsState).map((song) => (allSongs.push(song)))
-  Object.values(albums).map((album) => (eachAlbum.push(album)))
-  Object.values(artists).map((artist) => (eachArtist.push(artist)))
-  const playlist = eachPlaylist.find(onePlaylist => +id === onePlaylist.id)
-  const [editForm, openEditForm] = useState(false)
-  const [loaded, setLoaded] = useState(false);
+  // const eachSongId = []
   const songs = [];
-  eachSongId.forEach((songId) => {
-    songId.forEach((song) => {
-      if(song.playlistId === +id) {
-        const oneSong = allSongs.find(aSong => song.songId === aSong.id)
-        songs.push(oneSong)
-      }
-    })
-  })
-  const dispatch = useDispatch()
-  let trackNumber = 0;
+
+  // Object.values(playlistSongs).map((songId) => (eachSongId.push(songId)))
+  console.log(playlistSongs)
+
+  
+
+
 
  useEffect(() => {
     (async() => {
       await dispatch(getPlaylists())
       await dispatch(getAlbums())
       await dispatch(getArtists())
-      dispatch(getSongsForPlaylist(id))
+      await dispatch(getSongsForPlaylist(id))
       setLoaded(true);
     })();
-  }, [dispatch]);
+  }, [dispatch, id]);
 
     if (!loaded) {
     return null;
   }
+
+  playlistSongs.forEach((songId) => {
+    console.log('for each', songId)
+    songId.forEach((song) => {
+      console.log(song, 'nested array song')
+      if(song.playlistId === +id) {
+        const oneSong = Object.keys(songsState).find(aSong => song.songId === +aSong)
+        songs.push(songsState[oneSong])
+      }
+    })
+  })
+
+  let trackNumber = 0;
 
   const editFormOpen = () => {
       if(!editForm) {
@@ -95,10 +98,9 @@ const PlaylistPage = () => {
   const getRandomAlbumImg = () => {
     const images = []
     songs.forEach(song => {
-      const thisAlbum = eachAlbum.find(oneAlbum => song.albumId === oneAlbum.id)
-
-      if(!images.includes(thisAlbum.imageURL)) {
-        images.push(thisAlbum.imageURL)
+      const thisAlbum = Object.keys(albums).find(oneAlbum => song.albumId === +oneAlbum)
+      if(!images.includes(albums[thisAlbum].imageURL)) {
+        images.push(albums[thisAlbum].imageURL)
       }
       
       
@@ -123,10 +125,10 @@ const PlaylistPage = () => {
         
         
         <div className="image-collage">
-          <img className="playlist-img" src={getRandomAlbumImg()[0]} alt={playlist.name}/>
-          <img className="playlist-img" src={getRandomAlbumImg()[1]} alt={playlist.name}/>
-          <img className="playlist-img" src={getRandomAlbumImg()[2]} alt={playlist.name}/>
-          <img className="playlist-img" src={getRandomAlbumImg()[3]} alt={playlist.name}/> 
+          <img className="playlist-img" src={getRandomAlbumImg()[0]} alt={playlists[playlist].name}/>
+          <img className="playlist-img" src={getRandomAlbumImg()[1]} alt={playlists[playlist].name}/>
+          <img className="playlist-img" src={getRandomAlbumImg()[2]} alt={playlists[playlist].name}/>
+          <img className="playlist-img" src={getRandomAlbumImg()[3]} alt={playlists[playlist].name}/> 
         </div>
       : <img className="default-playlist-img" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/No-album-art.png" alt="default playlist"></img>}
         
@@ -181,18 +183,19 @@ const PlaylistPage = () => {
 
                 }
                 //get album for song
-                const thisAlbum = eachAlbum.find(oneAlbum => song.albumId === oneAlbum.id)
+                const thisAlbum = Object.keys(albums).find(oneAlbum => song.albumId === +oneAlbum)
+
                 //get artist for song
-                const thisArtist = eachArtist.find(oneArtist => song.artistId === oneArtist.id)
+                const thisArtist = Object.keys(artists).find(oneArtist => song.artistId === +oneArtist)
 
                 return (
                   <tr className="table-row" key={song.id}>
                     <td className="cell track">{trackNumber}</td>
-                    <td className="cell"><img className="album-thumbnail" src={thisAlbum.imageURL} alt={thisAlbum.name}></img></td>
+                    <td className="cell"><img className="album-thumbnail" src={albums[thisAlbum].imageURL} alt={albums[thisAlbum].name}></img></td>
                     <td className="cell"><div className="song-name-row">
                       <p>{song.name}</p>
-                      <Link to={`/albums/${thisArtist.id}`}>{thisArtist.name}</Link></div></td>
-                    <td className="cell"><Link to={`/albums/${thisAlbum.id}`}>{thisAlbum.title}</Link></td>
+                      <Link to={`/albums/${artists[thisArtist].id}`}>{artists[thisArtist].name}</Link></div></td>
+                    <td className="cell"><Link to={`/albums/${thisAlbum.id}`}>{albums[thisAlbum].title}</Link></td>
                     <td className="cell">{trackTime}</td>
                     <td><button value={song.id} onClick={openSettings}>edit</button></td>
                   </tr>

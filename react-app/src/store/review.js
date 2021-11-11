@@ -24,7 +24,6 @@ const deleteReview=(reviewId)=>({
 export const getReviewsByAlbumId=(id)=>async(dispatch)=>{
     const response = await fetch(`/api/albums/${id}/reviews`)
     const reviews=await response.json()
-    console.log("@@@@@@@@@@@", reviews)
     dispatch(loadReviews(reviews.reviews))
   }
 
@@ -74,7 +73,6 @@ export const removeReview=(reviewId)=>async(dispatch)=>{
 
     if(response.ok) {
         const review = await response.json();
-        console.log(review)
         dispatch(deleteReview(review.id));
       }
 }
