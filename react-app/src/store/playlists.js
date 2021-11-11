@@ -83,8 +83,11 @@ export const removePlaylist = (playlistId) => async (dispatch) => {
 
   if(response.ok) {
     const playlist = await response.json();
-    dispatch(deletePlaylist(playlist.playlistId));
+    dispatch(deletePlaylist(playlistId));
   }
+    return playlistId
+
+
 }
 
 const initialState = {};
@@ -101,23 +104,24 @@ export default function playlistReducer(state = initialState, action) {
         case GET_ONE_PLAYLIST:
             return { ...state };
         case ADD_A_PLAYLIST:
-              {
-              return {
-                ...state,
-                [action.playlist]: action.playlist
-              };
-            }
+          const newState = {...state}
+            newState[action.playlist.id] = action.playlist
+            return newState
         case UPDATE_PLAYLIST:
-              {
-              return {
-                ...state,
-                [action.playlist]: action.playlist
-              };
-            }
+            const updatePlaylistState = {...state}
+            Object.values(updatePlaylistState).forEach((playlist) => {
+              if(playlist.id === action.playlist.id) {
+                playlist.name = action.playlist.name
+                playlist.description = action.playlist.description
+                playlist.imageURL = action.playlist.imageURL
+              }
+            })
+            return {...updatePlaylistState}
+
         case DELETE_PLAYLIST:
             const deleteState = {...state}
             delete deleteState[action.playlistId]
-            return { ...deleteState };
+            return deleteState
         default:
             return state;
     }

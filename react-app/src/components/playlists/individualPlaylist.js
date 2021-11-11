@@ -16,58 +16,43 @@ import AddToPlaylist from './addSongtoPlaylist';
 const PlaylistPage = () => {
   const {id} = useParams();
   const history = useHistory();
+  const dispatch = useDispatch()
   const [settings, setSettings] = useState(false)
   const [songId, setSongId] = useState()
+  const [editForm, openEditForm] = useState(false)
+  const [loaded, setLoaded] = useState(false);
+
   const playlists = useSelector(state => state.playlists)
-  const playlistSongs = useSelector(state => state.playlist_songs)
+  const playlist = Object.keys(playlists).find(onePlaylist => +id === +onePlaylist)
+  const playlistSongs = useSelector(state => state?.playlist_songs)
   const songsState = useSelector(state => state.songs)
   const albums = useSelector(state => state.album)
   const artists = useSelector(state => state.artist)
-  const eachPlaylist = []
-  const eachSongId = []
-  const eachAlbum = []
-  const eachArtist = []
-  const allSongs = []
-  Object.values(playlists).map((playlist) => (eachPlaylist.push(playlist)))
-  Object.values(playlistSongs).map((songId) => (eachSongId.push(songId)))
-  Object.values(songsState).map((song) => (allSongs.push(song)))
-  Object.values(albums).map((album) => (eachAlbum.push(album)))
-  Object.values(artists).map((artist) => (eachArtist.push(artist)))
-  const playlist = eachPlaylist.find(onePlaylist => +id === onePlaylist.id)
-  const [editForm, openEditForm] = useState(false)
-  const [loaded, setLoaded] = useState(false);
   const songs = [];
-  eachSongId.forEach((songId) => {
-    // console.log(songId, 'songId in eachsong loop')
-    songId.forEach((song) => {
-      // console.log(song, 'song in songId loop')
-      if(song.playlistId === +id) {
-        // console.log('in conditional', song.songId)
-        const oneSong = allSongs.find(aSong => {
-          console.log(aSong, 'a song!!!!!!!!!!!!!')
-          if (song.songId === +aSong.id) {
-            // console.log('match found')
-          }})
-        songs.push(oneSong)
-      }
-    })
-  })
-  console.log(songs, "why is it duplicating")
-  const dispatch = useDispatch()
-  let trackNumber = 0;
-
  useEffect(() => {
     (async() => {
       await dispatch(getPlaylists())
       await dispatch(getAlbums())
       await dispatch(getArtists())
+      await dispatch(getSongsForPlaylist(id))
       setLoaded(true);
     })();
-  }, [dispatch]);
+  }, [dispatch, id]);
 
     if (!loaded) {
     return null;
   }
+
+  playlistSongs.forEach((songId) => {
+    songId.forEach((song) => {
+      if(song.playlistId === +id) {
+        const oneSong = Object.keys(songsState).find(aSong => song.songId === +aSong)
+        songs.push(songsState[oneSong])
+      }
+    })
+  })
+
+  let trackNumber = 0;
 
   const editFormOpen = () => {
       if(!editForm) {
@@ -78,16 +63,12 @@ const PlaylistPage = () => {
   }
 
   const deletePlaylist = async () => {
-    const deleted = await dispatch(removePlaylist(id));
-            if(!deleted) {
-              history.push(`/main`)
-
-            }
+    dispatch(removePlaylist(id));
+    history.push(`/main`)
   }
 
 
   const openSettings = async (e) => {
-    console.log("on click", songId)
     setSongId(e.target.value)
     if(!settings) {
       setSettings(true)
@@ -103,15 +84,47 @@ const PlaylistPage = () => {
     } 
   }
 
+  const getRandomAlbumImg = () => {
+    const images = []
+    songs.forEach(song => {
+      const thisAlbum = Object.keys(albums).find(oneAlbum => song.albumId === +oneAlbum)
+      if(!images.includes(albums[thisAlbum].imageURL)) {
+        images.push(albums[thisAlbum].imageURL)
+      }
+      
+      
+
+    })
+
+    while(images.length < 5) {
+    images.push('https://upload.wikimedia.org/wikipedia/commons/3/3c/No-album-art.png')
+    }
+    
+    return images
+
+  }
+
+
 
   return (
     <>
     <div className="playlist-page-container">
       <div className="image-container">
-        <img className="playlist-img" src={playlist.imageURL} alt={playlist.name}/>
+        {songs.length ? 
+        
+        
+        <div className="image-collage">
+          <img className="playlist-img" src={getRandomAlbumImg()[0]} alt={playlists[playlist].name}/>
+          <img className="playlist-img" src={getRandomAlbumImg()[1]} alt={playlists[playlist].name}/>
+          <img className="playlist-img" src={getRandomAlbumImg()[2]} alt={playlists[playlist].name}/>
+          <img className="playlist-img" src={getRandomAlbumImg()[3]} alt={playlists[playlist].name}/> 
+        </div>
+      : <img className="default-playlist-img" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/No-album-art.png" alt="default playlist"></img>}
+        
+
         <div className="playlist-details">
-          <h1>{playlist.name}</h1>
-          <p>{playlist.description}</p>
+          <h1>{playlists[playlist].name}</h1>
+          <p>{playlists[playlist].description}</p>
         </div>
         
       </div>
@@ -121,7 +134,7 @@ const PlaylistPage = () => {
 
         </div>
         {editForm ? 
-        <EditPlaylists /> :
+        <EditPlaylists editFormOpen={editFormOpen}/> :
         <></>}
         
 
@@ -141,7 +154,6 @@ const PlaylistPage = () => {
               <div className="settings-menu">{settings ? <AddToPlaylist songId={songId}/> : <></>}</div>
 
               {songs.map((song) => {
-                console.log('mapping songs', song.name)
                 //turn duration to string
                 trackNumber++
                 const minutes = Math.floor(song.duration / 60)
@@ -160,18 +172,19 @@ const PlaylistPage = () => {
 
                 }
                 //get album for song
-                const thisAlbum = eachAlbum.find(oneAlbum => song.albumId === oneAlbum.id)
+                const thisAlbum = Object.keys(albums).find(oneAlbum => song.albumId === +oneAlbum)
+
                 //get artist for song
-                const thisArtist = eachArtist.find(oneArtist => song.artistId === oneArtist.id)
+                const thisArtist = Object.keys(artists).find(oneArtist => song.artistId === +oneArtist)
 
                 return (
                   <tr className="table-row" key={song.id}>
                     <td className="cell track">{trackNumber}</td>
-                    <td className="cell"><img className="album-thumbnail" src={thisAlbum.imageURL} alt={thisAlbum.name}></img></td>
+                    <td className="cell"><img className="album-thumbnail" src={albums[thisAlbum].imageURL} alt={albums[thisAlbum].name}></img></td>
                     <td className="cell"><div className="song-name-row">
                       <p>{song.name}</p>
-                      <Link to={`/albums/${thisArtist.id}`}>{thisArtist.name}</Link></div></td>
-                    <td className="cell"><Link to={`/albums/${thisAlbum.id}`}>{thisAlbum.title}</Link></td>
+                      <Link className="song-info-links" to={`/artist/${artists[thisArtist].id}`}>{artists[thisArtist].name}</Link></div></td>
+                    <td className="cell"><Link className="song-info-links" to={`/albums/${albums[thisAlbum].id}`}>{albums[thisAlbum].title}</Link></td>
                     <td className="cell">{trackTime}</td>
                     <td><button value={song.id} onClick={openSettings}>edit</button></td>
                   </tr>

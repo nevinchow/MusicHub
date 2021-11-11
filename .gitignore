@@ -4,4 +4,8 @@ __pycache__/
 .venv
 .DS_Store
 .vscode/
+<<<<<<< HEAD
+node_modules
+=======
 node_modules/
+>>>>>>> 7d04e846a49528bcb6ea6ee158bbaa245b279b03

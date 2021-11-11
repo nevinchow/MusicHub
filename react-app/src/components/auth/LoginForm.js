@@ -28,12 +28,13 @@ const LoginForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to='/main' />;
   }
 
   return (
     <>
       <div className="main-content">
+        <div className="circle"></div>
         <form className="login-form" onSubmit={onLogin}>
         <div>
           {errors.map((error, ind) => (

@@ -76,39 +76,47 @@
 
 /* -- Playlist Page --------------------- */
 .playlist-page-container {
-    position: absolute;
-    left: 35%;
+    margin-left: 22%;
+    padding-left: 15px;
     overflow: scroll;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    /* padding: 5px; */
-    width: 65%;
+    width: auto;
     height: 100%;
-    /* color: white;
-    background-color: #ffffff; */
+    color: white;
+    background-color: #212121;
 }
 
 .image-container {
     width: 100%;
     display: flex;
-    /* justify-content: space-between; */
     align-items: center;
-    /* background-color:royalblue;
-    height: 30%; */
+}
+
+.image-collage {
+    width: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin: 5px;
+    
+}
+
+.playlist-img {
+    max-width: 100%;
 }
 
 .playlist-details {
     /* position: absolute; */
+    width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50%;
+    height: 50%;
 }
 
-.playlist-img {
-    max-width: 50%;
-}
+
 
 .playlist-options {
     display: flex;
@@ -192,8 +200,15 @@
 }
 
 .table-row:hover {
-    background-color: salmon;
+    background-color: rgb(114, 113, 113);
     
+}
+
+.song-info-links {
+    color: white;
+}
+.song-info-links:hover {
+    color: darkgreen;
 }
 
 /* -- ADD SONG MODAL ----------------- */

@@ -43,20 +43,6 @@ function MainPage() {
       </>
     );
 
-    //     <>
-    //     {artists.map((artist)=>(
-    //         <ArtistTile artist={artist}/>
-    //     ))}
-
-    //     {albums.map((album)=>(
-    //     <>
-    //         <AlbumTile album={album} />
-    //         <NavLink to={`/albums/${album.id}/reviews`}>reviews</NavLink>
-    //     </>
-    //     ))}
-    //     </>
-    // )
-
 }
 
 
