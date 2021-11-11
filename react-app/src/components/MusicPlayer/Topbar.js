@@ -2,12 +2,19 @@
 import React from "react";
 import { css, jsx } from "@emotion/core";
 
-const TopBar = ({children}) => (
-  <div className="TopBar" css={CSS}>
-    {children}
-  </div>
+const Topbar = () => (
+  <div
+    className="Topbar"
+    css={css`
+      position: absolute;
+      top: 0;
+      height: 50px;
+      background: #070707;
+      left: 200px;
+      width: calc(100% - 200px);
+      padding: 20px;
+    `}
+  ></div>
 );
 
-const CSS = css``;
-
-export default TopBar;
+export default Topbar;
