@@ -2,7 +2,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {removeSong} from '../store/musicQueue';
 import Song from './Song';
 
-const MusicQueue = () => {
+export const MusicQueue = () => {
     const dispatch = useDispatch();
     const songIDs = useSelector(state => state.musicQueue);
     
@@ -22,8 +22,16 @@ const MusicQueue = () => {
             }
             {songIDs.length ? (
                 songIDs.map((songId, idx) => (
-                    <div className="playlist"
+                    <div className="playlist-song-que-container" key={uuidv4()}
+                    >
+                        <Song songId={songId} />
+
+                    <button className="remove-btn" 
+                        onClick={() => handleRemoveSong(songId, idx)} > Remove</button>
+                    </div>
                 ))
+            ) : (
+                <div className="no-songs-message"> Queue is empty</div>
             )}
             
         </div>

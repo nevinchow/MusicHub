@@ -15,7 +15,7 @@ export const clearQueue = () => ({
 })
 
 export const playNextSong = () => ({
-    type: PLAY_NEXT,
+    type: NEXT_SONG,
 })
 export const removeSong = (songId, idx) => ({
     type: REMOVE_SONG,
@@ -30,6 +30,8 @@ export const addNextSong = (songId) => ({
 //     type: ADD_PLAYLIST_QUEUE,
 //     payload: playlistId, //pass array instead to this & param?
 // })
+
+const initialState = [];
 
 export default function queueReducer(state = initialState, action) {
     Object.freeze(state);
