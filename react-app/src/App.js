@@ -44,7 +44,6 @@ function App() {
   if (!loaded) {
     return null;
   }
-  console.log(user)
 
   return (
     <BrowserRouter>

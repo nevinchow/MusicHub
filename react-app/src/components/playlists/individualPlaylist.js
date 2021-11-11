@@ -44,9 +44,7 @@ const PlaylistPage = () => {
   }
 
   playlistSongs.forEach((songId) => {
-    console.log('for each', songId)
     songId.forEach((song) => {
-      console.log(song, 'nested array song')
       if(song.playlistId === +id) {
         const oneSong = Object.keys(songsState).find(aSong => song.songId === +aSong)
         songs.push(songsState[oneSong])

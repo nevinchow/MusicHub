@@ -15,9 +15,7 @@ export const getSongsForPlaylist = (playlistId) => async (dispatch) => {
     const songs = await res.json();
     const songPairs = []
     Object.values(songs).map((song) => (songPairs.push(song)))
-    console.log('song pairs in dispatch', songPairs)
     dispatch(getPlaylistSongs(songPairs))
-    // console.log(songPairs, 'songPairs from thunk')
     return songPairs
 
 }
@@ -41,7 +39,6 @@ export default function playlistSongsReducer(state = initialState, action) {
     switch (action.type) {
         case GET_PLAYLIST_SONGS:
             const pairs = action.playlistSongs
-            console.log('pairs', pairs)
             return pairs
         case ADD_PLAYLIST_SONGS:
               {
