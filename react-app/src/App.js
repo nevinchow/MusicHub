@@ -9,6 +9,8 @@ import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
+import Player from './components/MusicPlayer/index'
+
 
 import ArtistPage from './components/ArtistPage';
 import AlbumPage from './components/AlbumPage'
@@ -34,7 +36,6 @@ function App() {
       await dispatch(getSongs())
       await dispatch(getPlaylists())
       setLoaded(true);
-      
     })();
   }, [dispatch]);
 
@@ -88,6 +89,7 @@ function App() {
           <PlaylistPage/>
         </Route>
       </Switch>
+        <Player />
     </BrowserRouter>
   );
 }

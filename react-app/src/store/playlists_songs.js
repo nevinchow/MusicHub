@@ -15,6 +15,7 @@ export const getSongsForPlaylist = (playlistId) => async (dispatch) => {
     const songs = await res.json();
     const songPairs = []
     Object.values(songs).map((song) => (songPairs.push(song)))
+    console.log('song pairs in dispatch', songPairs)
     dispatch(getPlaylistSongs(songPairs))
     // console.log(songPairs, 'songPairs from thunk')
     return songPairs
