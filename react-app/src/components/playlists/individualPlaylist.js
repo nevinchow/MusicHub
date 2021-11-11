@@ -10,8 +10,8 @@ import './playlists.css'
 import { getAlbums } from '../../store/album';
 import { getArtists } from '../../store/artist';
 import AddToPlaylist from './addSongtoPlaylist';
-
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlay } from '@fortawesome/free-solid-svg-icons'
 
 const PlaylistPage = () => {
   const {id} = useParams();
@@ -21,6 +21,7 @@ const PlaylistPage = () => {
   const [songId, setSongId] = useState()
   const [editForm, openEditForm] = useState(false)
   const [loaded, setLoaded] = useState(false);
+  const [play, showPlay] = useState(false);
 
   const playlists = useSelector(state => state.playlists)
   const playlist = Object.keys(playlists).find(onePlaylist => +id === +onePlaylist)
@@ -104,6 +105,19 @@ const PlaylistPage = () => {
 
   }
 
+  const showPlayButton = () => {
+    if(!play) {
+      showPlay(true)
+    } else {
+      showPlay(false)
+    }
+
+  }
+
+  const startPlay = () => {
+    console.log('play')
+  }
+
 
 
   return (
@@ -178,7 +192,10 @@ const PlaylistPage = () => {
                 const thisArtist = Object.keys(artists).find(oneArtist => song.artistId === +oneArtist)
 
                 return (
-                  <tr className="table-row" key={song.id}>
+                  <tr className="table-row" key={song.id} onMouseEnter={showPlayButton}>
+                    {play ? 
+                    <td className="cell"><FontAwesomeIcon icon={faPlay} className="play-icon" onClick={startPlay}/></td> 
+                    : <></>}
                     <td className="cell track">{trackNumber}</td>
                     <td className="cell"><img className="album-thumbnail" src={albums[thisAlbum].imageURL} alt={albums[thisAlbum].name}></img></td>
                     <td className="cell"><div className="song-name-row">

@@ -133,6 +133,10 @@
     cursor: pointer;
 }
 
+.play-icon {
+    padding: 8px;
+}
+
 /* -- Edit Playlist Form ---------------- */
 .edit-button {
     cursor: pointer;
