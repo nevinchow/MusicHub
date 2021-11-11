@@ -76,8 +76,9 @@
 
 /* -- Playlist Page --------------------- */
 .playlist-page-container {
-    position: absolute;
-    left: 35%;
+    /* position: absolute;
+    left: 35%; */
+    margin-left: 25%;
     overflow: scroll;
     display: flex;
     flex-direction: column;

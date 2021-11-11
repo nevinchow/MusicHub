@@ -28,6 +28,7 @@ import ReviewsPage from './components/ReviewsPage'
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
+  const user = useSelector(state => state.session.user)
 
 
   useEffect(() => {
@@ -43,25 +44,26 @@ function App() {
   if (!loaded) {
     return null;
   }
+  console.log(user)
 
   return (
     <BrowserRouter>
-      <NavBar />
-      <Sidebar />
+      {/* <NavBar /> */}
+      {!user ? <LoginForm /> : <Sidebar />}
 
       <Switch>
-        <Route path='/albums/:albumId/reviews' >
+        <ProtectedRoute path='/albums/:albumId/reviews' >
           <ReviewsPage />
-        </Route>
-        <Route path='/albums/:albumId' >
+        </ProtectedRoute>
+        <ProtectedRoute path='/albums/:albumId' >
           <AlbumPage />
-        </Route>
-        <Route path='/artist/:artistId' >
+        </ProtectedRoute>
+        <ProtectedRoute path='/artist/:artistId' >
           <ArtistPage />
-        </Route>
-        <Route path='/main' exact={true}>
+        </ProtectedRoute>
+        <ProtectedRoute path='/main' exact={true}>
           <MainPage />
-        </Route>
+        </ProtectedRoute>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
@@ -77,20 +79,22 @@ function App() {
         <ProtectedRoute path='/' exact={true} >
           <h1>Home Page</h1>
         </ProtectedRoute>
-        <Route path='/playlists' exact={true} >
+        <ProtectedRoute path='/playlists' exact={true} >
           <Playlists/>
-        </Route>
-        <Route path='/playlists/add' exact={true} >
+        </ProtectedRoute>
+        <ProtectedRoute path='/playlists/add' exact={true} >
           <AddPlaylists/>
-        </Route>
-        <Route path='/playlists/:id/edit' exact={true} >
+        </ProtectedRoute>
+        <ProtectedRoute path='/playlists/:id/edit' exact={true} >
           <EditPlaylists/>
-        </Route>
-        <Route path='/playlists/:id' loaded={loaded}>
+        </ProtectedRoute>
+        <ProtectedRoute path='/playlists/:id' loaded={loaded}>
           <PlaylistPage/>
-        </Route>
+        </ProtectedRoute>
       </Switch>
-        <Player />
+      {!user ? <></> : <Player />}
+
+        
     </BrowserRouter>
   );
 }
