@@ -28,15 +28,7 @@ const PlaylistPage = () => {
   const songsState = useSelector(state => state.songs)
   const albums = useSelector(state => state.album)
   const artists = useSelector(state => state.artist)
-  // const eachSongId = []
   const songs = [];
-
-  // Object.values(playlistSongs).map((songId) => (eachSongId.push(songId)))
-  console.log(playlistSongs)
-
-  
-
-
 
  useEffect(() => {
     (async() => {

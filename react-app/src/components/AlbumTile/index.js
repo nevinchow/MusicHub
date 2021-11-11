@@ -5,8 +5,8 @@ function AlbumTile({album}) {
     
     return (
         <>
-        <p>{`${album.title}`}</p>
-        <NavLink to={`/albums/${album.id}`}><img src={`${album.imageURL}`}></img></NavLink>
+        <h2>{`${album.title}`}</h2>
+        <NavLink to={`/albums/${album.id}`}><img className="album-art" src={`${album.imageURL}`}></img></NavLink>
         <p>{`${album.year}`}</p>
 
         </>
