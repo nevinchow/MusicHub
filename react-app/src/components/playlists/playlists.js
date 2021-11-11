@@ -6,6 +6,7 @@ import { Link, NavLink } from 'react-router-dom';
 import './playlists.css'
 
 
+
 const Playlists = ({setPlaylistId}) => {
 
   const playlists = useSelector(state => state.playlists)
