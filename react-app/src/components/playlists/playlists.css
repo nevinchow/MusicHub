@@ -76,18 +76,16 @@
 
 /* -- Playlist Page --------------------- */
 .playlist-page-container {
-    /* position: absolute;
-    left: 35%; */
-    margin-left: 25%;
+    margin-left: 22%;
+    padding-left: 15px;
     overflow: scroll;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    /* padding: 5px; */
-    width: 65%;
+    width: auto;
     height: 100%;
-    /* color: white;
-    background-color: #ffffff; */
+    color: white;
+    background-color: #212121;
 }
 
 .image-container {
@@ -202,8 +200,15 @@
 }
 
 .table-row:hover {
-    background-color: salmon;
+    background-color: rgb(114, 113, 113);
     
+}
+
+.song-info-links {
+    color: white;
+}
+.song-info-links:hover {
+    color: darkgreen;
 }
 
 /* -- ADD SONG MODAL ----------------- */
