@@ -31,9 +31,10 @@ function App() {
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
+      await dispatch(getSongs())
+      await dispatch(getPlaylists())
       setLoaded(true);
-      dispatch(getSongs())
-      // dispatch(getPlaylists())
+      
     })();
   }, [dispatch]);
 

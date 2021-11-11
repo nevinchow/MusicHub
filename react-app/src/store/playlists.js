@@ -98,19 +98,19 @@ export default function playlistReducer(state = initialState, action) {
     switch (action.type) {
         case GET_PLAYLISTS:
             const allPlaylists = {...state}
+            console.log('GET ACTION PLAYLISTS!!', action.playlists.playlists)
+
             action.playlists.playlists.forEach(playlist => {
+              console.log('GET ACTION PLAYLISTS', playlist)
                 allPlaylists[playlist.id] = playlist
             })
             return {...allPlaylists, ...state}
         case GET_ONE_PLAYLIST:
             return { ...state };
         case ADD_A_PLAYLIST:
-              {
-              return {
-                ...state,
-                // [action.playlist]: action.playlist
-              };
-            }
+          const newState = {...state}
+            newState[action.playlist.id] = action.playlist
+            return newState
         case UPDATE_PLAYLIST:
             const updatePlaylistState = {...state}
             Object.values(updatePlaylistState).forEach((playlist) => {
@@ -126,7 +126,7 @@ export default function playlistReducer(state = initialState, action) {
             const deleteState = {...state}
             delete deleteState[action.playlistId]
             console.log(action, 'playlist Id')
-            return Object.values(deleteState).filter(playlist => playlist.id !== action.playlistId)
+            return deleteState
         default:
             return state;
     }

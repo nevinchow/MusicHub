@@ -5,6 +5,8 @@ import AddPlaylists from '../playlists/addPlaylist';
 import Playlists from '../playlists/playlists';
 import { useDispatch } from 'react-redux';
 import { getPlaylists } from '../../store/playlists';
+import { getAlbums } from '../../store/album';
+import { getArtists } from '../../store/artist';
 
 
 import './Sidebar.css'
@@ -23,6 +25,8 @@ function Sidebar({artist}) {
     useEffect(() => {
     (async() => {
       await dispatch(getPlaylists())
+      await dispatch(getAlbums())
+      await dispatch(getArtists())
       setLoaded(true);
       dispatch(getSongsForPlaylist(playlistId))
 
