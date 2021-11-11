@@ -45,7 +45,6 @@ const PlaylistPage = () => {
       }
     })
   })
-  console.log(songs, "why is it duplicating")
   const dispatch = useDispatch()
   let trackNumber = 0;
 
@@ -81,7 +80,6 @@ const PlaylistPage = () => {
 
 
   const openSettings = async (e) => {
-    console.log("on click", songId)
     setSongId(e.target.value)
     if(!settings) {
       setSettings(true)
@@ -115,7 +113,7 @@ const PlaylistPage = () => {
 
         </div>
         {editForm ? 
-        <EditPlaylists /> :
+        <EditPlaylists editFormOpen={editFormOpen}/> :
         <></>}
         
 
@@ -135,7 +133,6 @@ const PlaylistPage = () => {
               <div className="settings-menu">{settings ? <AddToPlaylist songId={songId}/> : <></>}</div>
 
               {songs.map((song) => {
-                console.log('mapping songs', song.name)
                 //turn duration to string
                 trackNumber++
                 const minutes = Math.floor(song.duration / 60)

@@ -8,7 +8,7 @@ import { getSongs } from '../../store/songs';
 
 
 
-const EditPlaylists = () => {
+const EditPlaylists = ({editFormOpen}) => {
     const dispatch = useDispatch()
     const {id} = useParams();
     const playlists = useSelector(state => state.playlists)
@@ -16,6 +16,7 @@ const EditPlaylists = () => {
     Object.values(playlists).map((playlist) => (eachPlaylist.push(playlist)))
     const playlist = eachPlaylist.find(onePlaylist => +id === onePlaylist.id)
 
+    console.log('EDIT FORM FUNCTION', editFormOpen)
 
     const [name, setName] = useState(playlist.name);
     const [imageURL, setImageURL] = useState(playlist.imageURL);
@@ -57,6 +58,7 @@ const EditPlaylists = () => {
             setValidationErrors([]);
             const edited = await dispatch(editAPlaylist(createdPlaylist, id));
             if(edited) {
+              editFormOpen(false)
               history.push(`/playlists/${edited.id}`)
 
             }

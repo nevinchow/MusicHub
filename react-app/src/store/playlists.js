@@ -70,6 +70,7 @@ export const editAPlaylist = (playlist, playlistId) => async(dispatch) => {
 
   const newPlaylist = await response.json();
   dispatch(updatePlaylist(newPlaylist));
+  console.log('new playlist in store', newPlaylist)
   return newPlaylist
 }
 
@@ -109,11 +110,14 @@ export default function playlistReducer(state = initialState, action) {
             }
         case UPDATE_PLAYLIST:
               {
+              console.log(action.playlist)
+
               return {
                 ...state,
                 [action.playlist]: action.playlist
               };
             }
+
         case DELETE_PLAYLIST:
             const deleteState = {...state}
             delete deleteState[action.playlistId]
