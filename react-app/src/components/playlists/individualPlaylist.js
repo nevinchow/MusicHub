@@ -29,7 +29,6 @@ const PlaylistPage = () => {
   const albums = useSelector(state => state.album)
   const artists = useSelector(state => state.artist)
   const songs = [];
-
  useEffect(() => {
     (async() => {
       await dispatch(getPlaylists())
