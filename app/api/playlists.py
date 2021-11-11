@@ -87,7 +87,6 @@ def add_playlist_songs():
             playlistIdForm = form.playlistId.data
             songIdForm = form.songId.data
             saved_song1 = SongPlaylist.insert().values(songId=songIdForm, playlistId=playlistIdForm)
-            print('\n\n\n!!!!!!!!!!!!!!!!@*#^^$&#((@)@', songIdForm, playlistIdForm, '\n\n\n')
             db.session.execute(saved_song1)
             db.session.commit()
 

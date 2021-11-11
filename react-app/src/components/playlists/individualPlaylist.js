@@ -38,9 +38,16 @@ const PlaylistPage = () => {
   const [loaded, setLoaded] = useState(false);
   const songs = [];
   eachSongId.forEach((songId) => {
+    // console.log(songId, 'songId in eachsong loop')
     songId.forEach((song) => {
+      // console.log(song, 'song in songId loop')
       if(song.playlistId === +id) {
-        const oneSong = allSongs.find(aSong => song.songId === aSong.id)
+        // console.log('in conditional', song.songId)
+        const oneSong = allSongs.find(aSong => {
+          console.log(aSong, 'a song!!!!!!!!!!!!!')
+          if (song.songId === +aSong.id) {
+            // console.log('match found')
+          }})
         songs.push(oneSong)
       }
     })
