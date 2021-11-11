@@ -30,7 +30,7 @@ const AddPlaylists = ({openAddForm}) => {
         const createdPlaylist = {
           userId,
           name,
-          imageURL,
+          imageURL: "https://upload.wikimedia.org/wikipedia/commons/3/3c/No-album-art.png",
           description
         };
 
@@ -73,13 +73,6 @@ const AddPlaylists = ({openAddForm}) => {
                         className="form-input"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        required/>
-                <label className="form-label" >Image URL:</label>
-                        <input
-                        placeholder="Image URL"
-                        className="form-input"
-                        value={imageURL}
-                        onChange={(e) => setImageURL(e.target.value)}
                         required/>
                 <label className="form-label" >Description:</label>
                         <textarea

@@ -35,7 +35,6 @@ function ReviewsPage () {
        
         e.preventDefault()
         setReviewId(e.target.id)
-        console.log(e.target.id)
         if(editform) {
             setEditForm(false)
         } else {
@@ -45,7 +44,6 @@ function ReviewsPage () {
 
     const onClickTwo=async(e,review)=>{
         e.preventDefault()
-        console.log(review)
        setReviewId(review.id)
       
         await dispatch(removeReview(review.id))

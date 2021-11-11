@@ -22,6 +22,7 @@ function MainPage() {
       dispatch(getAlbums())
   },[dispatch])
 
+
   return (
 
     <>
@@ -41,6 +42,8 @@ function MainPage() {
       </div>
     </>
   );
+
+
 
 }
 

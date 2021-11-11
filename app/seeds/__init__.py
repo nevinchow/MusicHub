@@ -19,13 +19,14 @@ seed_commands = AppGroup('seed')
 def seed():
 
 
-    seed_saved_songs()
     seed_users()
     seed_artists()
     seed_albums()
     seed_songs()
     seed_reviews()
     seed_playlists()
+    seed_saved_songs()
+
     # seed_songs_playlists()
     # Add other seed functions here
 
