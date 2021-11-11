@@ -16,7 +16,6 @@ const EditPlaylists = ({editFormOpen}) => {
     Object.values(playlists).map((playlist) => (eachPlaylist.push(playlist)))
     const playlist = eachPlaylist.find(onePlaylist => +id === onePlaylist.id)
 
-    console.log('EDIT FORM FUNCTION', editFormOpen)
 
     const [name, setName] = useState(playlist.name);
     const [imageURL, setImageURL] = useState(playlist.imageURL);

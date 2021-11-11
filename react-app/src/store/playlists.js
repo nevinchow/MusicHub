@@ -109,14 +109,17 @@ export default function playlistReducer(state = initialState, action) {
               };
             }
         case UPDATE_PLAYLIST:
-              {
-              console.log(action.playlist)
-
-              return {
-                ...state,
-                [action.playlist]: action.playlist
-              };
-            }
+            const updatePlaylistState = {...state}
+            console.log(updatePlaylistState, 'playlist state')
+            Object.values(updatePlaylistState).forEach((playlist) => {
+              if(playlist.id === action.playlist.id) {
+                playlist.name = action.playlist.name
+                playlist.description = action.playlist.description
+                playlist.imageURL = action.playlist.imageURL
+              }
+            })
+            console.log('should be updated', updatePlaylistState)
+            return {...state, ...updatePlaylistState}
 
         case DELETE_PLAYLIST:
             const deleteState = {...state}
