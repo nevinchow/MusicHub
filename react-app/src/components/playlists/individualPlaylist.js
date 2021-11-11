@@ -97,11 +97,18 @@ const PlaylistPage = () => {
     songs.forEach(song => {
       const thisAlbum = eachAlbum.find(oneAlbum => song.albumId === oneAlbum.id)
 
-
       if(!images.includes(thisAlbum.imageURL)) {
         images.push(thisAlbum.imageURL)
       }
+      
+      
+
     })
+
+    while(images.length < 5) {
+    images.push('https://upload.wikimedia.org/wikipedia/commons/3/3c/No-album-art.png')
+    }
+    
     return images
 
   }
