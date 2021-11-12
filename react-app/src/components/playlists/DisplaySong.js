@@ -8,7 +8,7 @@ import AddToPlaylist from "./addSongtoPlaylist";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-function DisplaySong({songId}) {
+function DisplaySong({songId, trackNumber}) {
   const albums = useSelector(state => state.album)
   const artists = useSelector(state => state.artist)
   const song = useSelector(state => state.songs[songId])
@@ -48,9 +48,8 @@ function DisplaySong({songId}) {
     console.log('play')
   }
 
-  let trackNumber = 0
 
-  trackNumber++;
+  // trackNumber++;
   const minutes = Math.floor(song.duration / 60);
   const seconds = song.duration % 60;
   let newSeconds;
@@ -85,7 +84,7 @@ function DisplaySong({songId}) {
           >
             {play ? (
               <td className="cell">
-                {/* <Song songId={song.id} /> */}
+                <Song songId={song.id} />
               </td>
             ) : (
               <></>
