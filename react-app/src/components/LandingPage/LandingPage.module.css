@@ -1,0 +1,49 @@
+.demoButton {
+    background-color: #1ED760;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    top: 300px;
+    left: 1150px;
+    border-radius: 500px;
+    padding: 14px 32px;
+    color: #2941AB;
+    border: none;
+}
+
+.landingBackground {
+    background-image:url(https://tonify.herokuapp.com/assets/splash_background.png);
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    bottom: 110px
+}
+
+.landingHeader1 {
+    color: #1ED760;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 130px;
+    margin: none;
+    position: relative;
+    top: 440px;
+    left: 900px;
+}
+
+.landingHeader2 {
+    color: #1ED760;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    margin: none;
+    position: relative;
+    top: 240px;
+    left: 1100px;
+}
+
+.landingHeader3 {
+    color: #1ED760;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 130px;
+    margin: none;
+    position: relative;
+    top: 320px;
+    left: 1100px;
+}

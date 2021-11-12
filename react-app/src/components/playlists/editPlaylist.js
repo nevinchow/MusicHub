@@ -8,7 +8,7 @@ import { getSongs } from '../../store/songs';
 
 
 
-const EditPlaylists = () => {
+const EditPlaylists = ({editFormOpen}) => {
     const dispatch = useDispatch()
     const {id} = useParams();
     const playlists = useSelector(state => state.playlists)
@@ -57,6 +57,7 @@ const EditPlaylists = () => {
             setValidationErrors([]);
             const edited = await dispatch(editAPlaylist(createdPlaylist, id));
             if(edited) {
+              editFormOpen(false)
               history.push(`/playlists/${edited.id}`)
 
             }

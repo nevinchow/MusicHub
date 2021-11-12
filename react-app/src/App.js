@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
@@ -10,7 +10,8 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import Player from './components/MusicPlayer/index'
-
+import MusicQueue from './components/MusicQueue'
+import SplashPage from './components/SplashPage/SplashPage'
 
 import ArtistPage from './components/ArtistPage';
 import AlbumPage from './components/AlbumPage'
@@ -24,18 +25,26 @@ import EditPlaylists from './components/playlists/editPlaylist';
 import Sidebar from './components/Sidebar/Sidebar';
 import PlaylistPage from './components/playlists/individualPlaylist';
 import ReviewsPage from './components/ReviewsPage'
-
+import SearchResults from './components/SearchPage/SearchResults';
+import SearchBar from './components/SearchPage/SearchBar';
+import LandingPage from './components/LandingPage';
+import { getArtists } from './store/artist';
+import { getAlbums } from './store/album';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
-
+  const user = useSelector(state => state.session.user)
+  const queue = useSelector((state) => state.musicQueue);
 
   useEffect(() => {
     (async() => {
       await dispatch(authenticate());
+      await dispatch(getSongs())
+      await dispatch(getPlaylists())
+      await dispatch(getArtists())
+      await dispatch(getAlbums())
       setLoaded(true);
-      // dispatch(getSongs())
-      // dispatch(getPlaylists())
+
     })();
   }, [dispatch]);
 
@@ -45,22 +54,33 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
-      <Sidebar />
+      {/* <NavBar /> */}
+      {!user ? <Redirect to='/'/> : <Sidebar />}
 
       <Switch>
-        <Route path='/albums/:albumId/reviews' >
+
+        <Route path='/search' >
+          <SearchBar/>
+
+        </Route>
+        <Route path='/' exact={true} >
+          <LandingPage/>
+
+
+        </Route>
+        <ProtectedRoute path='/albums/:albumId/reviews' >
+
           <ReviewsPage />
-        </Route>
-        <Route path='/albums/:albumId' >
+        </ProtectedRoute>
+        <ProtectedRoute path='/albums/:albumId' >
           <AlbumPage />
-        </Route>
-        <Route path='/artist/:artistId' >
+        </ProtectedRoute>
+        <ProtectedRoute path='/artist/:artistId' >
           <ArtistPage />
-        </Route>
-        <Route path='/main' exact={true}>
+        </ProtectedRoute>
+        <ProtectedRoute path='/main' exact={true}>
           <MainPage />
-        </Route>
+        </ProtectedRoute>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
@@ -73,23 +93,25 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          <h1>Home Page</h1>
-        </ProtectedRoute>
-        <Route path='/playlists' exact={true} >
+        <Route path='/' exact={true} >
+          {!user ? <SplashPage /> : <MainPage />}
+        </Route>
+        <ProtectedRoute path='/playlists' exact={true} >
           <Playlists/>
-        </Route>
-        <Route path='/playlists/add' exact={true} >
+        </ProtectedRoute>
+        <ProtectedRoute path='/playlists/add' exact={true} >
           <AddPlaylists/>
-        </Route>
-        <Route path='/playlists/:id/edit' exact={true} >
+        </ProtectedRoute>
+        <ProtectedRoute path='/playlists/:id/edit' exact={true} >
           <EditPlaylists/>
-        </Route>
-        <Route path='/playlists/:id' loaded={loaded}>
+        </ProtectedRoute>
+        <ProtectedRoute path='/playlists/:id' loaded={loaded}>
           <PlaylistPage/>
-        </Route>
+        </ProtectedRoute>
       </Switch>
-        <Player />
+      {!user ? <></> : <Player queue={queue}/>}
+
+
     </BrowserRouter>
   );
 }

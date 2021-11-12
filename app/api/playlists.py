@@ -77,6 +77,17 @@ def playlist_songs(id):
 
 @playlist_routes.route('/songs/add', methods=['POST'])
 def add_playlist_songs():
+    form = AddToPlaylistForm()
+    print(form)
+    # form['csrf_token'].data = request.cookies['csrf_token']
+
+    # if form.validate_on_submit():
+    playlistIdForm = form.playlistId.data
+    songIdForm = form.songId.data
+    saved_song1 = SongPlaylist.insert().values(
+        songId=songIdForm, playlistId=playlistIdForm)
+    db.session.execute(saved_song1)
+    db.session.commit()
 
     if request.method == "POST":
         form = AddToPlaylistForm()

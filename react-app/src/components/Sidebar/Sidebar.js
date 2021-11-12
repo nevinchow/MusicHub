@@ -6,6 +6,13 @@ import Playlists from '../playlists/playlists';
 import { useDispatch } from 'react-redux';
 import { getPlaylists } from '../../store/playlists';
 
+import { NavLink } from "react-router-dom";
+
+import { getAlbums } from '../../store/album';
+import { getArtists } from '../../store/artist';
+import LogoutButton from '../auth/LogoutButton';
+
+
 
 import './Sidebar.css'
 import { getSongsForPlaylist } from '../../store/playlists_songs';
@@ -23,6 +30,8 @@ function Sidebar({artist}) {
     useEffect(() => {
     (async() => {
       await dispatch(getPlaylists())
+      await dispatch(getAlbums())
+      await dispatch(getArtists())
       setLoaded(true);
       dispatch(getSongsForPlaylist(playlistId))
 
@@ -47,6 +56,8 @@ function Sidebar({artist}) {
         <div className="sidebar-container">
             <Link className="sidebar-link" to='/main' exact={true}>
             <h2 className="sidebar-link">Home</h2> </Link>
+            <NavLink to='/search'> 
+            Search! </NavLink>
             <h2 className="sidebar-link" onClick={openAddPlaylist}>Create Playlist</h2>
             {addForm ? 
             <div className="add-playlist-container">
@@ -56,6 +67,7 @@ function Sidebar({artist}) {
             <div className="playlist-list">
                 <Playlists setPlaylistId={setPlaylistId}/>
             </div>
+        <LogoutButton />
             
         </div>
         </>

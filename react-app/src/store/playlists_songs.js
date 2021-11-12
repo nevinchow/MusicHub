@@ -15,9 +15,8 @@ export const getSongsForPlaylist = (playlistId) => async (dispatch) => {
     const songs = await res.json();
     const songPairs = []
     Object.values(songs).map((song) => (songPairs.push(song)))
-    console.log('song pairs in dispatch', songPairs)
     dispatch(getPlaylistSongs(songPairs))
-    return {songPairs}
+    return songPairs
 
 }
 
@@ -39,20 +38,12 @@ const initialState = {};
 export default function playlistSongsReducer(state = initialState, action) {
     switch (action.type) {
         case GET_PLAYLIST_SONGS:
-            console.log(action.playlistSongs, 'action!!!')
-            const playlistSongs = {...state}
-            action.playlistSongs.forEach(song => {
-                console.log(song, 'in action loop')
-                playlistSongs[song] = song
-            })
-            return {...playlistSongs, ...state}
+            const pairs = action.playlistSongs
+            return pairs
         case ADD_PLAYLIST_SONGS:
-              {
-              return {
-                ...state,
-                [action.playlistSongs]: action.playlistSongs
-              };
-            }
+            const newState = [...state]
+            newState.push(action.songToAdd)
+            return newState
         default:
             return state;
     }
