@@ -58,7 +58,7 @@ function App() {
           <SearchBar/>
           
         </Route>
-        <Route path='/albums/:albumId/reviews' >
+       
 
         <ProtectedRoute path='/albums/:albumId/reviews' >
 
