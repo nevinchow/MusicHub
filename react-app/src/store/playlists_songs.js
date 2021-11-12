@@ -41,8 +41,8 @@ export default function playlistSongsReducer(state = initialState, action) {
             const pairs = action.playlistSongs
             return pairs
         case ADD_PLAYLIST_SONGS:
-            const newState = {...state}
-            newState[action.playlistSongs] = action.playlistSongs
+            const newState = [...state]
+            newState.push(action.songToAdd)
             return newState
         default:
             return state;

@@ -40,6 +40,7 @@ const SearchResults = ({queryString}) => {
     },[dispatch])
 
     useEffect(()=>{
+
         const filteredAlbum=eachAlbum.filter((album)=>album.title.toLowerCase().includes(queryString.toLowerCase()))
         setSearchResult(filteredAlbum)
         const filteredArtist=eachArtist.filter((artist)=>artist.name.toLowerCase().includes(queryString.toLowerCase()))
@@ -47,6 +48,9 @@ const SearchResults = ({queryString}) => {
         const filteredSong = eachSong.filter((song) => song.name.toLowerCase().includes(queryString.toLowerCase()))
         setSongSearchResult(filteredSong)
         console.log(shortenedFilteredSongs)
+
+        const filtered=eachAlbum.filter((album)=>album.title.toLowerCase().includes(queryString.toLowerCase())) 
+        setSearchResult(filtered)
     },[queryString])
 
   return (

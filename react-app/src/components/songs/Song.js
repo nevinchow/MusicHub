@@ -14,7 +14,6 @@ const Song = ({songId, playlistId}) => {
     const dispatch = useDispatch();
 
     const handlePlay = () => {
-        console.log("music player test!!!!!")
         dispatch(addOneSong(song));
     }
 

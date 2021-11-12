@@ -1,37 +1,41 @@
-import AudioPlayer from "react-h5-audio-player";
+import AudioPlayer from "react-modular-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import { useSelector } from "react-redux";
-
-// import styled from "styled-components";
 import "./musicPlayer.css";
-
-  
-
-// import 'react-h5-audio-player/lib/styles.less' Use LESS
-// import 'react-h5-audio-player/src/styles.scss' Use SASS
 
 const Player = () => {
   const queue = useSelector((state) => state.musicQueue);
+  const artists = useSelector((state) => state.artist)
+  let playlist = [{src: "none.m4a",
+     title: "Add Songs To YOur Queue",
+     artist: ""}]
+
+ if(queue) {
+    queue.map((song) => {
+    const artist = Object.values(artists).find((artistId) => +artistId === +song.artistId)
+    const nextSong = {
+      src: song.song_link,
+      title: song.name,
+      artist}
+
+    playlist.push(nextSong)
+  })
+  } else {
+    playlist.push({src: "https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397275/Albums/Planet%20Her/07_Love_To_Dream_boetne.m4a",
+     title: "I don't do drugs feat. Ariana Grande",
+     artist: "Drake"})
+  }
+  
   return (
     <>
-      {console.log(queue, "THIS IS A TEST")}
 
       <AudioPlayer
         className="audio-player"
-        autoPlayAfterSrcChange={true}
-        src="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636396215/Albums/Surrender/05_Alive_mbqvdv.m4a"
-        onPlay={(e) => console.log("onPlay")}
+        audioFiles={playlist}
         // other props here
       />
     </>
   );
 } 
-
-
-  //  autoPlayAfterSrcChange={true}
-  //       src={queue[0].song_link}
-
-// const playerCSS = styled.div`
-// `;
 
 export default Player;

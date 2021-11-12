@@ -25,7 +25,6 @@ function ArtistPage() {
 
         songstorender.push(allsongsofsingleartist[i])
     }
-    console.log(songstorender)
 
     useEffect(()=>{
             dispatch(getSingleArtist(artistId))
