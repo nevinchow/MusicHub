@@ -23,16 +23,16 @@ function ReviewsPage () {
     // const currentReview=useSelector(state=>state.review[reviewId])
     const userId=useSelector(state=>state.session.user.id)
     const [editform, setEditForm]=useState(false)
-  
+
 
 
     useEffect(()=>{
         dispatch(getReviewsByAlbumId(albumId))
     },[dispatch])
-    
+
 
     const onClick=(e)=>{
-       
+
         e.preventDefault()
         setReviewId(e.target.id)
         if(editform) {
@@ -45,20 +45,20 @@ function ReviewsPage () {
     const onClickTwo=async(e,review)=>{
         e.preventDefault()
        setReviewId(review.id)
-      
+
         await dispatch(removeReview(review.id))
-        
+
             history.push(`/albums/${albumId}/reviews`)
-          
+
     }
-    
+
             return (
                 <>
-                
+
                 {reviews.map((review)=>(
                     <>
                     <ReviewTile review={review} />
-                    {review.userId===userId? 
+                    {review.userId===userId?
                     <div>
                     <button onClick={onClick} id={review.id} >edit</button>
                     <button onClick={(e)=>{onClickTwo(e,review)}} id= {+review.id}>delete</button>
@@ -66,23 +66,23 @@ function ReviewsPage () {
 
                     }
 
-                    
+
                     </>
                 ))}
-                {editform? <EditReview reviewId={reviewId}/>: 
-                
+                {editform? <EditReview reviewId={reviewId}/>:
+
                 <>
                 add review
                 <ReviewForm reviewId={reviewId}/>
                 </>
                 }
-              
+
                 </>
             )
-          
+
     }
 
-    
+
 
 
 
