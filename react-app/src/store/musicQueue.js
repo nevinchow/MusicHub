@@ -31,7 +31,7 @@ export const addNextSong = (songId) => ({
 //     payload: playlistId, //pass array instead to this & param?
 // })
 
-const initialState =  {}
+const initialState = [];
 
 export default function queueReducer(state = initialState, action) {
     Object.freeze(state);
