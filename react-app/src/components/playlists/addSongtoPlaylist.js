@@ -9,36 +9,42 @@ function AddToPlaylist({songId}) {
     const {id} = useParams()
     const dispatch = useDispatch()
     const [loaded, setLoaded] = useState(false);
-    const [playlistId, setPlaylistId] = useState();
     const playlists = useSelector(state => state.playlists)
 
 
 
-  const addSong = async () => {
+  const addSong = async (e) => {
+      const playlistId = e.target.value
       const songToAdd = {
-          playlistId: id,
+          playlistId,
           songId
       }
+
+      console.log(songToAdd, 'added song')
 
       
       dispatch(addSongToPlaylist(songToAdd))
   }
 
     const findPlaylist = (playlistId) => {
-        console.log(playlists, 'trying to find')
-    const playlist = Object.keys(playlists).find(onePlaylist => playlistId === +onePlaylist.id)
-    return playlist
+    const playlist = Object.keys(playlists).find(onePlaylist => +playlistId === +onePlaylist)
+
+    return playlists[playlist]
 
     }
 
         
     return (
         <div> 
-            <p onClick={addSong}>Settings</p>
             <form>
-                <select name="playlists" id="playlists">
+                <select name="playlists" id="playlists" onChange={addSong}>
                     {Object.keys(playlists).map((playlistId) => {
-                        <option value={findPlaylist(playlistId).id}>{findPlaylist(playlistId).name}</option>
+                        return (
+                            <option 
+                            value={findPlaylist(playlistId).id}>
+                                {findPlaylist(playlistId).name}
+                            </option>
+                        )
                     })}
                     
                 </select>

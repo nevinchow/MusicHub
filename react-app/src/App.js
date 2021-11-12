@@ -11,6 +11,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import Player from './components/MusicPlayer/index'
 import MusicQueue from './components/MusicQueue'
+import SplashPage from './components/SplashPage/SplashPage'
 
 import ArtistPage from './components/ArtistPage';
 import AlbumPage from './components/AlbumPage'
@@ -49,8 +50,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
-
+      {/* <NavBar /> */}
+      {!user ? <Redirect to='/'/> : <Sidebar />}
 
       <Switch>
 
@@ -88,6 +89,9 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
+        <Route path='/' exact={true} >
+          {!user ? <SplashPage /> : <MainPage />}
+        </Route>
         <ProtectedRoute path='/playlists' exact={true} >
           <Playlists/>
         </ProtectedRoute>
