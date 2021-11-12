@@ -77,20 +77,18 @@ def playlist_songs(id):
 def add_playlist_songs():
         form = AddToPlaylistForm()
 
-        form['csrf_token'].data = request.cookies['csrf_token']
+        # form['csrf_token'].data = request.cookies['csrf_token']
 
-        if form.validate_on_submit():
-            playlistIdForm = form.playlistId.data
-            songIdForm = form.songId.data
-            saved_song1 = SongPlaylist.insert().values(songId=songIdForm, playlistId=playlistIdForm)
-            db.session.execute(saved_song1)
-            db.session.commit()
-
-
-            return {
-                'songId': songIdForm,
-                'playlistId': playlistIdForm,
-            }
+        # if form.validate_on_submit():
+        playlistIdForm = form.playlistId.data
+        songIdForm = form.songId.data
+        saved_song1 = SongPlaylist.insert().values(songId=songIdForm, playlistId=playlistIdForm)
+        db.session.execute(saved_song1)
+        db.session.commit()
+        return {
+            'songId': songIdForm,
+            'playlistId': playlistIdForm,
+        }
 
 
             
