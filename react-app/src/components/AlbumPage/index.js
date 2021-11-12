@@ -8,6 +8,7 @@ import './album-page.css';
 import SongTile from '../songs/Song';
 import { getSongs } from '../../store/songs';
 import { Link } from 'react-router-dom';
+import DisplaySong from '../playlists/DisplaySong';
 
 
 
@@ -20,6 +21,7 @@ function AlbumPage() {
     const songs=useSelector(state=>state.songs)
     const songsArray=Object.values(songs)
     const filteredSongArray=[]
+    let trackNumber = 0
 
 
     useEffect(()=>{
@@ -31,11 +33,11 @@ function AlbumPage() {
 
     for (let i=0; i<songsArray.length; i++) {
       let song=songsArray[i]
-      
+
       if (song.albumId== +albumId) {
         filteredSongArray.push(song)
       }
-      
+
     }
     return (
       <>
@@ -61,35 +63,12 @@ function AlbumPage() {
                   </thead>
                   <tbody>
                         {filteredSongArray.map((song)=>{
-                          const minutes = Math.floor(song.duration / 60)
-                          const seconds = (song.duration % 60)
-                          let newSeconds;
-                          if (seconds < 10) {
-                            newSeconds = `0${seconds}`
-                          } else {
-                            newSeconds = seconds
-                          }
-                          let trackTime = ``
-                          if (minutes === 0 ) {
-                            trackTime = `${minutes}: ${newSeconds}`
-                          } else {
-                            trackTime = `${minutes} : ${newSeconds}`
-          
-                          }
-
+                          trackNumber++
                           return (
-                            <tr className="table-row" key={song.id}>
-                              <td className="cell track">{song.id}</td>
-                             
-                              <td className="cell"><div className="song-name-row">
-                                <p>{song.name}</p>
-                                <Link className="song-info-links" to={`/artist/${currentArtist.id}`}>{currentArtist.name}</Link></div></td>
-                              <td className="cell"><Link className="song-info-links" to={`/albums/${album.id}`}>{album.title}</Link></td>
-                              <td className="cell">{trackTime}</td>
-                             
-                            </tr>
+                            <DisplaySong songId={song.id} trackNumber={trackNumber}/>
+
                           )
-                        
+
                         })}
 
                   </tbody>

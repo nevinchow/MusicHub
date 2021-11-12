@@ -26,15 +26,20 @@ function MainPage() {
 
 
   return (
+
       <>
         <div className="main-page">
           <div className="main-page-container">
             {artists.map((artist) => (
               <ArtistTile artist={artist} />
+
             ))}
 
             {albums.map((album) => (
+              <>
               <AlbumTile album={album} />
+              <NavLink to={`/albums/${album.id}/reviews`}>Reviews</NavLink>
+              </>
             ))}
             <MusicQueue />
           </div>
@@ -51,4 +56,3 @@ function MainPage() {
 
 
 export default MainPage
-
