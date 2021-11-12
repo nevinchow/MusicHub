@@ -10,7 +10,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import Player from './components/MusicPlayer/index'
-
+import MusicQueue from './components/MusicQueue'
 
 import ArtistPage from './components/ArtistPage';
 import AlbumPage from './components/AlbumPage'
@@ -31,7 +31,7 @@ function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user)
-
+  const queue = useSelector((state) => state.musicQueue);
 
   useEffect(() => {
     (async() => {
@@ -60,6 +60,7 @@ function App() {
         </Route>
         <Route path='/' exact={true} >
           <LandingPage/>
+
         </Route>
         <ProtectedRoute path='/albums/:albumId/reviews' >
 
@@ -99,7 +100,7 @@ function App() {
           <PlaylistPage/>
         </ProtectedRoute>
       </Switch>
-      {!user ? <></> : <Player />}
+      {!user ? <></> : <Player queue={queue}/>}
 
 
     </BrowserRouter>
