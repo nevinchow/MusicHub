@@ -26,7 +26,7 @@ import PlaylistPage from './components/playlists/individualPlaylist';
 import ReviewsPage from './components/ReviewsPage'
 import SearchResults from './components/SearchPage/SearchResults';
 import SearchBar from './components/SearchPage/SearchBar';
-
+import LandingPage from './components/LandingPage';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -39,7 +39,7 @@ function App() {
       await dispatch(getSongs())
       await dispatch(getPlaylists())
       setLoaded(true);
-      
+
     })();
   }, [dispatch]);
 
@@ -49,17 +49,18 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* <NavBar /> */}
-      {!user ? <Redirect to='/login'/> : <Sidebar />}
+      <NavBar />
+
 
       <Switch>
 
         <Route path='/search' >
           <SearchBar/>
-          
-        </Route>
-        <Route path='/albums/:albumId/reviews' >
 
+        </Route>
+        <Route path='/' exact={true} >
+          <LandingPage/>
+        </Route>
         <ProtectedRoute path='/albums/:albumId/reviews' >
 
           <ReviewsPage />
@@ -85,9 +86,6 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          <h1>Home Page</h1>
-        </ProtectedRoute>
         <ProtectedRoute path='/playlists' exact={true} >
           <Playlists/>
         </ProtectedRoute>
@@ -103,7 +101,7 @@ function App() {
       </Switch>
       {!user ? <></> : <Player />}
 
-        
+
     </BrowserRouter>
   );
 }
