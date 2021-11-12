@@ -1,7 +1,7 @@
 .sidebar-container {
     position: fixed;
     background-color: black;
-    display: none;
+    display: flex;
     flex-direction: column;
     width: 20%;
     height: 100%;

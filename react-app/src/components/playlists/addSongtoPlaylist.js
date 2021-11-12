@@ -35,6 +35,7 @@ function AddToPlaylist({songId}) {
         <div> 
             <form>
                 <select name="playlists" id="playlists" onChange={addSong}>
+                    <option value="" selected disabled hidden>Choose A Playlist</option>
                     {Object.keys(playlists).map((playlistId) => {
                         return (
                             <option 

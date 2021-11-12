@@ -47,7 +47,6 @@ const SearchResults = ({queryString}) => {
         setArtistSearchResult(filteredArtist)
         const filteredSong = eachSong.filter((song) => song.name.toLowerCase().includes(queryString.toLowerCase()))
         setSongSearchResult(filteredSong)
-        console.log(shortenedFilteredSongs)
 
         const filtered=eachAlbum.filter((album)=>album.title.toLowerCase().includes(queryString.toLowerCase())) 
         setSearchResult(filtered)
