@@ -28,7 +28,6 @@ const Player = () => {
   
   return (
     <>
-      {console.log(queue, "THIS IS A TEST")}
 
       <AudioPlayer
         className="audio-player"

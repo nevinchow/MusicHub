@@ -51,7 +51,7 @@ function App() {
   return (
     <BrowserRouter>
       {/* <NavBar /> */}
-      {/* {!user ? <Redirect to='/'/> : <Sidebar />} */}
+      {!user ? <Redirect to='/'/> : <Sidebar />}
 
       <Switch>
 

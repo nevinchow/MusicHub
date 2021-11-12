@@ -45,9 +45,7 @@ const PlaylistPage = () => {
   }
   
   playlistSongs.map((songId) => {
-    console.log(songId, 'in playlistsongs foreach')
     songId.forEach((song) => {
-      console.log(song, 'inner loop')
       if(song.playlistId === +id) {
         const oneSong = Object.keys(songsState).find(aSong => song.songId === +aSong)
         songs.push(songsState[oneSong])

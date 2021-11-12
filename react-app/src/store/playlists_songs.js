@@ -29,7 +29,6 @@ export const addSongToPlaylist = (playlist) => async (dispatch) => {
 
   const addedSong = await response.json();
   dispatch(addPlaylistSongs(addedSong));
-  console.log('action added song', addedSong)
   return addedSong
 
 }
@@ -42,14 +41,8 @@ export default function playlistSongsReducer(state = initialState, action) {
             const pairs = action.playlistSongs
             return pairs
         case ADD_PLAYLIST_SONGS:
-            console.log('add action', action, 'action.playlist', action.songToAdd)
             const newState = [...state]
             newState.push(action.songToAdd)
-            // console.log('before new state', newState)
-            // newState[action.songToAdd] = action.songToAdd
-            // console.log(newState, 'new state')
-            // return newState
-            console.log(newState)
             return newState
         default:
             return state;

@@ -24,7 +24,6 @@ const[searchResult, setSearchResult]=useState([])
     useEffect(()=>{
         const filtered=eachAlbum.filter((album)=>album.title.toLowerCase().includes(queryString.toLowerCase())) 
         setSearchResult(filtered)
-        console.log(searchResult)
     },[queryString])
 
   return (
