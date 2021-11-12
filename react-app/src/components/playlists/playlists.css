@@ -133,6 +133,10 @@
     cursor: pointer;
 }
 
+.play-icon {
+    padding: 8px;
+}
+
 /* -- Edit Playlist Form ---------------- */
 .edit-button {
     cursor: pointer;
@@ -212,9 +216,7 @@
 }
 
 /* -- ADD SONG MODAL ----------------- */
-.settings-menu {
-    position: absolute;
-    right: 5px;
-    background-color: slategray;
-    height: 100px;
+.plus-button:hover {
+    color: darkgreen;
+    cursor: pointer;
 }

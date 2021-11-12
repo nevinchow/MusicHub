@@ -5,7 +5,9 @@ import ArtistTile from '../ArtistTile';
 import { getArtists } from '../../store/artist';
 import { getAlbums } from '../../store/album';
 import AlbumTile from '../AlbumTile';
-
+import MusicQueue from '../MusicQueue';
+import Song from '../songs/Song'
+import {removeSong, addOneSong, addNextSong} from "../../store/musicQueue"
 
 import './main.css'
 
@@ -34,8 +36,18 @@ function MainPage() {
 
       {albums.map((album)=>(
       <>
-          <AlbumTile album={album} />
-          <NavLink to={`/albums/${album.id}/reviews`}>reviews</NavLink>
+        <div className="main-page">
+          <div className="main-page-container">
+            {artists.map((artist) => (
+              <ArtistTile artist={artist} />
+            ))}
+
+            {albums.map((album) => (
+              <AlbumTile album={album} />
+            ))}
+            <MusicQueue />
+          </div>
+        </div>
       </>
       ))}
         </div>
@@ -50,6 +62,4 @@ function MainPage() {
 
 
 export default MainPage
-
-
 

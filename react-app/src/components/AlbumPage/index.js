@@ -7,6 +7,7 @@ import { useParams } from 'react-router';
 import './album-page.css';
 import SongTile from '../songs/Song';
 import { getSongs } from '../../store/songs';
+import { Link } from 'react-router-dom';
 
 
 
@@ -47,9 +48,54 @@ function AlbumPage() {
               <h2>{currentArtist?.name}</h2>
             </NavLink>
             <img className="album-art" src={album?.imageURL}></img>
-            {filteredSongArray.map((song)=>(
-              <SongTile song={song}/>
-            ))}
+              <div>
+                <table>
+                <thead>
+                    <tr>
+                      <td className="table-label">#</td>
+                      <td className="table-label"></td>
+                      <td className="table-label">Title</td>
+                      <td className="table-label">Album</td>
+                      <td className="table-label">Duration</td>
+                      <td className="table-label settings"></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                        {filteredSongArray.map((song)=>{
+                          const minutes = Math.floor(song.duration / 60)
+                          const seconds = (song.duration % 60)
+                          let newSeconds;
+                          if (seconds < 10) {
+                            newSeconds = `0${seconds}`
+                          } else {
+                            newSeconds = seconds
+                          }
+                          let trackTime = ``
+                          if (minutes === 0 ) {
+                            trackTime = `${minutes}: ${newSeconds}`
+                          } else {
+                            trackTime = `${minutes} : ${newSeconds}`
+          
+                          }
+
+                          return (
+                            <tr className="table-row" key={song.id}>
+                              <td className="cell track">{song.id}</td>
+                             
+                              <td className="cell"><div className="song-name-row">
+                                <p>{song.name}</p>
+                                <Link className="song-info-links" to={`/artist/${currentArtist.id}`}>{currentArtist.name}</Link></div></td>
+                              <td className="cell"><Link className="song-info-links" to={`/albums/${album.id}`}>{album.title}</Link></td>
+                              <td className="cell">{trackTime}</td>
+                             
+                            </tr>
+                          )
+                        
+                        })}
+
+                  </tbody>
+                </table>
+              </div>
           </div>
         </div>
       </>
