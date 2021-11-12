@@ -10,7 +10,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import { authenticate } from './store/session';
 import Player from './components/MusicPlayer/index'
-
+import SplashPage from './components/SplashPage/SplashPage'
 
 import ArtistPage from './components/ArtistPage';
 import AlbumPage from './components/AlbumPage'
@@ -50,7 +50,7 @@ function App() {
   return (
     <BrowserRouter>
       {/* <NavBar /> */}
-      {!user ? <Redirect to='/login'/> : <Sidebar />}
+      {!user ? <Redirect to='/'/> : <Sidebar />}
 
       <Switch>
 
@@ -83,9 +83,9 @@ function App() {
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />
         </ProtectedRoute>
-        <ProtectedRoute path='/' exact={true} >
-          <h1>Home Page</h1>
-        </ProtectedRoute>
+        <Route path='/' exact={true} >
+          <SplashPage />
+        </Route>
         <ProtectedRoute path='/playlists' exact={true} >
           <Playlists/>
         </ProtectedRoute>
