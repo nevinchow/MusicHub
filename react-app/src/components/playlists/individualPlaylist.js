@@ -23,10 +23,10 @@ const PlaylistPage = () => {
 
   const playlists = useSelector(state => state.playlists)
   const playlist = Object.keys(playlists).find(onePlaylist => +id === +onePlaylist)
-  const playlistSongs = useSelector(state => state.playlist_songs)
-  const songsState = useSelector(state => state.songs)
-  const albums = useSelector(state => state.album)
-  const artists = useSelector(state => state.artist)
+  const playlistSongs = useSelector(state => state?.playlist_songs)
+  const songsState = useSelector(state => state?.songs)
+  const albums = useSelector(state => state?.album)
+  const artists = useSelector(state => state?.artist)
   const songs = [];
   let trackNumber = 0
 
@@ -43,8 +43,8 @@ const PlaylistPage = () => {
     if (!loaded) {
     return null;
   }
-
-  playlistSongs.forEach((songId) => {
+  console.log('playlistSongs', playlistSongs)
+  playlistSongs.map((songId) => {
     songId.forEach((song) => {
       if(song.playlistId === +id) {
         const oneSong = Object.keys(songsState).find(aSong => song.songId === +aSong)
@@ -164,3 +164,4 @@ const PlaylistPage = () => {
 }
 
 export default PlaylistPage;
+

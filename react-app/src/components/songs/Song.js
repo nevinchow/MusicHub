@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { addOneSong, addNextSong } from "../../store/musicQueue";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
+import { startSong } from "../../store/musicPlayer";
+
 
 const Song = ({songId, playlistId}) => {
     const song = useSelector((state) => state.songs[songId]);
@@ -14,8 +16,9 @@ const Song = ({songId, playlistId}) => {
     const dispatch = useDispatch();
 
     const handlePlay = () => {
-        console.log("music player test!!!!!")
         dispatch(addOneSong(song));
+
+        dispatch(startSong())
     }
 
     const handleAddQueue = () => {

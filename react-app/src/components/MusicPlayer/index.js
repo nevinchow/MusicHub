@@ -1,37 +1,44 @@
-import AudioPlayer from "react-h5-audio-player";
-import "react-h5-audio-player/lib/styles.css";
+// import AudioPlayer from "react-modular-audio-player";
+import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/lib/styles.css';
 import { useSelector } from "react-redux";
-
-// import styled from "styled-components";
 import "./musicPlayer.css";
+import { useState } from 'react';
+
+const Player = ({queue}) => {
+  const artists = useSelector((state) => state.artist)
+  const isPlaying = useSelector((state) => state.player)
+  const [currentSong, setCurrentSong] = useState(0);
 
   
+  if(!queue.length) return null
+  let playlist = [];
 
-// import 'react-h5-audio-player/lib/styles.less' Use LESS
-// import 'react-h5-audio-player/src/styles.scss' Use SASS
+    queue.map((song) => {
+    const artist = Object.values(artists).find((artistId) => +artistId === +song.artistId)
+    const nextSong = {
+      src: song.song_link,
+      title: song.name,
+      artist}
 
-const Player = () => {
-  const queue = useSelector((state) => state.musicQueue);
+    playlist.push(nextSong)
+  })
+  
+  
   return (
     <>
-      {console.log(queue, "THIS IS A TEST")}
-
-      <AudioPlayer
-        className="audio-player"
+        <AudioPlayer
+        autoPlay={isPlaying}
+        src={playlist[currentSong].src}
         autoPlayAfterSrcChange={true}
-        src="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636396215/Albums/Surrender/05_Alive_mbqvdv.m4a"
-        onPlay={(e) => console.log("onPlay")}
+        onPlay={e => console.log("onPlay")}
+        onEnded={() => setCurrentSong(i => i + 1)}
+        showSkipControls={true}
+        onClickNext={() => setCurrentSong(i => i + 1)}
         // other props here
       />
     </>
   );
 } 
-
-
-  //  autoPlayAfterSrcChange={true}
-  //       src={queue[0].song_link}
-
-// const playerCSS = styled.div`
-// `;
 
 export default Player;

@@ -28,6 +28,8 @@ import ReviewsPage from './components/ReviewsPage'
 import SearchResults from './components/SearchPage/SearchResults';
 import SearchBar from './components/SearchPage/SearchBar';
 import LandingPage from './components/LandingPage';
+import { getArtists } from './store/artist';
+import { getAlbums } from './store/album';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -39,6 +41,8 @@ function App() {
       await dispatch(authenticate());
       await dispatch(getSongs())
       await dispatch(getPlaylists())
+      await dispatch(getArtists())
+      await dispatch(getAlbums())
       setLoaded(true);
 
     })();
@@ -52,6 +56,7 @@ function App() {
     <BrowserRouter>
       {/* <NavBar /> */}
       {!user ? <Redirect to='/'/> : <Sidebar />}
+      {!user ? <></> : <Player queue={queue}/>}
 
       <Switch>
 
@@ -104,7 +109,7 @@ function App() {
           <PlaylistPage/>
         </ProtectedRoute>
       </Switch>
-      {!user ? <></> : <Player queue={queue}/>}
+      {/* {!user ? <></> : <Player queue={queue}/>} */}
 
 
     </BrowserRouter>

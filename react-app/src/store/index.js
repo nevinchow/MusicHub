@@ -11,6 +11,7 @@ import queueReducer from './musicQueue';
 import playlistSongsReducer from './playlists_songs';
 
 import reviewReducer from'./review'
+import playerReducer from './musicPlayer';
 
 
 
@@ -22,7 +23,8 @@ const rootReducer = combineReducers({
   songs: songReducer,
   musicQueue: queueReducer,
   playlist_songs: playlistSongsReducer,
-  review: reviewReducer
+  review: reviewReducer,
+  player: playerReducer
 
 })
   

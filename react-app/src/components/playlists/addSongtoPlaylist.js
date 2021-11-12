@@ -20,9 +20,6 @@ function AddToPlaylist({songId}) {
           songId
       }
 
-      console.log(songToAdd, 'added song')
-
-      
       dispatch(addSongToPlaylist(songToAdd))
   }
 
@@ -38,9 +35,11 @@ function AddToPlaylist({songId}) {
         <div> 
             <form>
                 <select name="playlists" id="playlists" onChange={addSong}>
+                    <option value="" selected disabled hidden>Choose A Playlist</option>
                     {Object.keys(playlists).map((playlistId) => {
                         return (
                             <option 
+                            key={findPlaylist(playlistId).id}
                             value={findPlaylist(playlistId).id}>
                                 {findPlaylist(playlistId).name}
                             </option>
