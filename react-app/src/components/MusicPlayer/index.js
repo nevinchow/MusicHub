@@ -1,16 +1,19 @@
-import AudioPlayer from "react-modular-audio-player";
-import "react-h5-audio-player/lib/styles.css";
+// import AudioPlayer from "react-modular-audio-player";
+import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/lib/styles.css';
 import { useSelector } from "react-redux";
 import "./musicPlayer.css";
+import { useState } from 'react';
 
-const Player = () => {
-  const queue = useSelector((state) => state.musicQueue);
+const Player = ({queue}) => {
   const artists = useSelector((state) => state.artist)
-  let playlist = [{src: "none.m4a",
-     title: "Add Songs To YOur Queue",
-     artist: ""}]
+  const isPlaying = useSelector((state) => state.player)
+  const [currentSong, setCurrentSong] = useState(0);
 
- if(queue) {
+  
+  if(!queue.length) return null
+  let playlist = [];
+
     queue.map((song) => {
     const artist = Object.values(artists).find((artistId) => +artistId === +song.artistId)
     const nextSong = {
@@ -20,18 +23,18 @@ const Player = () => {
 
     playlist.push(nextSong)
   })
-  } else {
-    playlist.push({src: "https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397275/Albums/Planet%20Her/07_Love_To_Dream_boetne.m4a",
-     title: "I don't do drugs feat. Ariana Grande",
-     artist: "Drake"})
-  }
+  
   
   return (
     <>
-
-      <AudioPlayer
-        className="audio-player"
-        audioFiles={playlist}
+        <AudioPlayer
+        autoPlay={isPlaying}
+        src={playlist[currentSong].src}
+        autoPlayAfterSrcChange={true}
+        onPlay={e => console.log("onPlay")}
+        onEnded={() => setCurrentSong(i => i + 1)}
+        showSkipControls={true}
+        onClickNext={() => setCurrentSong(i => i + 1)}
         // other props here
       />
     </>

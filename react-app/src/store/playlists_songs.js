@@ -42,8 +42,8 @@ export default function playlistSongsReducer(state = initialState, action) {
             return pairs
         case ADD_PLAYLIST_SONGS:
             const newState = [...state]
-            newState.push(action.songToAdd)
-            return newState
+            newState.concat(action.songToAdd)
+            return {...newState}
         default:
             return state;
     }

@@ -55,7 +55,8 @@ function App() {
   return (
     <BrowserRouter>
       {/* <NavBar /> */}
-      {/* {!user ? <Redirect to='/'/> : <Sidebar />} */}
+      {!user ? <Redirect to='/'/> : <Sidebar />}
+      {!user ? <></> : <Player queue={queue}/>}
 
       <Switch>
 
@@ -109,7 +110,7 @@ function App() {
           <PlaylistPage/>
         </ProtectedRoute>
       </Switch>
-      {!user ? <></> : <Player queue={queue}/>}
+      {/* {!user ? <></> : <Player queue={queue}/>} */}
 
 
     </BrowserRouter>
