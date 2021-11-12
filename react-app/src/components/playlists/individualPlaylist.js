@@ -23,7 +23,7 @@ const PlaylistPage = () => {
 
   const playlists = useSelector(state => state.playlists)
   const playlist = Object.keys(playlists).find(onePlaylist => +id === +onePlaylist)
-  const playlistSongs = useSelector(state => state?.playlist_songs)
+  const playlistSongs = useSelector(state => state.playlist_songs)
   const songsState = useSelector(state => state.songs)
   const albums = useSelector(state => state.album)
   const artists = useSelector(state => state.artist)
