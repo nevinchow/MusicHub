@@ -85,7 +85,7 @@ function App() {
           <User />
         </ProtectedRoute>
         <Route path='/' exact={true} >
-          <SplashPage />
+          {!user ? <SplashPage /> : <MainPage />}
         </Route>
         <ProtectedRoute path='/playlists' exact={true} >
           <Playlists/>
