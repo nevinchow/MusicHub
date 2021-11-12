@@ -7,6 +7,9 @@ import Song from '../songs/Song'
 import AddToPlaylist from "./addSongtoPlaylist";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMusic } from "@fortawesome/free-solid-svg-icons";
+import { addOneSong } from "../../store/musicQueue";
+
 
 function DisplaySong({songId, trackNumber}) {
   const albums = useSelector(state => state.album)
@@ -14,6 +17,8 @@ function DisplaySong({songId, trackNumber}) {
   const song = useSelector(state => state.songs[songId])
   const [play, showPlay] = useState(false);
   const [settings, setSettings] = useState(false)
+  const dispatch = useDispatch()
+
 
 
 
@@ -44,8 +49,8 @@ function DisplaySong({songId, trackNumber}) {
       showPlay(false)
   }
 
-  const startPlay = () => {
-    console.log('play')
+    const addToQueue = () => {
+      dispatch(addOneSong(song))
   }
 
 
@@ -90,13 +95,14 @@ function DisplaySong({songId, trackNumber}) {
               <></>
             )}
             <td className="cell track">{trackNumber}</td>
-            <td className="cell">
+           {!play ? 
+              <td className="cell">
               <img
                 className="album-thumbnail"
                 src={albums[thisAlbum].imageURL}
                 alt={albums[thisAlbum].name}
               ></img>
-            </td>
+            </td> : <></>} 
             <td className="cell">
               <div className="song-name-row">
                 <p>{song.name}</p>
@@ -117,7 +123,11 @@ function DisplaySong({songId, trackNumber}) {
               </Link>
             </td>
             <td className="cell">{trackTime}</td>
-            <td><FontAwesomeIcon className="plus-button" id={song.id} onClick={openSettings} icon={faPlus} /> 
+
+              
+            <td>
+              <FontAwesomeIcon className="plus-button" icon={faMusic} onClick={addToQueue}/>
+              <FontAwesomeIcon className="plus-button" id={song.id} onClick={openSettings} icon={faPlus} /> 
             {settings ? <AddToPlaylist songId={songId}/> : <></>}
             </td>
         

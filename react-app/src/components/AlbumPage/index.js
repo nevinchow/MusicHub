@@ -36,7 +36,6 @@ function AlbumPage() {
         filteredSongArray.push(song)
       }
       
-      console.log('!!!!!!!!!!!',filteredSongArray)
     }
     return (
       <>
