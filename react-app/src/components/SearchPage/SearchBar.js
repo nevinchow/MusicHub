@@ -12,7 +12,7 @@ import SearchResults from './SearchResults';
 const SearchBar = () => {
     const history = useHistory();
     const [queryString, setQueryString] = useState('');
-  
+
     const updateSearch = (e) => {
       setQueryString(e.target.value);
       if (e.target.value) {
@@ -26,13 +26,18 @@ const SearchBar = () => {
         });
       }
     };
-  
+
     return (
+      <>
+      {!queryString ?
+        <input className="search" placeholder="Search for albums" type="search" value={queryString} onChange={(e)=>setQueryString(e.target.value)} /> :
       <div>
         <input className="search" placeholder="Search for albums" type="search" value={queryString} onChange={(e)=>setQueryString(e.target.value)} />
         <SearchResults queryString={queryString}/>
       </div>
+      }
+      </>
     );
   };
-  
+
   export default SearchBar;

@@ -7,7 +7,7 @@ import { useParams } from 'react-router';
 import './artistPage.css';
 import { getSongs } from '../../store/songs';
 import { Link } from 'react-router-dom';
-
+import DisplaySong from '../playlists/DisplaySong';
 
 
 
@@ -19,15 +19,15 @@ function ArtistPage() {
     const dispatch = useDispatch()
     const songs=useSelector(state=>Object.values(state.songs))
     const allsongsofsingleartist=songs.filter(song=>song.artistId== +artistId)
-    
+    let trackNumber = 0
     const songstorender=[]
     for (let i=0; i<=4; i++) {
-         
+
         songstorender.push(allsongsofsingleartist[i])
     }
     console.log(songstorender)
 
-    useEffect(()=>{  
+    useEffect(()=>{
             dispatch(getSingleArtist(artistId))
             dispatch(getAlbumsByArtistId(artistId))
             dispatch(getSongs())
@@ -61,44 +61,20 @@ function ArtistPage() {
                 <thead>
                     <tr>
                       <td className="table-label">#</td>
-                     
+
                       <td className="table-label">Title</td>
-                      
+
                       <td className="table-label">Duration</td>
                       <td className="table-label settings"></td>
                     </tr>
                   </thead>
                   <tbody>
                         {songstorender.map((song)=>{
-                          const minutes = Math.floor(song.duration / 60)
-                          const seconds = (song.duration % 60)
-                          let newSeconds;
-                          if (seconds < 10) {
-                            newSeconds = `0${seconds}`
-                          } else {
-                            newSeconds = seconds
-                          }
-                          let trackTime = ``
-                          if (minutes === 0 ) {
-                            trackTime = `${minutes}: ${newSeconds}`
-                          } else {
-                            trackTime = `${minutes} : ${newSeconds}`
-          
-                          }
-
+                          trackNumber++
                           return (
-                            <tr className="table-row" key={song.id}>
-                              <td className="cell track">{song.id}</td>
-                             
-                              <td className="cell"><div className="song-name-row">
-                                <p>{song.name}</p>
-                                </div></td>
-                             
-                              <td className="cell">{trackTime}</td>
-                             
-                            </tr>
+                            <DisplaySong songId={song.id} trackNumber={trackNumber}/>
                           )
-                        
+
                         })}
 
                   </tbody>
@@ -108,7 +84,7 @@ function ArtistPage() {
           </>
         );
     }
-   
+
 
 
 

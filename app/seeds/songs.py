@@ -136,7 +136,7 @@ def seed_songs():
         artistId=2,
         song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636396216/Albums/Surrender/03_See_You_Again_igdfev.m4a"
     )
- 
+
     Alive = Song(
         name="Alive",
         genre="Electronic",
@@ -421,100 +421,100 @@ def seed_songs():
         name="Woman",
         genre="R&B",
         duration=232,
-        albumId=5,
-        artistId=5,
+        albumId=6,
+        artistId=6,
         song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397273/Albums/Planet%20Her/01_Woman_kfjdgu.m4a"
     )
     naked = Song(
         name="Naked Massage",
         genre="R&B",
         duration=223,
-        albumId="5",
-        artistId="5",
+        albumId=6,
+        artistId=6,
         song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397274/Albums/Planet%20Her/02_Naked_masgwr.m4a"
     )
     payday = Song(
         name="Payday feat. Young Thug",
         genre="R&B",
         duration=212,
-        albumId="5",
-        artistId="5",
+        albumId=6,
+        artistId=6,
         song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397273/Albums/Planet%20Her/03_Payday_feat._Young_Thug_ni3hiv.m4a"
     )
     Get_into_it = Song(
         name="Get into it",
         genre="R&B",
         duration=218,
-        albumId="5",
-        artistId="5",
+        albumId=6,
+        artistId=6,
         song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397273/Albums/Planet%20Her/04_Get_Into_It_Yuh_pcxrhw.m4a"
     )
     Need_To_Know = Song(
         name="Need to Know",
         genre="R&B",
         duration=310,
-        albumId="5",
-        artistId="5",
+        albumId=6,
+        artistId=6,
         song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397273/Albums/Planet%20Her/05_Need_To_Know_wupayn.m4a"
     )
     I_Don_t_Do_Drugs = Song(
         name="I don't do drugs feat. Ariana Grande",
         genre="R&B",
         duration=188,
-        albumId="5",
-        artistId="5",
+        albumId=6,
+        artistId=6,
         song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397274/Albums/Planet%20Her/06_I_Don_t_Do_Drugs_feat._Ariana_Grande_ukwb56.m4a"
     )
     Love_To_Dream = Song(
         name="I don't do drugs feat. Ariana Grande",
         genre="R&B",
         duration=186,
-        albumId="5",
-        artistId="5",
+        albumId=6,
+        artistId=6,
         song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397275/Albums/Planet%20Her/07_Love_To_Dream_boetne.m4a"
     )
     You_Right = Song(
         name="You Right",
         genre="R&B",
         duration=210,
-        albumId="5",
-        artistId="5",
+        albumId=6,
+        artistId=6,
         song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397275/Albums/Planet%20Her/08_You_Right_zkaxcj.m4a"
     )
     Been_Like_This = Song(
         name="Been Like This",
         genre="R&B",
         duration=177,
-        albumId="5",
-        artistId="5",
+        albumId=6,
+        artistId=6,
         song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397274/Albums/Planet%20Her/09_Been_Like_This_evt8ew.m4a"
     )
     Options = Song(
         name="Options",
         genre="R&B",
         duration=159,
-        albumId="5",
-        artistId="5",
+        albumId=6,
+        artistId=6,
         song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397273/Albums/Planet%20Her/10_Options_feat._JID_l4dwc5.m4a"
     )
     Imagine = Song(
         name="Imagine",
         genre="R&B",
         duration= 148,
-        albumId="5",
-        artistId="5",
+        albumId=6,
+        artistId=6,
         song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397273/Albums/Planet%20Her/11_Imagine_ojjqlz.m4a"
     )
     Alone = Song(
         name="Alone",
         genre="R&B",
         duration=228,
-        albumId="5",
-        artistId="5",
+        albumId=6,
+        artistId=6,
         song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397276/Albums/Planet%20Her/12_Alone_q495cr.m4a"
     )
 
-    
+
 
 
 
