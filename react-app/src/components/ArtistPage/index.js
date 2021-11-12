@@ -5,6 +5,8 @@ import { getArtists, getSingleArtist } from '../../store/artist';
 import { getAlbums, getAlbumsByArtistId } from '../../store/album';
 import { useParams } from 'react-router';
 import './artistPage.css';
+import { getSongs } from '../../store/songs';
+import { Link } from 'react-router-dom';
 
 
 
@@ -15,11 +17,20 @@ function ArtistPage() {
     const artist=useSelector(state=>state.artist[artistId]);
     const albums=useSelector(state=>state.album[artistId])
     const dispatch = useDispatch()
- 
+    const songs=useSelector(state=>Object.values(state.songs))
+    const allsongsofsingleartist=songs.filter(song=>song.artistId== +artistId)
+    
+    const songstorender=[]
+    for (let i=0; i<=4; i++) {
+         
+        songstorender.push(allsongsofsingleartist[i])
+    }
+    console.log(songstorender)
 
     useEffect(()=>{  
             dispatch(getSingleArtist(artistId))
             dispatch(getAlbumsByArtistId(artistId))
+            dispatch(getSongs())
 
     },[dispatch, artistId])
 
@@ -43,6 +54,55 @@ function ArtistPage() {
                     <p>{artist?.bio}</p>
                   </div>
                 </div>
+
+              </div>
+              <div>
+                <table>
+                <thead>
+                    <tr>
+                      <td className="table-label">#</td>
+                     
+                      <td className="table-label">Title</td>
+                      
+                      <td className="table-label">Duration</td>
+                      <td className="table-label settings"></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                        {songstorender.map((song)=>{
+                          const minutes = Math.floor(song.duration / 60)
+                          const seconds = (song.duration % 60)
+                          let newSeconds;
+                          if (seconds < 10) {
+                            newSeconds = `0${seconds}`
+                          } else {
+                            newSeconds = seconds
+                          }
+                          let trackTime = ``
+                          if (minutes === 0 ) {
+                            trackTime = `${minutes}: ${newSeconds}`
+                          } else {
+                            trackTime = `${minutes} : ${newSeconds}`
+          
+                          }
+
+                          return (
+                            <tr className="table-row" key={song.id}>
+                              <td className="cell track">{song.id}</td>
+                             
+                              <td className="cell"><div className="song-name-row">
+                                <p>{song.name}</p>
+                                </div></td>
+                             
+                              <td className="cell">{trackTime}</td>
+                             
+                            </tr>
+                          )
+                        
+                        })}
+
+                  </tbody>
+                </table>
               </div>
             </div>
           </>

@@ -61,6 +61,7 @@ function App() {
         <Route path='/' exact={true} >
           <LandingPage/>
 
+
         </Route>
         <ProtectedRoute path='/albums/:albumId/reviews' >
 
