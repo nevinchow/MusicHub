@@ -1,41 +1,32 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import {
-  getAPlaylist,
-  getPlaylists,
-  removePlaylist,
-} from "../../store/playlists";
-import { getSongsForPlaylist } from "../../store/playlists_songs";
-import { Link, NavLink, useParams } from "react-router-dom";
-import EditPlaylists from "./editPlaylist";
-import { useHistory } from "react-router";
-import "./playlists.css";
-import { getAlbums } from "../../store/album";
-import { getArtists } from "../../store/artist";
-import AddToPlaylist from "./addSongtoPlaylist";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay } from "@fortawesome/free-solid-svg-icons";
-import Song from "../songs/Song";
+import React, { useEffect, useState }  from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { getAPlaylist, getPlaylists, removePlaylist } from '../../store/playlists';
+import { getSongsForPlaylist } from '../../store/playlists_songs';
+import { Link, NavLink, useParams } from 'react-router-dom';
+import EditPlaylists from './editPlaylist';
+import { useHistory } from 'react-router';
+import './playlists.css'
+import { getAlbums } from '../../store/album';
+import { getArtists } from '../../store/artist';
+import AddToPlaylist from './addSongtoPlaylist';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlay } from '@fortawesome/free-solid-svg-icons'
+import DisplaySong from './DisplaySong';
 
 const PlaylistPage = () => {
   const { id } = useParams();
   const history = useHistory();
-  const dispatch = useDispatch();
-  const [settings, setSettings] = useState(false);
-  const [songId, setSongId] = useState();
-  const [editForm, openEditForm] = useState(false);
+  const dispatch = useDispatch()
+  const [editForm, openEditForm] = useState(false)
   const [loaded, setLoaded] = useState(false);
-  const [play, showPlay] = useState(false);
 
-  const playlists = useSelector((state) => state.playlists);
-  const playlist = Object.keys(playlists).find(
-    (onePlaylist) => +id === +onePlaylist
-  );
-  const playlistSongs = useSelector((state) => state?.playlist_songs);
-  const songsState = useSelector((state) => state.songs);
-  const albums = useSelector((state) => state.album);
-  const artists = useSelector((state) => state.artist);
+  const playlists = useSelector(state => state.playlists)
+  const playlist = Object.keys(playlists).find(onePlaylist => +id === +onePlaylist)
+  const playlistSongs = useSelector(state => state.playlist_songs)
+  const songsState = useSelector(state => state.songs)
+  const albums = useSelector(state => state.album)
+  const artists = useSelector(state => state.artist)
   const songs = [];
   useEffect(() => {
     (async () => {
@@ -62,7 +53,6 @@ const PlaylistPage = () => {
     });
   });
 
-  let trackNumber = 0;
 
   const editFormOpen = () => {
     if (!editForm) {
@@ -77,20 +67,9 @@ const PlaylistPage = () => {
     history.push(`/main`);
   };
 
-  const openSettings = async (e) => {
-    setSongId(e.target.value);
-    if (!settings) {
-      setSettings(true);
-    } else {
-      setSettings(false);
-    }
-  };
 
-  const closeSettings = async () => {
-    if (settings) {
-      setSettings(false);
-    }
-  };
+
+  
 
   const getRandomAlbumImg = () => {
     const images = [];
@@ -112,17 +91,9 @@ const PlaylistPage = () => {
     return images;
   };
 
-  const showPlayButton = () => {
-    if (!play) {
-      showPlay(true);
-    } else {
-      showPlay(false);
-    }
-  };
+  
 
-  const startPlay = () => {
-    console.log("play");
-  };
+
 
   return (
     <>
@@ -164,6 +135,16 @@ const PlaylistPage = () => {
             <p>{playlists[playlist].description}</p>
           </div>
         </div>
+      : <img className="default-playlist-img" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/No-album-art.png" alt="default playlist"></img>
+        
+
+        <div className="playlist-details">
+          <h1>{playlists[playlist].name}</h1>
+          <p>{playlists[playlist].description}</p>
+          
+        </div>
+        
+      </div>
         <div className="playlist-options">
           <h2 className="edit-button" onClick={editFormOpen}>
             Edit
@@ -184,95 +165,20 @@ const PlaylistPage = () => {
                 <td className="table-label">Album</td>
                 <td className="table-label">Duration</td>
                 <td className="table-label settings"></td>
+                
               </tr>
             </thead>
             <tbody>
-              <div className="settings-menu">
-                {settings ? <AddToPlaylist songId={songId} /> : <></>}
-              </div>
-
               {songs.map((song) => {
-                //turn duration to string
-                trackNumber++;
-                const minutes = Math.floor(song.duration / 60);
-                const seconds = song.duration % 60;
-                let newSeconds;
-                if (seconds < 10) {
-                  newSeconds = `0${seconds}`;
-                } else {
-                  newSeconds = seconds;
-                }
-                let trackTime = ``;
-                if (minutes === 0) {
-                  trackTime = `${minutes}: ${newSeconds}`;
-                } else {
-                  trackTime = `${minutes} : ${newSeconds}`;
-                }
-                //get album for song
-                const thisAlbum = Object.keys(albums).find(
-                  (oneAlbum) => song.albumId === +oneAlbum
-                );
-
-                //get artist for song
-                const thisArtist = Object.keys(artists).find(
-                  (oneArtist) => song.artistId === +oneArtist
-                );
-
                 return (
-                  <tr
-                    className="table-row"
-                    key={song.id}
-                    onMouseEnter={showPlayButton}
-                  >
-                    {play ? (
-                      <td className="cell">
-                        <Song songId={song.id} />
-                      </td>
-                    ) : (
-                      <></>
-                    )}
-                    <td className="cell track">{trackNumber}</td>
-                    <td className="cell">
-                      <img
-                        className="album-thumbnail"
-                        src={albums[thisAlbum].imageURL}
-                        alt={albums[thisAlbum].name}
-                      ></img>
-                    </td>
-                    <td className="cell">
-                      <div className="song-name-row">
-                        <p>{song.name}</p>
-                        <Link
-                          className="song-info-links"
-                          to={`/artist/${artists[thisArtist].id}`}
-                        >
-                          {artists[thisArtist].name}
-                        </Link>
-                      </div>
-                    </td>
-                    <td className="cell">
-                      <Link
-                        className="song-info-links"
-                        to={`/albums/${albums[thisAlbum].id}`}
-                      >
-                        {albums[thisAlbum].title}
-                      </Link>
-                    </td>
-                    <td className="cell">{trackTime}</td>
-                    <td>
-                      <button value={song.id} onClick={openSettings}>
-                        edit
-                      </button>
-                    </td>
-                  </tr>
-                );
+                  <DisplaySong songId={song.id}/>
+                )
+                
               })}
             </tbody>
           </table>
         </div>
-      </div>
     </>
-  );
-};
+  )};
 
 export default PlaylistPage;
