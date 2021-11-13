@@ -11,7 +11,6 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import Player from './components/MusicPlayer/index'
 import MusicQueue from './components/MusicQueue'
-import SplashPage from './components/SplashPage/SplashPage'
 // import FooterBar from './components/Footer/Footer'
 
 import ArtistPage from './components/ArtistPage';
@@ -93,9 +92,6 @@ function App() {
         <ProtectedRoute path="/users/:userId" exact={true}>
           <User />
         </ProtectedRoute>
-        {/* <Route path='/' exact={true} >
-          {!user ? <SplashPage /> : <MainPage />}
-        </Route> */}
         <ProtectedRoute path="/playlists" exact={true}>
           <Playlists />
         </ProtectedRoute>
