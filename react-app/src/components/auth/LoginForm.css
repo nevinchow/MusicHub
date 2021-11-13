@@ -1,6 +1,7 @@
 .main-content {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .header-login {
@@ -10,9 +11,10 @@
     align-content: center;
     justify-content: center;
     border-bottom: .75px solid #acaaaa;
+    width: 100%;
 }
 .header-login h2 {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     color: black;
     align-self: center;
 }
@@ -20,6 +22,18 @@
   width: 150px;
   height: 150px;
   border-radius: 50%;
+}
+
+#message-login {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+#login-form > #login-message {
+    font-weight: bold;
+    padding: 20px
 }
 /* .circle {
     background: lightblue;
@@ -34,13 +48,16 @@
 
 #login-form {
     display:flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
-    height: 400px;
+    align-items: center;
+    margin-top: 20px;
+    height: 350px;
+    width: 400px;
 }
 .login-form > {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     height: 100px;
@@ -54,4 +71,8 @@
     border: 1px solid #ccc;
     margin-bottom: 10px;
     padding: 0 10px;
+}
+.main-content button {
+    justify-content: center;
+    align-items: center;
 }

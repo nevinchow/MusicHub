@@ -39,7 +39,9 @@ const LoginForm = () => {
           <img src={logo} className="spotifyLogo"></img>
           <h2> Music Hub </h2>
         </div>
+        <div id="message-login"> Please login to continue to your music</div>
         <div id="login-form">
+          <div id="login-message"> {' '} </div>
             <form className="login-form" onSubmit={onLogin}>
               <div>
                 {errors.map((error, ind) => (
