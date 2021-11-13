@@ -16,7 +16,6 @@ export const play = () => async (dispatch) => {
 export default function playerReducer(state = initialState, action) {
         switch (action.type) {
             case START:
-                console.log(action)
                 return action.isPlaying
             default:
                 return state;
