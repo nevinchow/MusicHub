@@ -3,6 +3,7 @@ import React, { useEffect, useState }  from 'react';
 import { useDispatch } from "react-redux"
 import { addSongToPlaylist } from "../../store/playlists_songs";
 import { useSelector } from "react-redux";
+import { getSongsForPlaylist } from "../../store/playlists_songs";
 
 
 function AddToPlaylist({songId, setSettings}) {
@@ -21,6 +22,8 @@ function AddToPlaylist({songId, setSettings}) {
       }
 
       dispatch(addSongToPlaylist(songToAdd))
+      await dispatch(getSongsForPlaylist(id))
+
       setSettings(false)
   }
 
@@ -35,7 +38,7 @@ function AddToPlaylist({songId, setSettings}) {
     return (
         <div> 
             <form>
-                <select name="playlists" id="playlists" onChange={addSong}>
+                <select className="select-playlist" name="playlists" id="playlists" onChange={addSong}>
                     <option value="" selected disabled hidden>Choose A Playlist</option>
                     {Object.keys(playlists).map((playlistId) => {
                         return (

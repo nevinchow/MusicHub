@@ -13,6 +13,7 @@ import AddToPlaylist from './addSongtoPlaylist';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay } from '@fortawesome/free-solid-svg-icons'
 import DisplaySong from './DisplaySong';
+import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 
 const PlaylistPage = () => {
   const {id} = useParams();
@@ -20,7 +21,7 @@ const PlaylistPage = () => {
   const dispatch = useDispatch()
   const [editForm, openEditForm] = useState(false)
   const [loaded, setLoaded] = useState(false);
-
+  const [playlistSettings, setPlaylistSettings] = useState(false)
   const playlists = useSelector(state => state.playlists)
   const playlist = Object.keys(playlists).find(onePlaylist => +id === +onePlaylist)
   const playlistSongs = useSelector(state => state?.playlist_songs)
@@ -67,41 +68,31 @@ const PlaylistPage = () => {
     history.push(`/main`)
   }
 
-  const suggestSong = () => {
-    function getRandomInt(min, max) {
+  function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-    const max = songs.length - 1;
     const suggestedSongs=[]
+
+    const suggestSong = () => {
+    
+    const max = Object.keys(songsState).length - 1;
+    
     let i = 0;
-    while(i < 10) {
+    while(i < 5) {
       let randomSong = getRandomInt(1, max)
       const indexes = []
       if (indexes.includes(randomSong)) {
         randomSong = getRandomInt(1, max)
       } else {
-        // const oneSong = Object.keys(songsState).find(aSong => randomSong === aSong)
-        console.log("random number",randomSong, songsState[randomSong], indexes, indexes.includes(randomSong))
         suggestedSongs.push(Object.values(songsState)[randomSong])
         indexes.push(randomSong)
       }
-      
-
-      
-
       i++
-
     }
-    console.log('THESE ARE SUGGESTED!!!!!', suggestedSongs)
-    
+    return suggestedSongs
   }
-
-  suggestSong()
-
-
-  
 
   const getRandomAlbumImg = () => {
     const images = []
@@ -121,6 +112,15 @@ const PlaylistPage = () => {
     
     return images
 
+  }
+
+  const openPlaylistSettings = () => {
+    if(playlistSettings) {
+      setPlaylistSettings(false)
+      openEditForm(false)
+    } else {
+      setPlaylistSettings(true)
+    }
   }
 
   
@@ -151,8 +151,14 @@ const PlaylistPage = () => {
         
       </div>
         <div className="playlist-options">
+          <FontAwesomeIcon className="settings-buttons" icon={faEllipsisH} onClick={openPlaylistSettings}/>
+          {playlistSettings ? 
+          <div className="delete-edit-buttons">
           <h2 className="edit-button" onClick={editFormOpen}>Edit</h2>
           <h2 className="delete-button" onClick={deletePlaylist}>Delete</h2>
+          </div>
+          : <></>}
+          
 
         </div>
         {editForm ? 
@@ -163,24 +169,43 @@ const PlaylistPage = () => {
         <div className="song-display-container">
           <table className="song-table">
             <thead>
-              <tr>
-                <td className="table-label">#</td>
-                <td className="table-label"></td>
-                <td className="table-label">Title</td>
-                <td className="table-label">Album</td>
-                <td className="table-label">Duration</td>
-                <td className="table-label settings"></td>
+              <tr className="song-labels">
+                <th style={{width:'10%'}} className="table-label">#</th>
+                <th style={{width:'10%'}} className="table-label"></th>
+                <th style={{width:'20%'}} className="table-label">Title</th>
+                <th style={{width:'20%'}} className="table-label">Album</th>
+                <th style={{width:'10%'}} className="table-label">Duration</th>
+                <th style={{width:'10%'}} className="table-label settings"></th>
                 
               </tr>
             </thead>
             <tbody>
-              {songs.map((song) => {
-                trackNumber++
-                return (
-                  <DisplaySong songId={song.id} trackNumber={trackNumber}/>
-                )
-                
-              })}
+              {!songs.length ? 
+              <>
+                <tr className="suggested-header">
+                  <td colspan='6'><p className="suggested-text">You don't have any songs yet, try one of these!</p></td>
+                </tr>
+              </>
+              : <></>}
+              {songs.length ? 
+              songs.map((song) => {
+                   trackNumber++
+                   return (
+                     <DisplaySong songId={song.id} trackNumber={trackNumber}/>
+                   )
+                  
+                }) :
+
+                 suggestSong().map((song) => {
+                   trackNumber++
+                   return (
+                     <>
+                        <DisplaySong songId={song.id} trackNumber={trackNumber}/>
+                     </>
+                   )
+                  
+                })}
+              
             </tbody>
 
           </table>

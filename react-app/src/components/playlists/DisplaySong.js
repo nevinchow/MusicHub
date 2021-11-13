@@ -127,9 +127,15 @@ function DisplaySong({songId, trackNumber}) {
             <td className="cell">{trackTime}</td>
 
               
-            <td>
-              <FontAwesomeIcon className="plus-button" icon={faMusic} onClick={addToQueue}/>
-              <FontAwesomeIcon className="plus-button" id={song.id} onClick={openSettings} icon={faPlus} /> 
+            <td className="queue-add">
+              <div className="tooltip" >
+                <FontAwesomeIcon className="plus-button" icon={faMusic} onClick={addToQueue}/>
+                <span class="tooltiptext">Add To Queue</span>
+              </div>
+              <div className="tooltip" >
+                <FontAwesomeIcon className="plus-button tooltip" id={song.id} onClick={openSettings} icon={faPlus} /> 
+                <span class="tooltiptext">Add To Playlist</span>
+              </div>
             {settings ? <AddToPlaylist songId={songId} setSettings={setSettings}/> : <></>}
             </td>
         
