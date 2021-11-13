@@ -5,7 +5,7 @@ from app.models import Artist, Playlist, Album, playlist
 main_routes=Blueprint('main', __name__)
 
 
-@main_routes.route('/')
+@main_routes.route('')
 # @login_required
 def main():
     artists= Artist.query.all()
