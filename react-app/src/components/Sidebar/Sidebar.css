@@ -20,7 +20,6 @@
     flex-direction: column;
     margin-bottom: 20px;
 
-
 }
 
 .sidebar-bottom {
@@ -92,6 +91,7 @@
     border: none;
     color: white;
     font-size: 15px;
+    margin-bottom: 200px;
     
 }
 
@@ -108,8 +108,7 @@
 }
 
 .social-media {
-    padding-bottom: 10px;
-    padding-bottom: 200px;
+    padding-bottom: 150px;
     display: flex;
     flex-direction: column;
     align-items: center;
