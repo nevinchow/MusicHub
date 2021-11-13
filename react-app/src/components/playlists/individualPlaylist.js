@@ -44,6 +44,7 @@ const PlaylistPage = () => {
     if (!loaded) {
     return null;
   }
+  console.log(songs)
   Object.values(playlistSongs).map((songId) => {
     songId.forEach((song) => {
       if(song.playlistId === +id) {

@@ -21,6 +21,7 @@ export const getSongsForPlaylist = (playlistId) => async (dispatch) => {
 }
 
 export const addSongToPlaylist = (playlist) => async (dispatch) => {
+    console.log(playlist, "sending to dispatch")
     const response = await fetch(`/api/playlists/songs/add`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -43,7 +44,8 @@ export default function playlistSongsReducer(state = initialState, action) {
         case ADD_PLAYLIST_SONGS:
             const newState = [state]
             newState.concat(action.songToAdd)
-            return {...newState}
+            console.log(newState, 'newState')
+            return newState
         default:
             return state;
     }
