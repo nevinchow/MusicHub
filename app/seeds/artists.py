@@ -20,14 +20,14 @@ def seed_artists():
     grimes = Artist(
         name="Grimes",
         bio="Claire Elise Boucher (born March 17, 1988), better known by the stage name Grimes, is a Canadian singer, songwriter, record producer and music video director. Born and raised in Vancouver, she first became involved with the underground music scene and began recording her own experimental music while attending McGill University in Montreal.",
-        profileURL="https://",
+        profileURL="https: // media.altpress.com/uploads/2020/05/Grimes-2020-696x398.jpg",
         headerURL="https://media.pitchfork.com/photos/5e4f16c994f6ea0009d3f2c6/2:1/w_790/grimes.jpg",
         biopictureURL="https://static.billboard.com/files/2020/03/grimes-cr-apple-music-2020-billboard-1548-1583963618-compressed.jpg"
         )
     gorgon_city = Artist(
         name="Gorgon City",
         bio="Gorgon City is an American rock band from Los Angeles, California. The band was formed in 2009 by vocalist and guitarist Chris Gorgon, drummer and bassist Tyler Gorgon, and guitarist and vocalist Matt Gorgon. The band's first album, Gorgon City, was released in 2010.",
-        profileURL="https://",
+        profileURL="https://ra.co/images/profiles/square/gorgoncity.jpg?dateUpdated=1511793788000",
         headerURL="https://townsquare.media/site/807/files/2015/03/gorgon-city.jpg?w=1200&h=0&zc=1&s=0&a=t&q=89",
         biopictureURL="https://d34ojwe46rt1wp.cloudfront.net/wp-content/uploads/2020/04/gorgon-city-.jpg"
     )
@@ -41,7 +41,7 @@ def seed_artists():
     doja_cat = Artist(
         name="Doja Cat",
         bio="Doja Cat is an American hip hop recording artist from Los Angeles, California. He is best known for his debut album, Doja Cat, which was released in 2016. He is also known for his mixtape, Doja Cat Mixtape, which was released in 2017.",
-        profileURL="https://",
+        profileURL="https://music.mxdwn.com/wp-content/uploads/2018/08/Doja-Cat-Press-Photo-2018.jpg",
         headerURL="https://static.billboard.com/files/2021/04/feature-doja-cat-billboard-2021-bb6-ramona-rosales-1-1500-1618944516-compressed.jpg",
         biopictureURL="https://iglives.tv/wp-content/uploads/2020/02/dojacat_feb27.jpg"
     )

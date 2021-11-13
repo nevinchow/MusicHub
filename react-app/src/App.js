@@ -54,7 +54,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* <NavBar /> */}
+      <NavBar />
       {!user ? <Redirect to='/'/> : <Sidebar />}
       {!user ? <></> : <Player queue={queue}/>}
 
