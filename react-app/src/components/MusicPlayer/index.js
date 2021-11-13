@@ -7,6 +7,7 @@ import { useState } from 'react';
 
 const Player = ({queue}) => {
   const artists = useSelector((state) => state.artist)
+  const song = useSelector((state) => state.song)
   const isPlaying = useSelector((state) => state.player)
   const [currentSong, setCurrentSong] = useState(0);
 
@@ -28,17 +29,18 @@ const Player = ({queue}) => {
   return (
     <>
       <footer className="player-footer">
-        
-        <AudioPlayer
-          autoPlay={isPlaying}
-          src={playlist[currentSong].src}
-          autoPlayAfterSrcChange={true}
-          onPlay={(e) => console.log("onPlay")}
-          onEnded={() => setCurrentSong((i) => i + 1)}
-          showSkipControls={true}
-          onClickNext={() => setCurrentSong((i) => i + 1)}
-          // other props here
-        />
+        <div className="player-container">
+          <AudioPlayer className="audioPlayer"
+            autoPlay={isPlaying}
+            src={playlist[currentSong].src}
+            autoPlayAfterSrcChange={true}
+            onPlay={(e) => console.log("onPlay")}
+            onEnded={() => setCurrentSong((i) => i + 1)}
+            showSkipControls={true}
+            onClickNext={() => setCurrentSong((i) => i + 1)}
+            // other props here
+          />
+        </div>
       </footer>
     </>
   );
