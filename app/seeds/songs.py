@@ -515,6 +515,14 @@ def seed_songs():
         artistId=5,
         song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756306/Albums/Certified%20Lover%20Boy/13_Knife_Talk_feat._21_Savage_Project_Pat_ndspcy.m4a"
     )
+    No_friends = Song(
+        name="No Friends In The Industry",
+        genre="hip-hop",
+        duration=240,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756307/Albums/Certified%20Lover%20Boy/12_No_Friends_In_The_Industry_mvvt8p.m4a"
+    )
     Seven_am = Song(
         name="Seven AM On Bridle Path",
         genre="hip-hop",
@@ -555,26 +563,32 @@ def seed_songs():
         artistId=5,
         song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756306/Albums/Certified%20Lover%20Boy/18_You_Only_Live_Twice_feat._Lil_Wayne_Rick_Ross_znpby3.m4a"
     )
-    Knife_Talk = Song(
-        name="Knife Talk",
+    Imy = Song(
+        name="IMY feat. Kid Cudi",
         genre="hip-hop",
-        duration=240,
+        duration=252,
         albumId=5,
         artistId=5,
-        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756306/Albums/Certified%20Lover%20Boy/13_Knife_Talk_feat._21_Savage_Project_Pat_ndspcy.m4a"
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756308/Albums/Certified%20Lover%20Boy/19_IMY2_feat._Kid_Cudi_jcrbpc.m4a"
     )
-    Knife_Talk = Song(
-        name="Knife Talk",
+    Fans = Song(
+        name="F*****g Fans",
         genre="hip-hop",
-        duration=240,
+        duration=245,
         albumId=5,
         artistId=5,
-        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756306/Albums/Certified%20Lover%20Boy/13_Knife_Talk_feat._21_Savage_Project_Pat_ndspcy.m4a"
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636755921/Albums/Certified%20Lover%20Boy/20_F_____g_Fans_diueee.m4a"
     )
-    
+    The_remorse = Song(
+        name="The Remorse",
+        genre="hip-hop",
+        duration=251,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636755921/Albums/Certified%20Lover%20Boy/21_The_Remorse_hml3xz.m4a"
+    )
 
-
-
+    #Doja Cat
 
     Woman = Song(
         name="Woman",
@@ -732,6 +746,8 @@ def seed_songs():
     db.session.add(Burning)
     db.session.add(Thought_s_of_you)
     db.session.add(Freedom)
+
+    
     db.session.add(Woman)
     db.session.add(naked)
     db.session.add(payday)
@@ -755,7 +771,28 @@ def seed_songs():
     db.session.add(Pretty)
     db.session.add(Tears_in_the_rain)
     db.session.add(Wanderlust_remix)
-    # db.session.add(odd_look)
+    
+    db.session.add(Champagne_Poetry)
+    db.session.add(Papi_s_home)
+    db.session.add(Girls_want_girls)
+    db.session.add(In_the_bible)
+    db.session.add(Love_all)
+    db.session.add(Fair_trade)
+    db.session.add(Way_too_sexy)
+    db.session.add(Tsu)
+    db.session.add(N_too_deep)
+    db.session.add(Pipe_down)
+    db.session.add(Yerbas_heartbreak)
+    db.session.add(No_friends)
+    db.session.add(Knife_Talk)
+    db.session.add(Seven_am)
+    db.session.add(Race_my_mind)
+    db.session.add(Fountains)
+    db.session.add(Get_along_better)
+    db.session.add(You_only_live_twice)
+    db.session.add(Imy)
+    db.session.add(Fans)
+    db.session.add(The_remorse)
 
 
     db.session.commit()
