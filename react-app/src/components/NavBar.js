@@ -8,6 +8,7 @@ const NavBar = () => {
   const sessionUser = useSelector((state) => state.session.user);
   if (sessionUser) {
     return (
+      // Upper Nav Bar
       <nav style={{backgroundColor: 'black', height: '100px'}}>
         <ul>
           <li>

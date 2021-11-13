@@ -27,16 +27,19 @@ const Player = ({queue}) => {
   
   return (
     <>
+      <footer className="player-footer">
+        
         <AudioPlayer
-        autoPlay={isPlaying}
-        src={playlist[currentSong].src}
-        autoPlayAfterSrcChange={true}
-        onPlay={e => console.log("onPlay")}
-        onEnded={() => setCurrentSong(i => i + 1)}
-        showSkipControls={true}
-        onClickNext={() => setCurrentSong(i => i + 1)}
-        // other props here
-      />
+          autoPlay={isPlaying}
+          src={playlist[currentSong].src}
+          autoPlayAfterSrcChange={true}
+          onPlay={(e) => console.log("onPlay")}
+          onEnded={() => setCurrentSong((i) => i + 1)}
+          showSkipControls={true}
+          onClickNext={() => setCurrentSong((i) => i + 1)}
+          // other props here
+        />
+      </footer>
     </>
   );
 } 
