@@ -5,7 +5,7 @@ import { addSongToPlaylist } from "../../store/playlists_songs";
 import { useSelector } from "react-redux";
 
 
-function AddToPlaylist({songId}) {
+function AddToPlaylist({songId, setSettings}) {
     const {id} = useParams()
     const dispatch = useDispatch()
     const [loaded, setLoaded] = useState(false);
@@ -21,6 +21,7 @@ function AddToPlaylist({songId}) {
       }
 
       dispatch(addSongToPlaylist(songToAdd))
+      setSettings(false)
   }
 
     const findPlaylist = (playlistId) => {

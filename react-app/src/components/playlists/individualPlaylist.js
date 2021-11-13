@@ -44,7 +44,7 @@ const PlaylistPage = () => {
     return null;
   }
   console.log('playlistSongs', playlistSongs)
-  playlistSongs.map((songId) => {
+  Object.values(playlistSongs).map((songId) => {
     songId.forEach((song) => {
       if(song.playlistId === +id) {
         const oneSong = Object.keys(songsState).find(aSong => song.songId === +aSong)

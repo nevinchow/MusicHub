@@ -59,7 +59,7 @@ function App() {
     <BrowserRouter>
       {/* <NavBar /> */}
       {!user ? <></> : <Sidebar />}
-      {!user ? <></> : <Player queue={queue} />}
+      {/* {!user ? <></> : <Player queue={queue} />} */}
       <Route path="/login" exact={true}>
         <LoginForm />
       </Route>
@@ -110,7 +110,7 @@ function App() {
         </ProtectedRoute>
       </Switch>
       {/* <FooterBar /> */}
-      {/* {!user ? <></> : <Player queue={queue}/>} */}
+      {!user ? <></> : <Player queue={queue}/>}
     </BrowserRouter>
   );
 }

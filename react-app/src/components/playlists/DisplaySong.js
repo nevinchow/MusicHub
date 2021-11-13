@@ -128,7 +128,7 @@ function DisplaySong({songId, trackNumber}) {
             <td>
               <FontAwesomeIcon className="plus-button" icon={faMusic} onClick={addToQueue}/>
               <FontAwesomeIcon className="plus-button" id={song.id} onClick={openSettings} icon={faPlus} /> 
-            {settings ? <AddToPlaylist songId={songId}/> : <></>}
+            {settings ? <AddToPlaylist songId={songId} setSettings={setSettings}/> : <></>}
             </td>
         
           </tr>
