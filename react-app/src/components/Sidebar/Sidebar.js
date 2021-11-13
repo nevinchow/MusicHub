@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import NavBar from '../NavBar';
 import AddPlaylists from '../playlists/addPlaylist';
 import Playlists from '../playlists/playlists';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getPlaylists } from '../../store/playlists';
 
 import { NavLink } from "react-router-dom";
@@ -23,6 +23,8 @@ function Sidebar({artist}) {
     const [addForm, openAddForm] = useState(false)
     const [loaded, setLoaded] = useState(false);
     const [playlistId, setPlaylistId] = useState()
+    const [credits, setCredits] = useState(false)
+    const player = useSelector(state => state.player)
 
 
 
@@ -52,6 +54,11 @@ function Sidebar({artist}) {
             
         }
     }
+
+    const openCredits = () => {
+        if (credits) setCredits(false); 
+        else setCredits(true)
+    }
    
     return (
         <>
@@ -75,7 +82,10 @@ function Sidebar({artist}) {
                     <Playlists setPlaylistId={setPlaylistId}/>
                 </div>
             </div>
+
             <div className="sidebar-bottom">
+                <h2 className="credits" onClick={openCredits}>Credits:</h2>
+                {credits ?
                 <div className="social-media">
                     {/* Ayla */}
                     <h3 className="contrib-name">Ayla</h3>
@@ -100,8 +110,9 @@ function Sidebar({artist}) {
                     <div className="contriubtors">
                         <a href='https://github.com/nevinchow/SpotifyProject' target='_blank' rel="noreferrer"><FontAwesomeIcon className="social-media-logos" icon={faGithub}/></a>
                         <a href='' target='_blank' rel="noreferrer"><FontAwesomeIcon className="social-media-logos" icon={faLinkedinIn}/></a>
-                    </div>
-                </div>
+                    </div> 
+                    <LogoutButton />
+                </div> : <></> }
                 <LogoutButton />
             </div>
                 

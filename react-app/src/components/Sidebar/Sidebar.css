@@ -11,15 +11,14 @@
     top:0;
     bottom:0;
     padding: 10px;
-    padding-bottom: 200px ;
-    z-index: 1;
+    z-index: 0;
 }
 
 .sidebar-top {
     display: flex;
     align-items: center;
     flex-direction: column;
-
+    margin-bottom: 20px;
 
 
 }
@@ -66,7 +65,8 @@
     align-items: center;
 }
 
-.sidebar-link {
+.sidebar-link,
+.credits {
     color: rgb(219, 219, 219);
     text-decoration: none;
     font-size: 20px;
@@ -74,7 +74,8 @@
 
 }
 .sidebar-link:hover,
-.logout-button:hover {
+.logout-button:hover,
+.credits:hover {
     color: white;
     cursor: pointer;
 }
@@ -108,6 +109,11 @@
 
 .social-media {
     padding-bottom: 10px;
+    padding-bottom: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
 .social-media-logos {
