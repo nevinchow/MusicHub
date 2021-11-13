@@ -67,7 +67,38 @@ const PlaylistPage = () => {
     history.push(`/main`)
   }
 
+  const suggestSong = () => {
+    function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+    const max = songs.length - 1;
+    const suggestedSongs=[]
+    let i = 0;
+    while(i < 10) {
+      let randomSong = getRandomInt(1, max)
+      const indexes = []
+      if (indexes.includes(randomSong)) {
+        randomSong = getRandomInt(1, max)
+      } else {
+        // const oneSong = Object.keys(songsState).find(aSong => randomSong === aSong)
+        console.log("random number",randomSong, songsState[randomSong], indexes, indexes.includes(randomSong))
+        suggestedSongs.push(Object.values(songsState)[randomSong])
+        indexes.push(randomSong)
+      }
+      
 
+      
+
+      i++
+
+    }
+    console.log('THESE ARE SUGGESTED!!!!!', suggestedSongs)
+    
+  }
+
+  suggestSong()
 
 
   
