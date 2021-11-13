@@ -686,7 +686,113 @@ def seed_songs():
         artistId=6,
         song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397276/Albums/Planet%20Her/12_Alone_q495cr.m4a"
     )
+    Alone = Song(
+        name="Alone",
+        genre="R&B",
+        duration=228,
+        albumId=6,
+        artistId=6,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397276/Albums/Planet%20Her/12_Alone_q495cr.m4a"
+    )
 
+    #Zhu
+
+    Lost_it = Song(
+        name="Lost It",
+        genre="electronic",
+        duration=178,
+        albumId=7,
+        artistId=7,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636518369/Albums/Dreamland/01_Lost_It_atgvqo.m4a"
+    )
+    Distant_lights = Song(
+        name="Distant Lights",
+        genre="electronic",
+        duration=242,
+        albumId=7,
+        artistId=7,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636518369/Albums/Dreamland/02_Distant_Lights_krrti0.m4a"
+    )
+    Blue_dream = Song(
+        name="Blue Dream",
+        genre="electronic",
+        duration=126,
+        albumId=7,
+        artistId=7,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636518368/Albums/Dreamland/03_Blue_Dream_zxbyzl.m4a"
+    )
+    How_does_it_feel = Song(
+        name="How Does It Feel",
+        genre="electronic",
+        duration=186,
+        albumId=7,
+        artistId=7,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636518369/Albums/Dreamland/04_How_Does_It_Feel_feat._Channel_Tres_bz4l5n.m4a"
+    )
+    Sky_is_crying = Song(
+        name="Sky Is Crying",
+        genre="electronic",
+        duration=264,
+        albumId=7,
+        artistId=7,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636518371/Albums/Dreamland/05_Sky_Is_Crying_r5kugc.m4a"
+    )
+    Sweet_like_honey = Song(
+        name="Sweet Like Honey",
+        genre="electronic",
+        duration=243,
+        albumId=7,
+        artistId=7,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636518371/Albums/Dreamland/06_Sweet_Like_Honey_irmixm.m4a"
+    )
+    Yours = Song(
+        name="Yours",
+        genre="electronic",
+        duration=257,
+        albumId=7,
+        artistId=7,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636518371/Albums/Dreamland/07_Yours_knwy3p.m4a"
+    )
+    Soco = Song(
+        name="SOCO",
+        genre="electronic",
+        duration=214,
+        albumId=7,
+        artistId=7,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636518369/Albums/Dreamland/08_SOCO_x8klyu.m4a"
+    )
+    Only = Song(
+        name="ONLY",
+        genre="electronic",
+        duration=230,
+        albumId=7,
+        artistId=7,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636518369/Albums/Dreamland/09_ONLY_rt6vy3.m4a"
+    )
+    Zhudio = Song(
+        name="Lost It",
+        genre="electronic",
+        duration=228,
+        albumId=7,
+        artistId=7,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636518370/Albums/Dreamland/10_Zhudio54_wr3ksy.m4a"
+    )
+    Good_for_u = Song(
+        name="Good 4 U feat. Kota The Friend",
+        genre="electronic",
+        duration=260,
+        albumId=7,
+        artistId=7,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636518371/Albums/Dreamland/11_Good4U_feat._Kota_the_Friend_x5cdxk.m4a"
+    )
+    I_Need_That = Song(
+        name="Good 4 U feat. Kota The Friend",
+        genre="electronic",
+        duration=239,
+        albumId=7,
+        artistId=7,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636518371/Albums/Dreamland/12_I_Need_That_t4mvbm.m4a"
+    )
 
 
 
@@ -747,7 +853,7 @@ def seed_songs():
     db.session.add(Thought_s_of_you)
     db.session.add(Freedom)
 
-    
+
     db.session.add(Woman)
     db.session.add(naked)
     db.session.add(payday)
@@ -793,6 +899,20 @@ def seed_songs():
     db.session.add(Imy)
     db.session.add(Fans)
     db.session.add(The_remorse)
+
+    db.session.add(Lost_it)
+    db.session.add(Distant_lights)
+    db.session.add(Blue_dream)
+    db.session.add(How_does_it_feel)
+    db.session.add(Sky_is_crying)
+    db.session.add(Sweet_like_honey)
+    db.session.add(Yours)
+    db.session.add(Soco)
+    db.session.add(Only)
+    db.session.add(Zhudio)
+    db.session.add(Good_for_u)
+    db.session.add(I_Need_That)
+    
 
 
     db.session.commit()

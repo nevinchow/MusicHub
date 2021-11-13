@@ -8,7 +8,7 @@ def seed_albums():
         genre="R&B", 
         title="Kiss Land", 
         year=2013,
-        imageURL="https://upload.wikimedia.org/wikipedia/en/thumb/e/ed/The_Weeknd_-_Kiss_Land.png/220px-The_Weeknd_-_Kiss_Land.png"
+        imageURL="https://hiphop-n-more.com/wp-content/uploads/2013/07/The-Weeknd-Kiss-Land-Album-Cover.jpg"
     )
     surrender = Album(
         artistId=2,
@@ -47,6 +47,13 @@ def seed_albums():
         imageURL="https://okayplayer-wpengine.netdna-ssl.com/wp-content/uploads/2021/06/doja-cat-is-a-genre-blending-shapeshifter-on-planet-her-and-we-love-it.jpg"
 
     )
+    dreamland = Album(
+        artistId=7,
+        genre="electronic",
+        title="Dreamland",
+        year=2021,
+        imageURL="https://edmidentity.com/wp-content/uploads/2021/03/ZHU-DREAMLAND-2021-Album-Artwork.jpg"
+    )
     
 
 
@@ -59,6 +66,7 @@ def seed_albums():
     db.session.add(olympia)
     db.session.add(certified_lover_boy)
     db.session.add(planet_her)
+    db.session.add(dreamland)
 
     db.session.commit()
 
