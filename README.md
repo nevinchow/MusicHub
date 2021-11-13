@@ -4,6 +4,9 @@ This is the starter for the Flask React project.
 
 ## Getting started
 
+React-App
+Audio player dependency : npm install react-modular-audio-player
+
 1. Clone this repository (only this branch)
 
    ```bash

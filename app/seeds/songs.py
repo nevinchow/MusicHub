@@ -417,6 +417,165 @@ def seed_songs():
         artistId=4,
         song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397038/Albums/Olympia/18_Freedom_pofe0c.m4a"
     )
+
+    #Drake
+    Champagne_Poetry = Song(
+        name="Champagne Poetry",
+        genre="hip-hop",
+        duration=336,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756310/Albums/Certified%20Lover%20Boy/01_Champagne_Poetry_l6n2bs.m4a"
+    )
+    Papi_s_home = Song(
+        name="Papi's Home",
+        genre="hip-hop",
+        duration=178,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756308/Albums/Certified%20Lover%20Boy/02_Papi_s_Home_qin6wl.m4a"
+    )
+    Girls_want_girls = Song(
+        name="Girls want girls feat. Lil Baby",
+        genre="hip-hop",
+        duration=221,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756308/Albums/Certified%20Lover%20Boy/03_Girls_Want_Girls_feat._Lil_Baby_bumzxf.m4a"
+    )
+    In_the_bible = Song(
+        name="In the Bible feat. Lil Durk",
+        genre="hip-hop",
+        duration=296,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756310/Albums/Certified%20Lover%20Boy/04_In_The_Bible_feat._Lil_Durk_GIV%C4%92ON_sjqw5a.m4a"
+    )
+    Love_all = Song(
+        name="Love All Feat. Jay Z",
+        genre="hip-hop",
+        duration=228,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756307/Albums/Certified%20Lover%20Boy/05_Love_All_feat._JAY-Z_sz3wfm.m4a"
+    )
+    Fair_trade = Song(
+        name="Champagne Poetry",
+        genre="hip-hop",
+        duration=291,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756309/Albums/Certified%20Lover%20Boy/06_Fair_Trade_feat._Travis_Scott_kypayn.m4a"
+    )
+    Way_too_sexy = Song(
+        name="Way 2 Sexy feat. Future & Young Thug",
+        genre="hip-hop",
+        duration=257,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756309/Albums/Certified%20Lover%20Boy/07_Way_2_Sexy_feat._Future_Young_Thug_votpfb.m4a"
+    )
+    Tsu = Song(
+        name="TSU",
+        genre="hip-hop",
+        duration=308,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756310/Albums/Certified%20Lover%20Boy/08_TSU_hjlel3.m4a"
+    )
+    N_too_deep = Song(
+        name="N 2 Deep feat. Future",
+        genre="hip-hop",
+        duration=373,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756309/Albums/Certified%20Lover%20Boy/09_N_2_Deep_feat._Future_izhmlx.m4a"
+    )
+    Pipe_down = Song(
+        name="Pipe Down",
+        genre="hip-hop",
+        duration=305,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756307/Albums/Certified%20Lover%20Boy/10_Pipe_Down_h5am4r.m4a"
+    )
+    Yerbas_heartbreak = Song(
+        name="Champagne Poetry",
+        genre="hip-hop",
+        duration=133,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756306/Albums/Certified%20Lover%20Boy/11_Yebba_s_Heartbreak_1_g1govc.m4a"
+    )
+    Knife_Talk = Song(
+        name="Knife Talk",
+        genre="hip-hop",
+        duration=240,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756306/Albums/Certified%20Lover%20Boy/13_Knife_Talk_feat._21_Savage_Project_Pat_ndspcy.m4a"
+    )
+    Seven_am = Song(
+        name="Seven AM On Bridle Path",
+        genre="hip-hop",
+        duration=239,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756308/Albums/Certified%20Lover%20Boy/14_7am_On_Bridle_Path_z3lj6r.m4a"
+    )
+    Race_my_mind = Song(
+        name="Race My Mind",
+        genre="hip-hop",
+        duration=259,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756306/Albums/Certified%20Lover%20Boy/17_Get_Along_Better_feat._Ty_Dolla_ign_yqeexz.m4a"
+    )
+    Fountains = Song(
+        name="Fountains feat. Tems",
+        genre="hip-hop",
+        duration=192,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756308/Albums/Certified%20Lover%20Boy/15_Race_My_Mind_rzighh.m4a"
+    )
+    Get_along_better = Song(
+        name="Get Along Better",
+        genre="hip-hop",
+        duration=219,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756306/Albums/Certified%20Lover%20Boy/13_Knife_Talk_feat._21_Savage_Project_Pat_ndspcy.m4a"
+    )
+    You_only_live_twice = Song(
+        name="You Only Live Twice feat. Lil Wayne & Rick Ross",
+        genre="hip-hop",
+        duration=213,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756306/Albums/Certified%20Lover%20Boy/18_You_Only_Live_Twice_feat._Lil_Wayne_Rick_Ross_znpby3.m4a"
+    )
+    Knife_Talk = Song(
+        name="Knife Talk",
+        genre="hip-hop",
+        duration=240,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756306/Albums/Certified%20Lover%20Boy/13_Knife_Talk_feat._21_Savage_Project_Pat_ndspcy.m4a"
+    )
+    Knife_Talk = Song(
+        name="Knife Talk",
+        genre="hip-hop",
+        duration=240,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756306/Albums/Certified%20Lover%20Boy/13_Knife_Talk_feat._21_Savage_Project_Pat_ndspcy.m4a"
+    )
+    
+
+
+
+
     Woman = Song(
         name="Woman",
         genre="R&B",
@@ -553,6 +712,8 @@ def seed_songs():
     db.session.add(Miss_Me)
     db.session.add(Idoru)
     db.session.add(We_Appreciate_Power)
+
+
     db.session.add(Tell_Me_It_s_True)
     db.session.add(Oxygen)
     db.session.add(You_Done_Enough)
