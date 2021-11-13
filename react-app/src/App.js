@@ -38,12 +38,15 @@ function App() {
 
   useEffect(() => {
     (async() => {
-      await dispatch(authenticate());
-      await dispatch(getSongs())
-      await dispatch(getPlaylists())
-      await dispatch(getArtists())
-      await dispatch(getAlbums())
-      setLoaded(true);
+      // if(user) {
+        await dispatch(authenticate());
+        await dispatch(getSongs())
+        await dispatch(getPlaylists())
+        await dispatch(getArtists())
+        await dispatch(getAlbums())
+        setLoaded(true);
+      // }
+      
 
     })();
   }, [dispatch]);
@@ -55,18 +58,22 @@ function App() {
   return (
     <BrowserRouter>
       {/* <NavBar /> */}
-      {!user ? <Redirect to='/'/> : <Sidebar />}
+      {!user ? <></> : <Sidebar />}
       {!user ? <></> : <Player queue={queue}/>}
+      <Route path='/login' exact={true}>
+          <LoginForm />
+        </Route>
+        <Route path='/sign-up' exact={true}>
+          <SignUpForm />
+        </Route>
 
       <Switch>
 
         <Route path='/search' >
           <SearchBar/>
-
         </Route>
         <Route path='/' exact={true} >
           <LandingPage/>
-          
         </Route>
         <ProtectedRoute path='/albums/:albumId/reviews' >
 
@@ -81,12 +88,7 @@ function App() {
         <ProtectedRoute path='/main' exact={true}>
           <MainPage />
         </ProtectedRoute>
-        <Route path='/login' exact={true}>
-          <LoginForm />
-        </Route>
-        <Route path='/sign-up' exact={true}>
-          <SignUpForm />
-        </Route>
+        
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
