@@ -4,7 +4,7 @@ from app.models import Song
 
 song_routes = Blueprint('songs', __name__)
 
-@song_routes.route('/')
+@song_routes.route('')
 # @login_required
 def allSongs():
     songs = Song.query.all()
