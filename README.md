@@ -37,9 +37,9 @@ All features require user authorization. Demo login is provided.
 
 ## Developers: 
 This full stack application was developed by App Academy Students 2021
-[Nevin Chow](https://github.com/nevinchow/) 
-[Jessi Zhuo](https://github.com/zyingzhuo) 
-[Dusty Mumfrey](https://github.com/Dusttoo)
-[Ayla Basha](https://github.com/spacegray)
+* [Nevin Chow](https://github.com/nevinchow/) 
+* [Jessi Zhuo](https://github.com/zyingzhuo) 
+* [Dusty Mumfrey](https://github.com/Dusttoo)
+* [Ayla Basha](https://github.com/spacegray)
 
 
