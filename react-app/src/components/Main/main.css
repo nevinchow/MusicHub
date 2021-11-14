@@ -59,8 +59,8 @@
   justify-content: space-evenly;
   width: 55vw;
   position: relative;
-  right: 395px;
-  bottom: 120px;
+  margin-right: 800px;
+  padding-bottom: 100px;
 }
 
 .artistTile-container {
@@ -70,6 +70,8 @@
   padding: 9px;
   border-radius: 5px;
   transition: all 0.3s ease-in-out;
+  position: relative;
+  bottom: 100px;
 }
 
 .artistTile-container:hover {

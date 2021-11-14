@@ -8,8 +8,8 @@
     margin: 0 auto;
     margin-left: 20%;
     border: 1px solid black;
-    position: absolute;
-    right: 0px;
+    position: relative;
+    right: 228px;
     background-color: #121212;
 
 }
@@ -23,7 +23,6 @@
   object-fit: cover;
   margin-left: 35px;
   position: relative;
-  left: 35px;
   top: 30px;
 }
 
@@ -42,7 +41,7 @@
   position: relative;
   bottom: 54px;
   height: 340px;
-  right: 825px;
+  right: 813px;
   display: flex;
   flex-direction:row;
   align-items:center;
