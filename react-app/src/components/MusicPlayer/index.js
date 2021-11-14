@@ -4,11 +4,14 @@ import 'react-h5-audio-player/lib/styles.css';
 import { useSelector } from "react-redux";
 import "./musicPlayer.css";
 import { useState } from 'react';
+import { stopSong } from '../../store/musicPlayer';
+import { useDispatch } from 'react-redux';
 
 const Player = ({queue}) => {
+  const dispatch = useDispatch()
   const artists = useSelector((state) => state.artist)
   const song = useSelector((state) => state.song)
-  const isPlaying = useSelector((state) => state.player)
+  let isPlaying = useSelector((state) => state.player)
   const [currentSong, setCurrentSong] = useState(0);
   let trackNumber = currentSong + 1
 
@@ -24,6 +27,8 @@ const Player = ({queue}) => {
 
     playlist.push(nextSong)
   })
+
+  // console.log("TOGGLE PLAY", togglePlay)
   
   
   return (
@@ -36,10 +41,13 @@ const Player = ({queue}) => {
             <p className="song-info-details">{playlist[currentSong].artist.name}</p>
           </div>
           <AudioPlayer className="audioPlayer"
-            autoPlay={isPlaying}
+            autoPlay={true}
             src={playlist[currentSong].src}
             autoPlayAfterSrcChange={true}
             onPlay={(e) => console.log("onPlay")}
+            onPause={() => {
+              dispatch(stopSong())
+            }}
             onEnded={() => {
               if(!playlist[currentSong + 1]) {
                 setCurrentSong(-1)
