@@ -10,34 +10,55 @@ const Player = ({queue}) => {
   const song = useSelector((state) => state.song)
   const isPlaying = useSelector((state) => state.player)
   const [currentSong, setCurrentSong] = useState(0);
+  let trackNumber = currentSong + 1
 
   
   if(!queue.length) return null
   let playlist = [];
+  // console.log(playlist, 'this is the queue')
 
     queue.map((song) => {
-    const artist = Object.values(artists).find((artistId) => +artistId === +song.artistId)
+    // console.log(song, song.artistId, 'song info')
+    const artist = Object.keys(artists).find((artistId) => +artistId === song.artistId)
+    // console.log(artists, 'finding artist', artist, artists[artist])
     const nextSong = {
       src: song.song_link,
       title: song.name,
-      artist}
+      artist: artists[artist]}
 
     playlist.push(nextSong)
   })
+  // console.log(playlist[currentSong].artist, 'artist\n', playlist[currentSong], 'current song')
+  console.log("playlist length", playlist.length, "current song", currentSong)
   
   
   return (
     <>
       <footer className="player-footer">
         <div className="player-container">
+          <div className='song-info'>
+            <p className="song-info-details">#{trackNumber}</p>
+            <p className="song-info-details">{playlist[currentSong].title}</p>
+            <p className="song-info-details">{playlist[currentSong].artist.name}</p>
+          </div>
           <AudioPlayer className="audioPlayer"
             autoPlay={isPlaying}
             src={playlist[currentSong].src}
             autoPlayAfterSrcChange={true}
             onPlay={(e) => console.log("onPlay")}
-            onEnded={() => setCurrentSong((i) => i + 1)}
+            onEnded={() => {
+              if(currentSong === playlist.length - 1) {
+                setCurrentSong(0)
+              }
+              setCurrentSong((i) => i + 1)}}
             showSkipControls={true}
-            onClickNext={() => setCurrentSong((i) => i + 1)}
+            onClickNext={() => {
+              console.log('next')
+              if(!playlist[currentSong + 1]) {
+                console.log('conditional')
+                setCurrentSong(-1)
+              }
+              setCurrentSong((i) => i + 1)}}
             // other props here
           />
         </div>
