@@ -50,7 +50,19 @@
     flex-direction: column;
     justify-content: center;
 }
-#sign-up-form > input {
+/* #sign-up-form > input {
+    height: 40px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 0 10px;
+} */
+/* .main-sign-up-content button {
+    justify-content: center;
+    align-items: center;
+} */
+#sign-up-form input {
     height: 40px;
     width: 300px;
     border-radius: 5px;
@@ -58,7 +70,3 @@
     margin-bottom: 10px;
     padding: 0 10px;
 }
-/* .main-sign-up-content button {
-    justify-content: center;
-    align-items: center;
-} */
