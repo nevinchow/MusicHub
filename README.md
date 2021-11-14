@@ -1,6 +1,6 @@
 # Welcome to Music Hub
 
-Discover new music and create your own playlists. Music Hub is a clone of spotify
+A clone of Spotify that allows users to discover new music and create their own playlists
 
 # Features of Music Hub
 
@@ -21,6 +21,9 @@ All features require users to be logged in. Demo login is provided.
  
 ## 5. Reviews CRUD
 * Users are able create reviews on Albums, they are also able to edit and delete their reviews
+
+## 6. Continuous Play
+* Users are able to navigate to different pages of the site without stopping the current song.
 
 
 
