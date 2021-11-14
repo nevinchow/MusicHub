@@ -37,7 +37,7 @@ All features require user authorization. Demo login is provided.
 
 ## Developers: 
 This full stack application was developed by App Academy Students
-* [!alt text]  <img src="https://avatars.githubusercontent.com/u/84898586?v=4" alt="logo" width="40" height="40"/>  [Nevin Chow](https://github.com/nevinchow/) 
+<img style="height:auto;" alt="Avatar" width="40" height="40" class="avatar avatar-user width-full border color-bg-primary" src="https://avatars.githubusercontent.com/u/84898586?v=4">  [Nevin Chow](https://github.com/nevinchow/) 
 * [Jessi Zhuo](https://github.com/zyingzhuo) 
 * [Dusty Mumfrey](https://github.com/Dusttoo)
 * [Ayla Basha](https://github.com/spacegray)
