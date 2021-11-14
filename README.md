@@ -36,7 +36,7 @@ All features require user authorization. Demo login is provided.
 ![alt text](https://camo.githubusercontent.com/f70d9d9438b04e316fbba35c08d92860203762cec6212ef53ddd02d930014866/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d435353332d3135373242363f6c6f676f3d43535333)
 
 ## Developers: 
-This full stack application was developed by App Academy Students
+This full stack application was developed by App Academy Students in November of 2021
 
 <img style="height:auto;" alt="Avatar" width="40" height="40" class="avatar avatar-user width-full border color-bg-primary" src="https://avatars.githubusercontent.com/u/84898586?v=4">  [Nevin Chow](https://github.com/nevinchow/) 
 
