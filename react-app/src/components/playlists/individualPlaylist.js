@@ -44,15 +44,14 @@ const PlaylistPage = () => {
     if (!loaded) {
     return null;
   }
-  console.log(songs)
   Object.values(playlistSongs).map((songId) => {
-    songId.forEach((song) => {
-      if(song.playlistId === +id) {
-        const oneSong = Object.keys(songsState).find(aSong => song.songId === +aSong)
+      if(+songId.playlistId === +id) {
+        const oneSong = Object.keys(songsState).find(aSong => songId.songId === +aSong)
         songs.push(songsState[oneSong])
       }
-    })
   })
+
+
 
 
   const editFormOpen = () => {

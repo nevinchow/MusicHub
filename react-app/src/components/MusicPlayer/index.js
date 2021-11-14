@@ -24,7 +24,6 @@ const Player = ({queue}) => {
 
     playlist.push(nextSong)
   })
-  console.log("playlist length", playlist.length, "current song", currentSong)
   
   
   return (
@@ -43,14 +42,12 @@ const Player = ({queue}) => {
             onPlay={(e) => console.log("onPlay")}
             onEnded={() => {
               if(!playlist[currentSong + 1]) {
-                console.log('conditional')
                 setCurrentSong(-1)
               }
               setCurrentSong((i) => i + 1)}}
             showSkipControls={true}
             onClickNext={() => {
               if(!playlist[currentSong + 1]) {
-                console.log('conditional')
                 setCurrentSong(-1)
               }
               setCurrentSong((i) => i + 1)}}
