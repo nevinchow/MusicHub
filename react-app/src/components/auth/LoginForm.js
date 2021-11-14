@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import * as sessionActions from "../../store/session";
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 import { login } from '../../store/session';
 import logo from '../../images/spotifyLogo.png';
 import './LoginForm.css'
@@ -75,7 +76,7 @@ const LoginForm = () => {
                 value={password}
                 onChange={updatePassword}
               />
-              <button className="login-btn" type="submit">Login</button>
+              <button className="login-btn" type="submit">LOG IN</button>
             </div>
           </form>
           {/* <button type="signup" onClick={signup}>
@@ -85,6 +86,13 @@ const LoginForm = () => {
         <button className="demoLoginButton" onClick={handleSubmit}>
           LOG IN AS A DEMO USER
         </button>
+        <div className="sign-up-prompt">
+          <div id="border-login"></div>
+          <h2>Don't have an account? </h2>
+          <Link to="/sign-up">
+            <button className="Sign-up-styled"> SIGN UP FOR MUSIC HUB </button>
+          </Link>
+        </div>
       </div>
     </>
   );

@@ -38,6 +38,7 @@ const Player = ({queue}) => {
             onPlay={(e) => console.log("onPlay")}
             onEnded={() => setCurrentSong((i) => i + 1 )}
             showSkipControls={true}
+            onClick={() => setCurrentSong(currentSong)}
             onClickNext={() => setCurrentSong((i) => i + 1)}
             // other props here
           />

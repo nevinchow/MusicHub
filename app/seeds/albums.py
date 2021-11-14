@@ -68,6 +68,13 @@ def seed_albums():
         year=1998,
         imageURL="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/742d5a0c-a738-4eb3-aa37-baaa918b34dc/d54vjl8-6ae4c335-b274-40db-9ab1-ba7f09a20277.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTpmaWxlLmRvd25sb2FkIl0sIm9iaiI6W1t7InBhdGgiOiIvZi83NDJkNWEwYy1hNzM4LTRlYjMtYWEzNy1iYWFhOTE4YjM0ZGMvZDU0dmpsOC02YWU0YzMzNS1iMjc0LTQwZGItOWFiMS1iYTdmMDlhMjAyNzcucG5nIn1dXX0.pPMYaZrqaSrde40rw9BP8BOAC2LkDd_-LiPgtU2aWW0"
     )
+    weekendTracks = Album(
+        artistId=9,
+        genre="hip-hop",
+        title="The Weekend",
+        year=2020,
+        imageURL="https://www.mjackets.com/wp-content/uploads/2020/04/0220202020.jpg"
+    )
     
 
 

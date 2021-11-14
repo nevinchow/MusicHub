@@ -940,6 +940,8 @@ def seed_songs():
         artistId=9,
         song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636495443/Albums/BlackStar/12_Twice_Inna_Lifetime_l9eidt.mp3"
     )
+    #The Weeknd, individual songs
+    
 
 
 
