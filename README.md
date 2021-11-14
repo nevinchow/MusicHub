@@ -1,6 +1,6 @@
 # Welcome to Music Hub <img src="https://cdn.onlinewebfonts.com/svg/img_2248.png" alt="logo" width="40" height="40"/> 
 
-Music Hub is clone of Spotify that allows users to discover new music and create their own playlists. 
+_Music Hub is clone of Spotify that allows users to discover new music and create their own playlists._
 
 Hosted on Heroku: https://musichub-aa.herokuapp.com/
 
