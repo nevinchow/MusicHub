@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import logo from "../../images/spotifyLogo.png";
+import {Link} from 'react-router-dom'
 
 // import './LoginForm.css';
 import './SignUpForm.css'
@@ -105,12 +106,19 @@ const SignUpForm = () => {
                 required={true}
               ></input>
             </div>
-            <button className="sign-up-btn" type="submit">Sign Up</button>
+            <button className="sign-up-btn" type="submit">
+              Sign Up
+            </button>
           </form>
         </div>
-          <button className="demoLoginButton" onClick={handleSubmit}>
-            LOG IN AS A DEMO USER
-          </button>
+        <button className="demoLoginButton" onClick={handleSubmit}>
+          LOG IN AS A DEMO USER
+        </button>
+        <div id="border-login"></div>
+        <h2>Already have an account?</h2>
+        <Link to="/login">
+          <button className="Sign-up-styled"> Log In to Music Hub </button>
+        </Link>
       </div>
     </>
   );
