@@ -1,4 +1,4 @@
-# Welcome to Music Hub <img src="https://cdn.onlinewebfonts.com/svg/img_2248.png" alt="logo" width="40" height="40" style={background-color:white} /> 
+# Welcome to Music Hub <img src="https://cdn.onlinewebfonts.com/svg/img_2248.png" alt="logo" width="40" height="40"/> 
 
 Music Hub is clone of Spotify that allows users to discover new music and create their own playlists. 
 
@@ -37,7 +37,7 @@ All features require user authorization. Demo login is provided.
 
 ## Developers: 
 This full stack application was developed by App Academy Students
-* [Nevin Chow](https://github.com/nevinchow/) 
+* [!alt text]  <img src="https://avatars.githubusercontent.com/u/84898586?v=4" alt="logo" width="40" height="40"/>  [Nevin Chow](https://github.com/nevinchow/) 
 * [Jessi Zhuo](https://github.com/zyingzhuo) 
 * [Dusty Mumfrey](https://github.com/Dusttoo)
 * [Ayla Basha](https://github.com/spacegray)
