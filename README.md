@@ -1,8 +1,6 @@
 # Welcome to Music Hub
 
-_A clone of Spotify that showcases popular music and albums_
-
-Discover new music and create your own playlists
+Discover new music and create your own playlists. Music Hub is a clone of spotify
 
 # Features of Music Hub
 
@@ -25,43 +23,4 @@ All features require users to be logged in. Demo login is provided.
 * Users are able create reviews on Albums, they are also able to edit and delete their reviews
 
 
-
-## Getting started
-
-1. Clone this repository (only this branch)
-
-   ```bash
-   git clone https://github.com/nevinchow/SpotifyProject
-   ```
-
-2. Install dependencies
-
-      ```bash
-      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
-      ```
-
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-   
-4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
-
-5. Get into your pipenv, migrate your database, seed your database, and run your flask app
-
-   ```bash
-   pipenv shell
-   ```
-
-   ```bash
-   flask db upgrade
-   ```
-
-   ```bash
-   flask seed all
-   ```
-
-   ```bash
-   flask run
-   ```
-
-6. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
 
