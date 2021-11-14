@@ -23,7 +23,7 @@ All features require users to be logged in. Demo login is provided.
 ## 5. Reviews CRUD
 * Users are able create reviews on Albums, they are also able to edit and delete their reviews.
 
-This site was developed using Python, SQLAlchemy, Flask, and React
+This site was developed using Python, SQLAlchemy, Flask, and React.js
 
 
 
