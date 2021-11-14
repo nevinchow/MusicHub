@@ -24,9 +24,9 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  width: 55vw;
+  width: 85vw;
   position: relative;
-  right: 390px;
+  margin-right: 50px;
   background-color: #121212;
   bottom: 80px;
 }
@@ -57,10 +57,11 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  width: 55vw;
+  width: 85vw;
   position: relative;
-  margin-right: 800px;
-  padding-bottom: 100px;
+  margin-right: 60px;
+  padding-bottom: 70px;
+
 }
 
 .artistTile-container {
@@ -82,7 +83,7 @@
   position: relative;
   right: 958px;
   color: white;
-  bottom: 80px;
+  bottom: 100px;
 }
 
 .artists-header {
