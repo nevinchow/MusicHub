@@ -27,4 +27,3 @@ This site was developed using Python, SQLAlchemy, Flask, and React.js
 
 
 
-
