@@ -72,13 +72,14 @@
 
 .sign-up-btn {
     background-color:#2941AB; 
+    color:#1ED760;
     font-family: 'Montserrat', sans-serif;
     border-radius: 500px;
     padding: 14px 32px;
     border: none;
     margin: 10px;
 }
-.Sign-up-styled {
+/* .Sign-up-styled {
     justify-content: center;
     font-size: 10px;
     line-height: 1;
@@ -92,4 +93,4 @@
     min-width: 160px;
     text-transform: uppercase;
     white-space: normal;
-}
+} */

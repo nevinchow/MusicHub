@@ -50,7 +50,7 @@ const LoginForm = () => {
         </div>
         <div id="message-login"> Please login to continue to your music</div>
         <div id="login-form">
-          <div id="login-message"> </div>
+          {/* <div id="login-message"> </div> */}
           <form className="login-form" onSubmit={onLogin}>
             <div>
               {errors.map((error, ind) => (
@@ -79,9 +79,6 @@ const LoginForm = () => {
               <button className="login-btn" type="submit">LOG IN</button>
             </div>
           </form>
-          {/* <button type="signup" onClick={signup}>
-            Sign Up
-          </button> */}
         </div>
         <button className="demoLoginButton" onClick={handleSubmit}>
           LOG IN AS A DEMO USER

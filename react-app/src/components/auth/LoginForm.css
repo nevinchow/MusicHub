@@ -98,6 +98,7 @@
     color: #2941AB;
     border: none;
     justify-content: center;
+    /* margin-left: 30px; */
 }
 
 #border-login {
@@ -113,12 +114,29 @@
     display: flex;
     background-color:#2941AB; 
     font-family: 'Montserrat', sans-serif;
+    transition-property: background-color,border-color,color,box-shadow,filter;
+    transition-duration: .3s;
     border-radius: 500px;
     padding: 14px 32px;
     color: #1ED760;
     border: none;
     margin-top: 20px;
-    margin-left: 90px;
+    margin-left: 105px;
     justify-self: center;
     align-self: center;
+}
+.Sign-up-styled {
+    justify-content: center;
+    font-size: 10px;
+    line-height: 1;
+    border: 2px solid #dfdada;
+    border-radius: 500px;
+    padding: 16px 48px 18px;
+    transition-property: background-color,border-color,color,box-shadow,filter;
+    transition-duration: .3s;
+    letter-spacing: 2px;
+    min-width: 160px;
+    text-transform: uppercase;
+    white-space: normal;
+    /* margin-left: 30px */
 }
