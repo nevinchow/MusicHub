@@ -13,7 +13,7 @@ All features require users to be logged in. Demo login is provided.
 * Users are able to create, edit, and delete their playlists. 
 
 ## 3. Search 
-* Users may search for an album, song, title, artist or genre.
+* Users may search for an album, song, or artist.
 * Users should be able to search for playlists based on songs, genre, or artist.
 
 ## 4. Continuous Play while Navigating Site
