@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import logo from "../../images/spotifyLogo.png";
-import styles from "../LandingPage/LandingPage.module.css";
+
 // import './LoginForm.css';
 import './SignUpForm.css'
 
@@ -48,7 +48,7 @@ const SignUpForm = () => {
   };
 
   if (user) {
-    return <Redirect to='/' />;
+    return <Redirect to='/main' />;
   }
     
 
@@ -107,10 +107,10 @@ const SignUpForm = () => {
             </div>
             <button className="sign-up-btn" type="submit">Sign Up</button>
           </form>
+        </div>
           <button className="demoLoginButton" onClick={handleSubmit}>
             LOG IN AS A DEMO USER
           </button>
-        </div>
       </div>
     </>
   );

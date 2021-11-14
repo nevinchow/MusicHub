@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
 }
 
 .header-login {
@@ -42,7 +43,138 @@
     justify-content: center;
     align-items: center;
     margin-top: 20px;
-    height: 350px;
+    height: 300px;
+    width: 400px;
+}
+.login-form > {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10%;
+}
+.login-form input {
+    height: 40px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    padding: 0 10px;
+}
+#login-form form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+#login-form label {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#login-form input {
+    height: 40px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    padding: 0 10px;
+}
+
+.demoLoginButton {
+    background-color: #1ED760;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 500px;
+    padding: 14px 32px;
+    color: #2941AB;
+    border: none;
+    justify-content: center;
+}
+
+.login-form .login-btn {
+    display: flex;
+    background-color:#2941AB; 
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 500px;
+    padding: 14px 32px;
+    color: #1ED760;
+    border: none;
+    margin-top: 20px;
+    margin-left: 95px;
+    justify-self: center;
+    align-self: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /* Previous */
+/* .main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.header-login {
+    top: 0;
+    height: 150px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    border-bottom: .75px solid #acaaaa;
+    width: 100%;
+}
+.header-login h2 {
+    font-size: 3.5rem;
+    color: black;
+    align-self: center;
+}
+.spotifyLogo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+#message-login {
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+#login-form > #login-message {
+    font-weight: bold;
+    padding: 20px
+}
+
+#login-form {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    height: 300px;
     width: 400px;
 }
 .login-form > {
@@ -59,10 +191,29 @@
     width: 300px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    margin-bottom: 10px;
+    margin: 10px;
     padding: 0 10px;
 }
-.login-form button {
-    justify-content: center;
-    align-items: center;
+.demoLoginButton {
+    background-color: #1ED760;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 500px;
+    padding: 14px 32px;
+    color: #2941AB;
+    border: none;
 }
+
+.login-form .login-btn {
+    display: flex;
+    background-color:#2941AB; 
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 500px;
+    padding: 14px 32px;
+    color: #1ED760;
+    border: none;
+    margin: 10px;
+    justify-self: center;
+    align-items: center;
+} */
+
+

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import * as sessionActions from "../../store/session";
 import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
@@ -18,6 +19,10 @@ const LoginForm = () => {
     if (data) {
       setErrors(data);
     }
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    return dispatch(sessionActions.login("demo@aa.io", "password"));
   };
 
   const updateEmail = (e) => {
@@ -70,13 +75,16 @@ const LoginForm = () => {
                 value={password}
                 onChange={updatePassword}
               />
-              <button type="submit">Login</button>
+              <button className="login-btn" type="submit">Login</button>
             </div>
           </form>
           {/* <button type="signup" onClick={signup}>
             Sign Up
           </button> */}
         </div>
+        <button className="demoLoginButton" onClick={handleSubmit}>
+          LOG IN AS A DEMO USER
+        </button>
       </div>
     </>
   );
