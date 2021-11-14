@@ -52,6 +52,20 @@ def seed_artists():
         headerURL="https://www.grammy.com/sites/com/files/styles/image_landscape_hero/public/muzooka/Zhu/ZHU_16_9_1581552577.jpg?itok=fti3NYF-",
         biopictureURL="https://ca-times.brightspotcdn.com/dims4/default/820c0a8/2147483647/strip/true/crop/2048x1151+0+0/resize/840x472!/quality/90/?url=https:%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2Ffb%2Fcf%2F8246d8d2e4ac844afac3b5bccc14%2Fla-1470339006-snap-photo"
     )
+    nora_en_pure = Artist(
+        name="Nora En Pure",
+        bio="Nora En Pure is the Deep House & Indie Dance music sensation that is rippling through the sonic sphere with her beautiful blend of electronic beats. A core member of the Helvetic Nerds group, Nora leads listeners out of the darker realms of Deep House with intricate instrumentals and enlightening melodies. Every track she gets her hands on turns to gold and every performance she gives leaves the audience in awe. Moving far away from her home at an early age to Zürich, Switzerland, Daniela found herself longing to touch base with her South African roots. Growing up listening to classical music and playing the flute and piano, she began creating her own electronic beats. 2009 saw the beginnings of her musical career, releasing her debut tracks via the Enormous Tunes and Tonkenish imprints. Her breakthrough track ‘Come With Me’ catapulted her into the spotlight in 2013. Sparking wide interest in her sound, the track received extensive support from industry tastemakers and captivated a large and ever-growing legion of fans. Collaborating with the likes of Wretch 32, Aston Shuffle, Adrian Lux and Klingande, Nora En Pure infiltrated herself into the depths of the dance music world.",
+        profileURL="https://partyflock.nl/ov/images/artist/80129_1080x1349_586106/Nora-En-Pure.jpg",
+        headerURL="https://i.pinimg.com/originals/3b/8a/da/3b8adaea4f3ba71016b1d5f992bb5144.jpg",
+        biopictureURL="https://media2.fdncms.com/metrotimes/imager/u/blog/4926638/dr_efw2_noraenpure_6.jpg?cb=1531348189",
+    )
+    mos_def = Artist(
+        name="Mos Def",
+        bio="Mos Def is an American rapper, singer, songwriter, and record producer. He is best known for his rap songs, including the hit single 'The Way I Am', which reached number one on the Billboard Hot 100. He is also known for his music videos, including the hit video 'I'm Not Afraid', which was released on April 1, 2016. He is also known for his music videos, including the hit video 'I'm Not Afraid', which was released on April 1, 2016. He is also known for his music videos, including the hit video 'I'm Not Afraid', which was released on April 1, 2016.",
+        profileURL="https://media.ntslive.co.uk/crop/770x770/63d54d50-9802-462c-9c9d-ff8d79473984_1548115200.jpeg",
+        headerURL="https://hiphopgoldenage.com/wp-content/uploads/2015/07/Everyday-Fresh-mos-def-.jpg",
+        biopictureURL="https://s1.ticketm.net/dam/a/608/6c3e95d1-85e1-492e-856c-8c0a9e91d608_1139531_TABLET_LANDSCAPE_LARGE_16_9.jpg"
+    )
 
 
     db.session.add(the_weeknd)
@@ -61,6 +75,8 @@ def seed_artists():
     db.session.add(drake)
     db.session.add(doja_cat)
     db.session.add(zhu)
+    db.session.add(nora_en_pure)
+    db.session.add(mos_def)
 
     db.session.commit()
 

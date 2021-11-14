@@ -793,7 +793,153 @@ def seed_songs():
         artistId=7,
         song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636518371/Albums/Dreamland/12_I_Need_That_t4mvbm.m4a"
     )
-
+    #Nora En Pure
+    Homebound = Song(
+        name="Homebound",
+        genre="electronic",
+        duration=210,
+        albumId=8,
+        artistId=8,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636772246/Albums/Homebound/01_Homebound_rzmzx6.m4a"
+    )
+    Dry_sobbing = Song(
+        name="Dry Sobbing",
+        genre="electronic",
+        duration=224,
+        albumId=8,
+        artistId=8,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636772246/Albums/Homebound/02_Dry_Sobbing_nexvfd.m4a"
+    )
+    Epiphany = Song(
+        name="Epiphany",
+        genre="electronic",
+        duration=211,
+        albumId=8,
+        artistId=8,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636772246/Albums/Homebound/03_Epiphany_ahphss.m4a"
+    )
+    Homebound_club_mix = Song(
+        name="Dry Sobbing",
+        genre="electronic",
+        duration=465,
+        albumId=8,
+        artistId=8,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636772247/Albums/Homebound/04_Homebound_Club_Mix_qtetpo.m4a"
+    )
+    Dry_sobbing_club_mix = Song(
+        name="Dry Sobbing",
+        genre="electronic",
+        duration=224,
+        albumId=8,
+        artistId=8,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636772246/Albums/Homebound/02_Dry_Sobbing_nexvfd.m4a"
+    )
+    Epiphany_club_mix = Song(
+        name="Epiphany Club Mix",
+        genre="electronic",
+        duration=224,
+        albumId=8,
+        artistId=8,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636772246/Albums/Homebound/06_Epiphany_Club_Mix_ylv6ee.m4a"
+    )
+    #Mos Def
+    Astronomy = Song(
+        name="Astronomy",
+        genre="hip-hop",
+        duration=206,
+        albumId=9,
+        artistId=9,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636495441/Albums/BlackStar/01_Astronomy_8th_Light_nslsu2.mp3"
+    )
+    Definition = Song(
+        name="Definition",
+        genre="hip-hop",
+        duration=208,
+        albumId=9,
+        artistId=9,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636495441/Albums/BlackStar/02_Definition_c602ak.mp3"
+    )
+    Re_definition = Song(
+        name="Re-definition",
+        genre="hip-hop",
+        duration=184,
+        albumId=9,
+        artistId=9,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636495442/Albums/BlackStar/03_RE__Definition_gzscky.mp3"
+    )
+    Childrens_story = Song(
+        name="Children's Story",
+        genre="hip-hop",
+        duration=213,
+        albumId=9,
+        artistId=9,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636495442/Albums/BlackStar/04_Children_s_Story_iqxt9t.mp3"
+    )
+    Brown_skin = Song(
+        name="Brown Skin Lady",
+        genre="hip-hop",
+        duration=348,
+        albumId=9,
+        artistId=9,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636495443/Albums/BlackStar/05_Brown_Skin_Lady_orgr3p.mp3"
+    )
+    B_boys = Song(
+        name="B boys will b boys",
+        genre="hip-hop",
+        duration=158,
+        albumId=9,
+        artistId=9,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636495441/Albums/BlackStar/06_B_Boys_Will_B_Boys_m2sjkd.mp3"
+    )
+    kos = Song(
+        name="K.O.S. Determination",
+        genre="hip-hop",
+        duration=311,
+        albumId=9,
+        artistId=9,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636495442/Albums/BlackStar/07_K.O.S._Determination_dhaaax.mp3"
+    )
+    
+    Hater_players = Song(
+        name="Hater Players",
+        genre="hip-hop",
+        duration=250,
+        albumId=9,
+        artistId=9,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636495442/Albums/BlackStar/08_Hater_Players_lagtl0.mp3"
+    )
+    Yo_yeah = Song(
+        name="Yo Yeah",
+        genre="hip-hop",
+        duration=72,
+        albumId=9,
+        artistId=9,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636495441/Albums/BlackStar/09_Yo_Yeah_lnkrbm.mp3"
+    )
+    Respiration = Song(
+        name="Respiration",
+        genre="hip-hop",
+        duration=345,
+        albumId=9,
+        artistId=9,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636495442/Albums/BlackStar/10_Respiration_togrmx.mp3"
+    )
+    Thieves_In_Night = Song(
+        name="Theives In The Night",
+        genre="hip-hop",
+        duration=318,
+        albumId=9,
+        artistId=9,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636495442/Albums/BlackStar/11_Thieves_in_the_Night_bfjy01.mp3"
+    )
+    Twice_in_lifetime = Song(
+        name="Twice Inna Lifetime",
+        genre="hip-hop",
+        duration=338,
+        albumId=9,
+        artistId=9,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636495443/Albums/BlackStar/12_Twice_Inna_Lifetime_l9eidt.mp3"
+    )
 
 
 
@@ -912,6 +1058,27 @@ def seed_songs():
     db.session.add(Zhudio)
     db.session.add(Good_for_u)
     db.session.add(I_Need_That)
+
+    db.session.add(Homebound)
+    db.session.add(Dry_sobbing)
+    db.session.add(Epiphany)
+    db.session.add(Homebound_club_mix)
+    db.session.add(Dry_sobbing_club_mix)
+    db.session.add(Epiphany_club_mix)
+
+    db.session.add(Astronomy)
+    db.session.add(Definition)
+    db.session.add(Re_definition)
+    db.session.add(Childrens_story)
+    db.session.add(Brown_skin)
+    db.session.add(B_boys)
+    db.session.add(kos)
+    db.session.add(Hater_players)
+    db.session.add(Yo_yeah)
+    db.session.add(Respiration)
+    db.session.add(Thieves_In_Night)
+    db.session.add(Twice_in_lifetime)
+
     
 
 
