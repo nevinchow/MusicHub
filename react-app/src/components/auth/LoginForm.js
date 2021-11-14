@@ -85,10 +85,10 @@ const LoginForm = () => {
         </button>
         <div className="sign-up-prompt">
           <div id="border-login"></div>
-          <h2>Don't have an account? </h2>
-          <Link to="/sign-up">
-            <button className="Sign-up-styled"> SIGN UP FOR MUSIC HUB </button>
-          </Link>
+            <h2>Don't have an account? </h2>
+            <Link to="/sign-up">
+              <button className="Sign-up-styled"> SIGN UP FOR MUSIC HUB </button>
+            </Link>
         </div>
       </div>
     </>

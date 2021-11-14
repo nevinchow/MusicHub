@@ -68,6 +68,12 @@
     border: none;
    
 }
+.login-prompt >{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: pink;
+}
 
 
 .sign-up-btn {

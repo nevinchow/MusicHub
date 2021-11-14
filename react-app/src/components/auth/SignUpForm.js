@@ -114,11 +114,12 @@ const SignUpForm = () => {
         <button className="demoLoginButton" onClick={handleSubmit}>
           LOG IN AS A DEMO USER
         </button>
-        <div id="border-login"></div>
-        <h2>Already have an account?</h2>
-        <Link to="/login">
-          <button className="Sign-up-styled"> Log In to Music Hub </button>
-        </Link>
+        <div className="login-prompt"></div>
+          <div id="border-login"></div>
+          <h2>Already have an account?</h2>
+          <Link to="/login">
+            <button className="Sign-up-styled"> Log In to Music Hub </button>
+          </Link>
       </div>
     </>
   );
