@@ -38,9 +38,13 @@ All features require user authorization. Demo login is provided.
 ## Developers: 
 This full stack application was developed by App Academy Students
 
-* <img style="height:auto;" alt="Avatar" width="40" height="40" class="avatar avatar-user width-full border color-bg-primary" src="https://avatars.githubusercontent.com/u/84898586?v=4">  [Nevin Chow](https://github.com/nevinchow/) 
-* <img style="height:auto;" alt="Avatar" width="40" height="40" class="avatar avatar-user width-full border color-bg-primary" src="https://avatars.githubusercontent.com/u/85664864?v=4"> [Jessi Zhuo](https://github.com/zyingzhuo) 
-* <img style="border-radius:50%;" alt="Avatar" width="40" height="40" class="avatar avatar-user width-full border color-bg-primary" src="https://avatars.githubusercontent.com/u/85353431?v=4"> [Dusty Mumfrey](https://github.com/Dusttoo)
-* <img src="https://avatars.githubusercontent.com/u/68717338?s=96&amp;v=4" alt="@spacegray" size="48" height="48" width="48" data-view-component="true" class="avatar circle mr-3"> [Ayla Basha](https://github.com/spacegray)
+<img style="height:auto;" alt="Avatar" width="40" height="40" class="avatar avatar-user width-full border color-bg-primary" src="https://avatars.githubusercontent.com/u/84898586?v=4">  [Nevin Chow](https://github.com/nevinchow/) 
+
+
+<img style="height:auto;" alt="Avatar" width="40" height="40" class="avatar avatar-user width-full border color-bg-primary" src="https://avatars.githubusercontent.com/u/85664864?v=4"> [Jessi Zhuo](https://github.com/zyingzhuo) 
+
+<img style="border-radius:50%;" alt="Avatar" width="40" height="40" class="avatar avatar-user width-full border color-bg-primary" src="https://avatars.githubusercontent.com/u/85353431?v=4"> [Dusty Mumfrey](https://github.com/Dusttoo)
+
+<img src="https://avatars.githubusercontent.com/u/68717338?s=96&amp;v=4" alt="@spacegray" size="40" height="40" width="48" data-view-component="true" class="avatar circle mr-3"> [Ayla Basha](https://github.com/spacegray)
 
 
