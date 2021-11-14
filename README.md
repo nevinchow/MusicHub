@@ -16,14 +16,12 @@ All features require users to be logged in. Demo login is provided.
 * Users may search for an album, song, title, artist or genre.
 * Users should be able to search for playlists based on songs, genre, or artist.
 
-## 4. Continuous Play with Navigating Site
-* Logged in users are able to still hear their song being played when they click on another link on the page. 
+## 4. Continuous Play while Navigating Site
+* Users are able to navigate to different pages of the site without stopping the current song from playing
  
 ## 5. Reviews CRUD
 * Users are able create reviews on Albums, they are also able to edit and delete their reviews
 
-## 6. Continuous Play
-* Users are able to navigate to different pages of the site without stopping the current song.
 
 
 
