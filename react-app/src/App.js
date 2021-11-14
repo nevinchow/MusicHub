@@ -46,7 +46,7 @@ function App() {
         await dispatch(getAlbums())
         setLoaded(true);
       // }
-      
+
 
     })();
   }, [dispatch]);
@@ -58,7 +58,7 @@ function App() {
   return (
     <BrowserRouter>
       {/* <NavBar /> */}
-      {!user ? <></> : <Sidebar />}
+      {!user ? <div><NavBar /></div> : <Sidebar />}
       {!user ? <></> : <Player queue={queue}/>}
       <Route path='/login' exact={true}>
           <LoginForm />
@@ -88,7 +88,7 @@ function App() {
         <ProtectedRoute path='/main' exact={true}>
           <MainPage />
         </ProtectedRoute>
-        
+
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>

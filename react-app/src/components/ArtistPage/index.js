@@ -8,6 +8,8 @@ import './artistPage.css';
 import { getSongs } from '../../store/songs';
 import { Link } from 'react-router-dom';
 import DisplaySong from '../playlists/DisplaySong';
+import AlbumTile from '../AlbumTile';
+import { NavLink } from 'react-router-dom';
 
 
 
@@ -15,7 +17,8 @@ function ArtistPage() {
     // const artist=useSelector((state)=>Object.values(state.artist))
     const {artistId}= useParams();
     const artist=useSelector(state=>state.artist[artistId]);
-    const albums=useSelector(state=>state.album[artistId])
+    const album=useSelector(state=>state.album[artistId])
+
     const dispatch = useDispatch()
     const songs=useSelector(state=>Object.values(state.songs))
     const allsongsofsingleartist=songs.filter(song=>song.artistId== +artistId)
@@ -36,26 +39,16 @@ function ArtistPage() {
         return (
           <>
             <div className="artist-page">
+              <div className="wrapper">
               <div className="artist-page-container">
                 <div className="artist-page-header">
                   <img
                     className="artist-header-img"
                     src={artist?.headerURL}
                   ></img>
-                  <h2>{artist?.name}</h2>
-                  <h2> {albums?.title}</h2>
-                  <p> {albums?.year}</p>
-                  Album
+                  <h2 className='artist-page-name'>{artist?.name}</h2>
                 </div>
-                <div className="artist-page-middle">
-                  <div className="artist-info">
-                    <img className="album-art" src={albums?.imageURL}></img>
-                    <p>{artist?.bio}</p>
-                  </div>
-                </div>
-
-              </div>
-              <div>
+              <div className='table'>
                 <table>
                 <thead>
                     <tr>
@@ -78,6 +71,24 @@ function ArtistPage() {
 
                   </tbody>
                 </table>
+              </div>
+              <div className='discography-container'>
+                <h2 className='discography'>Discography</h2>
+              <div className='albumTile-container'>
+              <AlbumTile album={album} />
+              <NavLink to={`/albums/${album.id}/reviews`} className='review-link'>Reviews</NavLink>
+              </div>
+              </div>
+              <div className='about-container'>
+                <div className='about-bio-container'>
+                <h2 className='about'>About
+                    <p className='artist-bio'>{artist?.bio}</p>
+                    </h2>
+                </div>
+                    <img className='artist-bio-image' src={artist?.biopictureURL}></img>
+
+              </div>
+              </div>
               </div>
             </div>
           </>
