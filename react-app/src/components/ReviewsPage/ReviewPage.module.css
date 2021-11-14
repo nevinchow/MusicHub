@@ -1,0 +1,46 @@
+.allReviews{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.buttonsed{
+    /* margin-left: 980px; */
+    display: flex;
+    justify-content: flex-end;
+   
+    margin-right: 200px;
+    
+    
+}
+
+.edit{
+    border-radius: 4px;
+    font-family: Google Sans,Roboto-medium,arial,sans-serif-medium,sans-serif;
+  
+    background-color: #1a73e8;
+    font-size: 15px;
+    cursor: pointer;
+    margin-right: 5px ;
+  
+    
+  
+}
+
+.delete{
+    border-radius: 4px;
+    font-family: Google Sans,Roboto-medium,arial,sans-serif-medium,sans-serif;
+  
+    background-color: #1a73e8;
+    font-size: 15px;
+    cursor: pointer;
+  
+}
+
+.delete:hover {
+    font-weight: bold;
+}
+
+.edit:hover{
+    font-weight: bold;
+}
