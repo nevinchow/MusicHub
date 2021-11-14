@@ -15,12 +15,8 @@ const Player = ({queue}) => {
   
   if(!queue.length) return null
   let playlist = [];
-  // console.log(playlist, 'this is the queue')
-
     queue.map((song) => {
-    // console.log(song, song.artistId, 'song info')
     const artist = Object.keys(artists).find((artistId) => +artistId === song.artistId)
-    // console.log(artists, 'finding artist', artist, artists[artist])
     const nextSong = {
       src: song.song_link,
       title: song.name,
@@ -28,7 +24,6 @@ const Player = ({queue}) => {
 
     playlist.push(nextSong)
   })
-  // console.log(playlist[currentSong].artist, 'artist\n', playlist[currentSong], 'current song')
   console.log("playlist length", playlist.length, "current song", currentSong)
   
   
@@ -47,13 +42,13 @@ const Player = ({queue}) => {
             autoPlayAfterSrcChange={true}
             onPlay={(e) => console.log("onPlay")}
             onEnded={() => {
-              if(currentSong === playlist.length - 1) {
-                setCurrentSong(0)
+              if(!playlist[currentSong + 1]) {
+                console.log('conditional')
+                setCurrentSong(-1)
               }
               setCurrentSong((i) => i + 1)}}
             showSkipControls={true}
             onClickNext={() => {
-              console.log('next')
               if(!playlist[currentSong + 1]) {
                 console.log('conditional')
                 setCurrentSong(-1)
