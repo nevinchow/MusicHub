@@ -24,7 +24,7 @@ All features require users to be logged in. Demo login is provided.
 * Users are able create reviews on Albums, they are also able to edit and delete their reviews.
 
 This site was developed using Python, SQLAlchemy, Flask, and React.js
-
+[](https://istvankocsis.gallerycdn.vsassets.io/extensions/istvankocsis/reactcodesnippets/3.1/1582843313592/Microsoft.VisualStudio.Services.Icons.Default)
 
 
 
