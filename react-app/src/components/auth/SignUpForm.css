@@ -1,29 +1,9 @@
-.main-content {
+.main-sign-up-content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
 }
-
-.header-login {
-    top: 0;
-    height: 150px;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    border-bottom: .75px solid #acaaaa;
-    width: 100%;
-}
-.header-login h2 {
-    font-size: 3.5rem;
-    color: black;
-    align-self: center;
-}
-.spotifyLogo {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-}
-
 #message-login {
     font-weight: bold;
     font-size: 1.5rem;
@@ -36,25 +16,41 @@
     padding: 20px
 }
 
-#login-form {
+#sign-up-form  {
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
     height: 350px;
-    width: 400px;
+    width: 500px;
+    /* background-color: green */
 }
-.login-form > {
+.sign-up-form > {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100px;
     padding: 20px;
     margin: 20px;
+    border-radius: 10%;
 }
-.login-form input {
+#sign-up-form form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+#sign-up-form label {  
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#sign-up-form > input {
     height: 40px;
     width: 300px;
     border-radius: 5px;
@@ -62,7 +58,7 @@
     margin-bottom: 10px;
     padding: 0 10px;
 }
-.main-content button {
+/* .main-sign-up-content button {
     justify-content: center;
     align-items: center;
-}
+} */

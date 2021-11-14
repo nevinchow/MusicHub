@@ -786,7 +786,7 @@ def seed_songs():
         song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636518371/Albums/Dreamland/11_Good4U_feat._Kota_the_Friend_x5cdxk.m4a"
     )
     I_Need_That = Song(
-        name="Good 4 U feat. Kota The Friend",
+        name="I Need That",
         genre="electronic",
         duration=239,
         albumId=7,
