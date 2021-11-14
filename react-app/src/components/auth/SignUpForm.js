@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import * as sessionActions from "../../store/session";
 import { useSelector, useDispatch } from 'react-redux'
 import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import logo from "../../images/spotifyLogo.png";
+import styles from "../LandingPage/LandingPage.module.css";
 // import './LoginForm.css';
 import './SignUpForm.css'
 
@@ -24,6 +26,10 @@ const SignUpForm = () => {
       }
     }
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    return dispatch(sessionActions.login("demo@aa.io", "password"));
+  };
 
   const updateUsername = (e) => {
     setUsername(e.target.value);
@@ -44,6 +50,7 @@ const SignUpForm = () => {
   if (user) {
     return <Redirect to='/' />;
   }
+    
 
   return (
     <>
@@ -98,8 +105,11 @@ const SignUpForm = () => {
                 required={true}
               ></input>
             </div>
-            <button type="submit">Sign Up</button>
+            <button className="sign-up-btn" type="submit">Sign Up</button>
           </form>
+          <button className="demoLoginButton" onClick={handleSubmit}>
+            LOG IN AS A DEMO USER
+          </button>
         </div>
       </div>
     </>
