@@ -1,4 +1,4 @@
-# Welcome to <img src="https://cdn.onlinewebfonts.com/svg/img_2248.png" alt="logo" width="50" height="50" style={background-color:white} /> Music Hub
+# Welcome to Music Hub <img src="https://cdn.onlinewebfonts.com/svg/img_2248.png" alt="logo" width="50" height="50" style={background-color:white} /> 
 
 Music Hub is clone of Spotify that allows users to discover new music and create their own playlists. 
 
