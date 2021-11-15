@@ -16,7 +16,7 @@ const Player = ({queue}) => {
   let trackNumber = currentSong + 1
 
   
-  if(!queue.length) return null
+  if(!queue.length) return null;
   let playlist = [];
     queue.map((song) => {
     const artist = Object.keys(artists).find((artistId) => +artistId === song.artistId)
@@ -43,8 +43,15 @@ const Player = ({queue}) => {
           <AudioPlayer className="audioPlayer"
             autoPlay={true}
             src={playlist[currentSong].src}
+            // preload={playlist}
             autoPlayAfterSrcChange={true}
             onPlay={(e) => console.log("onPlay")}
+
+            onEnded={() => setCurrentSong((i) => i + 1 )}
+            showSkipControls={true}
+            onClick={() => setCurrentSong(currentSong)}
+            onClickNext={() => setCurrentSong((i) => i + 1)}
+
             onPause={() => {
               dispatch(stopSong())
             }}
@@ -59,6 +66,7 @@ const Player = ({queue}) => {
                 setCurrentSong(-1)
               }
               setCurrentSong((i) => i + 1)}}
+
             // other props here
           />
         </div>
