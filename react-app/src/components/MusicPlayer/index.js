@@ -4,39 +4,65 @@ import 'react-h5-audio-player/lib/styles.css';
 import { useSelector } from "react-redux";
 import "./musicPlayer.css";
 import { useState } from 'react';
+import { stopSong } from '../../store/musicPlayer';
+import { useDispatch } from 'react-redux';
 
 const Player = ({queue}) => {
+  const dispatch = useDispatch()
   const artists = useSelector((state) => state.artist)
-  const isPlaying = useSelector((state) => state.player)
+  const song = useSelector((state) => state.song)
+  let isPlaying = useSelector((state) => state.player)
   const [currentSong, setCurrentSong] = useState(0);
+  let trackNumber = currentSong + 1
 
   
   if(!queue.length) return null
   let playlist = [];
-
     queue.map((song) => {
-    const artist = Object.values(artists).find((artistId) => +artistId === +song.artistId)
+    const artist = Object.keys(artists).find((artistId) => +artistId === song.artistId)
     const nextSong = {
       src: song.song_link,
       title: song.name,
-      artist}
+      artist: artists[artist]}
 
     playlist.push(nextSong)
   })
+
+  // console.log("TOGGLE PLAY", togglePlay)
   
   
   return (
     <>
-        <AudioPlayer
-        autoPlay={isPlaying}
-        src={playlist[currentSong].src}
-        autoPlayAfterSrcChange={true}
-        onPlay={e => console.log("onPlay")}
-        onEnded={() => setCurrentSong(i => i + 1)}
-        showSkipControls={true}
-        onClickNext={() => setCurrentSong(i => i + 1)}
-        // other props here
-      />
+      <footer className="player-footer">
+        <div className="player-container">
+          <div className='song-info'>
+            <p className="song-info-details">#{trackNumber}</p>
+            <p className="song-info-details">{playlist[currentSong].title}</p>
+            <p className="song-info-details">{playlist[currentSong].artist.name}</p>
+          </div>
+          <AudioPlayer className="audioPlayer"
+            autoPlay={true}
+            src={playlist[currentSong].src}
+            autoPlayAfterSrcChange={true}
+            onPlay={(e) => console.log("onPlay")}
+            onPause={() => {
+              dispatch(stopSong())
+            }}
+            onEnded={() => {
+              if(!playlist[currentSong + 1]) {
+                setCurrentSong(-1)
+              }
+              setCurrentSong((i) => i + 1)}}
+            showSkipControls={true}
+            onClickNext={() => {
+              if(!playlist[currentSong + 1]) {
+                setCurrentSong(-1)
+              }
+              setCurrentSong((i) => i + 1)}}
+            // other props here
+          />
+        </div>
+      </footer>
     </>
   );
 } 

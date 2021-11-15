@@ -14,7 +14,7 @@ export const getSongsForPlaylist = (playlistId) => async (dispatch) => {
     const res = await fetch(`/api/playlists/${playlistId}/songs`);
     const songs = await res.json();
     const songPairs = []
-    Object.values(songs).map((song) => (songPairs.push(song)))
+    Object.values(songs.songs).map((song) => (songPairs.push(song)))
     dispatch(getPlaylistSongs(songPairs))
     return songPairs
 
@@ -39,11 +39,21 @@ export default function playlistSongsReducer(state = initialState, action) {
     switch (action.type) {
         case GET_PLAYLIST_SONGS:
             const pairs = action.playlistSongs
+            // console.log('PAIRS: ', action.playlistSongs)
+            // const i = Object.keys(pairs).length + 1
+            // action.playlistSongs.forEach(song => {
+            //         console.log('iterating state', song)
+            //         pairs[i] = song
+            // })
+            // console.log(pairs, state, 'pairs and state')
             return pairs
         case ADD_PLAYLIST_SONGS:
-            const newState = [...state]
-            newState.concat(action.songToAdd)
-            return {...newState}
+            const newState = {...state}
+            console.log('ACTION', action.songToAdd)
+            const index = Object.keys(newState).length + 1
+            newState[index] = action.songToAdd
+            console.log([newState], "new State")
+            return [newState]
         default:
             return state;
     }

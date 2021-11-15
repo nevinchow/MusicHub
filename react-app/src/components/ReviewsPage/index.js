@@ -12,11 +12,14 @@ import ReviewTile from '../ReviewTile'
 import ReviewForm from '../ReviewForm';
 import EditReview from '../EditReviewForm';
 import { removeReview } from '../../store/review';
+import { getUsers } from '../../store/user';
+import styles from'./ReviewPage.module.css'
 
 
 function ReviewsPage () {
     const dispatch = useDispatch();
     const {albumId}=useParams()
+    const album=useSelector((state)=>state.album[albumId])
     const reviews=useSelector((state)=>Object.values(state.review))
     const [reviewId, setReviewId]=useState()
     const history=useHistory()
@@ -28,6 +31,7 @@ function ReviewsPage () {
 
     useEffect(()=>{
         dispatch(getReviewsByAlbumId(albumId))
+        dispatch(getUsers())
     },[dispatch])
 
 
@@ -54,14 +58,15 @@ function ReviewsPage () {
 
             return (
                 <>
-
+                {/* <img src={album?.imageURL}></img> */}
+                <div className={styles.allReviews}>
                 {reviews.map((review)=>(
                     <>
                     <ReviewTile review={review} />
                     {review.userId===userId?
-                    <div>
-                    <button onClick={onClick} id={review.id} >edit</button>
-                    <button onClick={(e)=>{onClickTwo(e,review)}} id= {+review.id}>delete</button>
+                    <div className={styles.buttonsed}>
+                    <button onClick={onClick} id={review.id} className={styles.edit}>edit</button>
+                    <button onClick={(e)=>{onClickTwo(e,review)}} id= {+review.id} className={styles.delete}>delete</button>
                     </div> : <> </>
 
                     }
@@ -72,11 +77,11 @@ function ReviewsPage () {
                 {editform? <EditReview reviewId={reviewId}/>:
 
                 <>
-                add review
+                
                 <ReviewForm reviewId={reviewId}/>
                 </>
                 }
-
+                </div>
                 </>
             )
 

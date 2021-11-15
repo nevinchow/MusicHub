@@ -11,7 +11,7 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import Player from './components/MusicPlayer/index'
 import MusicQueue from './components/MusicQueue'
-import SplashPage from './components/SplashPage/SplashPage'
+// import FooterBar from './components/Footer/Footer'
 
 import ArtistPage from './components/ArtistPage';
 import AlbumPage from './components/AlbumPage'
@@ -46,7 +46,6 @@ function App() {
         await dispatch(getAlbums())
         setLoaded(true);
       // }
-      
 
     })();
   }, [dispatch]);
@@ -58,7 +57,7 @@ function App() {
   return (
     <BrowserRouter>
       {/* <NavBar /> */}
-      {!user ? <></> : <Sidebar />}
+      {!user ? <div><NavBar /></div> : <Sidebar />}
       {!user ? <></> : <Player queue={queue}/>}
       <Route path='/login' exact={true}>
           <LoginForm />
@@ -68,52 +67,46 @@ function App() {
         </Route>
 
       <Switch>
-
-        <Route path='/search' >
-          <SearchBar/>
+        <Route path="/search">
+          <SearchBar />
         </Route>
-        <Route path='/' exact={true} >
-          <LandingPage/>
+        <Route path="/" exact={true}>
+          <LandingPage />
         </Route>
-        <ProtectedRoute path='/albums/:albumId/reviews' >
-
+        <ProtectedRoute path="/albums/:albumId/reviews">
           <ReviewsPage />
         </ProtectedRoute>
-        <ProtectedRoute path='/albums/:albumId' >
+        <ProtectedRoute path="/albums/:albumId">
           <AlbumPage />
         </ProtectedRoute>
-        <ProtectedRoute path='/artist/:artistId' >
+        <ProtectedRoute path="/artist/:artistId">
           <ArtistPage />
         </ProtectedRoute>
-        <ProtectedRoute path='/main' exact={true}>
+        <ProtectedRoute path="/main" exact={true}>
           <MainPage />
         </ProtectedRoute>
-        
+
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        <ProtectedRoute path="/users/:userId" exact={true}>
           <User />
         </ProtectedRoute>
-        <Route path='/' exact={true} >
-          {!user ? <SplashPage /> : <MainPage />}
-        </Route>
-        <ProtectedRoute path='/playlists' exact={true} >
-          <Playlists/>
+        <ProtectedRoute path="/playlists" exact={true}>
+          <Playlists />
         </ProtectedRoute>
-        <ProtectedRoute path='/playlists/add' exact={true} >
-          <AddPlaylists/>
+        <ProtectedRoute path="/playlists/add" exact={true}>
+          <AddPlaylists />
         </ProtectedRoute>
-        <ProtectedRoute path='/playlists/:id/edit' exact={true} >
-          <EditPlaylists/>
+        <ProtectedRoute path="/playlists/:id/edit" exact={true}>
+          <EditPlaylists />
         </ProtectedRoute>
-        <ProtectedRoute path='/playlists/:id' loaded={loaded}>
-          <PlaylistPage/>
+        <ProtectedRoute path="/playlists/:id" loaded={loaded}>
+          <PlaylistPage />
         </ProtectedRoute>
       </Switch>
+      {/* <FooterBar /> */}
       {/* {!user ? <></> : <Player queue={queue}/>} */}
-
-
     </BrowserRouter>
   );
 }

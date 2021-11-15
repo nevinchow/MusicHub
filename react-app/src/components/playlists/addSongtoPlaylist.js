@@ -3,9 +3,10 @@ import React, { useEffect, useState }  from 'react';
 import { useDispatch } from "react-redux"
 import { addSongToPlaylist } from "../../store/playlists_songs";
 import { useSelector } from "react-redux";
+import { getSongsForPlaylist } from "../../store/playlists_songs";
 
 
-function AddToPlaylist({songId}) {
+function AddToPlaylist({songId, setSettings}) {
     const {id} = useParams()
     const dispatch = useDispatch()
     const [loaded, setLoaded] = useState(false);
@@ -21,6 +22,9 @@ function AddToPlaylist({songId}) {
       }
 
       dispatch(addSongToPlaylist(songToAdd))
+      await dispatch(getSongsForPlaylist(id))
+
+      setSettings(false)
   }
 
     const findPlaylist = (playlistId) => {
@@ -34,7 +38,7 @@ function AddToPlaylist({songId}) {
     return (
         <div> 
             <form>
-                <select name="playlists" id="playlists" onChange={addSong}>
+                <select className="select-playlist" name="playlists" id="playlists" onChange={addSong}>
                     <option value="" selected disabled hidden>Choose A Playlist</option>
                     {Object.keys(playlists).map((playlistId) => {
                         return (

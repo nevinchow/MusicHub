@@ -417,6 +417,179 @@ def seed_songs():
         artistId=4,
         song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397038/Albums/Olympia/18_Freedom_pofe0c.m4a"
     )
+
+    #Drake
+    Champagne_Poetry = Song(
+        name="Champagne Poetry",
+        genre="hip-hop",
+        duration=336,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756310/Albums/Certified%20Lover%20Boy/01_Champagne_Poetry_l6n2bs.m4a"
+    )
+    Papi_s_home = Song(
+        name="Papi's Home",
+        genre="hip-hop",
+        duration=178,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756308/Albums/Certified%20Lover%20Boy/02_Papi_s_Home_qin6wl.m4a"
+    )
+    Girls_want_girls = Song(
+        name="Girls want girls feat. Lil Baby",
+        genre="hip-hop",
+        duration=221,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756308/Albums/Certified%20Lover%20Boy/03_Girls_Want_Girls_feat._Lil_Baby_bumzxf.m4a"
+    )
+    In_the_bible = Song(
+        name="In the Bible feat. Lil Durk",
+        genre="hip-hop",
+        duration=296,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756310/Albums/Certified%20Lover%20Boy/04_In_The_Bible_feat._Lil_Durk_GIV%C4%92ON_sjqw5a.m4a"
+    )
+    Love_all = Song(
+        name="Love All Feat. Jay Z",
+        genre="hip-hop",
+        duration=228,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756307/Albums/Certified%20Lover%20Boy/05_Love_All_feat._JAY-Z_sz3wfm.m4a"
+    )
+    Fair_trade = Song(
+        name="Champagne Poetry",
+        genre="hip-hop",
+        duration=291,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756309/Albums/Certified%20Lover%20Boy/06_Fair_Trade_feat._Travis_Scott_kypayn.m4a"
+    )
+    Way_too_sexy = Song(
+        name="Way 2 Sexy feat. Future & Young Thug",
+        genre="hip-hop",
+        duration=257,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756309/Albums/Certified%20Lover%20Boy/07_Way_2_Sexy_feat._Future_Young_Thug_votpfb.m4a"
+    )
+    Tsu = Song(
+        name="TSU",
+        genre="hip-hop",
+        duration=308,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756310/Albums/Certified%20Lover%20Boy/08_TSU_hjlel3.m4a"
+    )
+    N_too_deep = Song(
+        name="N 2 Deep feat. Future",
+        genre="hip-hop",
+        duration=373,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756309/Albums/Certified%20Lover%20Boy/09_N_2_Deep_feat._Future_izhmlx.m4a"
+    )
+    Pipe_down = Song(
+        name="Pipe Down",
+        genre="hip-hop",
+        duration=305,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756307/Albums/Certified%20Lover%20Boy/10_Pipe_Down_h5am4r.m4a"
+    )
+    Yerbas_heartbreak = Song(
+        name="Champagne Poetry",
+        genre="hip-hop",
+        duration=133,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756306/Albums/Certified%20Lover%20Boy/11_Yebba_s_Heartbreak_1_g1govc.m4a"
+    )
+    Knife_Talk = Song(
+        name="Knife Talk",
+        genre="hip-hop",
+        duration=240,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756306/Albums/Certified%20Lover%20Boy/13_Knife_Talk_feat._21_Savage_Project_Pat_ndspcy.m4a"
+    )
+    No_friends = Song(
+        name="No Friends In The Industry",
+        genre="hip-hop",
+        duration=240,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756307/Albums/Certified%20Lover%20Boy/12_No_Friends_In_The_Industry_mvvt8p.m4a"
+    )
+    Seven_am = Song(
+        name="Seven AM On Bridle Path",
+        genre="hip-hop",
+        duration=239,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756308/Albums/Certified%20Lover%20Boy/14_7am_On_Bridle_Path_z3lj6r.m4a"
+    )
+    Race_my_mind = Song(
+        name="Race My Mind",
+        genre="hip-hop",
+        duration=259,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756306/Albums/Certified%20Lover%20Boy/17_Get_Along_Better_feat._Ty_Dolla_ign_yqeexz.m4a"
+    )
+    Fountains = Song(
+        name="Fountains feat. Tems",
+        genre="hip-hop",
+        duration=192,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756308/Albums/Certified%20Lover%20Boy/15_Race_My_Mind_rzighh.m4a"
+    )
+    Get_along_better = Song(
+        name="Get Along Better",
+        genre="hip-hop",
+        duration=219,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756306/Albums/Certified%20Lover%20Boy/13_Knife_Talk_feat._21_Savage_Project_Pat_ndspcy.m4a"
+    )
+    You_only_live_twice = Song(
+        name="You Only Live Twice feat. Lil Wayne & Rick Ross",
+        genre="hip-hop",
+        duration=213,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756306/Albums/Certified%20Lover%20Boy/18_You_Only_Live_Twice_feat._Lil_Wayne_Rick_Ross_znpby3.m4a"
+    )
+    Imy = Song(
+        name="IMY feat. Kid Cudi",
+        genre="hip-hop",
+        duration=252,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636756308/Albums/Certified%20Lover%20Boy/19_IMY2_feat._Kid_Cudi_jcrbpc.m4a"
+    )
+    Fans = Song(
+        name="F*****g Fans",
+        genre="hip-hop",
+        duration=245,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636755921/Albums/Certified%20Lover%20Boy/20_F_____g_Fans_diueee.m4a"
+    )
+    The_remorse = Song(
+        name="The Remorse",
+        genre="hip-hop",
+        duration=251,
+        albumId=5,
+        artistId=5,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636755921/Albums/Certified%20Lover%20Boy/21_The_Remorse_hml3xz.m4a"
+    )
+
+    #Doja Cat
+
     Woman = Song(
         name="Woman",
         genre="R&B",
@@ -513,7 +686,113 @@ def seed_songs():
         artistId=6,
         song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397276/Albums/Planet%20Her/12_Alone_q495cr.m4a"
     )
+    Alone = Song(
+        name="Alone",
+        genre="R&B",
+        duration=228,
+        albumId=6,
+        artistId=6,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636397276/Albums/Planet%20Her/12_Alone_q495cr.m4a"
+    )
 
+    #Zhu
+
+    Lost_it = Song(
+        name="Lost It",
+        genre="electronic",
+        duration=178,
+        albumId=7,
+        artistId=7,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636518369/Albums/Dreamland/01_Lost_It_atgvqo.m4a"
+    )
+    Distant_lights = Song(
+        name="Distant Lights",
+        genre="electronic",
+        duration=242,
+        albumId=7,
+        artistId=7,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636518369/Albums/Dreamland/02_Distant_Lights_krrti0.m4a"
+    )
+    Blue_dream = Song(
+        name="Blue Dream",
+        genre="electronic",
+        duration=126,
+        albumId=7,
+        artistId=7,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636518368/Albums/Dreamland/03_Blue_Dream_zxbyzl.m4a"
+    )
+    How_does_it_feel = Song(
+        name="How Does It Feel",
+        genre="electronic",
+        duration=186,
+        albumId=7,
+        artistId=7,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636518369/Albums/Dreamland/04_How_Does_It_Feel_feat._Channel_Tres_bz4l5n.m4a"
+    )
+    Sky_is_crying = Song(
+        name="Sky Is Crying",
+        genre="electronic",
+        duration=264,
+        albumId=7,
+        artistId=7,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636518371/Albums/Dreamland/05_Sky_Is_Crying_r5kugc.m4a"
+    )
+    Sweet_like_honey = Song(
+        name="Sweet Like Honey",
+        genre="electronic",
+        duration=243,
+        albumId=7,
+        artistId=7,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636518371/Albums/Dreamland/06_Sweet_Like_Honey_irmixm.m4a"
+    )
+    Yours = Song(
+        name="Yours",
+        genre="electronic",
+        duration=257,
+        albumId=7,
+        artistId=7,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636518371/Albums/Dreamland/07_Yours_knwy3p.m4a"
+    )
+    Soco = Song(
+        name="SOCO",
+        genre="electronic",
+        duration=214,
+        albumId=7,
+        artistId=7,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636518369/Albums/Dreamland/08_SOCO_x8klyu.m4a"
+    )
+    Only = Song(
+        name="ONLY",
+        genre="electronic",
+        duration=230,
+        albumId=7,
+        artistId=7,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636518369/Albums/Dreamland/09_ONLY_rt6vy3.m4a"
+    )
+    Zhudio = Song(
+        name="Lost It",
+        genre="electronic",
+        duration=228,
+        albumId=7,
+        artistId=7,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636518370/Albums/Dreamland/10_Zhudio54_wr3ksy.m4a"
+    )
+    Good_for_u = Song(
+        name="Good 4 U feat. Kota The Friend",
+        genre="electronic",
+        duration=260,
+        albumId=7,
+        artistId=7,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636518371/Albums/Dreamland/11_Good4U_feat._Kota_the_Friend_x5cdxk.m4a"
+    )
+    I_Need_That = Song(
+        name="Good 4 U feat. Kota The Friend",
+        genre="electronic",
+        duration=239,
+        albumId=7,
+        artistId=7,
+        song_link="https://res.cloudinary.com/dexkxkrfp/video/upload/v1636518371/Albums/Dreamland/12_I_Need_That_t4mvbm.m4a"
+    )
 
 
 
@@ -553,6 +832,8 @@ def seed_songs():
     db.session.add(Miss_Me)
     db.session.add(Idoru)
     db.session.add(We_Appreciate_Power)
+
+
     db.session.add(Tell_Me_It_s_True)
     db.session.add(Oxygen)
     db.session.add(You_Done_Enough)
@@ -571,6 +852,8 @@ def seed_songs():
     db.session.add(Burning)
     db.session.add(Thought_s_of_you)
     db.session.add(Freedom)
+
+
     db.session.add(Woman)
     db.session.add(naked)
     db.session.add(payday)
@@ -594,7 +877,42 @@ def seed_songs():
     db.session.add(Pretty)
     db.session.add(Tears_in_the_rain)
     db.session.add(Wanderlust_remix)
-    # db.session.add(odd_look)
+    
+    db.session.add(Champagne_Poetry)
+    db.session.add(Papi_s_home)
+    db.session.add(Girls_want_girls)
+    db.session.add(In_the_bible)
+    db.session.add(Love_all)
+    db.session.add(Fair_trade)
+    db.session.add(Way_too_sexy)
+    db.session.add(Tsu)
+    db.session.add(N_too_deep)
+    db.session.add(Pipe_down)
+    db.session.add(Yerbas_heartbreak)
+    db.session.add(No_friends)
+    db.session.add(Knife_Talk)
+    db.session.add(Seven_am)
+    db.session.add(Race_my_mind)
+    db.session.add(Fountains)
+    db.session.add(Get_along_better)
+    db.session.add(You_only_live_twice)
+    db.session.add(Imy)
+    db.session.add(Fans)
+    db.session.add(The_remorse)
+
+    db.session.add(Lost_it)
+    db.session.add(Distant_lights)
+    db.session.add(Blue_dream)
+    db.session.add(How_does_it_feel)
+    db.session.add(Sky_is_crying)
+    db.session.add(Sweet_like_honey)
+    db.session.add(Yours)
+    db.session.add(Soco)
+    db.session.add(Only)
+    db.session.add(Zhudio)
+    db.session.add(Good_for_u)
+    db.session.add(I_Need_That)
+    
 
 
     db.session.commit()
