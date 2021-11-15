@@ -59,14 +59,14 @@ function AlbumPage() {
             </div>
             </div>
             </div>
-              <div>
+            <div className='song-table-container'>
               <table className="song-table">
             <thead>
               <tr className="song-labels">
                 <th style={{width:'10%'}} className="table-label">#</th>
                 <th style={{width:'10%'}} className="table-label"></th>
-                <th style={{width:'20%'}} className="table-label">Title</th>
-                <th style={{width:'20%'}} className="table-label">Album</th>
+                <th style={{width:'10%'}} className="table-label">Title</th>
+                <th style={{width:'10%'}} className="table-label">Album</th>
                 <th style={{width:'10%'}} className="table-label">Duration</th>
                 <th style={{width:'10%'}} className="table-label settings"></th>
                     </tr>
@@ -80,12 +80,11 @@ function AlbumPage() {
                           )
 
                         })}
-
                   </tbody>
                 </table>
+            </div>
               </div>
           </div>
-        </div>
       </>
     );
 }
