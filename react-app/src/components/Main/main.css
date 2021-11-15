@@ -11,7 +11,7 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  background-color: #121212;
+  background-color: #121212 !important;
 }
 .album-art {
   width: 300px;
@@ -108,7 +108,7 @@
   margin-left:auto;
   margin-right:auto;
   /* width:960px; */
-  background-color: #121212;
+  background-color: #121212 !important;
  }
 
  .main-page-header {

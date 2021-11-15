@@ -1,8 +1,13 @@
 .search {
   height: 40px;
   width: 400px;
-  margin-left: 500px;
+  /* margin-left: 700px; */
   border-radius: 55px;
+  margin-top: 15px;
+  position:relative;
+  left:45%
+ 
+  
 }
 
 .bigContainer {

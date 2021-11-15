@@ -18,7 +18,7 @@
 }
 
 .u{
-  margin-left: 150px;
+  margin-left: 350px;
   font-size: 12px;
   font-weight: bold;
   
@@ -33,7 +33,7 @@
 } */
 
 .before{
-  margin-left: 150px;
+  margin-left: 350px;
   margin-top: 20px;
   font-size: 18px;
   font-family: Google Sans,Roboto-medium,arial,sans-serif-medium,sans-serif ;
@@ -59,10 +59,10 @@
     font-size: 14px;
     margin-bottom: 20px;
     padding: 12px 16px;
-    resize: none;
-    width: 1019px;
+    /* resize: none; */
+    width: 600px;
     height:100px;
-    /* margin-left:150px; */
+    margin-left:120px;
    
 
 }
