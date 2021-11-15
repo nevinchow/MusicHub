@@ -1,5 +1,5 @@
 .main-page {
-  margin-left: 10%;
+  margin-left: 22%;
   background-color: #121212;
   height: 100%;
 }
@@ -24,9 +24,9 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  width: 55vw;
-  position: relative;
-  right: 390px;
+  width: 85vw;
+  /* position: relative; */
+  margin-right: 50px;
   background-color: #121212;
   bottom: 80px;
 }
@@ -57,10 +57,11 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  width: 55vw;
-  position: relative;
-  right: 395px;
-  bottom: 120px;
+  width: 85vw;
+  /* position: relative; */
+  margin-right: 60px;
+  padding-bottom: 70px;
+
 }
 
 .artistTile-container {
@@ -70,6 +71,8 @@
   padding: 9px;
   border-radius: 5px;
   transition: all 0.3s ease-in-out;
+  /* position: relative; */
+  /* bottom: 100px; */
 }
 
 .artistTile-container:hover {
@@ -77,31 +80,31 @@
 }
 
 .albums-header {
-  position: relative;
-  right: 958px;
+  /* position: relative; */
+  /* right: 958px; */
   color: white;
-  bottom: 80px;
+  /* bottom: 100px; */
 }
 
 .artists-header {
   position: relative;
-  right: 958px;
+  /* right: 958px; */
   color: white;
-  bottom: 120px;
+  /* bottom: 120px; */
 }
 
 .welcome {
   color: white;
   position: relative;
-  right: 570px;
+  /* right: 570px; */
   font-size: 55px;
-  bottom: 120px;
+  /* bottom: 120px; */
 
 }
  .wrapper {
   margin-left:auto;
   margin-right:auto;
-  width:960px;
+  /* width:960px; */
   background-color: #121212;
  }
 
@@ -111,7 +114,7 @@
    flex-direction: column;
    background-color: #717171;
    width: 90vw;
-   position: relative;
-   right: 652px;
+   /* position: relative; */
+   /* right: 652px; */
    background: linear-gradient(180deg, #717171 0%, #121212 100%)
  }
