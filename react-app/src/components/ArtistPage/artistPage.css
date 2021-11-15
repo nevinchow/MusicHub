@@ -64,7 +64,7 @@ background-color: #121212;
 }
 
 .about-container {
-  width: 65vw;
+  max-width: 40vw;
   background-color: #121212;
   display: flex;
   justify-content: space-around;
@@ -95,7 +95,7 @@ background-color: #121212;
   max-height: 600px;
   max-width: 900px;
   padding: 10px;
-  margin: 10px;
+  margin-right: 300px;
   border-radius: 25px;
 }
 
@@ -106,8 +106,8 @@ background-color: #121212;
 
 .about-bio-container {
   position: relative;
-  right: 213px;
-  top: 50px;
+  margin-right: 290px;
+  max-width: 50vw;
 }
 
 .plus-button {
