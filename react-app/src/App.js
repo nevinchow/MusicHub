@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import MainPage from'./components/Main/index'
-// import NavBar from './components/NavBar';
+import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
@@ -57,14 +57,14 @@ function App() {
   return (
     <BrowserRouter>
       {/* <NavBar /> */}
-      {!user ? <></> : <Sidebar />}
-      {!user ? <></> : <Player queue={queue} />}
-      <Route path="/login" exact={true}>
-        <LoginForm />
-      </Route>
-      <Route path="/sign-up" exact={true}>
-        <SignUpForm />
-      </Route>
+      {!user ? <div><NavBar /></div> : <Sidebar />}
+      {!user ? <></> : <Player queue={queue}/>}
+      <Route path='/login' exact={true}>
+          <LoginForm />
+        </Route>
+        <Route path='/sign-up' exact={true}>
+          <SignUpForm />
+        </Route>
 
       <Switch>
         <Route path="/search">
@@ -86,8 +86,8 @@ function App() {
           <MainPage />
         </ProtectedRoute>
 
-        <ProtectedRoute path="/users" exact={true}>
-          <UsersList />
+        <ProtectedRoute path='/users' exact={true} >
+          <UsersList/>
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true}>
           <User />

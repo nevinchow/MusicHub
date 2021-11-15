@@ -1,5 +1,7 @@
 .main-page {
-  margin-left: 20%;
+  margin-left: 10%;
+  background-color: #121212;
+  height: 100%;
 }
 .main-page-container {
   display: flex;
@@ -8,9 +10,108 @@
   justify-content: center;
   width: 100%;
   height: 100%;
+  background-color: #121212;
 }
 .album-art {
   width: 300px;
   height: 300px;
   object-fit: cover;
 }
+
+
+.albums-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 55vw;
+  position: relative;
+  right: 390px;
+  background-color: #121212;
+  bottom: 80px;
+}
+
+.albumTile-container {
+  border: 1px solid black;
+  background-color: #1A1A1A;
+  align-items: center;
+  padding: 9px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.albumTile-container:hover {
+  background-color: #282828;
+}
+
+.album-art {
+  align-self: center;
+}
+
+.review-link {
+  color: white;
+}
+
+.artists-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 55vw;
+  position: relative;
+  right: 395px;
+  bottom: 120px;
+}
+
+.artistTile-container {
+  border: 1px solid black;
+  background-color: #1A1A1A;
+  align-items: center;
+  padding: 9px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.artistTile-container:hover {
+  background-color: #282828;
+}
+
+.albums-header {
+  position: relative;
+  right: 958px;
+  color: white;
+  bottom: 80px;
+}
+
+.artists-header {
+  position: relative;
+  right: 958px;
+  color: white;
+  bottom: 120px;
+}
+
+.welcome {
+  color: white;
+  position: relative;
+  right: 570px;
+  font-size: 55px;
+  bottom: 120px;
+
+}
+ .wrapper {
+  margin-left:auto;
+  margin-right:auto;
+  width:960px;
+  background-color: #121212;
+ }
+
+ .main-page-header {
+   height: 300px;
+   display: flex;
+   flex-direction: column;
+   background-color: #717171;
+   width: 90vw;
+   position: relative;
+   right: 652px;
+   background: linear-gradient(180deg, #717171 0%, #121212 100%)
+ }

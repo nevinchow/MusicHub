@@ -18,6 +18,7 @@ function MainPage() {
   const dispatch = useDispatch();
   const artists=useSelector((state)=>Object.values(state.artist))
   const albums=useSelector((state)=>Object.values(state.album))
+  const user = useSelector((state) => state.session.user)
 
   useEffect(()=>{
       dispatch(getArtists())
@@ -29,19 +30,35 @@ function MainPage() {
 
       <>
         <div className="main-page">
+          <div className='wrapper'>
+            <div className='main-page-header'></div>
+            <h2 className='welcome'>Welcome, {user.username}</h2>
           <div className="main-page-container">
+            <h2 className='artists-header'>Popular Artists</h2>
+            <div className='artists-container'>
+
             {artists.map((artist) => (
-              <ArtistTile artist={artist} />
+              <div className='artistTile-container'>
+                <ArtistTile artist={artist} />
+              </div>
 
             ))}
+            </div>
+              <h2 className='albums-header'>Popular Albums</h2>
+            <div className='albums-container'>
 
             {albums.map((album) => (
               <>
+              <div className='albumTile-container'>
               <AlbumTile album={album} />
-              <NavLink to={`/albums/${album.id}/reviews`}>Reviews</NavLink>
+              <NavLink to={`/albums/${album.id}/reviews`} className='review-link'>Reviews</NavLink>
+              </div>
               </>
             ))}
+
+            </div>
             <MusicQueue />
+          </div>
           </div>
         </div>
       </>
