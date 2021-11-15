@@ -8,7 +8,6 @@ const loadUsers = (users) => ({
 export const getUsers = () => async (dispatch) => {
     const reponse = await fetch(`/api/users`)
     const users = await reponse.json();
-    console.log('!!!!!!!!!!!',users)
     dispatch(loadUsers(users.users))
 }
 
