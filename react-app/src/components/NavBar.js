@@ -32,7 +32,7 @@ const NavBar = () => {
     return (
       <>
       <nav style={{backgroundColor: 'black', height: '100px'}}>
-      <li style={{position: 'relative', left: '70%', top: '45px'}}>
+      <li style={{position: 'relative', left: '70%', top: '50px'}}>
             <NavLink to='/login' exact={true} activeClassName='active' style={{color: 'white', fontWeight: 'bold'}}>
               Login
             </NavLink>
