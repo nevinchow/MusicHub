@@ -45,19 +45,10 @@ function ReviewForm({reviewId}) {
         <div >
             <form onSubmit={handleSubmit}>
               <div >
-                <label  >Description:</label>
-                        <input
-                        
-                        value={description}
-                        onChange={updateDescription}
-                        required/>
-                {/* <label  >Rating:</label>
-                        <input
-                        
-                        value={rating}
-                        onChange={updateRating}
-                        required/> */}
-              <div className="star-rating">
+              <div className="before">Rate and review</div>
+              <div className="uandr">
+               <div className='u'>{sessionUser?.username}:</div>
+               <div className="star-rating" className="thisrating">
                 {[...Array(5)].map((star, rate) => {
                   rate += 1;
                   return (
@@ -74,9 +65,26 @@ function ReviewForm({reviewId}) {
                   );
                 })}
               </div>
+              </div>
+                {/* <label  ></label> */}
+                <div className="inputandbutton">
+                        <input className="reviewinput"
+                        placeholder='Your feedback helps others decide which albums to listen to.'
+                        value={description}
+                        onChange={updateDescription}
+                        required/>
+                
+                {/* <label  >Rating:</label>
+                        <input
+                        
+                        value={rating}
+                        onChange={updateRating}
+                        required/> */}
+             
             
                       
-                <button  type="submit">Submit</button>
+                <button className="submitreview" type="submit">Submit</button>
+                </div>
               </div>
               
             </form>

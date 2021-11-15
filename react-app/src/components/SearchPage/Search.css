@@ -1,0 +1,29 @@
+.search {
+  height: 40px;
+  width: 400px;
+  margin-left: 500px;
+  border-radius: 55px;
+}
+
+.bigContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.bigAlbums {
+  grid-template-columns: repeat(2, minmax(0px, 1fr));
+}
+
+.littleAlbum {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.bigArtists {
+  grid-template-columns: repeat(2, minmax(0px, 1fr));
+}
+
+.littleArtist {
+  display: inline-block;
+  margin-left: 20px;
+}
