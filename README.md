@@ -16,7 +16,6 @@ All features require user authorization. Demo login is provided.
 
 ## 3. Search 
 * Users may search for an album, song, or artist by title.
-* Users should be able to search for playlists based on songs, genre, or artist.
 
 ## 4. Continuous Play while Navigating Site
 * Users are able to navigate to different pages of the site without stopping the current song from playing
