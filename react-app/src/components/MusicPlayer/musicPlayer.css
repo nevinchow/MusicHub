@@ -9,11 +9,7 @@
   background-color: #2D2B2B;
   /* background-color: black */
 }
-/* .footer .footer-left {
-    height: 100%;
-    width: 100px;
-    background-color: yellow;
-} */
+
 
 .audioPlayer {
       display: flex;
@@ -21,6 +17,9 @@
       align-items: center;
       justify-content: flex-end;
       bottom: 0;
+
+      width: 100%;
+
       right: 0;
       /* left: 0; */
       width: 80%;

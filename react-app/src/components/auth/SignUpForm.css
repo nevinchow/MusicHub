@@ -1,32 +1,9 @@
-.main-content {
+.main-sign-up-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* align-content: center; */
-    /* justify-content: center; */
     height: 100%;
 }
-
-.header-login {
-    top: 0;
-    height: 150px;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    border-bottom: .75px solid #acaaaa;
-    width: 100%;
-}
-.header-login h2 {
-    font-size: 3.5rem;
-    color: black;
-    align-self: center;
-}
-.spotifyLogo {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-}
-
 #message-login {
     font-weight: bold;
     font-size: 1.5rem;
@@ -39,16 +16,17 @@
     padding: 20px
 }
 
-#login-form {
+#sign-up-form  {
     display:flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
-    height: 300px;
-    width: 400px;
+    margin-top: 50px;
+    height: 350px;
+    width: 500px;
+
 }
-.login-form > {
+.sign-up-form > {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -58,16 +36,7 @@
     margin: 20px;
     border-radius: 10%;
 }
-.login-form input {
-    height: 40px;
-    width: 300px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-    margin-top: 5px;
-    padding: 0 10px;
-}
-#login-form form {
+#sign-up-form form {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -75,13 +44,14 @@
     height: 100%;
     width: 100%;
 }
-#login-form label {
+#sign-up-form label {  
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-#login-form input {
+
+#sign-up-form input {
     height: 40px;
     width: 300px;
     border-radius: 5px;
@@ -89,7 +59,6 @@
     margin-bottom: 10px;
     padding: 0 10px;
 }
-
 .demoLoginButton {
     background-color: #1ED760;
     font-family: 'Montserrat', sans-serif;
@@ -97,52 +66,37 @@
     padding: 14px 32px;
     color: #2941AB;
     border: none;
-    justify-content: center;
-    /* margin-left: 30px; */
+   
 }
-
-#border-login {
-   border-bottom: .75px solid #e9e3e3;
-    padding: 10px;
-    margin-top: 10px;
-    width: 292px;
-    justify-content: center;
-    /* align-items: center; */
-}
-
-.login-form .login-btn {
+.login-prompt >{
     display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: pink;
+}
+
+
+.sign-up-btn {
     background-color:#2941AB; 
+    color:#1ED760;
     font-family: 'Montserrat', sans-serif;
-    transition-property: background-color,border-color,color,box-shadow,filter;
-    transition-duration: .3s;
     border-radius: 500px;
     padding: 14px 32px;
-    color: #1ED760;
     border: none;
-    margin-top: 20px;
-    margin-left: 105px;
-    justify-self: center;
-    align-self: center;
+    margin: 10px;
 }
-.Sign-up-styled {
+/* .Sign-up-styled {
     justify-content: center;
     font-size: 10px;
     line-height: 1;
-    border: 2px solid #dfdada;
+    border: 1px solid black;
     border-radius: 500px;
     padding: 16px 48px 18px;
     transition-property: background-color,border-color,color,box-shadow,filter;
     transition-duration: .3s;
+    border-width: 0;
     letter-spacing: 2px;
     min-width: 160px;
     text-transform: uppercase;
     white-space: normal;
-    /* margin-left: 30px */
-}
-.sign-up-prompt > h2{
-    margin-left: 20px
-}
-.sign-up-prompt .Sign-up-styled{
-    margin-left: 20px
-}
+} */

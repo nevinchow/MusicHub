@@ -24,13 +24,6 @@ const Song = ({songId, playlistId}) => {
         dispatch(addNextSong(song));
         setShowQueue(true);
     }
-    // useEffect(() => {
-    //     if (setShowQueue) {
-    //      const timeoutQ = setTimeout(() => setShowQueue(false), 1000);
-    //         return () => clearTimeout(timeoutQ);  
-    //     }
-    // }, [showQueue])
-
 
     return (
       <>
@@ -39,6 +32,7 @@ const Song = ({songId, playlistId}) => {
             icon={faPlay}
             className="play-icon"
             onClick={handlePlay}
+            
           />
             {/* {" "}
             play{" "} */}
