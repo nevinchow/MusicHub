@@ -17,6 +17,7 @@ background-color: #121212;
 .artist-page-header {
   width: 90vw;
   height: 40vh;
+  margin-left: 24.9%;
   position: relative;
 
 }
@@ -53,7 +54,9 @@ background-color: #121212;
   flex-direction: column;
   align-items: left;
   position: relative;
-  right: 975px;
+  margin-right: 59%;
+  padding-top: 3%;
+  padding-bottom: 3%
 }
 
 .discography {
@@ -61,11 +64,12 @@ background-color: #121212;
 }
 
 .about-container {
-  width: 90vw;
+  width: 65vw;
   background-color: #121212;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-direction: row;
+  margin-left: 18%;
 }
 
 .about {
@@ -76,6 +80,7 @@ background-color: #121212;
   justify-content: space-evenly;
   position: relative;
   padding: 10px;
+  margin-right: -100px;
 }
 
 .artist-bio {
@@ -96,10 +101,15 @@ background-color: #121212;
 
 .table {
   background-color: #121212;
+  padding-top: 3%;
 }
 
 .about-bio-container {
   position: relative;
   right: 213px;
   top: 50px;
+}
+
+.plus-button {
+  color: white;
 }
