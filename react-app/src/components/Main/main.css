@@ -1,7 +1,8 @@
 .main-page {
-  margin-left: 22%;
+  margin-left: 20%;
   background-color: #121212;
   height: 100%;
+  overflow-x: hidden;
 }
 .main-page-container {
   display: flex;
@@ -24,9 +25,9 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  width: 85vw;
+  width: 78vw;
   /* position: relative; */
-  margin-right: 50px;
+  margin-right: 10px;
   background-color: #121212;
   bottom: 80px;
 }
@@ -57,9 +58,8 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  width: 85vw;
+  width: 78vw;
   /* position: relative; */
-  margin-right: 60px;
   padding-bottom: 70px;
 
 }
@@ -83,6 +83,7 @@
   /* position: relative; */
   /* right: 958px; */
   color: white;
+  margin-right: 1706px;
   /* bottom: 100px; */
 }
 
@@ -90,6 +91,7 @@
   position: relative;
   /* right: 958px; */
   color: white;
+  margin-right:1700px;
   /* bottom: 120px; */
 }
 
@@ -98,6 +100,7 @@
   position: relative;
   /* right: 570px; */
   font-size: 55px;
+  margin-left: 3%;
   /* bottom: 120px; */
 
 }
@@ -114,6 +117,7 @@
    flex-direction: column;
    background-color: #717171;
    width: 90vw;
+   margin-left: -100px;
    /* position: relative; */
    /* right: 652px; */
    background: linear-gradient(180deg, #717171 0%, #121212 100%)

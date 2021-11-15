@@ -31,6 +31,8 @@ const SearchBar = () => {
     };
 
     return (
+
+
       < >
       
       <input className="search" placeholder="Search songs,albums,artists" type="search" value={queryString} onChange={(e)=>setQueryString(e.target.value)} /> 
@@ -54,7 +56,7 @@ const SearchBar = () => {
         </video>  :
         // <input className="search" placeholder="Search songs,albums,artists" type="search" value={queryString} onChange={(e)=>setQueryString(e.target.value)} /> :
       <div>
-       
+
         <SearchResults queryString={queryString}/>
       </div>
       }

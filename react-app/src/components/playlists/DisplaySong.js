@@ -31,10 +31,10 @@ function DisplaySong({songId, trackNumber}) {
   }
 
   const closeSettings = async () => {
-    
+
     if(settings) {
       setSettings(false)
-    } 
+    }
   }
 
   const showPlayButton = () => {
@@ -74,15 +74,15 @@ function DisplaySong({songId, trackNumber}) {
   //get album for song
   const thisAlbum = Object.keys(albums).find(
     (oneAlbum) => song.albumId === +oneAlbum)
-  
+
   //get artist for song
   const thisArtist = Object.keys(artists).find(
     (oneArtist) => song.artistId === +oneArtist
   );
 
-        
+
     return (
-        <> 
+        <>
         <tr
             className="table-row"
             // key={song.id}
@@ -96,15 +96,15 @@ function DisplaySong({songId, trackNumber}) {
             ) : (
               <></>
             )}
-            <td className="cell track">{trackNumber}</td>
-           {!play ? 
+            <td className="cell-track">{trackNumber}</td>
+           {!play ?
               <td className="cell">
               <img
                 className="album-thumbnail"
                 src={albums[thisAlbum].imageURL}
                 alt={albums[thisAlbum].name}
               ></img>
-            </td> : <></>} 
+            </td> : <></>}
             <td className="cell">
               <div className="song-name-row">
                 <p>{song.name}</p>
@@ -126,19 +126,19 @@ function DisplaySong({songId, trackNumber}) {
             </td>
             <td className="cell">{trackTime}</td>
 
-              
+
             <td className="queue-add">
               <div className="tooltip" >
                 <FontAwesomeIcon className="plus-button" icon={faMusic} onClick={addToQueue}/>
                 <span class="tooltiptext">Add To Queue</span>
               </div>
               <div className="tooltip" >
-                <FontAwesomeIcon className="plus-button tooltip" id={song.id} onClick={openSettings} icon={faPlus} /> 
+                <FontAwesomeIcon className="plus-button tooltip" id={song.id} onClick={openSettings} icon={faPlus} />
                 <span class="tooltiptext">Add To Playlist</span>
               </div>
             {settings ? <AddToPlaylist songId={songId} setSettings={setSettings}/> : <></>}
             </td>
-        
+
           </tr>
         </>
     )
@@ -146,4 +146,3 @@ function DisplaySong({songId, trackNumber}) {
 
 
 export default DisplaySong
-

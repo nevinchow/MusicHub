@@ -26,6 +26,7 @@ export const addNextSong = (songId) => ({
     type: ADD_NEXT_SONG,
     songId,
 })
+
 // export const addPlaylistQueue = (playlistId) => ({
 //     type: ADD_PLAYLIST_QUEUE,
 //     payload: playlistId, //pass array instead to this & param?

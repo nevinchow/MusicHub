@@ -8,8 +8,6 @@
     margin: 0 auto;
     margin-left: 10%;
     border: 1px solid black;
-    position: relative;
-    right: -0px;
     background-color: #121212;
     overflow-y: scroll;
     overflow-x:hidden;
@@ -40,13 +38,12 @@
 
 .album-page-header {
   width: 90vw;
-  position: relative;
   height: 30vh;
-  right: 813px;
   display: flex;
   align-self: flex-start;
   flex-direction:row;
   align-items:center;
+  margin-left: -90%;
   margin-bottom: 140px;
   background: linear-gradient(#535353, #2A2A2A);
 }
@@ -117,18 +114,32 @@
 
 .song-table {
   position: relative;
-  left: 30px;
-  bottom: 0px;
   min-width: 60vw;
 }
 
 .table-label {
   margin-left:1000px;
+  color: white;
 }
 
 .song-table-container {
-  position: relative;
-  max-height: 65vh;
-  bottom: 100px;
-  right: 30vw;
+  max-height: 65vw;
+  margin-left: -350px;
+  /* padding-bottom: 200px; */
+}
+
+.spacing {
+  height: 10%
+}
+
+.cell-track {
+  color: white;
+}
+
+.cell {
+  color: white;
+}
+
+.plus-button {
+  color: white;
 }

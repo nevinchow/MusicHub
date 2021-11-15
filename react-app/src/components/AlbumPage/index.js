@@ -5,6 +5,7 @@ import { getArtists, getSingleArtist } from '../../store/artist';
 import { getAlbums, getAlbumsByArtistId, getSingleAlbum } from '../../store/album';
 import { useParams } from 'react-router';
 import './album-page.css';
+import '../playlists/playlists.css'
 import SongTile from '../songs/Song';
 import { getSongs } from '../../store/songs';
 import { Link } from 'react-router-dom';
@@ -82,6 +83,9 @@ function AlbumPage() {
                         })}
                   </tbody>
                 </table>
+            </div>
+            <div className='spacing'>
+
             </div>
               </div>
           </div>
