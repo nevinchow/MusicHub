@@ -58,6 +58,7 @@ const SearchResults = ({queryString}) => {
       <div className="bigContainer">
       {!queryString ?
         <div></div> :
+        
         SongSearchResult.slice(0,5)?.map((song) =>
         <>
           <DisplaySong songId={song.id} trackNumber={trackNumber++}/>
