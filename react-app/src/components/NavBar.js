@@ -3,7 +3,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import { useSelector } from "react-redux";
-import logo from '/home/nevinchow/module6/python-project-starter/react-app/src/images/spotifyLogo2.png'
+import logo from '/Users/yingjiazhuo/Desktop/python/SpotifyProject/react-app/src/images/spotifyLogo.png'
 
 
 const NavBar = () => {
