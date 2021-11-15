@@ -1,20 +1,145 @@
 .album-page-container {
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
-    margin-left: 20%;
+    margin-left: 10%;
+    border: 1px solid black;
+    background-color: #121212;
+    overflow-y: scroll;
+    overflow-x:hidden;
+
 }
 .album-page-middle {
   width: 600px;
 
 }
-.album-art {
-  width: 400px;
-  height: 400px;
+.album-art2 {
+  width: 232px;
+  height: 232px;
   object-fit: cover;
+  margin-left: 55px;
+  position: relative;
+  top: 30px;
 }
 
+
+.album-Title {
+  font-size: 15px;
+  color: white;
+}
+
+.album-year {
+  color: white;
+}
+
+.album-page-header {
+  width: 90vw;
+  height: 30vh;
+  display: flex;
+  align-self: flex-start;
+  flex-direction:row;
+  align-items:center;
+  margin-left: -90%;
+  margin-bottom: 140px;
+  background: linear-gradient(#535353, #2A2A2A);
+}
+
+.album-details-header {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: 60px;
+
+}
+
+.albumTitle {
+  color: white;
+  font-size: 86px;
+  position: relative;
+  top: 30px;
+}
+
+.album-artist-name {
+  color: white;
+  font-size: 16px;
+  position: relative;
+  top: 2px;
+}
+
+.album-artist-name:hover {
+  text-decoration: underline;
+}
+
+.album-image {
+  display: flex;
+  width: 140px;
+  justify-content: space-around;
+}
+
+.album-artist-photo {
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  position: relative;
+  top: 9px;
+
+}
+
+.album-year2 {
+  color: white;
+  position: relative;
+  bottom: 1px;
+}
+
+.album-image-year {
+  display: flex;
+  flex-direction: row;
+  width: 190px;
+  justify-content: space-between;
+  position: relative;
+  bottom: 30px;
+}
+
+.album-tag {
+  color: white;
+  position: relative;
+  font-size: 12px;
+  top: 90px;
+}
+
+.song-table {
+  position: relative;
+  min-width: 60vw;
+}
+
+.table-label {
+  margin-left:1000px;
+  color: white;
+}
+
+.song-table-container {
+  max-height: 65vw;
+  margin-left: -350px;
+  /* padding-bottom: 200px; */
+}
+
+.spacing {
+  height: 10%
+}
+
+.cell-track {
+  color: white;
+}
+
+.cell {
+  color: white;
+}
+
+.plus-button {
+  color: white;
+}

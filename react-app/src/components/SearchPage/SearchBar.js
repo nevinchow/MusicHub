@@ -6,6 +6,9 @@ import { getArtists } from '../../store/artist';
 import { getAlbums } from '../../store/album';
 import AlbumTile from '../AlbumTile';
 import SearchResults from './SearchResults';
+import SearchPage from "../Video/SearchPage.mp4";
+import './Search.css'
+
 
 
 
@@ -28,14 +31,36 @@ const SearchBar = () => {
     };
 
     return (
-      <>
+
+
+      < >
+      
+      <input className="search" placeholder="Search songs,albums,artists" type="search" value={queryString} onChange={(e)=>setQueryString(e.target.value)} /> 
       {!queryString ?
-        <input className="search" placeholder="Search for albums" type="search" value={queryString} onChange={(e)=>setQueryString(e.target.value)} /> :
+        
+        <video width="750" height="500" autoPlay loop  muted 
+        style={{
+          position: "fixed",
+          width: "100%",
+          left: "71.2%",
+          top: "57%",
+          height: "100%",
+          objectFit: "cover",
+          transform: "translate(-50%, -50%)",
+          zIndex: "0"
+          
+          
+        }}>
+        <source src={SearchPage} type="video/mp4"/>
+        
+        </video>  :
+        // <input className="search" placeholder="Search songs,albums,artists" type="search" value={queryString} onChange={(e)=>setQueryString(e.target.value)} /> :
       <div>
-        <input className="search" placeholder="Search for albums" type="search" value={queryString} onChange={(e)=>setQueryString(e.target.value)} />
+
         <SearchResults queryString={queryString}/>
       </div>
       }
+      
       </>
     );
   };

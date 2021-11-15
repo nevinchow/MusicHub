@@ -1,0 +1,24 @@
+.singleReview{
+    display: flex;
+    align-items: baseline;
+}
+
+.singleReviewContainer{
+    margin-left: 350px;
+    margin-right:250px;
+    border-bottom: 4px solid rgb(0 0 0 / 30%);
+}
+
+.description{
+    font-size: 13px;
+    font-weight: 400;
+}
+
+.userName{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.star{
+    color:yellow
+}

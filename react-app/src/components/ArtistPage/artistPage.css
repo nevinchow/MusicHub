@@ -1,5 +1,7 @@
 .artist-page {
-margin-left: 20%;
+margin-left: 10%;
+background-color: #121212;
+  height: 100%;
 }
 
 .artist-page-container {
@@ -9,11 +11,19 @@ margin-left: 20%;
   justify-content: center;
   width: 100%;
   height: 100%;
+  background-color: #121212;
+}
+
+.artist-page-header {
+  width: 90vw;
+  height: 40vh;
+  margin-left: 24.9%;
+  position: relative;
+
 }
 .artist-header-img {
-    padding-top:100px;
-    width: 700px;
-    height: 250px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 .artist-page-middle {
@@ -31,3 +41,75 @@ margin-left: 20%;
   object-fit: cover;
 }
 
+.artist-page-name {
+  position: relative;
+  bottom: 180px;
+  left: 70px;
+  font-size: 75px;
+  color: white;
+}
+
+.discography-container {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  position: relative;
+  margin-right: 59%;
+  padding-top: 3%;
+  padding-bottom: 3%
+}
+
+.discography {
+  color: white;
+}
+
+.about-container {
+  max-width: 40vw;
+  background-color: #121212;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  margin-left: 18%;
+}
+
+.about {
+  color: white;
+  max-width: 45vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: relative;
+  padding: 10px;
+  margin-right: -100px;
+}
+
+.artist-bio {
+  color: white;
+  width: 20vw;
+}
+
+.artist-bio-image {
+  object-fit:cover;
+  height: 100%;
+  width: 100%;
+  max-height: 600px;
+  max-width: 900px;
+  padding: 10px;
+  margin-right: 300px;
+  border-radius: 25px;
+}
+
+.table {
+  background-color: #121212;
+  padding-top: 3%;
+}
+
+.about-bio-container {
+  position: relative;
+  margin-right: 290px;
+  max-width: 50vw;
+}
+
+.plus-button {
+  color: white;
+}

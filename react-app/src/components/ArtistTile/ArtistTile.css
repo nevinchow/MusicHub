@@ -1,0 +1,11 @@
+.artist-art {
+    border-radius: 50%;
+    max-height: 170px;
+    max-width: 170px;
+    min-height: 170px;
+    min-width: 170px;
+}
+
+.artist-name {
+    color: white;
+}

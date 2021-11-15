@@ -49,23 +49,30 @@
 /* -- Display playlist ------------- */
 .playlist-list {
     border-top:rgb(68, 68, 68) 1px solid;
-    width: 70%;
+    /* width: 70%; */
+    /* height: 100%; */
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
+
 }
 
 .playlist-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+
+    text-overflow: ellipsis;
+
 
 }
 
 .playlist-name {
-    text-decoration: none;
-    text-decoration-line: none;
     font-size: 15px;
+    text-overflow: ellipsis " [..]";
+    color: white;
+
 }
 
 .playlist-description {
@@ -77,6 +84,7 @@
 /* -- Playlist Page --------------------- */
 .playlist-page-container {
     margin-left: 22%;
+    padding-bottom: 200px;
     padding-left: 15px;
     overflow: scroll;
     display: flex;
@@ -85,13 +93,15 @@
     width: auto;
     height: 100%;
     color: white;
-    background-color: #212121;
+    background-color: #252525;
 }
 
 .image-container {
     width: 100%;
     display: flex;
     align-items: center;
+    /* background-color: #4C4C4C; */
+    /* padding-bottom: 20px; */
 }
 
 .image-collage {
@@ -116,11 +126,23 @@
     height: 50%;
 }
 
-
+.settings-buttons {
+    font-size: 25px;
+    padding: 15px;
+    margin-bottom: 20px;
+}
 
 .playlist-options {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    width: 20%;
+    margin-bottom: 10px;
+}
+
+.delete-edit-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     width: 30%;
 }
 
@@ -128,13 +150,24 @@
     color: red;
 }
 
+.delete-button,
+.edit-button {
+    font-size: 15px;
+    margin: 0;
+}
+
 .delete-button:hover {
-    color: black;
+    color: rgb(255, 77, 77);
     cursor: pointer;
 }
 
 .play-icon {
     padding: 8px;
+}
+
+.play-icon:hover {
+    color: darkgreen;
+    cursor: pointer;
 }
 
 /* -- Edit Playlist Form ---------------- */
@@ -143,7 +176,7 @@
 }
 
 .edit-button:hover {
-    color:cornflowerblue;
+    color:rgb(1, 145, 1);
 }
 .edit-form-label {
     margin: 4px 0;
@@ -154,7 +187,14 @@
     background: none;
     border: none;
     padding: 6px;
+    color: white;
 
+}
+
+.edit-form-input {
+    background: rgb(255, 255, 255, .7);
+    border: none;
+    border-radius: 3px;
 }
 
 .edit-form-button:hover {
@@ -178,6 +218,15 @@
     width: 100%;
     border-collapse: collapse;
 
+}
+
+.song-labels {
+    border-bottom:rgb(114, 113, 113) solid 2px;
+
+}
+
+.table-label {
+    padding-bottom: 10px;
 }
 
 .album-thumbnail {
@@ -215,8 +264,87 @@
     color: darkgreen;
 }
 
+.queue-add {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
 /* -- ADD SONG MODAL ----------------- */
+.select-playlist {
+    border:none;
+    border-radius: 3px;
+    background: rgba(255,255,255,.7);
+}
+
 .plus-button:hover {
     color: darkgreen;
     cursor: pointer;
+}
+.plus-button {
+    padding: 5px;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgb(0, 0, 0, .5);
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+ 
+  position: absolute;
+  right: 10px;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+
+
+/* -- Errors -------------------------- */
+.errors {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.error-title {
+    text-align: center;
+    color: red;
+
+}
+
+.error-list {
+
+}
+
+.error {
+    text-align: center;
+    color: red;
+}
+
+/* -- Suggested Songs ------------*/
+.suggested-header {
+    text-align: center;
+    height: 200px;
+    border-bottom:rgb(114, 113, 113) solid 2px;
+    margin-bottom: 10px;
+}
+
+.suggested-text {
+    font-size: 20px;
+    font-weight: 100;
 }

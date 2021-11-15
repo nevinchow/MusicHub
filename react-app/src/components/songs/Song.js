@@ -10,7 +10,6 @@ const Song = ({songId, playlistId}) => {
     const song = useSelector((state) => state.songs[songId]);
     // const userPlaylists = useSelector(state) => state.userPlaylists;
 
-
     const playlists = useSelector((state) => state.playlists);
     const [showQueue, setShowQueue] = useState(false);
     const dispatch = useDispatch();

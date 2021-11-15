@@ -22,6 +22,7 @@ const AddPlaylists = ({openAddForm}) => {
     const validate = () => {
         const validationErrors = [];
         if(!name) validationErrors.push('Please enter a playlist name');
+        if(name.length > 15) validationErrors.push('Playlist name must be less than 15 characters.')
         return validationErrors;
     }
 

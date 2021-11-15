@@ -37,6 +37,7 @@ const EditPlaylists = ({editFormOpen}) => {
     const validate = () => {
         const validationErrors = [];
         if(!name) validationErrors.push('Please enter a playlist name');
+        if(name.length > 15) validationErrors('Playlist name can not be longer than 15 characters')
         return validationErrors;
     }
 
@@ -89,13 +90,6 @@ const EditPlaylists = ({editFormOpen}) => {
                         className="edit-form-input"
                         value={name}
                         onChange={updateName}
-                        required/>
-                <label className="edit-form-label" >Image URL:</label>
-                        <input
-                        placeholder="Add an image"
-                        className="edit-form-input"
-                        value={imageURL}
-                        onChange={updateImageURL}
                         required/>
                 <label className="edit-form-label" >Description:</label>
                         <textarea

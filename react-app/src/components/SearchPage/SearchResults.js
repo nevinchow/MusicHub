@@ -8,6 +8,7 @@ import ArtistTile from '../ArtistTile';
 import DisplaySong from '../playlists/DisplaySong';
 import { getArtists } from '../../store/artist';
 import { getSongs } from '../../store/songs';
+import "./Search.css"
 
 
 const SearchResults = ({queryString}) => {
@@ -54,30 +55,37 @@ const SearchResults = ({queryString}) => {
 
   return (
       <>
+      <div className="bigContainer">
       {!queryString ?
         <div></div> :
+        
         SongSearchResult.slice(0,5)?.map((song) =>
         <>
           <DisplaySong songId={song.id} trackNumber={trackNumber++}/>
         </>
         )
       }
+      <div className="bigAlbums">
        {!queryString ?
          <div></div> :
          AlbumSearchResult?.map((album)=>
-         <>
+         <div className="littleAlbum">
             <AlbumTile album={album}/>
-         </>
+         </div>
          )
        }
+       </div>
+      <div className="bigArtists">
       {!queryString ?
         <div></div> :
         ArtistSearchResult?.map((artist) =>
-        <>
+        <div className="littleArtist">
           <ArtistTile artist={artist}/>
-        </>
+        </div>
         )
         }
+      </div>
+      </div>
       </>
 
   );
