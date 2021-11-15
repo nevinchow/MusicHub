@@ -1,6 +1,7 @@
 .allReviews{
     display: flex;
     flex-direction: column;
+    background-color: white;
     
 }
 
@@ -44,3 +45,6 @@
 .edit:hover{
     font-weight: bold;
 }
+
+
+
