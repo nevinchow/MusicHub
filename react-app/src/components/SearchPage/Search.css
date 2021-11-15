@@ -1,17 +1,26 @@
 .search {
   height: 40px;
   width: 400px;
-  margin-left: 500px;
+  /* margin-left: 700px; */
   border-radius: 55px;
+  margin-top: 15px;
+  position:relative;
+  left:45%
+ 
+  
 }
 
 .bigContainer {
   display: flex;
   flex-direction: column;
+  position: relative;
+  left:30%
 }
 
 .bigAlbums {
+  margin-top: 5%;
   grid-template-columns: repeat(2, minmax(0px, 1fr));
+  margin-bottom: 5%;
 }
 
 .littleAlbum {
