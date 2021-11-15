@@ -40,14 +40,14 @@ const SearchBar = () => {
         
         <video width="750" height="500" autoPlay loop  muted 
         style={{
-          position: "fixed",
+          position: "relative",
           width: "100%",
           left: "71.2%",
-          top: "57%",
-          height: "100%",
+          top: "42%",
+          height: "83.5%",
           objectFit: "cover",
           transform: "translate(-50%, -50%)",
-          zIndex: "0"
+          zIndex: "99%"
           
           
         }}>

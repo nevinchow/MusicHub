@@ -2,14 +2,15 @@
     display: flex;
     flex-direction: column;
     background-color: white;
-    
+    position: relative;
+    left:22%
 }
 
 .buttonsed{
     /* margin-left: 980px; */
     display: flex;
     justify-content: flex-end;
-   
+    
     margin-right: 200px;
     
     
