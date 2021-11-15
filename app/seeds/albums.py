@@ -21,7 +21,7 @@ def seed_albums():
     miss_anthrocpocene = Album(
         artistId=3,
         genre="electronic",
-        title="Miss Anthrocpocene (Rave Edition)",
+        title="Miss Anthrocpocene",
         year=2020,
         imageURL="https://www3.hiphopde.com/wp-content/uploads/2019/11/ALBUM-Grimes-%e2%80%93-Miss-Anthropocene.png"
     )
