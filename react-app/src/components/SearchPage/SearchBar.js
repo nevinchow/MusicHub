@@ -31,30 +31,34 @@ const SearchBar = () => {
     };
 
     return (
-      <>
+      < >
+      
       <input className="search" placeholder="Search songs,albums,artists" type="search" value={queryString} onChange={(e)=>setQueryString(e.target.value)} /> 
       {!queryString ?
         
-        <video width="750" height="500" autoPlay muted loop 
+        <video width="750" height="500" autoPlay loop  muted 
         style={{
-          position: "relative",
+          position: "fixed",
           width: "100%",
-          left: "50%",
-          top: "50%",
+          left: "71.2%",
+          top: "57%",
           height: "100%",
           objectFit: "cover",
-          transform: "translate(-50%, -50%",
-          zIndex: "-1",
+          transform: "translate(-50%, -50%)",
+          zIndex: "0"
+          
+          
         }}>
         <source src={SearchPage} type="video/mp4"/>
         
-        </video>    :
+        </video>  :
         // <input className="search" placeholder="Search songs,albums,artists" type="search" value={queryString} onChange={(e)=>setQueryString(e.target.value)} /> :
       <div>
        
         <SearchResults queryString={queryString}/>
       </div>
       }
+      
       </>
     );
   };
