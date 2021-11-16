@@ -48,3 +48,22 @@ This full stack application was developed by App Academy Students in November of
 
 # Site Experience
 
+## Landing Page
+![Alt text](/../<SiteScreenshots>/path/to/Landing-page.png?raw=true "Landing Page")
+
+## Sign Up 
+![Alt text](/../<SiteScreenshots>/path/to/Sign-up-page.png?raw=true "Sign-up Page")
+
+## Artist Page
+![Alt text](/../<SiteScreenshots>/path/to/Artist-page.png?raw=true "Artist Page")
+
+## Album Page
+![Alt text](/../<SiteScreenshots>/path/to/Album-page.png?raw=true "Album Page")
+
+## Search Display
+![Alt text](/../<SiteScreenshots>/path/to/Search-page.png?raw=true "Search Page")
+
+## Playlist Page
+![Alt text](/../<SiteScreenshots>/path/to/Playlist-page.png?raw=true "Playlist Page")
+
+
