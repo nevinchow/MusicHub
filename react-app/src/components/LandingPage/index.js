@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import styles from './LandingPage.module.css'
 import logo from '../../images/github-logo.png'
 import logo2 from '../../images/linkedin-logo.png'
+import text from '../../images/text.png'
 
 function LandingPage() {
     const dispatch = useDispatch()
@@ -24,34 +25,42 @@ function LandingPage() {
 
     return (
         <>
+        <div className={styles.landingPageContainer}>
         <div className={styles.landingBackground}>
-            <h2 className={styles.landingHeader1}>Vibing is </h2>
-            <h2 className={styles.landingHeader3}>everything</h2>
-            <h3 className={styles.landingHeader2}>Millions of songs, no credit card needed</h3>
             <button className={styles.demoButton} onClick={handleSubmit}>LOG IN AS A DEMO USER</button>
         </div>
-        <footer>
-        <h2 className='footerTitle'>Nevin Chow</h2>
-              <img className="githubLogo" src={logo} height={40} width={40} alt=""/>
+        <footer className={styles.footerContainer}>
+            <div className={styles.footerLinksContainer}>
+        <h2 className={styles.footerTitle}>Nevin Chow</h2>
+              <img className={styles.githubLogo} src={logo} height={40} width={40} alt=""/>
               <a className="gitLink"href='https://github.com/nevinchow'>Github</a>
               <img className="linkedinLogo" src={logo2} height={40} width={40} alt=""/>
               <a className="linkedLink" href='https://www.linkedin.com/in/nevin-chow-aa4770221/'>LinkedIn</a>
+            </div>
+            <div>
               <h2 className='footerTitle'> Jessi Zhuo</h2>
               <img className="githubLogo" src={logo} height={40} width={40} alt=""/>
-              <a className="gitLink"href='https://github.com/nevinchow'>Github</a>
+              <a className="gitLink"href='https://github.com/zyingzhuo'>Github</a>
               <img className="linkedinLogo" src={logo2} height={40} width={40} alt=""/>
-              <a className="linkedLink" href='https://www.linkedin.com/in/nevin-chow-aa4770221/'>LinkedIn</a>
-              <h2 className='footerTitle'>Ayla </h2>
+              <a className="linkedLink" href='https://www.linkedin.com/in/yingjia-zhuo-25a474170/'>LinkedIn</a>
+            </div>
+            <div>
+              <h2 className='footerTitle'>Ayla Basha</h2>
               <img className="githubLogo" src={logo} height={40} width={40} alt=""/>
-              <a className="gitLink"href='https://github.com/nevinchow'>Github</a>
+              <a className="gitLink"href='https://github.com/spacegray'>Github</a>
               <img className="linkedinLogo" src={logo2} height={40} width={40} alt=""/>
-              <a className="linkedLink" href='https://www.linkedin.com/in/nevin-chow-aa4770221/'>LinkedIn</a>
-              <h2 className='footerTitle'>Dusty</h2>
+              <a className="linkedLink" href='https://www.linkedin.com/in/aylabasha/'>LinkedIn</a>
+            </div>
+            <div>
+              <h2 className='footerTitle'>Dusty Mumphrey</h2>
               <img className="githubLogo" src={logo} height={40} width={40} alt=""/>
-              <a className="gitLink"href='https://github.com/nevinchow'>Github</a>
+              <a className="gitLink"href='https://github.com/Dusttoo'>Github</a>
               <img className="linkedinLogo" src={logo2} height={40} width={40} alt=""/>
-              <a className="linkedLink" href='https://www.linkedin.com/in/nevin-chow-aa4770221/'>LinkedIn</a>
+              <a className="linkedLink" href='https://www.linkedin.com/in/dusty-mumphrey/'>LinkedIn</a>
+            </div>
         </footer>
+
+        </div>
         </>
     )
 }

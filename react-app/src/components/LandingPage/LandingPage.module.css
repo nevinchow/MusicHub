@@ -2,21 +2,27 @@
     background-color: #1ED760;
     font-family: 'Montserrat', sans-serif;
     position: relative;
-    top: 300px;
-    left: 1150px;
     border-radius: 500px;
     padding: 14px 32px;
     color: #2941AB;
     border: none;
+    height: 47px;
+    width: 250px;
+    margin-bottom: 300px;
 }
 
 .landingBackground {
-    background-image:url(https://i.ibb.co/8jqstFs/splash-background.png);
+    background-image:url(https://i.ibb.co/k3mM9LR/vibing-is.png);
     background-size: cover;
     height: 100vh;
     position: relative;
     bottom: 110px;
-
+    max-width: 100vw;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
 }
 
 .landingHeader1 {
@@ -47,4 +53,28 @@
     position: relative;
     top: 320px;
     left: 1100px;
+}
+
+
+
+.landingPageContainer {
+    overflow-x: hidden;
+    max-width: 100vw;
+    background-color: white;
+    max-height: 92vh;
+}
+
+.text {
+    display: flex;
+}
+
+.footerContainer {
+    background-color: white;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.footerLinksContainer {
+    padding: 5px;
 }
