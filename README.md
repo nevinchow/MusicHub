@@ -61,9 +61,9 @@ This full stack application was developed by App Academy Students in November of
 ![Alt text](/../<SiteScreenshots>/path/to/Album-page.png?raw=true "Album Page")
 
 ## Search Display
-![Alt text](/../<SiteScreenshots>/path/to/Search-page.png?raw=true "Search Page")
+![Alt text](/../<SiteScreenshots>/react-app/src/images/site-screenshots/Search-page.png?raw=true "Search Page")
 
 ## Playlist Page
-![Alt text](/../<SiteScreenshots>/path/to/Playlist-page.png?raw=true "Playlist Page")
+![Alt text](https://github.com/nevinchow//Playlist-page.png?raw=true "Playlist Page")
 
 
