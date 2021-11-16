@@ -52,18 +52,18 @@ This full stack application was developed by App Academy Students in November of
 ![Alt text](https://github.com/nevinchow/SpotifyProject/blob/SiteScreenshots/react-app/src/images/site-screenshots/Landing-page.png)
 
 ## Sign Up 
-![Alt text](/../<SiteScreenshots>/path/to/Sign-up-page.png?raw=true "Sign-up Page")
+![Alt text](https://github.com/nevinchow/SpotifyProject/blob/SiteScreenshots/react-app/src/images/site-screenshots/Sign-up-page.png)
 
 ## Artist Page
-![Alt text](/../<SiteScreenshots>/path/to/Artist-page.png?raw=true "Artist Page")
+![Alt text](https://github.com/nevinchow/SpotifyProject/blob/SiteScreenshots/react-app/src/images/site-screenshots/Artist-page.png)
 
 ## Album Page
-![Alt text](/../<SiteScreenshots>/path/to/Album-page.png?raw=true "Album Page")
+![Alt text](https://github.com/nevinchow/SpotifyProject/blob/SiteScreenshots/react-app/src/images/site-screenshots/Album-page.png)
 
 ## Search Display
-![Alt text](/../<SiteScreenshots>/react-app/src/images/site-screenshots/Search-page.png?raw=true "Search Page")
+![Alt text](https://github.com/nevinchow/SpotifyProject/blob/SiteScreenshots/react-app/src/images/site-screenshots/search-display.png)
 
 ## Playlist Page
-![Alt text](https://github.com/nevinchow//Playlist-page.png?raw=true "Playlist Page")
+![Alt text](https://github.com/nevinchow/SpotifyProject/blob/SiteScreenshots/react-app/src/images/site-screenshots/Playlist-View.png)
 
 
