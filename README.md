@@ -49,7 +49,7 @@ This full stack application was developed by App Academy Students in November of
 # Site Experience
 
 ## Landing Page
-![Alt text](/../<SiteScreenshots>/path/to/Landing-page.png?raw=true "Landing Page")
+![Alt text](https://github.com/nevinchow/SpotifyProject/blob/SiteScreenshots/react-app/src/images/site-screenshots/Landing-page.png)
 
 ## Sign Up 
 ![Alt text](/../<SiteScreenshots>/path/to/Sign-up-page.png?raw=true "Sign-up Page")
