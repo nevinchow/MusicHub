@@ -7,9 +7,7 @@
 .main-page-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+  width: 80%;
   height: 100%;
   background-color: #121212 !important;
 }
@@ -24,8 +22,8 @@
   flex-wrap: nowrap;
   justify-content: space-evenly;
   width: 78vw;
+  margin-right: 25%;
   /* position: relative; */
-  margin-right: 10px;
   background-color: #121212;
   bottom: 80px;
 }
@@ -55,6 +53,7 @@
 .artists-container {
   display: flex;
   flex-direction: row;
+  margin-right: 25%;
   flex-wrap: nowrap;
   justify-content: space-evenly;
   width: 78vw;
@@ -78,13 +77,13 @@
 
 .albums-header {
   color: white;
-  margin-right: 1706px;
+  margin-left: 2%;
 }
 
 .artists-header {
   position: relative;
   color: white;
-  margin-right:1700px;
+  margin-left: 2%;
 }
 
 .welcome {
