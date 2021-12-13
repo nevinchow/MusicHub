@@ -12,6 +12,7 @@
   background-color: #121212 !important;
 }
 .album-art {
+
   object-fit: cover;
 }
 
