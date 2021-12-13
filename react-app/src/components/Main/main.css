@@ -21,7 +21,7 @@
 .albums-container {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: space-evenly;
   width: 78vw;
   /* position: relative; */
@@ -55,7 +55,7 @@
 .artists-container {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: space-evenly;
   width: 78vw;
   padding-bottom: 70px;
