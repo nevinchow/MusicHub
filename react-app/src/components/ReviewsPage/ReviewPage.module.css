@@ -3,7 +3,9 @@
     flex-direction: column;
     background-color: white;
     position: relative;
-    left:22%
+    left:22%;
+    overflow-y:hidden;
+    width:78%
 }
 
 .buttonsed{

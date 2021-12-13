@@ -1,6 +1,6 @@
 # Welcome to Music Hub <img src="https://cdn.onlinewebfonts.com/svg/img_2248.png" alt="logo" width="40" height="40"/> 
 
-_Music Hub is clone of Spotify that allows users to discover new music and create their own playlists._
+_Music Hub is clone of Spotify that allows users to discover new music, review albums and create their own playlists._
 
 Hosted on Heroku: https://musichub-aa.herokuapp.com/
 
@@ -9,18 +9,18 @@ Hosted on Heroku: https://musichub-aa.herokuapp.com/
 All features require user authorization. Demo login is provided.
 
 ## 1. Songs 
-* Users are able to browse and listen to songs as well as add, or delete them from playlists. 
+* Users are able to browse and listen to songs as well as add them to playlists. 
 
 ## 2. Playlist CRUD
 * Users are able to create, edit, and delete their playlists. 
 
 ## 3. Search 
 * Users may search for an album, song, or artist by title.
-* Users should be able to search for playlists based on songs, genre, or artist.
 
-## 4. Continuous Play while Navigating Site
-* Users are able to navigate to different pages of the site without stopping the current song from playing
+## 4. Audio player 
+* Continuous play: Users are able to navigate to different pages of the site without stopping the current song from playing
 * When one song ends, the next song in the queue is played.
+* Key mapping. Users may stop the player by hiting pause on their keyboard, users may skip to next track if there is one in the queue by hitting 'next' key on their keyboard
  
 ## 5. Reviews CRUD
 * Users are able create reviews on Albums, they are also able to edit and delete their reviews.
@@ -36,7 +36,7 @@ All features require user authorization. Demo login is provided.
 ![alt text](https://camo.githubusercontent.com/f70d9d9438b04e316fbba35c08d92860203762cec6212ef53ddd02d930014866/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d435353332d3135373242363f6c6f676f3d43535333)
 
 ## Developers: 
-This full stack application was developed by App Academy Students in November of 2021
+_This full stack application was developed by [App Academy](https://github.com/appacademy) Students in November of 2021_
 
 <img style="height:auto;" alt="Avatar" width="40" height="40" class="avatar avatar-user width-full border color-bg-primary" src="https://avatars.githubusercontent.com/u/84898586?v=4">  [Nevin Chow](https://github.com/nevinchow/) 
 
@@ -46,5 +46,25 @@ This full stack application was developed by App Academy Students in November of
 <img style="border-radius:50%;" alt="Avatar" width="40" height="40" class="avatar avatar-user width-full border color-bg-primary" src="https://avatars.githubusercontent.com/u/85353431?v=4"> [Dusty Mumfrey](https://github.com/Dusttoo)
 
 <img style="height:auto;" alt="Avatar" width="40" height="40" class="avatar avatar-user width-full border color-bg-primary" src="https://avatars.githubusercontent.com/u/68717338?v=4"> [Ayla Basha](https://github.com/spacegray)
+
+# Site Experience
+
+## Landing Page
+![Alt text](https://github.com/nevinchow/SpotifyProject/blob/SiteScreenshots/react-app/src/images/site-screenshots/Landing-page.png)
+
+## Sign Up 
+![Alt text](https://github.com/nevinchow/SpotifyProject/blob/SiteScreenshots/react-app/src/images/site-screenshots/Sign-up-page.png)
+
+## Artist Page
+![Alt text](https://github.com/nevinchow/SpotifyProject/blob/SiteScreenshots/react-app/src/images/site-screenshots/Artist-page.png)
+
+## Album Page
+![Alt text](https://github.com/nevinchow/SpotifyProject/blob/SiteScreenshots/react-app/src/images/site-screenshots/Album-page.png)
+
+## Search Display
+![Alt text](https://github.com/nevinchow/SpotifyProject/blob/SiteScreenshots/react-app/src/images/site-screenshots/search-display.png)
+
+## Playlist Page
+![Alt text](https://github.com/nevinchow/SpotifyProject/blob/SiteScreenshots/react-app/src/images/site-screenshots/Playlist-View.png)
 
 
