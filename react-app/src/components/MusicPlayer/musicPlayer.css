@@ -10,6 +10,7 @@
   background-color: #2d2b2b;
   z-index: 999;
   /* background-color: black */
+  z-index: 1000;
 }
 
 .audioPlayer {
@@ -21,16 +22,18 @@
 
   width: 100%;
 
-  right: 0;
-  /* left: 0; */
-  width: 80%;
-  height: 100px;
-  /* background-color: black; */
-  background-color: rgba(0, 0, 0, 0);
-  /* background: #2E2B2B; */
-  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 11px 26px 10px rgba(210, 205, 205, 0.25); */
-  z-index: 2;
-  padding: 20px;
+
+      right: 0;
+      /* left: 0; */
+      width: 80%;
+      height: 100px;
+      /* background-color: black; */
+      background-color: rgba(0, 0, 0, 0);
+      /* background: #2E2B2B; */
+      /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), inset 0px 11px 26px 10px rgba(210, 205, 205, 0.25); */
+      z-index: 1000;
+      padding: 20px;
+
 }
 
 .song-info {

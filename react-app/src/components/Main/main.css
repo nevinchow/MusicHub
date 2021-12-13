@@ -14,8 +14,6 @@
   background-color: #121212 !important;
 }
 .album-art {
-  width: 300px;
-  height: 300px;
   object-fit: cover;
 }
 
@@ -51,6 +49,7 @@
 
 .review-link {
   color: white;
+  font-weight: bold;
 }
 
 .artists-container {
@@ -59,7 +58,6 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   width: 78vw;
-  /* position: relative; */
   padding-bottom: 70px;
 
 }
@@ -71,8 +69,7 @@
   padding: 9px;
   border-radius: 5px;
   transition: all 0.3s ease-in-out;
-  /* position: relative; */
-  /* bottom: 100px; */
+
 }
 
 .artistTile-container:hover {
@@ -80,34 +77,26 @@
 }
 
 .albums-header {
-  /* position: relative; */
-  /* right: 958px; */
   color: white;
   margin-right: 1706px;
-  /* bottom: 100px; */
 }
 
 .artists-header {
   position: relative;
-  /* right: 958px; */
   color: white;
   margin-right:1700px;
-  /* bottom: 120px; */
 }
 
 .welcome {
   color: white;
   position: relative;
-  /* right: 570px; */
   font-size: 55px;
   margin-left: 3%;
-  /* bottom: 120px; */
 
 }
  .wrapper {
   margin-left:auto;
   margin-right:auto;
-  /* width:960px; */
   background-color: #121212 !important;
  }
 
@@ -118,7 +107,16 @@
    background-color: #717171;
    width: 90vw;
    margin-left: -100px;
-   /* position: relative; */
-   /* right: 652px; */
    background: linear-gradient(180deg, #717171 0%, #121212 100%)
+ }
+
+ .reviews-link-container {
+   display: flex;
+   justify-content: center;
+   width: 80%;
+   margin-left: 10%
+ }
+
+ .reviews-link-container:hover {
+   border: 1px solid white;
  }

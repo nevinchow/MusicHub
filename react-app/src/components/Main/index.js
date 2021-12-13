@@ -51,7 +51,9 @@ function MainPage() {
               <>
               <div className='albumTile-container'>
               <AlbumTile album={album} />
-              <NavLink to={`/albums/${album.id}/reviews`} className='review-link'>Reviews</NavLink>
+              <div className='reviews-link-container'>
+              <NavLink to={`/albums/${album.id}/reviews`} className='review-link'>☆ Reviews ☆</NavLink>
+              </div>
               </div>
               </>
             ))}
