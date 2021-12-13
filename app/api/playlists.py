@@ -94,4 +94,24 @@ def add_playlist_songs():
                 'playlistId': playlistIdForm,
             }
 
-            
+
+@playlist_routes.route('/songs/delete', methods=['DELETE'])
+def delete_song():
+    form = AddToPlaylistForm()
+
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        playlistIdForm = form['playlistId'].data
+        songIdForm = form.songId.data
+        song = db.session.query(SongPlaylist).filter(
+            SongPlaylist.c.songId == songIdForm,
+            SongPlaylist.c.playlistId == playlistIdForm)
+        playlistIds = [{'playlistId': songs.playlistId,
+                        'songId': songs.songId} for songs in song]
+
+        print('\n\n\n', playlistIds, '\n\n\n')
+
+        # db.session.delete(song)
+        # db.session.commit()
+
+    return f'song: {song}'
