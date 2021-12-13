@@ -114,3 +114,9 @@ padding-bottom: 5%;
 .plus-button {
   color: white;
 }
+
+.song-table-artist {
+  position: relative;
+  min-width: 60vw;
+  margin-left: 8%;
+}

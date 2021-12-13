@@ -49,7 +49,7 @@ function ArtistPage() {
                   <h2 className='artist-page-name'>{artist?.name}</h2>
                 </div>
               <div className='table'>
-              <table className="song-table">
+              <table className="song-table-artist">
             <thead>
               <tr className="song-labels">
                 <th style={{width:'10%'}} className="table-label">#</th>
