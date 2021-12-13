@@ -103,6 +103,8 @@ padding-bottom: 5%;
 .table {
   background-color: #121212;
   padding-top: 3%;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .about-bio-container {
@@ -118,5 +120,5 @@ padding-bottom: 5%;
 .song-table-artist {
   position: relative;
   min-width: 60vw;
-  margin-left: 8%;
+
 }
