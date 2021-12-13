@@ -33,7 +33,7 @@ def seed_users():
         username='jess', email='jess@aa.io', password='password')
     josh = User(
         username='josh', email='josh@aa.io', password='password')
-  
+
 
 
     db.session.add(demo)
@@ -51,7 +51,7 @@ def seed_users():
     db.session.add(jason)
     db.session.add(jess)
     db.session.add(josh)
-    
+
 
     db.session.commit()
 
