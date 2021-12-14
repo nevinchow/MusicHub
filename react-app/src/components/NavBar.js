@@ -40,7 +40,6 @@ const NavBar = () => {
       </NavLink>
 
       <nav style={{backgroundColor: 'black', height: '100px', display:'flex', justifyContent:'flex-end', marginRight:'300px', alignItems: 'center', width: '99vw'}}>
-        <NavLink to='/' style={{marginRight: '78%'}}><h2 style={{color:'green'}}>Music Hub</h2></NavLink>
             <NavLink to='/login' exact={true} activeClassName='active' style={{color: 'white', fontWeight: 'bold', marginRight: '3%'}}>
               Login
             </NavLink>
