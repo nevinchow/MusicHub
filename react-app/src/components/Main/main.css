@@ -9,7 +9,7 @@
   width: 78%;
   margin-left: 20%;
   height: 100%;
-  left: 1%;
+  left: 2%;
   position: relative;
   background-color: #121212 !important;
 }
@@ -21,13 +21,13 @@
 .albums-container {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   width: 78vw;
   /* position: relative; */
   background-color: #121212;
   bottom: 80px;
-  margin-left: 1vw;
+  margin-left: 3%;
 }
 
 .albumTile-container {
@@ -55,11 +55,12 @@
 .artists-container {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   width: 80vw;
   margin-left: 2vw;
   padding-bottom: 70px;
+  position: relative;
   overflow-x: hidden;
 
 }
@@ -91,7 +92,7 @@
 .artists-header {
   position: relative;
   color: white;
-  margin-left: 2%;
+  margin-left:3%;
 }
 
 .welcome {
@@ -113,7 +114,7 @@
    flex-direction: column;
    background-color: #717171;
    width: 90vw;
-   margin-left: -100px;
+   margin-left: 10%;
    background: linear-gradient(180deg, #717171 0%, #121212 100%)
  }
 
