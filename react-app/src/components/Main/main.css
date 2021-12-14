@@ -23,10 +23,10 @@
   flex-wrap: nowrap;
   justify-content: space-evenly;
   width: 78vw;
-  margin-right: 25%;
   /* position: relative; */
   background-color: #121212;
   bottom: 80px;
+  margin-left: 1vw;
 }
 
 .albumTile-container {
@@ -56,8 +56,15 @@
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-evenly;
-  width: 78vw;
+  width: 80vw;
+  margin-left: 2vw;
   padding-bottom: 70px;
+  overflow-x: hidden;
+
+}
+
+.artists-container:hover {
+  overflow-x: scroll;
 
 }
 

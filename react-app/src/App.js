@@ -57,7 +57,7 @@ function App() {
   return (
     <BrowserRouter>
       {/* <NavBar /> */}
-      {!user ? <div><NavBar /></div> : <Sidebar />}
+      {!user ? <div><NavBar /></div> : <></>}
       {!user ? <></> : <Player queue={queue}/>}
       <Route path='/login' exact={true}>
           <LoginForm />

@@ -8,12 +8,13 @@ import AlbumTile from '../AlbumTile';
 import SearchResults from './SearchResults';
 import SearchPage from "../Video/SearchPage.mp4";
 import './Search.css'
-
+import Sidebar from '../Sidebar/Sidebar';
 
 
 
 const SearchBar = () => {
     const history = useHistory();
+    const user = useSelector((state) => state.session.user);
     const [queryString, setQueryString] = useState('');
 
     const updateSearch = (e) => {
@@ -34,11 +35,11 @@ const SearchBar = () => {
 
 
       < >
-      
-      <input className="search" placeholder="Search songs,albums,artists" type="search" value={queryString} onChange={(e)=>setQueryString(e.target.value)} /> 
+      {!user ? <></> : <Sidebar/>}
+      <input className="search" placeholder="Search songs,albums,artists" type="search" value={queryString} onChange={(e)=>setQueryString(e.target.value)} />
       {!queryString ?
-        
-        <video width="750" height="500" autoPlay loop  muted 
+
+        <video width="750" height="500" autoPlay loop  muted
         style={{
           position: "relative",
           width: "100%",
@@ -48,11 +49,11 @@ const SearchBar = () => {
           objectFit: "cover",
           transform: "translate(-50%, -50%)",
           zIndex: "99%"
-          
-          
+
+
         }}>
         <source src={SearchPage} type="video/mp4"/>
-        
+
         </video>  :
         // <input className="search" placeholder="Search songs,albums,artists" type="search" value={queryString} onChange={(e)=>setQueryString(e.target.value)} /> :
       <div>
@@ -60,7 +61,7 @@ const SearchBar = () => {
         <SearchResults queryString={queryString}/>
       </div>
       }
-      
+
       </>
     );
   };

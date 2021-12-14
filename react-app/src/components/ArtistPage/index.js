@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import DisplaySong from '../playlists/DisplaySong';
 import AlbumTile from '../AlbumTile';
 import { NavLink } from 'react-router-dom';
+import Sidebar from '../Sidebar/Sidebar';
 
 
 
@@ -18,7 +19,7 @@ function ArtistPage() {
     const {artistId}= useParams();
     const artist=useSelector(state=>state.artist[artistId]);
     const album=useSelector(state=>state.album[artistId])
-
+    const user = useSelector((state) => state.session.user);
     const dispatch = useDispatch()
     const songs=useSelector(state=>Object.values(state.songs))
     const allsongsofsingleartist=songs.filter(song=>song.artistId== +artistId)
@@ -39,6 +40,7 @@ function ArtistPage() {
         return (
           <>
             <div className="artist-page">
+            {!user ? <></> : <Sidebar/>}
               <div className="wrapper">
               <div className="artist-page-container">
                 <div className="artist-page-header">

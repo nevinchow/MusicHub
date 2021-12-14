@@ -8,7 +8,7 @@ import AlbumTile from '../AlbumTile';
 import MusicQueue from '../MusicQueue';
 import Song from '../songs/Song'
 import {removeSong, addOneSong, addNextSong} from "../../store/musicQueue"
-
+import Sidebar from '../Sidebar/Sidebar';
 import './main.css'
 
 import { NavLink } from 'react-router-dom';
@@ -30,6 +30,7 @@ function MainPage() {
 
       <>
         <div className="main-page">
+          {!user ? <></> : <Sidebar/>}
           <div className='wrapper'>
             <div className='main-page-header'></div>
             <h2 className='welcome'>Welcome, {user.username}</h2>
