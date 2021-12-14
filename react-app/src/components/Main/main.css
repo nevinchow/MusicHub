@@ -54,7 +54,6 @@
 .artists-container {
   display: flex;
   flex-direction: row;
-  margin-right: 25%;
   flex-wrap: nowrap;
   justify-content: space-evenly;
   width: 78vw;
