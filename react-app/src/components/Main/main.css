@@ -7,11 +7,13 @@
   display: flex;
   flex-direction: column;
   width: 78%;
-  margin-left: 20%;
+  margin-left: 22%;
+  /* margin-right: 20%; */
   height: 100%;
   left: 2%;
-  position: relative;
+  /* position: relative; */
   background-color: #121212 !important;
+  margin-bottom: 5px;
 }
 .album-art {
   object-fit: cover;
@@ -19,15 +21,25 @@
 
 
 .albums-container {
-  display: flex;
-  flex-direction: row;
+  /* display: flex; */
+  /* flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  width: 78vw;
+  justify-content: space-evenly; */
+  /* width: 135px;
+  height:135px; */
   /* position: relative; */
   background-color: #121212;
   bottom: 80px;
   margin-left: 3%;
+  /* display: inline-block; */
+  overflow-x: hidden;
+  white-space: nowrap;
+  margin-left: 2%;
+  margin-bottom:  5vh
+}
+
+.albums-container:hover{
+  overflow-x: scroll;
 }
 
 .albumTile-container {
@@ -37,6 +49,13 @@
   padding: 9px;
   border-radius: 5px;
   transition: all 0.3s ease-in-out;
+  display: inline-block;
+  width:135px;
+  height:135px;
+  /* /* display: flex;
+  flex-direction: column; */
+  align-items: center; 
+  margin-left: 2%;
 }
 
 .albumTile-container:hover {
@@ -53,15 +72,18 @@
 }
 
 .artists-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  width: 80vw;
-  margin-left: 2vw;
-  padding-bottom: 70px;
-  position: relative;
+  /* display: flex; 
+  flex-direction: row; */
+  /* flex-wrap: wrap; */
+  /* justify-content: flex-start; */
+  /* width: 100%; */
+  /* margin-left: 2vw; */
+  /* padding-bottom: 70px; */
+  /* position: relative; */
   overflow-x: hidden;
+  white-space: nowrap;
+  margin-left: 2%;
+  /* margin-right: 2%; */
 
 }
 
@@ -77,6 +99,10 @@
   padding: 9px;
   border-radius: 5px;
   transition: all 0.3s ease-in-out;
+  width: 135px;
+  height: 135px;
+  display: inline-block;
+  margin-left: 2%;
 
 }
 
@@ -90,7 +116,7 @@
 }
 
 .artists-header {
-  position: relative;
+  /* position: relative; */
   color: white;
   margin-left:3%;
 }
