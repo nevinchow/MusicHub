@@ -71,7 +71,6 @@ def playlist_songs(id):
     songs = db.session.query(SongPlaylist).filter(
         SongPlaylist.c.playlistId == id)
     songIds = [song.songId for song in songs]
-    playlistIds = [song.playlistId for song in songs]
     return {'songs': [{'playlistId': id, 'songId': song} for song in songIds]}
 
 
@@ -103,15 +102,22 @@ def delete_song():
     if form.validate_on_submit():
         playlistIdForm = form['playlistId'].data
         songIdForm = form.songId.data
-        song = db.session.query(SongPlaylist).filter(
+        to_delete = SongPlaylist.delete().where(
+                SongPlaylist.c.playlistId == playlistIdForm,
+                SongPlaylist.c.songId == songIdForm)
+        for song in to_delete:
+            print(song)
+        db.session.execute(to_delete)
+        db.session.commit()
+
+        
+        check = db.session.query(SongPlaylist).where(
             SongPlaylist.c.songId == songIdForm,
             SongPlaylist.c.playlistId == playlistIdForm)
-        playlistIds = [{'playlistId': songs.playlistId,
-                        'songId': songs.songId} for songs in song]
+        if check:
+            print('\n\n\n delete failed \n\n\n')
+        else:
+            print('\n\n\n success \n\n\n')
 
-        print('\n\n\n', playlistIds, '\n\n\n')
 
-        # db.session.delete(song)
-        # db.session.commit()
-
-    return f'song: {song}'
+    return f'song: {songIdForm} playlist: {playlistIdForm}'
