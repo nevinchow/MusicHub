@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { addOneSong, addNextSong } from "../../store/musicQueue";
+import { addOneSong, addNextSong, autoPlay } from "../../store/musicQueue";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { startSong } from "../../store/musicPlayer";
@@ -15,8 +15,9 @@ const Song = ({songId, playlistId}) => {
     const dispatch = useDispatch();
 
     const handlePlay = () => {
-        dispatch(addOneSong(song));
-
+        // dispatch(addOneSong(song));
+        
+        dispatch(autoPlay(song))
         dispatch(startSong())
     }
 

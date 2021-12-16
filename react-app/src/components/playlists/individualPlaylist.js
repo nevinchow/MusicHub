@@ -28,6 +28,8 @@ const PlaylistPage = () => {
   const songsState = useSelector(state => state?.songs)
   const albums = useSelector(state => state?.album)
   const artists = useSelector(state => state?.artist)
+  const songsList=Object.values(playlistSongs)
+  console.log(songsList)
   const songs = [];
   let trackNumber = 0
 
