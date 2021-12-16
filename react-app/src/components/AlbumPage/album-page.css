@@ -61,9 +61,10 @@
 
 .album-artist-name {
   color: white;
-  font-size: 16px;
-  position: relative;
-  top: 2px;
+  font-size: 0.9rem;
+  /* position: relative;
+  top: 2px; */
+
 }
 
 .album-artist-name:hover {

@@ -32,3 +32,12 @@ def delete_review(id):
     db.session.commit()
 
     return review.to_dict()
+
+
+@review_routes.route('/')
+def get_reviews():
+    reviews=Review.query.all()
+
+    return {
+        'reviews':[review.to_dict() for review in reviews]
+    }

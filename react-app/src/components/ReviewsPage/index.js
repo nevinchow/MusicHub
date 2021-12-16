@@ -26,7 +26,7 @@ function ReviewsPage () {
     // const currentReview=useSelector(state=>state.review[reviewId])
     const userId=useSelector(state=>state.session.user.id)
     const [editform, setEditForm]=useState(false)
-
+    
 
 
     useEffect(()=>{
@@ -34,7 +34,10 @@ function ReviewsPage () {
         dispatch(getUsers())
     },[dispatch])
 
-
+    let totalRating=0;
+    reviews.map(review=>totalRating+=review.rating)
+    let averageReview=totalRating/reviews.length
+    
     const onClick=(e)=>{
 
         e.preventDefault()

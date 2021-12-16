@@ -27,6 +27,12 @@ export const getReviewsByAlbumId=(id)=>async(dispatch)=>{
     dispatch(loadReviews(reviews.reviews))
   }
 
+export const getReviews=()=>async(dispatch)=>{
+    const response=await fetch(`/api/reviews`)
+    const reviews=await response.json()
+    dispatch(loadReviews(reviews.reviews))
+}
+
 
 export const createReview=(payload)=>async(dispatch)=>{
     // need to do csrfFetch later
@@ -84,7 +90,7 @@ const reviewReducer=(state = initialState, action)=>{
 
     switch (action.type) {
         case LOAD_REVIEWS: {
-            let newState = {...state};
+            let newState = {};
             
             (action.reviews).forEach(review => {
                 newState[review.id] = review;
