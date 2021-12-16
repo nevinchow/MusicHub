@@ -12,6 +12,8 @@ import Sidebar from '../Sidebar/Sidebar';
 import './main.css'
 
 import { NavLink } from 'react-router-dom';
+import {Rating, RatingView} from 'react-simple-star-rating'
+import { getReviews } from '../../store/review';
 
 
 function MainPage() {
@@ -19,11 +21,47 @@ function MainPage() {
   const artists=useSelector((state)=>Object.values(state.artist))
   const albums=useSelector((state)=>Object.values(state.album))
   const user = useSelector((state) => state.session.user)
+  const [RatingValue, setRatingValue]=React.useState(null)
+  const average = arr => arr.reduce((a,b) => a + b, 0) / arr.length;
 
   useEffect(()=>{
       dispatch(getArtists())
       dispatch(getAlbums())
+      dispatch(getReviews())
   },[dispatch])
+
+  const reviews=useSelector(state=>Object.values(state.review))
+
+
+ const getStars = (id) => {
+    const starTotal = []
+    reviews.forEach((review) => {
+        if (review.albumId === id) {
+            starTotal.push(review.rating)
+        }
+    })
+    const stars = average(starTotal);
+
+    return (
+      <div className="star-rating">
+              {[...Array(5)].map((star, rate) => {
+                rate += 1;
+                return (
+
+                  <button
+                    type="button"
+                    key={rate}
+                    className={rate <= stars ? "on" : "off"}
+                  >
+                    <span className="star">&#9733;</span>
+                  </button>
+                );
+              })}
+            </div>
+    )
+  }
+
+
 
 
   return (
@@ -48,12 +86,15 @@ function MainPage() {
               <h2 className='albums-header'>Popular Albums</h2>
             <div className='albums-container'>
 
-            {albums.map((album) => (
+            {albums.map((album,i) => (
               <>
               <div className='albumTile-container'>
               <AlbumTile album={album} />
               <div className='reviews-link-container'>
-              <NavLink to={`/albums/${album.id}/reviews`} className='review-link'>☆ Reviews ☆</NavLink>
+              <NavLink to={`/albums/${album.id}/reviews`} className='review-link'><span className="stars">{getStars(i+1)}</span></NavLink>
+              
+              {/* <RatingView ratingValue={getStars(i)}/> */}
+              
               </div>
               </div>
               </>
