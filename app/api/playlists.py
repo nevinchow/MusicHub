@@ -105,19 +105,7 @@ def delete_song():
         to_delete = SongPlaylist.delete().where(
                 SongPlaylist.c.playlistId == playlistIdForm,
                 SongPlaylist.c.songId == songIdForm)
-        for song in to_delete:
-            print(song)
         db.session.execute(to_delete)
         db.session.commit()
-
-        
-        check = db.session.query(SongPlaylist).where(
-            SongPlaylist.c.songId == songIdForm,
-            SongPlaylist.c.playlistId == playlistIdForm)
-        if check:
-            print('\n\n\n delete failed \n\n\n')
-        else:
-            print('\n\n\n success \n\n\n')
-
 
     return f'song: {songIdForm} playlist: {playlistIdForm}'
