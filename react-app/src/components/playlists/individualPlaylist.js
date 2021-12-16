@@ -14,6 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay } from '@fortawesome/free-solid-svg-icons'
 import DisplaySong from './DisplaySong';
 import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
+import Sidebar from '../Sidebar/Sidebar';
 
 const PlaylistPage = () => {
   const {id} = useParams();
@@ -29,6 +30,7 @@ const PlaylistPage = () => {
   const albums = useSelector(state => state?.album)
   const artists = useSelector(state => state?.artist)
   const songsList=Object.values(playlistSongs)
+  const user = useSelector((state) => state.session.user)
   console.log(songsList)
   const songs = [];
   let trackNumber = 0
@@ -77,9 +79,9 @@ const PlaylistPage = () => {
     const suggestedSongs=[]
 
     const suggestSong = () => {
-    
+
     const max = Object.keys(songsState).length - 1;
-    
+
     let i = 0;
     while(i < 5) {
       let randomSong = getRandomInt(1, max)
@@ -102,15 +104,15 @@ const PlaylistPage = () => {
       if(!images.includes(albums[thisAlbum].imageURL)) {
         images.push(albums[thisAlbum].imageURL)
       }
-      
-      
+
+
 
     })
 
     while(images.length < 5) {
     images.push('https://upload.wikimedia.org/wikipedia/commons/3/3c/No-album-art.png')
     }
-    
+
     return images
 
   }
@@ -124,48 +126,49 @@ const PlaylistPage = () => {
     }
   }
 
-  
+
 
 
 
   return (
     <>
+    {!user ? <></> : <Sidebar/>}
     <div className="playlist-page-container">
       <div className="image-container">
-        {songs.length ? 
-        
-        
+        {songs.length ?
+
+
         <div className="image-collage">
           <img className="playlist-img" src={getRandomAlbumImg()[0]} alt={playlists[playlist].name}/>
           <img className="playlist-img" src={getRandomAlbumImg()[1]} alt={playlists[playlist].name}/>
           <img className="playlist-img" src={getRandomAlbumImg()[2]} alt={playlists[playlist].name}/>
-          <img className="playlist-img" src={getRandomAlbumImg()[3]} alt={playlists[playlist].name}/> 
+          <img className="playlist-img" src={getRandomAlbumImg()[3]} alt={playlists[playlist].name}/>
         </div>
       : <img className="default-playlist-img" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/No-album-art.png" alt="default playlist"></img>}
-        
+
 
         <div className="playlist-details">
           <h1>{playlists[playlist].name}</h1>
           <p>{playlists[playlist].description}</p>
-          
+
         </div>
-        
+
       </div>
         <div className="playlist-options">
           <FontAwesomeIcon className="settings-buttons" icon={faEllipsisH} onClick={openPlaylistSettings}/>
-          {playlistSettings ? 
+          {playlistSettings ?
           <div className="delete-edit-buttons">
           <h2 className="edit-button" onClick={editFormOpen}>Edit</h2>
           <h2 className="delete-button" onClick={deletePlaylist}>Delete</h2>
           </div>
           : <></>}
-          
+
 
         </div>
-        {editForm ? 
+        {editForm ?
         <EditPlaylists editFormOpen={editFormOpen}/> :
         <></>}
-        
+
 
         <div className="song-display-container">
           <table className="song-table">
@@ -177,24 +180,24 @@ const PlaylistPage = () => {
                 <th style={{width:'20%'}} className="table-label">Album</th>
                 <th style={{width:'10%'}} className="table-label">Duration</th>
                 <th style={{width:'10%'}} className="table-label settings"></th>
-                
+
               </tr>
             </thead>
             <tbody>
-              {!songs.length ? 
+              {!songs.length ?
               <>
                 <tr className="suggested-header">
                   <td colspan='6'><p className="suggested-text">You don't have any songs yet, try one of these!</p></td>
                 </tr>
               </>
               : <></>}
-              {songs.length ? 
+              {songs.length ?
               songs.map((song) => {
                    trackNumber++
                    return (
                      <DisplaySong songId={song.id} trackNumber={trackNumber}/>
                    )
-                  
+
                 }) :
 
                  suggestSong().map((song) => {
@@ -204,16 +207,16 @@ const PlaylistPage = () => {
                         <DisplaySong songId={song.id} trackNumber={trackNumber}/>
                      </>
                    )
-                  
+
                 })}
-              
+
             </tbody>
 
           </table>
 
         </div>
     </div>
-        
+
 
     </>
 
@@ -221,4 +224,3 @@ const PlaylistPage = () => {
 }
 
 export default PlaylistPage;
-
