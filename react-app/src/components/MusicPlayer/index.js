@@ -14,7 +14,6 @@ const Player = ({queue}) => {
   let isPlaying = useSelector((state) => state.player)
   const [currentSong, setCurrentSong] = useState(0);
   let trackNumber = currentSong + 1
-
   
   if(!queue.length) return null;
   let playlist = [];
@@ -28,7 +27,8 @@ const Player = ({queue}) => {
     playlist.push(nextSong)
   })
 
-  // console.log("TOGGLE PLAY", togglePlay)
+
+
   
   
   return (
@@ -47,26 +47,31 @@ const Player = ({queue}) => {
             autoPlayAfterSrcChange={true}
             onPlay={(e) => console.log("onPlay")}
 
-            onEnded={() => setCurrentSong((i) => i + 1 )}
-            showSkipControls={true}
+            // onEnded={() => setCurrentSong((i) => i + 1 )}
+            // showSkipControls={true}
             onClick={() => setCurrentSong(currentSong)}
-            onClickNext={() => setCurrentSong((i) => i + 1)}
+            // onClickNext={() => setCurrentSong((i) => i + 1)}
 
             onPause={() => {
               dispatch(stopSong())
             }}
             onEnded={() => {
               if(!playlist[currentSong + 1]) {
-                setCurrentSong(-1)
+                setCurrentSong(0)
+              } else {
+                setCurrentSong(currentSong + 1)}}
+
               }
-              setCurrentSong((i) => i + 1)}}
             showSkipControls={true}
             showJumpControls={false}
+
             onClickNext={() => {
               if(!playlist[currentSong + 1]) {
-                setCurrentSong(-1)
+                setCurrentSong(0)
+              } else {
+                setCurrentSong(currentSong + 1)}}
+
               }
-              setCurrentSong((i) => i + 1)}}
 
             // other props here
           />

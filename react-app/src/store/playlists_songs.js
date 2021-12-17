@@ -1,5 +1,6 @@
 const GET_PLAYLIST_SONGS = 'playlists/GET_PLAYLIST_SONGS'
 const ADD_PLAYLIST_SONGS = 'playlists/ADD_PLAYLIST_SONGS'
+const DELETE_PLAYLISTSONGS = 'playlists/DELETE_PLAYLIST_SONGS'
 
 const getPlaylistSongs = (playlistSongs) => ({
     type: GET_PLAYLIST_SONGS,
@@ -8,6 +9,11 @@ const getPlaylistSongs = (playlistSongs) => ({
 const addPlaylistSongs = (songToAdd) => ({
     type: ADD_PLAYLIST_SONGS,
     songToAdd,
+})
+
+const deletePlaylistSongs = (songToDelete) => ({
+    type: DELETE_PLAYLISTSONGS,
+    songToDelete,
 })
 
 export const getSongsForPlaylist = (playlistId) => async (dispatch) => {
@@ -33,6 +39,24 @@ export const addSongToPlaylist = (playlist) => async (dispatch) => {
 
 }
 
+export const removePlaylistSong = (playlistId) => async (dispatch) => {
+  
+  const response = await fetch(`/api/playlists/songs/delete`,{
+  method: 'DELETE',
+  statusCode: 204,
+  headers: {'Content-Type': 'application/json'},
+  body: JSON.stringify(playlistId),
+});
+
+  if(response.ok) {
+    const playlist = await response.json();
+    dispatch(deletePlaylistSongs(playlist));
+  }
+return playlistId
+
+
+}
+
 const initialState = {};
 
 export default function playlistSongsReducer(state = initialState, action) {
@@ -44,7 +68,17 @@ export default function playlistSongsReducer(state = initialState, action) {
             const newState = {...state}
             const index = Object.keys(newState).length + 1
             newState[index] = action.songToAdd
-            return [newState]
+            return newState
+        case DELETE_PLAYLISTSONGS:
+            const deleteState = {...state}
+            
+            Object.keys(deleteState).map(song => {
+                if(deleteState[song].songId === action.songToDelete.songId 
+                    && deleteState[song].playlistId === action.songToDelete.playlistId) {
+                        delete deleteState[song]
+                    }
+            })
+            return deleteState
         default:
             return state;
     }

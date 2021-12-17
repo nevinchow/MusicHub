@@ -12,7 +12,6 @@ import Sidebar from '../Sidebar/Sidebar';
 import './main.css'
 
 import { NavLink } from 'react-router-dom';
-import {Rating, RatingView} from 'react-simple-star-rating'
 import { getReviews } from '../../store/review';
 
 
@@ -92,9 +91,9 @@ function MainPage() {
               <AlbumTile album={album} />
               <div className='reviews-link-container'>
               <NavLink to={`/albums/${album.id}/reviews`} className='review-link'><span className="stars">{getStars(i+1)}</span></NavLink>
-              
+
               {/* <RatingView ratingValue={getStars(i)}/> */}
-              
+
               </div>
               </div>
               </>
