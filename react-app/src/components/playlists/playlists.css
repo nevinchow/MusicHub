@@ -266,7 +266,7 @@
 
 .queue-add {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     justify-content: center;
     align-items: center;
     height: 100%;
@@ -302,7 +302,8 @@
   border-radius: 6px;
  
   position: absolute;
-  right: 10px;
+  top: 25px;
+  right: 25px;
   z-index: 1;
 }
 

@@ -2,9 +2,8 @@ import { useParams } from "react-router"
 import React, { useState }  from 'react';
 import { useDispatch } from "react-redux"
 import { removePlaylistSong } from "../../store/playlists_songs";
-import { useSelector } from "react-redux";
-import { getSongsForPlaylist } from "../../store/playlists_songs";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMinusCircle } from "@fortawesome/free-solid-svg-icons";
 
 function RemoveFromPlaylist({songId, playlistId}) {
     const {id} = useParams()
@@ -22,7 +21,7 @@ function RemoveFromPlaylist({songId, playlistId}) {
 
     return (
         <div> 
-            <button onClick={removeSong}>Remove</button>
+            <FontAwesomeIcon className="plus-button" icon={faMinusCircle} onClick={removeSong}></FontAwesomeIcon>
         </div>
     )
 }

@@ -130,7 +130,10 @@ function DisplaySong({songId, trackNumber}) {
 
 
             <td className="queue-add">
-              <RemoveFromPlaylist songId={songId} playlistId={Number(id)} />
+              <div className="tooltip" >
+                <RemoveFromPlaylist  songId={songId} playlistId={Number(id)} />
+                <span class="tooltiptext">Remove</span>
+              </div>
               <div className="tooltip" >
                 <FontAwesomeIcon className="plus-button" icon={faMusic} onClick={addToQueue}/>
                 <span class="tooltiptext">Add To Queue</span>
