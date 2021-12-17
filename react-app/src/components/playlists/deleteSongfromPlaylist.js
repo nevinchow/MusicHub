@@ -14,7 +14,6 @@ function RemoveFromPlaylist({songId, playlistId}) {
           playlistId,
           songId
       }
-      console.log('dispatched')
       dispatch(removePlaylistSong(songToDelete))
     //   dispatch(getSongsForPlaylist(id))
   }

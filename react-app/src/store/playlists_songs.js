@@ -72,7 +72,6 @@ export default function playlistSongsReducer(state = initialState, action) {
         case DELETE_PLAYLISTSONGS:
             const deleteState = {...state}
             
-            console.log('delete', action.songToDelete, deleteState)
             Object.keys(deleteState).map(song => {
                 if(deleteState[song].songId === action.songToDelete.songId 
                     && deleteState[song].playlistId === action.songToDelete.playlistId) {

@@ -52,8 +52,8 @@ function DisplaySong({songId, trackNumber}) {
   }
 
     const addToQueue = () => {
-      // dispatch(addOneSong(song))
-      dispatch(autoPlay(song))
+      dispatch(addOneSong(song))
+      // dispatch(autoPlay(song))
   }
 
 
