@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import DisplaySong from './DisplaySong';
 import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 import Sidebar from '../Sidebar/Sidebar';
+import DisplaySongPlaylist from './DisplaySongOnPlaylist';
 
 const PlaylistPage = () => {
   const {id} = useParams();
@@ -192,7 +193,7 @@ const PlaylistPage = () => {
               songs.map((song) => {
                    trackNumber++
                    return (
-                     <DisplaySong songId={song.id} trackNumber={trackNumber}/>
+                     <DisplaySongPlaylist songId={song.id} trackNumber={trackNumber}/>
                    )
 
                 }) :

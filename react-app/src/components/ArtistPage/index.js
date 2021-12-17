@@ -39,9 +39,7 @@ function ArtistPage() {
 
         return (
           <>
-            <div className="artist-page">
             {!user ? <></> : <Sidebar/>}
-              <div className="wrapper">
               <div className="artist-page-container">
                 <div className="artist-page-header">
                   <img
@@ -50,8 +48,24 @@ function ArtistPage() {
                   ></img>
                   <h2 className='artist-page-name'>{artist?.name}</h2>
                 </div>
-              <div className='table'>
-              <table className="song-table-artist">
+                <div className='about-container'>
+                <div className='about-bio-container'>
+                  <h2 className='about'>About</h2>
+                  <img className='artist-bio-image' src={artist?.biopictureURL}></img>
+                  <p className='artist-bio'>{artist?.bio}</p>
+                </div>
+
+              </div>
+                <div className='discography-container'>
+                  <h2 className='discography'>Discography</h2>
+                  <div className='albumTile-container'>
+                    <AlbumTile album={album} />
+                    <NavLink to={`/albums/${album.id}/reviews`} className='review-link'>Reviews</NavLink>
+                  </div>
+              </div>
+              
+              <div className='song-display-container'>
+              <table className="song-table">
             <thead>
               <tr className="song-labels">
                 <th style={{width:'10%'}} className="table-label">#</th>
@@ -74,25 +88,8 @@ function ArtistPage() {
                   </tbody>
                 </table>
               </div>
-              <div className='discography-container'>
-                <h2 className='discography'>Discography</h2>
-              <div className='albumTile-container'>
-              <AlbumTile album={album} />
-              <NavLink to={`/albums/${album.id}/reviews`} className='review-link'>Reviews</NavLink>
+              
               </div>
-              </div>
-              <div className='about-container'>
-                <div className='about-bio-container'>
-                <h2 className='about'>About
-                    <p className='artist-bio'>{artist?.bio}</p>
-                    </h2>
-                </div>
-                    <img className='artist-bio-image' src={artist?.biopictureURL}></img>
-
-              </div>
-              </div>
-              </div>
-            </div>
           </>
         );
     }

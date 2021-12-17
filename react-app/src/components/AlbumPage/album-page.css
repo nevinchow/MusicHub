@@ -109,9 +109,9 @@
 }
 
 .song-table {
-  position: relative;
+  /* position: relative;
   min-width: 60vw;
-  margin-left: 40%;
+  margin-left: 40%; */
 }
 
 .table-label {
@@ -120,7 +120,7 @@
 }
 
 .song-table-container {
-  max-height: 65vw;
+  /* max-height: 65vw; */
   /* padding-bottom: 200px; */
 }
 

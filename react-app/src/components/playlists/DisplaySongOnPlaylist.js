@@ -8,11 +8,11 @@ import AddToPlaylist from "./addSongtoPlaylist";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMusic } from "@fortawesome/free-solid-svg-icons";
-import { addOneSong, autoPlay } from "../../store/musicQueue";
+import { addOneSong } from "../../store/musicQueue";
 import RemoveFromPlaylist from "./deleteSongfromPlaylist";
 
 
-function DisplaySong({songId, trackNumber}) {
+function DisplaySongPlaylist({songId, trackNumber}) {
   const {id} = useParams()
   const albums = useSelector(state => state.album)
   const artists = useSelector(state => state.artist)
@@ -52,8 +52,7 @@ function DisplaySong({songId, trackNumber}) {
   }
 
     const addToQueue = () => {
-      // dispatch(addOneSong(song))
-      dispatch(autoPlay(song))
+      dispatch(addOneSong(song))
   }
 
 
@@ -132,6 +131,10 @@ function DisplaySong({songId, trackNumber}) {
 
             <td className="queue-add">
               <div className="tooltip" >
+                <RemoveFromPlaylist  songId={songId} playlistId={Number(id)}/>
+                <span class="tooltiptext">Remove</span>
+              </div>
+              <div className="tooltip" >
                 <FontAwesomeIcon className="plus-button" icon={faMusic} onClick={addToQueue}/>
                 <span class="tooltiptext">Add To Queue</span>
               </div>
@@ -148,4 +151,4 @@ function DisplaySong({songId, trackNumber}) {
 }
 
 
-export default DisplaySong
+export default DisplaySongPlaylist
