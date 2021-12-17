@@ -12,7 +12,7 @@ const addPlaylistSongs = (songToAdd) => ({
 })
 
 const deletePlaylistSongs = (songToDelete) => ({
-    type: ADD_PLAYLIST_SONGS,
+    type: DELETE_PLAYLISTSONGS,
     songToDelete,
 })
 
@@ -44,12 +44,13 @@ export const removePlaylistSong = (playlistId) => async (dispatch) => {
   const response = await fetch(`/api/playlists/songs/delete`,{
   method: 'DELETE',
   statusCode: 204,
-  headers: {'Content-Type': 'application/json'}
+  headers: {'Content-Type': 'application/json'},
+  body: JSON.stringify(playlistId),
 });
 
   if(response.ok) {
     const playlist = await response.json();
-    dispatch(deletePlaylistSongs(playlistId));
+    dispatch(deletePlaylistSongs(playlist));
   }
 return playlistId
 
@@ -70,7 +71,14 @@ export default function playlistSongsReducer(state = initialState, action) {
             return [newState]
         case DELETE_PLAYLISTSONGS:
             const deleteState = {...state}
-            delete deleteState[action.playlistId]
+            
+            console.log('delete', action.songToDelete, deleteState)
+            Object.keys(deleteState).map(song => {
+                if(deleteState[song].songId === action.songToDelete.songId 
+                    && deleteState[song].playlistId === action.songToDelete.playlistId) {
+                        delete deleteState[song]
+                    }
+            })
             return deleteState
         default:
             return state;

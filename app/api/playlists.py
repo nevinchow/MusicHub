@@ -99,13 +99,18 @@ def delete_song():
     form = AddToPlaylistForm()
 
     form['csrf_token'].data = request.cookies['csrf_token']
+    print('before validate')
     if form.validate_on_submit():
         playlistIdForm = form['playlistId'].data
         songIdForm = form.songId.data
+        print('\n\n\nvalidated: \n\n\n', playlistIdForm, songIdForm)
         to_delete = SongPlaylist.delete().where(
                 SongPlaylist.c.playlistId == playlistIdForm,
                 SongPlaylist.c.songId == songIdForm)
         db.session.execute(to_delete)
         db.session.commit()
 
-    return f'song: {songIdForm} playlist: {playlistIdForm}'
+        return {
+                     'songId': songIdForm,
+                     'playlistId': playlistIdForm,
+                 }
