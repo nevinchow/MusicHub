@@ -1,17 +1,15 @@
 import React, { useEffect, useState }  from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { getAPlaylist, getPlaylists, removePlaylist } from '../../store/playlists';
+import {  getPlaylists, removePlaylist } from '../../store/playlists';
 import { getSongsForPlaylist } from '../../store/playlists_songs';
-import { Link, NavLink, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import EditPlaylists from './editPlaylist';
 import { useHistory } from 'react-router';
 import './playlists.css'
 import { getAlbums } from '../../store/album';
 import { getArtists } from '../../store/artist';
-import AddToPlaylist from './addSongtoPlaylist';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlay } from '@fortawesome/free-solid-svg-icons'
 import DisplaySong from './DisplaySong';
 import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 import Sidebar from '../Sidebar/Sidebar';
@@ -28,7 +26,6 @@ const PlaylistPage = () => {
   const playlistSongs = useSelector(state => state?.playlist_songs)
   const songsState = useSelector(state => state?.songs)
   const albums = useSelector(state => state?.album)
-  const artists = useSelector(state => state?.artist)
   const songsList=Object.values(playlistSongs)
   const user = useSelector((state) => state.session.user)
   console.log(songsList)
