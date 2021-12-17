@@ -28,7 +28,7 @@ export const getReviewsByAlbumId=(id)=>async(dispatch)=>{
   }
 
 export const getReviews=()=>async(dispatch)=>{
-    const response=await fetch(`/api/reviews`)
+    const response=await fetch(`/api/reviews/`)
     const reviews=await response.json()
     dispatch(loadReviews(reviews.reviews))
 }
