@@ -9,9 +9,11 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMusic } from "@fortawesome/free-solid-svg-icons";
 import { addOneSong, autoPlay } from "../../store/musicQueue";
+import RemoveFromPlaylist from "./deleteSongfromPlaylist";
 
 
 function DisplaySong({songId, trackNumber}) {
+  const {id} = useParams()
   const albums = useSelector(state => state.album)
   const artists = useSelector(state => state.artist)
   const song = useSelector(state => state.songs[songId])
@@ -129,6 +131,10 @@ function DisplaySong({songId, trackNumber}) {
 
 
             <td className="queue-add">
+              <div className="tooltip" >
+                <RemoveFromPlaylist  songId={songId} playlistId={Number(id)} />
+                <span class="tooltiptext">Remove</span>
+              </div>
               <div className="tooltip" >
                 <FontAwesomeIcon className="plus-button" icon={faMusic} onClick={addToQueue}/>
                 <span class="tooltiptext">Add To Queue</span>
