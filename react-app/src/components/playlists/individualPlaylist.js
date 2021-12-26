@@ -129,7 +129,7 @@ const PlaylistPage = () => {
 
   return (
     <>
-    {!user ? <></> : <Sidebar/>}
+    {user && <Sidebar/>}
     <div className="playlist-page-container">
       <div className="image-container">
         {songs.length ?
