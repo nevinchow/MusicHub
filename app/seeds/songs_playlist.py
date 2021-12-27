@@ -5,6 +5,7 @@ from sqlalchemy import insert
 
 
 def seed_saved_songs():
+
     saved_song1 = SongPlaylist.insert().values(songId=26, playlistId=1)
     # saved_song2 = SongPlaylist.insert().values(song_id=7, playlist_id=1)
     # saved_song3 = SongPlaylist.insert().values(song_id=23, playlist_id=1)

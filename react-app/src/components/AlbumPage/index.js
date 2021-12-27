@@ -44,33 +44,31 @@ function AlbumPage() {
     }
     return (
       <>
-        <div className="album-page-container">
         {!user ? <></> : <Sidebar/>}
-          <div className="album-page-middle">
+        <div className="album-page-container">
             <div className='album-page-header'>
             <img className="album-art2" src={album?.imageURL}></img>
             <div className='album-details-header'>
             <p className='album-tag'>ALBUM</p>
             <h2 className="albumTitle">{album?.title}</h2>
             <div className='album-image-year'>
-            <div className='album-image'>
-              <img className='album-artist-photo' src={currentArtist.profileURL}></img>
-            <NavLink to={`/artist/${currentArtistId}`}>
-              <h2 className='album-artist-name'>{currentArtist?.name}</h2>
-            </NavLink>
-            </div>
-            <p className='album-year2'>- {album?.year}</p>
-            </div>
+                <img className='album-artist-photo' src={currentArtist.profileURL}></img>
+              <NavLink to={`/artist/${currentArtistId}`}>
+                <h2 className='album-artist-name'>{currentArtist?.name}</h2>
+              </NavLink>
+
+              <p className='album-year2'>- {album?.year}</p>
             </div>
             </div>
-            <div className='song-table-container'>
+            </div>
+            <div className='song-display-container'>
               <table className="song-table">
             <thead>
               <tr className="song-labels">
-                <th style={{width:'10%'}} className="table-label">#</th>
-                <th style={{width:'10%'}} className="table-label"></th>
-                <th style={{width:'10%'}} className="table-label">Title</th>
-                <th style={{width:'10%'}} className="table-label">Album</th>
+                <th style={{width:'5%'}} className="table-label">#</th>
+                <th style={{width:'5%'}} className="table-label"></th>
+                <th style={{width:'20%'}} className="table-label">Title</th>
+                <th style={{width:'20%'}} className="table-label">Album</th>
                 <th style={{width:'10%'}} className="table-label">Duration</th>
                 <th style={{width:'10%'}} className="table-label settings"></th>
                     </tr>
@@ -90,7 +88,6 @@ function AlbumPage() {
             <div className='spacing'>
 
             </div>
-              </div>
           </div>
       </>
     );

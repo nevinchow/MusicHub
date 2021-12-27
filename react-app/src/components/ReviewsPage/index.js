@@ -14,6 +14,8 @@ import EditReview from '../EditReviewForm';
 import { removeReview } from '../../store/review';
 import { getUsers } from '../../store/user';
 import styles from'./ReviewPage.module.css'
+import Sidebar from '../Sidebar/Sidebar';
+
 
 
 function ReviewsPage () {
@@ -23,6 +25,8 @@ function ReviewsPage () {
     const reviews=useSelector((state)=>Object.values(state.review))
     const [reviewId, setReviewId]=useState()
     const history=useHistory()
+    const user = useSelector((state) => state.session.user);
+
     // const currentReview=useSelector(state=>state.review[reviewId])
     const userId=useSelector(state=>state.session.user.id)
     const [editform, setEditForm]=useState(false)
@@ -61,6 +65,8 @@ function ReviewsPage () {
 
             return (
                 <>
+                {!user ? <></> : <Sidebar/>}
+
                 {/* <img src={album?.imageURL}></img> */}
                 <div className={styles.allReviews}>
                 {reviews.map((review)=>(
