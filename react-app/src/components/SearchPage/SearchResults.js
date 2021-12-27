@@ -9,7 +9,8 @@ import DisplaySong from '../playlists/DisplaySong';
 import { getArtists } from '../../store/artist';
 import { getSongs } from '../../store/songs';
 import "./Search.css"
-
+import Sidebar from '../Sidebar/Sidebar';
+import { getUsers } from '../../store/user';
 
 const SearchResults = ({queryString}) => {
   let trackNumber = 1;
@@ -49,16 +50,17 @@ const SearchResults = ({queryString}) => {
         const filteredSong = eachSong.filter((song) => song.name.toLowerCase().includes(queryString.toLowerCase()))
         setSongSearchResult(filteredSong)
 
-        const filtered=eachAlbum.filter((album)=>album.title.toLowerCase().includes(queryString.toLowerCase())) 
+        const filtered=eachAlbum.filter((album)=>album.title.toLowerCase().includes(queryString.toLowerCase()))
         setSearchResult(filtered)
     },[queryString])
 
   return (
       <>
+
       <div className="bigContainer">
       {!queryString ?
         <div></div> :
-        
+
         SongSearchResult.slice(0,5)?.map((song) =>
         <>
           <DisplaySong songId={song.id} trackNumber={trackNumber++}/>

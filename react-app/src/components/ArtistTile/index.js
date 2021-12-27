@@ -6,8 +6,11 @@ function ArtistTile({artist}) {
     return (
         <>
         <NavLink to={`/artist/${artist.id}`}>
-        <img className="artist-art" src={`${artist.profileURL}`}></img>
-        <h2 className='artist-name'>{`${artist.name}`}</h2></NavLink>
+            <div style={{display:'flex', flexDirection:'column', alignItems:'center'}}>
+                <img className="artist-art" src={`${artist.profileURL}`}></img>
+                <h2 className='artist-name'>{`${artist.name}`}</h2>
+            </div>
+        </NavLink>
         </>
 
     )

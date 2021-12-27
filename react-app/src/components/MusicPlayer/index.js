@@ -61,6 +61,7 @@ const Player = ({queue}) => {
               }
               setCurrentSong((i) => i + 1)}}
             showSkipControls={true}
+            showJumpControls={false}
             onClickNext={() => {
               if(!playlist[currentSong + 1]) {
                 setCurrentSong(-1)

@@ -4,6 +4,8 @@ const ADD_PLAYLIST_QUEUE = "queue/ADD_PLAYLIST_QUEUE";
 const ADD_NEXT_SONG = "queue/ADD_NEXT_SONG";
 const NEXT_SONG = "queue/NEXT_SONG";
 const CLEAR_QUEUE = "queue/CLEAR_QUEUE";
+const AUTO_PLAY='queue/AUTO_PLAY'
+const POPULATE_QUEUE='queue/POPULATE_QUEUE'
 
 export const addOneSong = (songId) => ({
     type: ADD_SONG_QUEUE,
@@ -26,11 +28,21 @@ export const addNextSong = (songId) => ({
     type: ADD_NEXT_SONG,
     songId,
 })
+export const autoPlay=(song)=>({
+    type: AUTO_PLAY,
+    song
+})
+
 
 // export const addPlaylistQueue = (playlistId) => ({
 //     type: ADD_PLAYLIST_QUEUE,
 //     payload: playlistId, //pass array instead to this & param?
 // })
+
+export const populateQueue=(songObj)=>({
+    type: POPULATE_QUEUE,
+    songObj
+})
 
 const initialState = [];
 
@@ -54,6 +66,11 @@ export default function queueReducer(state = initialState, action) {
             return newState;
         case CLEAR_QUEUE:
             return [];
+        case AUTO_PLAY:
+            const newStateA=[...state];
+            newStateA.shift();
+            newStateA.unshift(action.song);
+            return newStateA
         default:
             return state;
 

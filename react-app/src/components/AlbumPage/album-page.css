@@ -1,12 +1,10 @@
 .album-page-container {
-    width: 90%;
+    width: 80%;
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     margin: 0 auto;
-    margin-left: 10%;
+    margin-left: 20%;
     border: 1px solid black;
     background-color: #121212;
     overflow-y: scroll;
@@ -21,7 +19,7 @@
   width: 232px;
   height: 232px;
   object-fit: cover;
-  margin-left: 55px;
+  margin-left: 5%;
   position: relative;
   top: 30px;
 }
@@ -40,10 +38,8 @@
   width: 90vw;
   height: 30vh;
   display: flex;
-  align-self: flex-start;
   flex-direction:row;
   align-items:center;
-  margin-left: -90%;
   margin-bottom: 140px;
   background: linear-gradient(#535353, #2A2A2A);
 }
@@ -52,8 +48,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  position: relative;
-  left: 60px;
+  padding-left: 3%;
 
 }
 
@@ -66,9 +61,10 @@
 
 .album-artist-name {
   color: white;
-  font-size: 16px;
-  position: relative;
-  top: 2px;
+  font-size: 0.9rem;
+  /* position: relative;
+  top: 2px; */
+
 }
 
 .album-artist-name:hover {
@@ -115,6 +111,7 @@
 .song-table {
   position: relative;
   min-width: 60vw;
+  margin-left: 40%;
 }
 
 .table-label {
@@ -124,7 +121,6 @@
 
 .song-table-container {
   max-height: 65vw;
-  margin-left: -350px;
   /* padding-bottom: 200px; */
 }
 

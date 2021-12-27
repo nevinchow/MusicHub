@@ -91,7 +91,7 @@ function Sidebar({artist}) {
                     <h3 className="contrib-name">Ayla</h3>
                     <div className="contriubtors">
                         <a href='https://github.com/spacegray' target='_blank' rel="noreferrer"><FontAwesomeIcon className="social-media-logos" icon={faGithub}/></a>
-                        <a href='' target='_blank' rel="noreferrer"><FontAwesomeIcon className="social-media-logos" icon={faLinkedinIn}/></a>
+                        <a href='https://www.linkedin.com/in/aylabasha/' target='_blank' rel="noreferrer"><FontAwesomeIcon className="social-media-logos" icon={faLinkedinIn}/></a>
                     </div>
                     {/* Dusty */}
                     <h3 className="contrib-name">Dusty Mumphrey</h3>
@@ -103,13 +103,13 @@ function Sidebar({artist}) {
                     <h3 className="contrib-name">Jessi Zhuo</h3>
                     <div className="contriubtors">
                         <a href='https://github.com/zyingzhuo' target='_blank' rel="noreferrer"><FontAwesomeIcon className="social-media-logos" icon={faGithub}/></a>
-                        <a href='' target='_blank' rel="noreferrer"><FontAwesomeIcon className="social-media-logos" icon={faLinkedinIn}/></a>
+                        <a href='https://www.linkedin.com/in/yingjia-zhuo-25a474170/' target='_blank' rel="noreferrer"><FontAwesomeIcon className="social-media-logos" icon={faLinkedinIn}/></a>
                     </div>
                     {/* Nevin */}
                     <h3 className="contrib-name" >Nevin Chow</h3>
                     <div className="contriubtors">
                         <a href='https://github.com/nevinchow/SpotifyProject' target='_blank' rel="noreferrer"><FontAwesomeIcon className="social-media-logos" icon={faGithub}/></a>
-                        <a href='' target='_blank' rel="noreferrer"><FontAwesomeIcon className="social-media-logos" icon={faLinkedinIn}/></a>
+                        <a href='https://www.linkedin.com/in/nevin-chow-aa4770221/' target='_blank' rel="noreferrer"><FontAwesomeIcon className="social-media-logos" icon={faLinkedinIn}/></a>
                     </div> 
                     <LogoutButton />
                 </div> : <></> }

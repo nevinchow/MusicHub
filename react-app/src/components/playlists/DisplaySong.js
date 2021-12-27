@@ -8,7 +8,7 @@ import AddToPlaylist from "./addSongtoPlaylist";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMusic } from "@fortawesome/free-solid-svg-icons";
-import { addOneSong } from "../../store/musicQueue";
+import { addOneSong, autoPlay } from "../../store/musicQueue";
 
 
 function DisplaySong({songId, trackNumber}) {
@@ -50,7 +50,8 @@ function DisplaySong({songId, trackNumber}) {
   }
 
     const addToQueue = () => {
-      dispatch(addOneSong(song))
+      // dispatch(addOneSong(song))
+      dispatch(autoPlay(song))
   }
 
 

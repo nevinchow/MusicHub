@@ -10,6 +10,7 @@ import SongTile from '../songs/Song';
 import { getSongs } from '../../store/songs';
 import { Link } from 'react-router-dom';
 import DisplaySong from '../playlists/DisplaySong';
+import Sidebar from '../Sidebar/Sidebar';
 
 
 
@@ -20,6 +21,7 @@ function AlbumPage() {
     const currentArtistId=album?.artistId
     const currentArtist=useSelector(state=>state.artist[currentArtistId])
     const songs=useSelector(state=>state.songs)
+    const user = useSelector((state) => state.session.user);
     const songsArray=Object.values(songs)
     const filteredSongArray=[]
     let trackNumber = 0
@@ -43,6 +45,7 @@ function AlbumPage() {
     return (
       <>
         <div className="album-page-container">
+        {!user ? <></> : <Sidebar/>}
           <div className="album-page-middle">
             <div className='album-page-header'>
             <img className="album-art2" src={album?.imageURL}></img>

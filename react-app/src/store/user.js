@@ -8,7 +8,6 @@ const loadUsers = (users) => ({
 export const getUsers = () => async (dispatch) => {
     const reponse = await fetch(`/api/users`)
     const users = await reponse.json();
-    console.log('!!!!!!!!!!!',users)
     dispatch(loadUsers(users.users))
 }
 
@@ -17,12 +16,12 @@ const userReducer=(state=initialState, action)=>{
     switch (action.type) {
         case LOAD_USERS:
             let newState = {...state};
-            
+
             (action.users).forEach(user => {
                 newState[user.id] = user;
             });
             return newState;
-        
+
 
         default:
         return state;

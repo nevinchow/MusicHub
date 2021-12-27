@@ -16,7 +16,7 @@ const MusicQueue = () => {
             <div className="Queue_info"></div>
             {songIDs.length ? (
                 <div id="song_display_info">
-                    <p id="song_display_info_title">Title</p>
+                    {/* <p id="song_display_info_title">Title</p> */}
                     <p id="song_display_info_artist">Artist</p>
                 </div>
             ) : null
