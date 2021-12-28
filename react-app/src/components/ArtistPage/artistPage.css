@@ -10,6 +10,12 @@
   overflow: scroll;
   margin-left: 20%;
    padding-left: 25px;
+    
+}
+
+.song-display-container {
+   padding-right: 10%;
+   width: 90%;
 }
 
 .artist-page-header {
@@ -34,15 +40,18 @@
 .discography-container {
   margin-bottom: 50px;
   width: 100%;
+  padding-right: 10%;
 }
 .discography {
   color: white;
   text-align: center;
+   padding-right: 10%;
 }
 
 .about-container {
   display: flex;
   margin: 50px 5px;
+   padding-right: 10%;
   /* justify-content: space-around; */
   /* flex-direction: column; */
   /* margin-left: 18%; */
