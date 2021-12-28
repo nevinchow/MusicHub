@@ -79,7 +79,8 @@ function Sidebar({artist}) {
                 </div>
                     
                 <div className="playlist-list">
-                    <Playlists setPlaylistId={setPlaylistId}/>
+                    <h2 className="sidebar-link">Your Playlists</h2>
+                    <Playlists setPlaylistId={setPlaylistId} id="playlists-sidebar"/>
                 </div>
             </div>
 

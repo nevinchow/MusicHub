@@ -73,8 +73,13 @@
 .sidebar-link:hover,
 .logout-button:hover,
 .credits:hover {
-  color: white;
+  color: rgb(36, 80, 202);
   cursor: pointer;
+}
+
+#playlists-sidebar:hover {
+    color: blue;
+    
 }
 
 .add-playlist-container {

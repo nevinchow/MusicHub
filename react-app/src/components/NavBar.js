@@ -12,7 +12,12 @@ const NavBar = () => {
     return (
       // Upper Nav Bar
       <nav
-        style={{ backgroundColor: "black", height: "100px",  width:'100%', display: "flex"}}
+        style={{
+          backgroundColor: "black",
+          height: "100px",
+          width: "100%",
+          display: "flex",
+        }}
       >
         <ul>
           <li>
@@ -41,10 +46,11 @@ const NavBar = () => {
             style={{
               position: "absolute",
               color: "white",
-              height: "75px",
-              width: "75px",
+              height: "70px",
+              width: "70px",
               marginLeft: "4%",
-              margin: "15px",
+              margin: "20px",
+              paddingBottom: "30px",
             }}
           />
         </NavLink>
@@ -57,7 +63,7 @@ const NavBar = () => {
             justifyContent: "flex-end",
             // marginRight: "300px",
             alignItems: "center",
-            bottom:'10px',
+            bottom: "10px",
             width: "100vw",
           }}
         >
