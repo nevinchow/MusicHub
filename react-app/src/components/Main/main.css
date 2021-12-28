@@ -29,12 +29,14 @@
   height:135px; */
   /* position: relative; */
   background-color: #121212;
+  width: 90%;
   bottom: 80px;
   margin-left: 3%;
   /* display: inline-block; */
   overflow-x: hidden;
   white-space: nowrap;
   margin-left: 2%;
+  padding-right: 5%;
   margin-bottom:  5vh
 }
 
@@ -56,6 +58,7 @@
   flex-direction: column; */
   align-items: center;
   margin-left: 2%;
+
 }
 
 .albumTile-container:hover {
@@ -83,7 +86,8 @@
   overflow-x: hidden;
   white-space: nowrap;
   margin-left: 2%;
-  /* margin-right: 2%; */
+  padding-right: 5%;
+  width: 90%;
 
 }
 
