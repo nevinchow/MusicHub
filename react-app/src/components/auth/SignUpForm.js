@@ -116,7 +116,7 @@ const SignUpForm = () => {
         </button>
         <div className="login-prompt"></div>
           <div id="border-login"></div>
-          <h2>Already have an account?</h2>
+          <h2 className="have-account">Already have an account?</h2>
           <Link to="/login">
             <button className="Sign-up-styled"> Log In to Music Hub </button>
           </Link>
