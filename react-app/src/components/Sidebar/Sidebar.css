@@ -60,8 +60,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-weight: bold;
 }
 
+
+#your-playlists:hover {
+  color: red;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+}
 .sidebar-link,
 .credits {
   color: rgb(219, 219, 219);
@@ -76,7 +84,12 @@
   color: rgb(36, 80, 202);
   cursor: pointer;
 }
-
+.sidebar-heading {
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bold;
+}
 #playlists-sidebar:hover {
     color: blue;
     
