@@ -46,10 +46,11 @@ const NavBar = () => {
             style={{
               position: "absolute",
               color: "white",
-              height: "70px",
-              width: "70px",
+              height: "80px",
+              width: "80px",
               marginLeft: "4%",
               margin: "20px",
+              marginBottom: "20%",
               paddingBottom: "30px",
             }}
           />
@@ -63,7 +64,7 @@ const NavBar = () => {
             justifyContent: "flex-end",
             // marginRight: "300px",
             alignItems: "center",
-            bottom: "10px",
+            padding: "10px",
             width: "100vw",
           }}
         >
