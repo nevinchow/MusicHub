@@ -39,7 +39,9 @@
 }
 
 .form-input {
-  width: 100%;
+    width: 100%;
+    padding: 8px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 /* -- Display playlist ------------- */
@@ -68,7 +70,9 @@
 }
 
 .playlist-description {
-  color: white;
+    color:white;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+
 }
 
 /* -- Playlist Page --------------------- */

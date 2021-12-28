@@ -1,8 +1,7 @@
 import React from "react"
 import * as sessionActions from '../../store/session'
 import { Redirect } from "react-router";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import './LandingPage.css';
 import logo from '../../images/github-logo.png'
 import logo2 from '../../images/linkedin-logo.png'
