@@ -41,12 +41,16 @@
   margin-bottom: 50px;
   width: 100%;
   padding-right: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
 .discography {
   color: white;
   text-align: center;
-   padding-right: 10%;
 }
+
 
 .about-container {
   display: flex;

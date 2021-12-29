@@ -39,57 +39,77 @@ function ArtistPage() {
 
         return (
           <>
-            {!user ? <></> : <Sidebar/>}
-              <div className="artist-page-container">
-                <div className="artist-page-header">
+            {!user ? <></> : <Sidebar />}
+            <div className="artist-page-container">
+              <div className="artist-page-header">
+                <img
+                  className="artist-header-img"
+                  src={artist?.headerURL}
+                ></img>
+                <h2 className="artist-page-name">{artist?.name}</h2>
+              </div>
+              <div className="about-container">
+                <div className="about-bio-container">
+                  <h2 className="about">About</h2>
                   <img
-                    className="artist-header-img"
-                    src={artist?.headerURL}
+                    className="artist-bio-image"
+                    src={artist?.biopictureURL}
                   ></img>
-                  <h2 className='artist-page-name'>{artist?.name}</h2>
+                  <p className="artist-bio">{artist?.bio}</p>
                 </div>
-                <div className='about-container'>
-                <div className='about-bio-container'>
-                  <h2 className='about'>About</h2>
-                  <img className='artist-bio-image' src={artist?.biopictureURL}></img>
-                  <p className='artist-bio'>{artist?.bio}</p>
-                </div>
-
               </div>
-                <div className='discography-container'>
-                  <h2 className='discography'>Discography</h2>
-                  <div className='albumTile-container'>
+              <div className="discography-container">
+                <h2 className="discography">Discography</h2>
+                <div className="disco">
+                  <div className="albumTile-container">
                     <AlbumTile album={album} />
-                    <NavLink to={`/albums/${album.id}/reviews`} className='review-link'>Reviews</NavLink>
+                    <NavLink
+                      to={`/albums/${album.id}/reviews`}
+                      className="review-link"
+                    >
+                      Reviews
+                    </NavLink>
                   </div>
+                </div>
               </div>
-              
-              <div className='song-display-container'>
-              <table className="song-table">
-            <thead>
-              <tr className="song-labels">
-                <th style={{width:'10%'}} className="table-label">#</th>
-                <th style={{width:'10%'}} className="table-label"></th>
-                <th style={{width:'20%'}} className="table-label">Title</th>
-                <th style={{width:'20%'}} className="table-label">Album</th>
-                <th style={{width:'10%'}} className="table-label">Duration</th>
-                <th style={{width:'10%'}} className="table-label settings"></th>
+
+              <div className="song-display-container">
+                <table className="song-table">
+                  <thead>
+                    <tr className="song-labels">
+                      <th style={{ width: "10%" }} className="table-label">
+                        #
+                      </th>
+                      <th style={{ width: "10%" }} className="table-label"></th>
+                      <th style={{ width: "20%" }} className="table-label">
+                        Title
+                      </th>
+                      <th style={{ width: "20%" }} className="table-label">
+                        Album
+                      </th>
+                      <th style={{ width: "10%" }} className="table-label">
+                        Duration
+                      </th>
+                      <th
+                        style={{ width: "10%" }}
+                        className="table-label settings"
+                      ></th>
                     </tr>
                   </thead>
                   <tbody>
-                        {songstorender.map((song)=>{
-                          trackNumber++
-                          return (
-                            <DisplaySong songId={song.id} trackNumber={trackNumber}/>
-                          )
-
-                        })}
-
+                    {songstorender.map((song) => {
+                      trackNumber++;
+                      return (
+                        <DisplaySong
+                          songId={song.id}
+                          trackNumber={trackNumber}
+                        />
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>
-              
-              </div>
+            </div>
           </>
         );
     }
