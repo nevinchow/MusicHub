@@ -39,7 +39,7 @@
   margin-left: 2%;
   padding-right: 5%;
   margin-bottom:  5vh;
-  
+  overflow-x: hidden;
 }
 
 .albums-container:hover{
@@ -56,8 +56,8 @@
   display: inline-block;
   width:135px;
   height:135px;
-  object-fit: cover;
-
+ 
+  
 
   /* /* display: flex;
   flex-direction: column; */
