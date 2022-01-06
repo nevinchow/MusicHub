@@ -20,7 +20,7 @@ All features require user authorization. Demo login is provided.
 ## 4. Audio player 
 * Continuous play: Users are able to navigate to different pages of the site without stopping the current song from playing
 * When one song ends, the next song in the queue is played.
-* Key mapping. Users may stop the player by hiting pause on their keyboard, users may skip to next track if there is one in the queue by hitting 'next' key on their keyboard
+* Key mapping. Users may stop the player by hiting pause on their keyboard, users may skip to next track if there is one in the queue by hitting 'next' key on their keyboard.
  
 ## 5. Reviews CRUD
 * Users are able create reviews on Albums, they are also able to edit and delete their reviews.
