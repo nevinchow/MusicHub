@@ -13,7 +13,6 @@ import {
   faGithub,
   faLinkedinIn,
 } from "@fortawesome/free-brands-svg-icons";
-
 import "./Sidebar.css";
 import { getSongsForPlaylist } from "../../store/playlists_songs";
 
@@ -60,8 +59,9 @@ function Sidebar({ artist }) {
               <FontAwesomeIcon className="spotify-logo" icon={faSpotify} />
               <h2 className="spotify-logo">Music Hub</h2>{" "}
             </Link>
+
             <Link className="sidebar-link" to="/search">
-              <h2 className="sidebar-link">Search</h2>{" "}
+              <h2 className="sidebar-link"> Search</h2>{" "}
             </Link>
             <h2 className="sidebar-link" onClick={openAddPlaylist}>
               Add Playlist

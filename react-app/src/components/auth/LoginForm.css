@@ -4,7 +4,7 @@
     align-items: center;
     /* align-content: center; */
     /* justify-content: center; */
-    height: 75%;
+    height: 100%;
     background-color: white;
 
 }
@@ -155,5 +155,5 @@ background-color: black;
     margin-bottom:20px;
 }
 .no-account {
-    color: white;
+    color: black;
 }

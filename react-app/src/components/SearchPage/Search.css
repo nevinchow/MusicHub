@@ -34,15 +34,17 @@
 }
 
 .bigAlbums {
+  /* display: flex;
+  flex-direction: row; */
   margin-top: 5%;
   grid-template-columns: repeat(2, minmax(0px, 1fr));
   margin-bottom: 5%;
   justify-content: center;
   align-items: center;
   align-content: center;
-  /* margin-top: 10%; */
-  /* width: 135px;
-  height: 135px; */
+
+
+ 
 }
 
 .littleAlbum {
