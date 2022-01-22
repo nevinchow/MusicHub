@@ -6,13 +6,15 @@ import "./musicPlayer.css";
 import { useState } from 'react';
 import { stopSong } from '../../store/musicPlayer';
 import { useDispatch } from 'react-redux';
+import { useCurrentSongs } from '../../context/queue';
 
 const Player = ({queue}) => {
   const dispatch = useDispatch()
   const artists = useSelector((state) => state.artist)
   const song = useSelector((state) => state.song)
   let isPlaying = useSelector((state) => state.player)
-  const [currentSong, setCurrentSong] = useState(0);
+  // const [currentSong, setCurrentSong] = useState(0);
+  const{currentSong,setCurrentSong}=useCurrentSongs(0)
   let trackNumber = currentSong + 1
   
   if(!queue.length) return null;
@@ -27,7 +29,7 @@ const Player = ({queue}) => {
     playlist.push(nextSong)
   })
 
-
+  
 
   
   
@@ -38,10 +40,10 @@ const Player = ({queue}) => {
           <div className='song-info'>
             <p className="song-info-details">#{trackNumber}</p>
             <p className="song-info-details">{playlist[currentSong].title}</p>
-            <p className="song-info-details">{playlist[currentSong].artist.name}</p>
+            <p className="song-info-details">{playlist[currentSong]?.artist?.name}</p>
           </div>
           <AudioPlayer className="audioPlayer"
-            autoPlay={true}
+            // autoPlay={true}
             src={playlist[currentSong].src}
             // preload={playlist}
             autoPlayAfterSrcChange={true}
@@ -51,7 +53,7 @@ const Player = ({queue}) => {
             // showSkipControls={true}
             onClick={() => setCurrentSong(currentSong)}
             // onClickNext={() => setCurrentSong((i) => i + 1)}
-
+           
             onPause={() => {
               dispatch(stopSong())
             }}

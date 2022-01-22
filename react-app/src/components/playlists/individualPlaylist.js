@@ -14,9 +14,12 @@ import DisplaySong from './DisplaySong';
 import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 import Sidebar from '../Sidebar/Sidebar';
 import DisplaySongPlaylist from './DisplaySongOnPlaylist';
+import { load } from '../../store/musicQueue';
+import { useCurrentSongs } from '../../context/queue';
 
 const PlaylistPage = () => {
   const {id} = useParams();
+  const{currentSong,setCurrentSong}=useCurrentSongs()
   const history = useHistory();
   const dispatch = useDispatch()
   const [editForm, openEditForm] = useState(false)
@@ -28,23 +31,14 @@ const PlaylistPage = () => {
   const songsState = useSelector(state => state?.songs)
   const albums = useSelector(state => state?.album)
   const songsList=Object.values(playlistSongs)
+  
   const user = useSelector((state) => state.session.user)
   const songs = [];
   let trackNumber = 0
 
- useEffect(() => {
-    (async() => {
-      await dispatch(getPlaylists())
-      await dispatch(getAlbums())
-      await dispatch(getArtists())
-      await dispatch(getSongsForPlaylist(id))
-      setLoaded(true);
-    })();
-  }, [dispatch, id]);
 
-    if (!loaded) {
-    return null;
-  }
+
+ 
   Object.values(playlistSongs).map((songId) => {
       if(+songId.playlistId === +id) {
         const oneSong = Object.keys(songsState).find(aSong => songId.songId === +aSong)
@@ -52,7 +46,27 @@ const PlaylistPage = () => {
       }
   })
 
+   
 
+  useEffect(()=>{
+    dispatch(load(songs,currentSong))
+  },[dispatch])
+
+
+  useEffect(() => {
+    (async() => {
+      await dispatch(getPlaylists())
+      await dispatch(getAlbums())
+      await dispatch(getArtists())
+      await dispatch(getSongsForPlaylist(id))
+      
+     
+      setLoaded(true);
+    })();
+  }, [dispatch, id]);
+  if (!loaded) {
+    return null;
+  }
 
 
   const editFormOpen = () => {

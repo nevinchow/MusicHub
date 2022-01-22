@@ -131,10 +131,10 @@ function DisplaySong({songId, trackNumber}) {
 
 
             <td className="queue-add">
-              <div className="tooltip" >
+              {/* <div className="tooltip" >
                 <FontAwesomeIcon className="plus-button" icon={faMusic} onClick={addToQueue}/>
                 <span class="tooltiptext">Add To Queue</span>
-              </div>
+              </div> */}
               <div className="tooltip" >
                 <FontAwesomeIcon className="plus-button tooltip" id={song.id} onClick={openSettings} icon={faPlus} />
                 <span class="tooltiptext">Add To Playlist</span>

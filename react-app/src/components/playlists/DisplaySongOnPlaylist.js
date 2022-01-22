@@ -134,14 +134,14 @@ function DisplaySongPlaylist({songId, trackNumber}) {
                 <RemoveFromPlaylist  songId={songId} playlistId={Number(id)}/>
                 <span class="tooltiptext">Remove</span>
               </div>
-              <div className="tooltip" >
+              {/* <div className="tooltip" >
                 <FontAwesomeIcon className="plus-button" icon={faMusic} onClick={addToQueue}/>
                 <span class="tooltiptext">Add To Queue</span>
-              </div>
-              <div className="tooltip" >
+              </div> */}
+              {/* <div className="tooltip" >
                 <FontAwesomeIcon className="plus-button tooltip" id={song.id} onClick={openSettings} icon={faPlus} />
                 <span class="tooltiptext">Add To Playlist</span>
-              </div>
+              </div> */}
             {settings ? <AddToPlaylist songId={songId} setSettings={setSettings}/> : <></>}
             </td>
 
