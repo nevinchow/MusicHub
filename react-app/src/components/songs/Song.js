@@ -6,6 +6,10 @@ import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { startSong } from "../../store/musicPlayer";
 import { useCurrentSongs } from '../../context/queue';
 
+const Song = ({ songId, playlistId }) => {
+  const song = useSelector((state) => state.songs[songId]);
+  // const userPlaylists = useSelector(state) => state.userPlaylists;
+
 
 const Song = ({songId, playlistId}) => {
     const song = useSelector((state) => state.songs[songId]);
@@ -24,23 +28,24 @@ const Song = ({songId, playlistId}) => {
         dispatch(startSong())
     }
 
-    const handleAddQueue = () => {
-        dispatch(addNextSong(song));
-        setShowQueue(true);
-    }
 
-    return (
-      <>
-        <div className="song-container">
-          <FontAwesomeIcon
-            icon={faPlay}
-            className="play-icon"
-            onClick={handlePlay}
-            
-          />
-            {/* {" "}
+  const handleAddQueue = () => {
+    dispatch(addNextSong(song));
+    setShowQueue(true);
+  };
+
+  return (
+    <>
+      <div className="song-container">
+        <FontAwesomeIcon
+          icon={faPlay}
+          className="play-icon"
+          onClick={handlePlay}
+        />
+        {/* {" "}
             play{" "} */}
-        </div>
-      </>
-    );}
-    export default Song;
+      </div>
+    </>
+  );
+};
+export default Song;

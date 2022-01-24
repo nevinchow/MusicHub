@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState }  from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -20,10 +21,14 @@ import { useCurrentSongs } from '../../context/queue';
 const PlaylistPage = () => {
   const {id} = useParams();
   const{currentSong,setCurrentSong}=useCurrentSongs()
+
+
+
   const history = useHistory();
-  const dispatch = useDispatch()
-  const [editForm, openEditForm] = useState(false)
+  const dispatch = useDispatch();
+  const [editForm, openEditForm] = useState(false);
   const [loaded, setLoaded] = useState(false);
+
   const [playlistSettings, setPlaylistSettings] = useState(false)
   const playlists = useSelector(state => state.playlists)
   const playlist = Object.keys(playlists).find(onePlaylist => +id === +onePlaylist)
@@ -69,169 +74,197 @@ const PlaylistPage = () => {
   }
 
 
+
+
   const editFormOpen = () => {
-      if(!editForm) {
-        openEditForm(true)
-      } else {
-        openEditForm(false)
-      }
-  }
+    if (!editForm) {
+      openEditForm(true);
+    } else {
+      openEditForm(false);
+    }
+  };
 
   const deletePlaylist = async () => {
     dispatch(removePlaylist(id));
-    history.push(`/main`)
-  }
+    history.push(`/main`);
+  };
 
   function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-    const suggestedSongs=[]
+  }
+  const suggestedSongs = [];
 
-    const suggestSong = () => {
-
+  const suggestSong = () => {
     const max = Object.keys(songsState).length - 1;
 
     let i = 0;
-    while(i < 5) {
-      let randomSong = getRandomInt(1, max)
-      const indexes = []
+    while (i < 5) {
+      let randomSong = getRandomInt(1, max);
+      const indexes = [];
       if (indexes.includes(randomSong)) {
-        randomSong = getRandomInt(1, max)
+        randomSong = getRandomInt(1, max);
       } else {
-        suggestedSongs.push(Object.values(songsState)[randomSong])
-        indexes.push(randomSong)
+        suggestedSongs.push(Object.values(songsState)[randomSong]);
+        indexes.push(randomSong);
       }
-      i++
+      i++;
     }
-    return suggestedSongs
-  }
+    return suggestedSongs;
+  };
 
   const getRandomAlbumImg = () => {
-    const images = []
-    songs.forEach(song => {
-      const thisAlbum = Object.keys(albums).find(oneAlbum => song.albumId === +oneAlbum)
-      if(!images.includes(albums[thisAlbum].imageURL)) {
-        images.push(albums[thisAlbum].imageURL)
+    const images = [];
+    songs.forEach((song) => {
+      const thisAlbum = Object.keys(albums).find(
+        (oneAlbum) => song.albumId === +oneAlbum
+      );
+      if (!images.includes(albums[thisAlbum].imageURL)) {
+        images.push(albums[thisAlbum].imageURL);
       }
+    });
 
-
-
-    })
-
-    while(images.length < 5) {
-    images.push('https://upload.wikimedia.org/wikipedia/commons/3/3c/No-album-art.png')
+    while (images.length < 5) {
+      images.push(
+        "https://upload.wikimedia.org/wikipedia/commons/3/3c/No-album-art.png"
+      );
     }
 
-    return images
-
-  }
+    return images;
+  };
 
   const openPlaylistSettings = () => {
-    if(playlistSettings) {
-      setPlaylistSettings(false)
-      openEditForm(false)
+    if (playlistSettings) {
+      setPlaylistSettings(false);
+      openEditForm(false);
     } else {
-      setPlaylistSettings(true)
+      setPlaylistSettings(true);
     }
-  }
-
-
-
-
+  };
 
   return (
     <>
-    {!user ? <></> : <Sidebar/>}
-    <div className="playlist-page-container">
-      <div className="image-container">
-        {songs.length ?
+      {user && <Sidebar />}
+      <div className="playlist-page-container">
+        <div className="image-container">
+          {songs.length ? (
+            <div className="image-collage">
+              <img
+                className="playlist-img"
+                src={getRandomAlbumImg()[0]}
+                alt={playlists[playlist].name}
+              />
+              <img
+                className="playlist-img"
+                src={getRandomAlbumImg()[1]}
+                alt={playlists[playlist].name}
+              />
+              <img
+                className="playlist-img"
+                src={getRandomAlbumImg()[2]}
+                alt={playlists[playlist].name}
+              />
+              <img
+                className="playlist-img"
+                src={getRandomAlbumImg()[3]}
+                alt={playlists[playlist].name}
+              />
+            </div>
+          ) : (
+            <img
+              className="default-playlist-img"
+              src="https://upload.wikimedia.org/wikipedia/commons/3/3c/No-album-art.png"
+              alt="default playlist"
+            ></img>
+          )}
 
-
-        <div className="image-collage">
-          <img className="playlist-img" src={getRandomAlbumImg()[0]} alt={playlists[playlist].name}/>
-          <img className="playlist-img" src={getRandomAlbumImg()[1]} alt={playlists[playlist].name}/>
-          <img className="playlist-img" src={getRandomAlbumImg()[2]} alt={playlists[playlist].name}/>
-          <img className="playlist-img" src={getRandomAlbumImg()[3]} alt={playlists[playlist].name}/>
-        </div>
-      : <img className="default-playlist-img" src="https://upload.wikimedia.org/wikipedia/commons/3/3c/No-album-art.png" alt="default playlist"></img>}
-
-
-        <div className="playlist-details">
-          <h1>{playlists[playlist].name}</h1>
-          <p>{playlists[playlist].description}</p>
-
-        </div>
-
-      </div>
-        <div className="playlist-options">
-          <FontAwesomeIcon className="settings-buttons" icon={faEllipsisH} onClick={openPlaylistSettings}/>
-          {playlistSettings ?
-          <div className="delete-edit-buttons">
-          <h2 className="edit-button" onClick={editFormOpen}>Edit</h2>
-          <h2 className="delete-button" onClick={deletePlaylist}>Delete</h2>
+          <div className="playlist-details">
+            <h1>{playlists[playlist].name}</h1>
+            <p>{playlists[playlist].description}</p>
           </div>
-          : <></>}
-
-
         </div>
-        {editForm ?
-        <EditPlaylists editFormOpen={editFormOpen}/> :
-        <></>}
-
+        <div className="playlist-options">
+          <FontAwesomeIcon
+            className="settings-buttons"
+            icon={faEllipsisH}
+            onClick={openPlaylistSettings}
+          />
+          {playlistSettings && (
+            <div className="delete-edit-buttons">
+              <h2 className="edit-button" onClick={editFormOpen}>
+                Edit
+              </h2>
+              <h2 className="delete-button" onClick={deletePlaylist}>
+                Delete
+              </h2>
+            </div>
+          )}
+        </div>
+        {editForm && <EditPlaylists editFormOpen={editFormOpen} />}
 
         <div className="song-display-container">
           <table className="song-table">
             <thead>
               <tr className="song-labels">
-                <th style={{width:'10%'}} className="table-label">#</th>
-                <th style={{width:'10%'}} className="table-label"></th>
-                <th style={{width:'20%'}} className="table-label">Title</th>
-                <th style={{width:'20%'}} className="table-label">Album</th>
-                <th style={{width:'10%'}} className="table-label">Duration</th>
-                <th style={{width:'10%'}} className="table-label settings"></th>
-
+                <th style={{ width: "10%" }} className="table-label">
+                  #
+                </th>
+                <th style={{ width: "10%" }} className="table-label"></th>
+                <th style={{ width: "20%" }} className="table-label">
+                  Title
+                </th>
+                <th style={{ width: "20%" }} className="table-label">
+                  Album
+                </th>
+                <th style={{ width: "10%" }} className="table-label">
+                  Duration
+                </th>
+                <th
+                  style={{ width: "10%" }}
+                  className="table-label settings"
+                ></th>
               </tr>
             </thead>
             <tbody>
-              {!songs.length ?
-              <>
-                <tr className="suggested-header">
-                  <td colspan='6'><p className="suggested-text">You don't have any songs yet, try one of these!</p></td>
-                </tr>
-              </>
-              : <></>}
-              {songs.length ?
-              songs.map((song) => {
-                   trackNumber++
-                   return (
-                     <DisplaySongPlaylist songId={song.id} trackNumber={trackNumber}/>
-                   )
-
-                }) :
-
-                 suggestSong().map((song) => {
-                   trackNumber++
-                   return (
-                     <>
-                        <DisplaySong songId={song.id} trackNumber={trackNumber}/>
-                     </>
-                   )
-
-                })}
-
+              {!songs.length && (
+                <>
+                  <tr className="suggested-header">
+                    <td colspan="6">
+                      <p className="suggested-text">
+                        You don't have any songs yet, try one of these!
+                      </p>
+                    </td>
+                  </tr>
+                </>
+              )}
+              {songs.length
+                ? songs.map((song) => {
+                    trackNumber++;
+                    return (
+                      <DisplaySongPlaylist
+                        songId={song.id}
+                        trackNumber={trackNumber}
+                      />
+                    );
+                  })
+                : suggestSong().map((song) => {
+                    trackNumber++;
+                    return (
+                      <>
+                        <DisplaySong
+                          songId={song.id}
+                          trackNumber={trackNumber}
+                        />
+                      </>
+                    );
+                  })}
             </tbody>
-
           </table>
-
         </div>
-    </div>
-
-
+      </div>
     </>
-
   );
-}
+};
 
 export default PlaylistPage;

@@ -1,65 +1,46 @@
-import { useParams, Link } from "react-router-dom"
-import React, { useEffect, useState }  from 'react';
-import { useDispatch } from "react-redux"
-import { addSongToPlaylist } from "../../store/playlists_songs";
+import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import Song from '../songs/Song'
+import Song from "../songs/Song";
 import AddToPlaylist from "./addSongtoPlaylist";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMusic } from "@fortawesome/free-solid-svg-icons";
-import { addOneSong, autoPlay } from "../../store/musicQueue";
-import RemoveFromPlaylist from "./deleteSongfromPlaylist";
+import { addOneSong } from "../../store/musicQueue";
 
-
-function DisplaySong({songId, trackNumber}) {
-  const {id} = useParams()
-  const albums = useSelector(state => state.album)
-  const artists = useSelector(state => state.artist)
-  const song = useSelector(state => state.songs[songId])
+function DisplaySong({ songId, trackNumber }) {
+  const albums = useSelector((state) => state.album);
+  const artists = useSelector((state) => state.artist);
+  const song = useSelector((state) => state.songs[songId]);
   const [play, showPlay] = useState(false);
-  const [settings, setSettings] = useState(false)
-  const dispatch = useDispatch()
+  const [settings, setSettings] = useState(false);
+  const dispatch = useDispatch();
 
-
-
-
-    const openSettings = async (e) => {
-    if(!settings) {
-      setSettings(true)
+  const openSettings = async (e) => {
+    if (!settings) {
+      setSettings(true);
     } else {
-      setSettings(false)
+      setSettings(false);
     }
-  }
-
-  const closeSettings = async () => {
-
-    if(settings) {
-      setSettings(false)
-    }
-  }
+  };
 
   const showPlayButton = () => {
-    if(!play) {
-      showPlay(true)
+    if (!play) {
+      showPlay(true);
     } else {
-      showPlay(false)
+      showPlay(false);
     }
-  }
+  };
 
-    const hidePlayButton = () => {
-      showPlay(false)
-  }
+  const hidePlayButton = () => {
+    showPlay(false);
+  };
 
-    const addToQueue = () => {
-      dispatch(addOneSong(song))
-      // dispatch(autoPlay(song))
-  }
+  const addToQueue = () => {
+    dispatch(addOneSong(song));
+  };
 
-
-
-
-  // trackNumber++;
   const minutes = Math.floor(song.duration / 60);
   const seconds = song.duration % 60;
   let newSeconds;
@@ -76,61 +57,60 @@ function DisplaySong({songId, trackNumber}) {
   }
   //get album for song
   const thisAlbum = Object.keys(albums).find(
-    (oneAlbum) => song.albumId === +oneAlbum)
+    (oneAlbum) => song.albumId === +oneAlbum
+  );
 
   //get artist for song
   const thisArtist = Object.keys(artists).find(
     (oneArtist) => song.artistId === +oneArtist
   );
 
-
-    return (
-        <>
-        <tr
-            className="table-row"
-            // key={song.id}
-            onMouseEnter={showPlayButton}
-            onMouseLeave={hidePlayButton}
+  return (
+    <>
+      <tr
+        className="table-row"
+        // key={song.id}
+        onMouseEnter={showPlayButton}
+        onMouseLeave={hidePlayButton}
+      >
+        {play && (
+          <td className="cell">
+            <Song songId={song.id} />
+          </td>
+        )}
+        <td className="cell-track">{trackNumber}</td>
+        {!play && (
+          <td className="cell">
+            <img
+              className="album-thumbnail"
+              src={albums[thisAlbum].imageURL}
+              alt={albums[thisAlbum].name}
+            ></img>
+          </td>
+        )}
+        <td className="cell">
+          <div className="song-name-row">
+            <p>{song.name}</p>
+            <Link
+              className="song-info-links"
+              to={`/artist/${artists[thisArtist].id}`}
+            >
+              {artists[thisArtist].name}
+            </Link>
+          </div>
+        </td>
+        <td className="cell">
+          <Link
+            className="song-info-links"
+            to={`/albums/${albums[thisAlbum].id}`}
           >
-            {play ? (
-              <td className="cell">
-                <Song songId={song.id} />
-              </td>
-            ) : (
-              <></>
-            )}
-            <td className="cell-track">{trackNumber}</td>
-           {!play ?
-              <td className="cell">
-              <img
-                className="album-thumbnail"
-                src={albums[thisAlbum].imageURL}
-                alt={albums[thisAlbum].name}
-              ></img>
-            </td> : <></>}
-            <td className="cell">
-              <div className="song-name-row">
-                <p>{song.name}</p>
-                <Link
-                  className="song-info-links"
-                  to={`/artist/${artists[thisArtist].id}`}
-                >
-                  {artists[thisArtist].name}
-                </Link>
-              </div>
-            </td>
-            <td className="cell">
-              <Link
-                className="song-info-links"
-                to={`/albums/${albums[thisAlbum].id}`}
-              >
-                {albums[thisAlbum].title}
+            {albums[thisAlbum].title}
               </Link>
-            </td>
-            <td className="cell">{trackTime}</td>
+         </td>
+         <td className="cell">{trackTime}</td>
 
 
-            <td className="queue-add">
+         <td className="queue-add">
               {/* <div className="tooltip" >
                 <FontAwesomeIcon className="plus-button" icon={faMusic} onClick={addToQueue}/>
                 <span class="tooltiptext">Add To Queue</span>
@@ -140,12 +120,14 @@ function DisplaySong({songId, trackNumber}) {
                 <span class="tooltiptext">Add To Playlist</span>
               </div>
             {settings ? <AddToPlaylist songId={songId} setSettings={setSettings}/> : <></>}
-            </td>
+         </td>
 
-          </tr>
-        </>
+       </tr>
+     </>
     )
+
+         
+
 }
 
-
-export default DisplaySong
+export default DisplaySong;

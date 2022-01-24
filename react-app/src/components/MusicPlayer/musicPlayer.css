@@ -45,6 +45,7 @@
   justify-content: flex-end;
   height: 80%;
   overflow: hidden;
+  width: 100%;
 }
 
 .song-info-details {
