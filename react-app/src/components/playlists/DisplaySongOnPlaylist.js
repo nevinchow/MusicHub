@@ -106,35 +106,40 @@ function DisplaySongPlaylist({ songId, trackNumber }) {
             className="song-info-links"
             to={`/albums/${albums[thisAlbum].id}`}
           >
+            {albums[thisAlbum].title}
+          </Link>
+        </td>
+        <td className="cell">{trackTime}</td>
 
-           
-                {albums[thisAlbum].title}
-              </Link>
-            </td>
-            <td className="cell">{trackTime}</td>
-
-
-            <td className="queue-add">
-              <div className="tooltip" >
-                <RemoveFromPlaylist  songId={songId} playlistId={Number(id)}/>
-                <span class="tooltiptext">Remove</span>
-              </div>
-              {/* <div className="tooltip" >
-                <FontAwesomeIcon className="plus-button" icon={faMusic} onClick={addToQueue}/>
-                <span class="tooltiptext">Add To Queue</span>
-              </div> */}
-              {/* <div className="tooltip" >
-                <FontAwesomeIcon className="plus-button tooltip" id={song.id} onClick={openSettings} icon={faPlus} />
-                <span class="tooltiptext">Add To Playlist</span>
-              </div> */}
-            {settings ? <AddToPlaylist songId={songId} setSettings={setSettings}/> : <></>}
-            </td>
-
-          </tr>
-        </>
-    )
-
-    
+        <td className="queue-add">
+          <div className="tooltip">
+            <RemoveFromPlaylist songId={songId} playlistId={Number(id)} />
+            <span class="tooltiptext">Remove</span>
+          </div>
+          <div className="tooltip">
+            <FontAwesomeIcon
+              className="plus-button"
+              icon={faMusic}
+              onClick={addToQueue}
+            />
+            <span class="tooltiptext">Add To Queue</span>
+          </div>
+          <div className="tooltip">
+            <FontAwesomeIcon
+              className="plus-button tooltip"
+              id={song.id}
+              onClick={openSettings}
+              icon={faPlus}
+            />
+            <span class="tooltiptext">Add To Playlist</span>
+          </div>
+          {settings && (
+            <AddToPlaylist songId={songId} setSettings={setSettings} />
+          )}
+        </td>
+      </tr>
+    </>
+  );
 }
 
 export default DisplaySongPlaylist;

@@ -11,14 +11,11 @@ import { getSongs } from '../../store/songs';
 import { Link } from 'react-router-dom';
 import DisplaySong from '../playlists/DisplaySong';
 import Sidebar from '../Sidebar/Sidebar';
-import { loadAlbumTracks} from '../../store/musicQueue';
-import { useCurrentSongs } from '../../context/queue';
+
 
 
 function AlbumPage() {
   const dispatch = useDispatch()
-  const{currentSong,setCurrentSong}=useCurrentSongs()
-  console.log(currentSong)
     const {albumId}=useParams()
     const album=useSelector(state=>state.album[albumId])
     const currentArtistId=album?.artistId
@@ -34,9 +31,8 @@ function AlbumPage() {
         dispatch(getSingleAlbum(albumId))
         dispatch(getArtists())
         dispatch(getSongs())
-        dispatch(loadAlbumTracks(albumId,currentSong))
 
-    },[dispatch,albumId])
+    },[dispatch])
 
     for (let i=0; i<songsArray.length; i++) {
       let song=songsArray[i]
@@ -46,9 +42,6 @@ function AlbumPage() {
       }
 
     }
-
-
-   
     return (
       <>
         {!user ? <></> : <Sidebar/>}
@@ -69,7 +62,7 @@ function AlbumPage() {
             </div>
             </div>
             <div className='song-display-container'>
-              <table className="song-table-album">
+              <table className="song-table">
             <thead>
               <tr className="song-labels">
                 <th style={{width:'5%'}} className="table-label">#</th>
@@ -92,9 +85,9 @@ function AlbumPage() {
                   </tbody>
                 </table>
             </div>
-            {/* <div className='spacing'>
+            <div className='spacing'>
 
-            </div> */}
+            </div>
           </div>
       </>
     );
