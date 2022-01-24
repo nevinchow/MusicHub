@@ -100,7 +100,7 @@ function MainPage() {
             ))}
 
             </div>
-            {/* <MusicQueue /> */}
+            <MusicQueue />
           </div>
           </div>
         </div>

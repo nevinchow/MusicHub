@@ -21,9 +21,6 @@ const Player = ({queue}) => {
   if(!queue.length) return null;
 
 
-
-
-
   let playlist = [];
   queue.map((song) => {
     const artist = Object.keys(artists).find(
@@ -32,16 +29,11 @@ const Player = ({queue}) => {
     const nextSong = {
       src: song.song_link,
       title: song.name,
+      artist: artists[artist],
+    };
 
-      artist: artists[artist]}
-
-    playlist.push(nextSong)
-  })
-
-  
-
- 
-
+    playlist.push(nextSong);
+  });
 
   return (
     <>
@@ -50,14 +42,13 @@ const Player = ({queue}) => {
           <div className="song-info">
             <p className="song-info-details">#{trackNumber}</p>
             <p className="song-info-details">{playlist[currentSong].title}</p>
-
-            <p className="song-info-details">{playlist[currentSong]?.artist?.name}</p>
+            <p className="song-info-details">
+              {playlist[currentSong].artist.name}
+            </p>
           </div>
-          <AudioPlayer className="audioPlayer"
-            // autoPlay={true}
-
-      
-
+          <AudioPlayer
+            className="audioPlayer"
+            autoPlay={true}
             src={playlist[currentSong].src}
             // preload={playlist}
             autoPlayAfterSrcChange={true}
@@ -66,7 +57,7 @@ const Player = ({queue}) => {
             // showSkipControls={true}
             onClick={() => setCurrentSong(currentSong)}
             // onClickNext={() => setCurrentSong((i) => i + 1)}
-           
+
             onPause={() => {
               dispatch(stopSong());
             }}

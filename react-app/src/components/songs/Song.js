@@ -7,8 +7,6 @@ import { startSong } from "../../store/musicPlayer";
 import { useCurrentSongs } from '../../Context/queue';
 
 
-
-
 const Song = ({songId, playlistId}) => {
     const song = useSelector((state) => state.songs[songId]);
     // const userPlaylists = useSelector(state) => state.userPlaylists;
