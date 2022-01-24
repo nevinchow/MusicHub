@@ -12,7 +12,7 @@ import AlbumTile from '../AlbumTile';
 import { NavLink } from 'react-router-dom';
 import Sidebar from '../Sidebar/Sidebar';
 import { loadArtistTracks } from '../../store/musicQueue';
-import { useCurrentSongs } from '../../context/queue';
+import { useCurrentSongs } from '../../Context/queue';
 import { load } from '../../store/musicQueue';
 
 function ArtistPage() {

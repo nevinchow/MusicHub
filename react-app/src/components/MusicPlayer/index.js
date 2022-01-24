@@ -7,7 +7,7 @@ import "./musicPlayer.css";
 import { useState } from 'react';
 import { stopSong } from '../../store/musicPlayer';
 import { useDispatch } from 'react-redux';
-import { useCurrentSongs } from '../../context/queue';
+import { useCurrentSongs } from '../../Context/queue';
 
 const Player = ({queue}) => {
   const dispatch = useDispatch()

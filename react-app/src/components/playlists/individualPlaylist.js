@@ -16,7 +16,7 @@ import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
 import Sidebar from '../Sidebar/Sidebar';
 import DisplaySongPlaylist from './DisplaySongOnPlaylist';
 import { load } from '../../store/musicQueue';
-import { useCurrentSongs } from '../../context/queue';
+import { useCurrentSongs } from '../../Context/queue';
 
 const PlaylistPage = () => {
   const {id} = useParams();

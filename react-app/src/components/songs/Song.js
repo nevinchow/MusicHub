@@ -4,7 +4,7 @@ import { addOneSong, addNextSong, autoPlay,loadAlbumTracks } from "../../store/m
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { startSong } from "../../store/musicPlayer";
-import { useCurrentSongs } from '../../context/queue';
+import { useCurrentSongs } from '../../Context/queue';
 
 
 
