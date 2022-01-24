@@ -1,3 +1,4 @@
+import { useCurrentSongs } from "../context/queue";
 const ADD_SONG_QUEUE = "queue/ADD_SONG_QUEUE";
 const REMOVE_SONG = "queue/REMOVE_SONG";
 const ADD_PLAYLIST_QUEUE = "queue/ADD_PLAYLIST_QUEUE";
@@ -6,6 +7,9 @@ const NEXT_SONG = "queue/NEXT_SONG";
 const CLEAR_QUEUE = "queue/CLEAR_QUEUE";
 const AUTO_PLAY='queue/AUTO_PLAY'
 const POPULATE_QUEUE='queue/POPULATE_QUEUE'
+const LOAD_ALBUM_QUEUE='queue/LOAD_ALBUM_QUEUE'
+
+
 
 export const addOneSong = (songId) => ({
     type: ADD_SONG_QUEUE,
@@ -28,9 +32,19 @@ export const addNextSong = (songId) => ({
     type: ADD_NEXT_SONG,
     songId,
 })
-export const autoPlay=(song)=>({
+export const autoPlay=(song,currentSong)=>({
     type: AUTO_PLAY,
-    song
+    song,
+    currentSong,
+    
+})
+
+
+export const load=(songs,currentSong)=>({
+    type:LOAD_ALBUM_QUEUE,
+    songs,
+    currentSong,
+  
 })
 
 
@@ -43,6 +57,27 @@ export const populateQueue=(songObj)=>({
     type: POPULATE_QUEUE,
     songObj
 })
+
+
+export const loadAlbumTracks = (albumId,currentSong) => async dispatch => {
+  
+    const response = await fetch(`/api/songs/byAlbum/${albumId}`);
+    console.log('!!!!!!!!!!',response)
+    if (response.ok) {
+        const songs = await response.json();
+        console.log(songs.songs)
+        dispatch(load(songs.songs,currentSong));
+    }
+}
+
+// export const loadArtistTracks=(artistId,currentSong)=>async dispatch=>{
+//     const response= await fetch(`/api/songs/byArtist/${artistId}`);
+//     if(response.ok){
+//         const songs=await response.json()
+//         dispatch(load(songs.songs,currentSong))
+//     }
+// }
+
 
 const initialState = [];
 
@@ -61,16 +96,23 @@ export default function queueReducer(state = initialState, action) {
         case ADD_PLAYLIST_QUEUE:
             return [...action.payload];
         case NEXT_SONG:
-            const  newState = [...state];
+            let  newState = [...state];
             newState.shift();
             return newState;
         case CLEAR_QUEUE:
             return [];
         case AUTO_PLAY:
             const newStateA=[...state];
-            newStateA.shift();
-            newStateA.unshift(action.song);
-            return newStateA
+            newStateA.splice(action.currentSong,1,action.song);
+            console.log(action.currentSong)
+            return newStateA;
+        case LOAD_ALBUM_QUEUE:
+            // let newStateB=[...action.songs,...state];
+           let newStateB=[...state]
+           
+           newStateB.splice(action.currentSong+1,0,...action.songs)
+          
+            return newStateB;
         default:
             return state;
 

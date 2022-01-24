@@ -11,11 +11,13 @@ import DisplaySong from '../playlists/DisplaySong';
 import AlbumTile from '../AlbumTile';
 import { NavLink } from 'react-router-dom';
 import Sidebar from '../Sidebar/Sidebar';
-
-
+import { loadArtistTracks } from '../../store/musicQueue';
+import { useCurrentSongs } from '../../context/queue';
+import { load } from '../../store/musicQueue';
 
 function ArtistPage() {
     // const artist=useSelector((state)=>Object.values(state.artist))
+    const{currentSong,setCurrentSong}=useCurrentSongs()
     const {artistId}= useParams();
     const artist=useSelector(state=>state.artist[artistId]);
     const album=useSelector(state=>state.album[artistId])
@@ -34,7 +36,7 @@ function ArtistPage() {
             dispatch(getSingleArtist(artistId))
             dispatch(getAlbumsByArtistId(artistId))
             dispatch(getSongs())
-
+            dispatch(load(songstorender,currentSong))
     },[dispatch, artistId])
 
         return (

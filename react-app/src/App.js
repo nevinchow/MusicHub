@@ -35,7 +35,7 @@ function App() {
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user)
   const queue = useSelector((state) => state.musicQueue);
-
+  
   useEffect(() => {
     (async() => {
       // if(user) {
