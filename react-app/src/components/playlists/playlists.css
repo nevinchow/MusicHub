@@ -211,10 +211,6 @@
   border-collapse: collapse;
 }
 
-.song-table-album{
-    width:80%
-}
-
 .song-labels {
   border-bottom: rgb(114, 113, 113) solid 2px;
 }

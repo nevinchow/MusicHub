@@ -1,31 +1,22 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { addOneSong, addNextSong, autoPlay,loadAlbumTracks } from "../../store/musicQueue";
+import { addOneSong, addNextSong, autoPlay } from "../../store/musicQueue";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { startSong } from "../../store/musicPlayer";
-import { useCurrentSongs } from '../../context/queue';
 
 
 
+  const playlists = useSelector((state) => state.playlists);
+  const [showQueue, setShowQueue] = useState(false);
+  const dispatch = useDispatch();
 
-const Song = ({songId, playlistId}) => {
-    const song = useSelector((state) => state.songs[songId]);
-    // const userPlaylists = useSelector(state) => state.userPlaylists;
-    const{currentSong,setCurrentSong}=useCurrentSongs()
-   
-    const playlists = useSelector((state) => state.playlists);
-    const [showQueue, setShowQueue] = useState(false);
-    const dispatch = useDispatch();
+  const handlePlay = () => {
+    // dispatch(addOneSong(song));
 
-    const handlePlay = () => {
-        // dispatch(addOneSong(song));
-        
-        // dispatch(loadAlbumTracks(song.albumId))
-        dispatch(autoPlay(song,currentSong))
-        dispatch(startSong())
-    }
-
+    dispatch(autoPlay(song));
+    dispatch(startSong());
+  };
 
   const handleAddQueue = () => {
     dispatch(addNextSong(song));
