@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 import DisplaySong from '../playlists/DisplaySong';
 import Sidebar from '../Sidebar/Sidebar';
 import { loadAlbumTracks} from '../../store/musicQueue';
-import { useCurrentSongs } from '../../context/queue';
+import { useCurrentSongs } from '../../Context/queue';
 
 
 function AlbumPage() {

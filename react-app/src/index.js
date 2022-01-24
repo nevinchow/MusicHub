@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
 import configureStore from './store';
-import  CurrentSongsProvider  from './context/queue';
+import  CurrentSongsProvider  from './Context/queue';
 
 const store = configureStore();
 

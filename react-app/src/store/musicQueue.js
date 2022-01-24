@@ -1,4 +1,4 @@
-import { useCurrentSongs } from "../context/queue";
+import { useCurrentSongs } from "../Context/queue";
 const ADD_SONG_QUEUE = "queue/ADD_SONG_QUEUE";
 const REMOVE_SONG = "queue/REMOVE_SONG";
 const ADD_PLAYLIST_QUEUE = "queue/ADD_PLAYLIST_QUEUE";
