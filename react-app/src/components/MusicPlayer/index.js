@@ -3,19 +3,24 @@ import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import { useSelector } from "react-redux";
 import "./musicPlayer.css";
-import { useState } from "react";
-import { stopSong } from "../../store/musicPlayer";
-import { useDispatch } from "react-redux";
 
-const Player = ({ queue }) => {
-  const dispatch = useDispatch();
-  const artists = useSelector((state) => state.artist);
-  const song = useSelector((state) => state.song);
-  let isPlaying = useSelector((state) => state.player);
-  const [currentSong, setCurrentSong] = useState(0);
-  let trackNumber = currentSong + 1;
+import { useState } from 'react';
+import { stopSong } from '../../store/musicPlayer';
+import { useDispatch } from 'react-redux';
+import { useCurrentSongs } from '../../Context/queue';
 
-  if (!queue.length) return null;
+const Player = ({queue}) => {
+  const dispatch = useDispatch()
+  const artists = useSelector((state) => state.artist)
+  const song = useSelector((state) => state.song)
+  let isPlaying = useSelector((state) => state.player)
+  // const [currentSong, setCurrentSong] = useState(0);
+  const{currentSong,setCurrentSong}=useCurrentSongs(0)
+  let trackNumber = currentSong + 1
+  
+  if(!queue.length) return null;
+
+
   let playlist = [];
   queue.map((song) => {
     const artist = Object.keys(artists).find(

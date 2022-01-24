@@ -1,19 +1,21 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { getPlaylists, removePlaylist } from "../../store/playlists";
-import { getSongsForPlaylist } from "../../store/playlists_songs";
-import { useParams } from "react-router-dom";
-import EditPlaylists from "./editPlaylist";
-import { useHistory } from "react-router";
-import "./playlists.css";
-import { getAlbums } from "../../store/album";
-import { getArtists } from "../../store/artist";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import DisplaySong from "./DisplaySong";
-import { faEllipsisH } from "@fortawesome/free-solid-svg-icons";
-import Sidebar from "../Sidebar/Sidebar";
-import DisplaySongPlaylist from "./DisplaySongOnPlaylist";
+import React, { useEffect, useState }  from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import {  getPlaylists, removePlaylist } from '../../store/playlists';
+import { getSongsForPlaylist } from '../../store/playlists_songs';
+import { useParams } from 'react-router-dom';
+import EditPlaylists from './editPlaylist';
+import { useHistory } from 'react-router';
+import './playlists.css'
+import { getAlbums } from '../../store/album';
+import { getArtists } from '../../store/artist';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import DisplaySong from './DisplaySong';
+import { faEllipsisH } from '@fortawesome/free-solid-svg-icons';
+import Sidebar from '../Sidebar/Sidebar';
+import DisplaySongPlaylist from './DisplaySongOnPlaylist';
+import { load } from '../../store/musicQueue';
+import { useCurrentSongs } from '../../Context/queue';
 
 const PlaylistPage = () => {
   const { id } = useParams();

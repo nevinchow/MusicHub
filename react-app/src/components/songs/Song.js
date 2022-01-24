@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay } from "@fortawesome/free-solid-svg-icons";
 import { startSong } from "../../store/musicPlayer";
 
+import { useCurrentSongs } from '../../Context/queue';
 
 
   const playlists = useSelector((state) => state.playlists);
