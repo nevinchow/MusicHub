@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState }  from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
@@ -19,62 +18,44 @@ import { load } from '../../store/musicQueue';
 import { useCurrentSongs } from '../../Context/queue';
 
 const PlaylistPage = () => {
-  const {id} = useParams();
-  const{currentSong,setCurrentSong}=useCurrentSongs()
-
-
-
+  const { id } = useParams();
   const history = useHistory();
   const dispatch = useDispatch();
   const [editForm, openEditForm] = useState(false);
   const [loaded, setLoaded] = useState(false);
-
-  const [playlistSettings, setPlaylistSettings] = useState(false)
-  const playlists = useSelector(state => state.playlists)
-  const playlist = Object.keys(playlists).find(onePlaylist => +id === +onePlaylist)
-  const playlistSongs = useSelector(state => state?.playlist_songs)
-  const songsState = useSelector(state => state?.songs)
-  const albums = useSelector(state => state?.album)
-  const songsList=Object.values(playlistSongs)
-  
-  const user = useSelector((state) => state.session.user)
+  const [playlistSettings, setPlaylistSettings] = useState(false);
+  const playlists = useSelector((state) => state.playlists);
+  const playlist = Object.keys(playlists).find(
+    (onePlaylist) => +id === +onePlaylist
+  );
+  const playlistSongs = useSelector((state) => state?.playlist_songs);
+  const songsState = useSelector((state) => state?.songs);
+  const albums = useSelector((state) => state?.album);
+  const user = useSelector((state) => state.session.user);
   const songs = [];
-  let trackNumber = 0
-
-
-
- 
-  Object.values(playlistSongs).map((songId) => {
-      if(+songId.playlistId === +id) {
-        const oneSong = Object.keys(songsState).find(aSong => songId.songId === +aSong)
-        songs.push(songsState[oneSong])
-      }
-  })
-
-   
-
-  useEffect(()=>{
-    dispatch(load(songs,currentSong))
-  },[dispatch])
-
+  let trackNumber = 0;
 
   useEffect(() => {
-    (async() => {
-      await dispatch(getPlaylists())
-      await dispatch(getAlbums())
-      await dispatch(getArtists())
-      await dispatch(getSongsForPlaylist(id))
-      
-     
+    (async () => {
+      await dispatch(getPlaylists());
+      await dispatch(getAlbums());
+      await dispatch(getArtists());
+      await dispatch(getSongsForPlaylist(id));
       setLoaded(true);
     })();
   }, [dispatch, id]);
+
   if (!loaded) {
     return null;
   }
-
-
-
+  Object.values(playlistSongs).map((songId) => {
+    if (+songId.playlistId === +id) {
+      const oneSong = Object.keys(songsState).find(
+        (aSong) => songId.songId === +aSong
+      );
+      songs.push(songsState[oneSong]);
+    }
+  });
 
   const editFormOpen = () => {
     if (!editForm) {
