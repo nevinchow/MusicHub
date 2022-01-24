@@ -14,7 +14,7 @@ const Player = ({queue}) => {
   const artists = useSelector((state) => state.artist)
   const song = useSelector((state) => state.song)
   let isPlaying = useSelector((state) => state.player)
-  // const [currentSong, setCurrentSong] = useState(0);
+  
   const{currentSong,setCurrentSong}=useCurrentSongs(0)
   let trackNumber = currentSong + 1
   
