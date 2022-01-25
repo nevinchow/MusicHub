@@ -6,7 +6,7 @@ Hosted on Heroku: https://musichub-aa.herokuapp.com/
 
 # Features of Music Hub
 
-All features require user authorization. Demo login is provided
+All features require user authorization. Demo login is provided.
 
 ## 1. Songs 
 * Users are able to browse and listen to songs as well as add them to playlists. 
